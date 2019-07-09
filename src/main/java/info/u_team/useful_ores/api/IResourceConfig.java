@@ -8,6 +8,10 @@ public interface IResourceConfig {
 	
 	Supplier<Float> getOreResistance();
 	
+	Supplier<Float> getNetherOreHardness();
+	
+	Supplier<Float> getNetherOreResistance();
+	
 	Supplier<Float> getBlockHardness();
 	
 	Supplier<Float> getBlockResistance();

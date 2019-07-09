@@ -1,6 +1,7 @@
 {
 	"itemGroup.usefulores.group": "Useful Ores",
 	"block.usefulores.copper_ore": "Copper Ore",
+	"block.usefulores.copper_nether_ore": "Copper Nether Ore",
 	"block.usefulores.copper_block": "Block of Copper",
 	"item.usefulores.copper_ingot": "Copper Ingot",
 	"item.usefulores.copper_nugget": "Copper Ingot",

@@ -9,12 +9,16 @@ public class ResourceConfig implements IResourceConfig {
 	
 	private final ConfigValue<Float> oreHardness;
 	private final ConfigValue<Float> oreResistance;
+	private final ConfigValue<Float> netherOreHardness;
+	private final ConfigValue<Float> netherOreResistance;
 	private final ConfigValue<Float> blockHardness;
 	private final ConfigValue<Float> blockResistance;
 	
-	public ResourceConfig(ConfigValue<Float> oreHardness, ConfigValue<Float> oreResistance, ConfigValue<Float> blockHardness, ConfigValue<Float> blockResistance) {
+	public ResourceConfig(ConfigValue<Float> oreHardness, ConfigValue<Float> oreResistance, ConfigValue<Float> netherOreHardness, ConfigValue<Float> netherOreResistance, ConfigValue<Float> blockHardness, ConfigValue<Float> blockResistance) {
 		this.oreHardness = oreHardness;
 		this.oreResistance = oreResistance;
+		this.netherOreHardness = netherOreHardness;
+		this.netherOreResistance = netherOreResistance;
 		this.blockHardness = blockHardness;
 		this.blockResistance = blockResistance;
 	}
@@ -27,6 +31,16 @@ public class ResourceConfig implements IResourceConfig {
 	@Override
 	public Supplier<Float> getOreResistance() {
 		return () -> oreResistance.get();
+	}
+	
+	@Override
+	public Supplier<Float> getNetherOreHardness() {
+		return () -> netherOreHardness.get();
+	}
+	
+	@Override
+	public Supplier<Float> getNetherOreResistance() {
+		return () -> netherOreResistance.get();
 	}
 	
 	@Override
