@@ -4,6 +4,8 @@ import java.util.List;
 
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_ores.UsefulOresMod;
+import info.u_team.useful_ores.resource.BlockResourceSet;
+import info.u_team.useful_ores.type.Resources;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent.Register;
@@ -13,6 +15,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 @EventBusSubscriber(modid = UsefulOresMod.MODID, bus = Bus.MOD)
 public class UsefulOresBlocks {
+	
+	public static final BlockResourceSet COPPER = new BlockResourceSet(Resources.COPPER);
 	
 	@SubscribeEvent
 	public static void register(Register<Block> event) {

@@ -2,6 +2,8 @@ package info.u_team.useful_ores.init;
 
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_ores.UsefulOresMod;
+import info.u_team.useful_ores.resource.ItemResourceSet;
+import info.u_team.useful_ores.type.Resources;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -11,6 +13,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 @EventBusSubscriber(modid = UsefulOresMod.MODID, bus = Bus.MOD)
 public class UsefulOresItems {
 	
+	public static final ItemResourceSet COPPER = new ItemResourceSet(Resources.COPPER);
 	
 	@SubscribeEvent
 	public static void register(Register<Item> event) {
