@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class UsefulOresWorldGeneration {
+public class UsefulResourcesWorldGeneration {
 	
 	public static void setup() {
 		final CommonConfig config = CommonConfig.getInstance();
@@ -22,7 +22,7 @@ public class UsefulOresWorldGeneration {
 			return;
 		}
 		ForgeRegistries.BIOMES.getValues().forEach(biome -> {
-			addResource(biome, config.copper, UsefulOresBlocks.COPPER.getOre(), UsefulOresBlocks.COPPER.getNetherOre());
+			addResource(biome, config.copper, UsefulResourcesBlocks.COPPER.getOre(), UsefulResourcesBlocks.COPPER.getNetherOre());
 		});
 	}
 	

@@ -8,14 +8,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(UsefulOresMod.MODID)
-public class UsefulOresMod {
+@Mod(UsefulResourcesMod.MODID)
+public class UsefulResourcesMod {
 	
 	public static final String MODID = "usefulores";
 	
 	public static final IModProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 	
-	public UsefulOresMod() {
+	public UsefulResourcesMod() {
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 		PROXY.construct();
 	}

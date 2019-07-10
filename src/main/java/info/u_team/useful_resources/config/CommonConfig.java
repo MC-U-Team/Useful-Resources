@@ -9,7 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 
-import info.u_team.useful_resources.UsefulOresMod;
+import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.IGeneratable;
 import info.u_team.useful_resources.api.IGeneratable.*;
 import net.minecraft.world.biome.Biome;
@@ -64,7 +64,7 @@ public class CommonConfig {
 	}
 	
 	private Pair<Supplier<IGeneratable>, Supplier<IGeneratable>> createGeneratableConfig(String name, GeneratableConfig defaultOreConfig, GeneratableConfig defaultNetherOreConfig) {
-		final Path configPath = FMLPaths.CONFIGDIR.get().resolve(UsefulOresMod.MODID).resolve("worldgen").resolve(name + ".json");
+		final Path configPath = FMLPaths.CONFIGDIR.get().resolve(UsefulResourcesMod.MODID).resolve("worldgen").resolve(name + ".json");
 		if (!Files.exists(configPath) || !Files.isRegularFile(configPath)) {
 			try {
 				Files.deleteIfExists(configPath);
