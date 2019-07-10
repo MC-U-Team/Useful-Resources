@@ -10,7 +10,7 @@ authors="HyCraftHD"
 	modId="usefulresources"
 	version="${file.jarVersion}"
 	displayName="Useful Resources"
-	updateJSONURL="https://api.u-team.info/update/usefulores.json"
+	updateJSONURL="https://api.u-team.info/update/usefulresources.json"
 	description="This mod adds many resources to the game and tries to unify them between mods."
 	
 	[[dependencies.usefulresources]]
