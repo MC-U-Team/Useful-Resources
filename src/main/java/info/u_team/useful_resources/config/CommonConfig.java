@@ -11,10 +11,7 @@ import com.google.gson.annotations.SerializedName;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.IGeneratable;
-import info.u_team.useful_resources.api.IGeneratable.*;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.placement.CountRangeConfig;
+import info.u_team.useful_resources.type.Resources;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.*;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -38,27 +35,28 @@ public class CommonConfig {
 	
 	public final BooleanValue worldGenerationEnabled;
 	
-	public final ResourceConfig copper;
-	
 	private CommonConfig(Builder builder) {
 		worldGenerationEnabled = builder.comment("If ores are generated. Every ore can be disabled in the json configs.").define("worldGenerationEnabled", true);
 		
 		builder.comment("Resource config").push("resources");
-		copper = createResourceConfig(builder, "copper", 3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null));
+		
+		Resources.VALUES.forEach(resource -> resource.setConfig(createResourceConfig(builder, resource)));
+		
 		builder.pop();
 	}
 	
-	private ResourceConfig createResourceConfig(Builder builder, String name, float defaultOreHardness, float defaultOreResistance, float defaultNetherOreHardness, float defaultNetherOreResistance, float defaultBlockHardness, float defaultBlockResistance, GeneratableConfig defaultOreConfig, GeneratableConfig defaultNetherOreConfig) {
-		builder.push(name);
-		final ConfigValue<Float> oreHardness = builder.comment("Hardness of the ore block").defineInRange("oreHardness", defaultOreHardness, -1F, 1e5F, Float.class);
-		final ConfigValue<Float> oreResistance = builder.comment("Resistance of the ore block").defineInRange("oreResistance", defaultOreResistance, -1F, 1e6F, Float.class);
-		final ConfigValue<Float> netherOreHardness = builder.comment("Hardness of the nether ore block").defineInRange("netherOreHardness", defaultNetherOreHardness, -1F, 1e5F, Float.class);
-		final ConfigValue<Float> netherOreResistance = builder.comment("Resistance of the nether ore block").defineInRange("netherOreResistance", defaultNetherOreResistance, -1F, 1e6F, Float.class);
-		final ConfigValue<Float> blockHardness = builder.comment("Hardness of the resource block").defineInRange("blockHardness", defaultBlockHardness, -1F, 1e5F, Float.class);
-		final ConfigValue<Float> blockResistance = builder.comment("Resistance of the resource block").defineInRange("blockResistance", defaultBlockResistance, -1F, 1e6F, Float.class);
+	private ResourceConfig createResourceConfig(Builder builder, Resources resource) {
+		builder.push(resource.getName());
+		final DefaultConfig defaultConfig = resource.getDefaultConfig();
+		final ConfigValue<Float> oreHardness = builder.comment("Hardness of the ore block").defineInRange("oreHardness", defaultConfig.getOreHardness(), -1F, 1e5F, Float.class);
+		final ConfigValue<Float> oreResistance = builder.comment("Resistance of the ore block").defineInRange("oreResistance", defaultConfig.getOreResistance(), -1F, 1e6F, Float.class);
+		final ConfigValue<Float> netherOreHardness = builder.comment("Hardness of the nether ore block").defineInRange("netherOreHardness", defaultConfig.getNetherOreHardness(), -1F, 1e5F, Float.class);
+		final ConfigValue<Float> netherOreResistance = builder.comment("Resistance of the nether ore block").defineInRange("netherOreResistance", defaultConfig.getNetherOreResistance(), -1F, 1e6F, Float.class);
+		final ConfigValue<Float> blockHardness = builder.comment("Hardness of the resource block").defineInRange("blockHardness", defaultConfig.getBlockHardness(), -1F, 1e5F, Float.class);
+		final ConfigValue<Float> blockResistance = builder.comment("Resistance of the resource block").defineInRange("blockResistance", defaultConfig.getBlockResistance(), -1F, 1e6F, Float.class);
 		builder.pop();
 		
-		Pair<Supplier<IGeneratable>, Supplier<IGeneratable>> configPair = createGeneratableConfig(name, defaultOreConfig, defaultNetherOreConfig);
+		Pair<Supplier<IGeneratable>, Supplier<IGeneratable>> configPair = createGeneratableConfig(resource.getName(), defaultConfig.getOreConfig(), defaultConfig.getNetherOreConfig());
 		
 		return new ResourceConfig(oreHardness, oreResistance, netherOreHardness, netherOreResistance, blockHardness, blockResistance, configPair.getLeft(), configPair.getRight());
 	}

@@ -5,7 +5,8 @@ import java.util.List;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.IGeneratable.*;
 import info.u_team.useful_resources.config.CommonConfig;
-import net.minecraft.block.*;
+import info.u_team.useful_resources.type.Resources;
+import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStage;
@@ -21,14 +22,14 @@ public class UsefulResourcesWorldGeneration {
 		if (!config.worldGenerationEnabled.get()) {
 			return;
 		}
-		ForgeRegistries.BIOMES.getValues().forEach(biome -> {
-			addResource(biome, config.copper, UsefulResourcesBlocks.COPPER.getOre(), UsefulResourcesBlocks.COPPER.getNetherOre());
-		});
+		ForgeRegistries.BIOMES.getValues().forEach(biome -> Resources.VALUES.forEach(resource -> addResource(biome, resource)));
 	}
 	
-	private static void addResource(Biome biome, IResourceConfig resource, Block ore, Block netherOre) {
-		addGeneratable(biome, ore.getDefaultState(), FillerBlockType.NATURAL_STONE, resource.getOreGeneratable().get());
-		addGeneratable(biome, netherOre.getDefaultState(), FillerBlockType.NETHERRACK, resource.getNetherOreGeneratable().get());
+	private static void addResource(Biome biome, IResource resource) {
+		final IResourceBlocks blocks = resource.getBlocks();
+		final IResourceConfig config = resource.getConfig();
+		addGeneratable(biome, blocks.getOre().getDefaultState(), FillerBlockType.NATURAL_STONE, config.getOreGeneratable().get());
+		addGeneratable(biome, blocks.getNetherOre().getDefaultState(), FillerBlockType.NETHERRACK, config.getNetherOreGeneratable().get());
 	}
 	
 	private static void addGeneratable(Biome biome, BlockState state, FillerBlockType fillerType, IGeneratable generatable) {
