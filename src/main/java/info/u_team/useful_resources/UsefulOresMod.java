@@ -1,7 +1,7 @@
-package info.u_team.useful_ores;
+package info.u_team.useful_resources;
 
 import info.u_team.u_team_core.api.IModProxy;
-import info.u_team.useful_ores.proxy.*;
+import info.u_team.useful_resources.proxy.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;

@@ -1,10 +1,10 @@
-package info.u_team.useful_ores.block;
+package info.u_team.useful_resources.block;
 
 import java.util.function.Supplier;
 
 import info.u_team.u_team_core.block.UBlock;
-import info.u_team.useful_ores.api.IResource;
-import info.u_team.useful_ores.init.UsefulOresItemGroups;
+import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.init.UsefulOresItemGroups;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;

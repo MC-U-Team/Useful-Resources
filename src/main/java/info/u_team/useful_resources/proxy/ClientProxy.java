@@ -1,4 +1,4 @@
-package info.u_team.useful_ores.proxy;
+package info.u_team.useful_resources.proxy;
 
 import info.u_team.u_team_core.api.IModProxy;
 import net.minecraftforge.api.distmarker.*;

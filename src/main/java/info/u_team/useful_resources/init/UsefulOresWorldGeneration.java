@@ -1,10 +1,10 @@
-package info.u_team.useful_ores.init;
+package info.u_team.useful_resources.init;
 
 import java.util.List;
 
-import info.u_team.useful_ores.api.*;
-import info.u_team.useful_ores.api.IGeneratable.*;
-import info.u_team.useful_ores.config.CommonConfig;
+import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.IGeneratable.*;
+import info.u_team.useful_resources.config.CommonConfig;
 import net.minecraft.block.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;

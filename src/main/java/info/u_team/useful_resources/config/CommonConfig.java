@@ -1,4 +1,4 @@
-package info.u_team.useful_ores.config;
+package info.u_team.useful_resources.config;
 
 import java.io.*;
 import java.nio.file.*;
@@ -9,9 +9,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
 
-import info.u_team.useful_ores.UsefulOresMod;
-import info.u_team.useful_ores.api.IGeneratable;
-import info.u_team.useful_ores.api.IGeneratable.*;
+import info.u_team.useful_resources.UsefulOresMod;
+import info.u_team.useful_resources.api.IGeneratable;
+import info.u_team.useful_resources.api.IGeneratable.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.placement.CountRangeConfig;

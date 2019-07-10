@@ -1,8 +1,8 @@
-package info.u_team.useful_ores.config;
+package info.u_team.useful_resources.config;
 
 import java.util.function.Supplier;
 
-import info.u_team.useful_ores.api.*;
+import info.u_team.useful_resources.api.*;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 
 public class ResourceConfig implements IResourceConfig {

@@ -1,9 +1,9 @@
-package info.u_team.useful_ores.proxy;
+package info.u_team.useful_resources.proxy;
 
 import info.u_team.u_team_core.api.IModProxy;
-import info.u_team.useful_ores.UsefulOresMod;
-import info.u_team.useful_ores.config.CommonConfig;
-import info.u_team.useful_ores.init.UsefulOresWorldGeneration;
+import info.u_team.useful_resources.UsefulOresMod;
+import info.u_team.useful_resources.config.CommonConfig;
+import info.u_team.useful_resources.init.UsefulOresWorldGeneration;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig.Type;
 

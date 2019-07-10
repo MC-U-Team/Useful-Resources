@@ -1,8 +1,8 @@
-package info.u_team.useful_ores.resource;
+package info.u_team.useful_resources.resource;
 
 import info.u_team.u_team_core.api.registry.IUArrayRegistryType;
-import info.u_team.useful_ores.api.IResource;
-import info.u_team.useful_ores.item.ResourceItem;
+import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.item.ResourceItem;
 import net.minecraft.item.Item;
 
 public class ItemResourceSet implements IUArrayRegistryType<Item> {

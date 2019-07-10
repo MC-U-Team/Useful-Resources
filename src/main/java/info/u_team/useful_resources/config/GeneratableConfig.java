@@ -1,4 +1,4 @@
-package info.u_team.useful_ores.config;
+package info.u_team.useful_resources.config;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -8,7 +8,7 @@ import org.apache.logging.log4j.*;
 
 import com.google.gson.*;
 
-import info.u_team.useful_ores.api.IGeneratable;
+import info.u_team.useful_resources.api.IGeneratable;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;

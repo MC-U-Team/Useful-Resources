@@ -1,8 +1,8 @@
-package info.u_team.useful_ores.resource;
+package info.u_team.useful_resources.resource;
 
 import info.u_team.u_team_core.api.registry.IUArrayRegistryType;
-import info.u_team.useful_ores.api.*;
-import info.u_team.useful_ores.block.ResourceBlock;
+import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.block.ResourceBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.Block.Properties;
 import net.minecraft.block.material.Material;

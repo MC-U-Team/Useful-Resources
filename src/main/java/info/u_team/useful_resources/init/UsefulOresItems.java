@@ -1,9 +1,9 @@
-package info.u_team.useful_ores.init;
+package info.u_team.useful_resources.init;
 
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
-import info.u_team.useful_ores.UsefulOresMod;
-import info.u_team.useful_ores.resource.ItemResourceSet;
-import info.u_team.useful_ores.type.Resources;
+import info.u_team.useful_resources.UsefulOresMod;
+import info.u_team.useful_resources.resource.ItemResourceSet;
+import info.u_team.useful_resources.type.Resources;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

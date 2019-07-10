@@ -1,9 +1,9 @@
-package info.u_team.useful_ores.type;
+package info.u_team.useful_resources.type;
 
 import java.util.function.Supplier;
 
-import info.u_team.useful_ores.api.*;
-import info.u_team.useful_ores.config.CommonConfig;
+import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.config.CommonConfig;
 import net.minecraft.util.IStringSerializable;
 
 public enum Resources implements IResource, IStringSerializable {
