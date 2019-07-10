@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "copper_ingot",
+	"ingredients": [
+		{
+			"item": "usefulresources:copper_block"
+		}
+	],
+	"result": {
+		"item": "usefulresources:copper_ingot",
+		"count": 9
+	}
+}
