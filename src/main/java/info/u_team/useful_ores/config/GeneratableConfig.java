@@ -18,25 +18,25 @@ public class GeneratableConfig implements IGeneratable {
 	
 	private final boolean enabled;
 	
-	private final boolean biomeCategoryBlackList;
+	private final ListType biomeCategoryListType;
 	private final List<Category> biomeCategories;
-	private final boolean biomeBlackList;
+	private final ListType biomeListType;
 	private final List<Biome> biomes;
 	
 	private final int veinSize;
-	private final Type type;
+	private final GenerationConfig type;
 	private final CountRangeConfig countRangeConfig;
 	private final DepthAverageConfig depthAverageConfig;
 	
-	public GeneratableConfig(boolean enabled, boolean biomeCategoryBlackList, Category[] biomeCategorys, boolean biomeBlackList, Biome[] biomes, int veinSize, Type type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
-		this(enabled, biomeCategoryBlackList, Arrays.asList(biomeCategorys), biomeBlackList, Arrays.asList(biomes), veinSize, type, countRangeConfig, depthAverageConfig);
+	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, Category[] biomeCategorys, ListType biomeListType, Biome[] biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
+		this(enabled, biomeCategoryListType, Arrays.asList(biomeCategorys), biomeListType, Arrays.asList(biomes), veinSize, type, countRangeConfig, depthAverageConfig);
 	}
 	
-	public GeneratableConfig(boolean enabled, boolean biomeCategoryBlackList, List<Category> biomeCategorys, boolean biomeBlackList, List<Biome> biomes, int veinSize, Type type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
+	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, List<Category> biomeCategorys, ListType biomeListType, List<Biome> biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
 		this.enabled = enabled;
-		this.biomeCategoryBlackList = biomeCategoryBlackList;
+		this.biomeCategoryListType = biomeCategoryListType;
 		this.biomeCategories = biomeCategorys;
-		this.biomeBlackList = biomeBlackList;
+		this.biomeListType = biomeListType;
 		this.biomes = biomes;
 		this.veinSize = veinSize;
 		this.type = type;
@@ -50,8 +50,8 @@ public class GeneratableConfig implements IGeneratable {
 	}
 	
 	@Override
-	public boolean isBiomeCategoryBlackList() {
-		return biomeCategoryBlackList;
+	public ListType getBiomeCategoryListType() {
+		return biomeCategoryListType;
 	}
 	
 	@Override
@@ -60,8 +60,8 @@ public class GeneratableConfig implements IGeneratable {
 	}
 	
 	@Override
-	public boolean isBiomeBlackList() {
-		return biomeBlackList;
+	public ListType getBiomeListType() {
+		return biomeListType;
 	}
 	
 	@Override
@@ -75,7 +75,7 @@ public class GeneratableConfig implements IGeneratable {
 	}
 	
 	@Override
-	public Type getType() {
+	public GenerationConfig getGenerationConfig() {
 		return type;
 	}
 	
@@ -102,7 +102,7 @@ public class GeneratableConfig implements IGeneratable {
 			
 			{
 				final JsonObject biomeCategoryObject = new JsonObject();
-				biomeCategoryObject.addProperty("black_list", config.isBiomeCategoryBlackList());
+				biomeCategoryObject.addProperty("list_type", config.getBiomeCategoryListType().getName());
 				final JsonArray biomeCategoryList = new JsonArray();
 				config.getBiomeCategories().stream().map(Biome.Category::getName).forEach(biomeCategoryList::add);
 				biomeCategoryObject.add("list", biomeCategoryList);
@@ -111,7 +111,7 @@ public class GeneratableConfig implements IGeneratable {
 			
 			{
 				final JsonObject biomeObject = new JsonObject();
-				biomeObject.addProperty("black_list", config.isBiomeBlackList());
+				biomeObject.addProperty("list_type", config.getBiomeListType().getName());
 				final JsonArray biomeList = new JsonArray();
 				config.getBiomes().stream().map(Biome::getRegistryName).map(ResourceLocation::toString).forEach(biomeList::add);
 				biomeObject.add("list", biomeList);
@@ -122,8 +122,8 @@ public class GeneratableConfig implements IGeneratable {
 			
 			{
 				final JsonObject placementObject = new JsonObject();
-				placementObject.addProperty("placement_type", config.getType().getName());
-				if (config.getType() == Type.COUNT_RANGE) {
+				placementObject.addProperty("placement_type", config.getGenerationConfig().getName());
+				if (config.getGenerationConfig() == GenerationConfig.COUNT_RANGE) {
 					placementObject.addProperty("count", config.getCountRangeConfig().count);
 					placementObject.addProperty("bottom_offset", config.getCountRangeConfig().bottomOffset);
 					placementObject.addProperty("top_offset", config.getCountRangeConfig().topOffset);
@@ -146,7 +146,7 @@ public class GeneratableConfig implements IGeneratable {
 			final boolean enabled = object.get("enabled").getAsBoolean();
 			
 			final JsonObject biomeCategoryObject = object.get("biome_category").getAsJsonObject();
-			final boolean biomeCategoryBlackList = biomeCategoryObject.get("black_list").getAsBoolean();
+			final ListType biomeCategoryListType = ListType.byName(biomeCategoryObject.get("list_type").getAsString());
 			final List<Biome.Category> biomeCategories = new ArrayList<>();
 			biomeCategoryObject.get("list").getAsJsonArray().forEach(element -> {
 				final Biome.Category category = NAMES_TO_CATEGORY.get(element.getAsString());
@@ -158,7 +158,7 @@ public class GeneratableConfig implements IGeneratable {
 			});
 			
 			final JsonObject biomeObject = object.get("biome").getAsJsonObject();
-			final boolean biomeBlackList = biomeObject.get("black_list").getAsBoolean();
+			final ListType biomeListType = ListType.byName(biomeObject.get("list_type").getAsString());
 			final List<Biome> biomes = new ArrayList<>();
 			biomeObject.get("list").getAsJsonArray().forEach(element -> {
 				final Biome biome = ForgeRegistries.BIOMES.getValue(new ResourceLocation(element.getAsString()));
@@ -172,14 +172,14 @@ public class GeneratableConfig implements IGeneratable {
 			final int veinSize = object.get("vein_size").getAsInt();
 			
 			final JsonObject placementObject = object.get("placement").getAsJsonObject();
-			Type type = Type.byName(placementObject.get("placement_type").getAsString());
+			GenerationConfig type = GenerationConfig.byName(placementObject.get("placement_type").getAsString());
 			if (type == null) {
 				throw new JsonParseException("Placement type can't be null. Undefined type for string " + placementObject.get("placement_type").getAsString());
 			}
 			
 			final CountRangeConfig countRangeConfig;
 			final DepthAverageConfig depthAverageConfig;
-			if (type == Type.COUNT_RANGE) {
+			if (type == GenerationConfig.COUNT_RANGE) {
 				countRangeConfig = new CountRangeConfig(placementObject.get("count").getAsInt(), placementObject.get("bottom_offset").getAsInt(), placementObject.get("top_offset").getAsInt(), placementObject.get("maximum").getAsInt());
 				depthAverageConfig = null;
 			} else {
@@ -187,7 +187,7 @@ public class GeneratableConfig implements IGeneratable {
 				countRangeConfig = null;
 			}
 			
-			return new GeneratableConfig(enabled, biomeCategoryBlackList, biomeCategories, biomeBlackList, biomes, veinSize, type, countRangeConfig, depthAverageConfig);
+			return new GeneratableConfig(enabled, biomeCategoryListType, biomeCategories, biomeListType, biomes, veinSize, type, countRangeConfig, depthAverageConfig);
 		}
 		
 		private static final Map<String, Biome.Category> NAMES_TO_CATEGORY = new HashMap<>();

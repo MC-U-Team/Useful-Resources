@@ -11,6 +11,7 @@ import com.google.gson.annotations.SerializedName;
 
 import info.u_team.useful_ores.UsefulOresMod;
 import info.u_team.useful_ores.api.IGeneratable;
+import info.u_team.useful_ores.api.IGeneratable.ListType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.placement.*;
@@ -48,7 +49,7 @@ public class CommonConfig {
 		// CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, false, new Category[] { Category.NETHER }, true,
 		// new Biome[] {}, 9, IGeneratable.Type.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null));
 		
-		copper = createResourceConfig(builder, "copper", 3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, true, new Category[] { Category.NETHER, Category.THEEND }, true, new Biome[] {}, 9, IGeneratable.Type.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, false, new Category[] { Category.NETHER }, true, new Biome[] {}, 9, IGeneratable.Type.COUNT_DEPTH_AVERAGE, null, new DepthAverageConfig(10, 32, 32)));
+		copper = createResourceConfig(builder, "copper", 3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, IGeneratable.GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, IGeneratable.GenerationConfig.COUNT_DEPTH_AVERAGE, null, new DepthAverageConfig(10, 32, 32)));
 		
 		builder.pop();
 	}

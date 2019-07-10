@@ -10,29 +10,29 @@ public interface IGeneratable {
 	
 	boolean isEnabled();
 	
-	boolean isBiomeCategoryBlackList();
+	ListType getBiomeCategoryListType();
 	
 	List<Category> getBiomeCategories();
 	
-	boolean isBiomeBlackList();
+	ListType getBiomeListType();
 	
 	List<Biome> getBiomes();
 	
 	int getVeinSize();
 	
-	Type getType();
+	GenerationConfig getGenerationConfig();
 	
 	CountRangeConfig getCountRangeConfig();
 	
 	DepthAverageConfig getDepthAverageConfig();
 	
-	public static enum Type {
+	public static enum GenerationConfig {
 		COUNT_RANGE("count_range"),
 		COUNT_DEPTH_AVERAGE("count_depth_average");
 		
 		private final String name;
 		
-		private Type(String name) {
+		private GenerationConfig(String name) {
 			this.name = name;
 		}
 		
@@ -40,7 +40,7 @@ public interface IGeneratable {
 			return name;
 		}
 		
-		public static Type byName(String name) {
+		public static GenerationConfig byName(String name) {
 			if ("count_range".equals(name)) {
 				return COUNT_RANGE;
 			}
@@ -51,4 +51,28 @@ public interface IGeneratable {
 		}
 	}
 	
+	public static enum ListType {
+		BLACKLIST("blacklist"),
+		WHITELIST("whitelist");
+		
+		private final String name;
+		
+		private ListType(String name) {
+			this.name = name;
+		}
+		
+		public String getName() {
+			return name;
+		}
+		
+		public static ListType byName(String name) {
+			if ("blacklist".equals(name)) {
+				return BLACKLIST;
+			}
+			if ("whitelist".equals(name)) {
+				return WHITELIST;
+			}
+			return null;
+		}
+	}
 }

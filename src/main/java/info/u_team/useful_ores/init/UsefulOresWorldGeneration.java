@@ -3,7 +3,7 @@ package info.u_team.useful_ores.init;
 import java.util.List;
 
 import info.u_team.useful_ores.api.*;
-import info.u_team.useful_ores.api.IGeneratable.Type;
+import info.u_team.useful_ores.api.IGeneratable.*;
 import info.u_team.useful_ores.config.CommonConfig;
 import net.minecraft.block.*;
 import net.minecraft.world.biome.Biome;
@@ -35,23 +35,21 @@ public class UsefulOresWorldGeneration {
 		if (!generatable.isEnabled()) {
 			return;
 		}
-		final boolean biomeCategoryBlacklist = generatable.isBiomeCategoryBlackList();
+		final ListType biomeCategoryListType = generatable.getBiomeCategoryListType();
 		final List<Category> biomeCategories = generatable.getBiomeCategories();
-		if (biomeCategoryBlacklist && biomeCategories.contains(biome.getCategory()) || !biomeCategoryBlacklist && !biomeCategories.contains(biome.getCategory())) {
+		if (biomeCategoryListType == ListType.BLACKLIST && biomeCategories.contains(biome.getCategory()) || biomeCategoryListType == ListType.WHITELIST && !biomeCategories.contains(biome.getCategory())) {
 			return;
 		}
 		
-		final boolean biomeBlacklist = generatable.isBiomeBlackList();
+		final ListType biomeListType = generatable.getBiomeListType();
 		final List<Biome> biomes = generatable.getBiomes();
-		if (biomeBlacklist && biomes.contains(biome) || !biomeBlacklist && !biomes.contains(biome)) {
+		if (biomeListType == ListType.BLACKLIST && biomes.contains(biome) || biomeListType == ListType.WHITELIST && !biomes.contains(biome)) {
 			return;
 		}
 		
-		System.out.println("ADD TO BIOMES" + biome);
-		
-		if (generatable.getType() == Type.COUNT_RANGE) {
+		if (generatable.getGenerationConfig() == GenerationConfig.COUNT_RANGE) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(fillerType, state, generatable.getVeinSize()), Placement.COUNT_RANGE, generatable.getCountRangeConfig()));
-		} else if (generatable.getType() == Type.COUNT_DEPTH_AVERAGE) {
+		} else if (generatable.getGenerationConfig() == GenerationConfig.COUNT_DEPTH_AVERAGE) {
 			biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Biome.createDecoratedFeature(Feature.ORE, new OreFeatureConfig(fillerType, state, generatable.getVeinSize()), Placement.COUNT_DEPTH_AVERAGE, generatable.getDepthAverageConfig()));
 		}
 	}
