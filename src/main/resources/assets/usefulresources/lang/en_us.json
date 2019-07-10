@@ -9,7 +9,7 @@
 	"item.usefulresources.copper_plate": "Copper Plate",
 	"item.usefulresources.copper_dense_plate": "Copper Dense Plate",
 	"item.usefulresources.copper_gear": "Copper Gear",
-	"item.usefulresources.copper_stick": "Copper Stick",
+	"item.usefulresources.copper_rod": "Copper Rod",
 	"block.usefulresources.tin_ore": "Tin Ore",
 	"block.usefulresources.tin_nether_ore": "Tin Nether Ore",
 	"block.usefulresources.tin_block": "Block of Tin",
@@ -19,7 +19,7 @@
 	"item.usefulresources.tin_plate": "Tin Plate",
 	"item.usefulresources.tin_dense_plate": "Tin Dense Plate",
 	"item.usefulresources.tin_gear": "Tin Gear",
-	"item.usefulresources.tin_stick": "Tin Stick",
+	"item.usefulresources.tin_rod": "Tin Rod",
 	"block.usefulresources.aluminum_ore": "Aluminum Ore",
 	"block.usefulresources.aluminum_nether_ore": "Aluminum Nether Ore",
 	"block.usefulresources.aluminum_block": "Block of Aluminum",
@@ -29,7 +29,7 @@
 	"item.usefulresources.aluminum_plate": "Aluminum Plate",
 	"item.usefulresources.aluminum_dense_plate": "Aluminum Dense Plate",
 	"item.usefulresources.aluminum_gear": "Aluminum Gear",
-	"item.usefulresources.aluminum_stick": "Aluminum Stick",
+	"item.usefulresources.aluminum_rod": "Aluminum Rod",
 	"block.usefulresources.silver_ore": "Silver Ore",
 	"block.usefulresources.silver_nether_ore": "Silver Nether Ore",
 	"block.usefulresources.silver_block": "Block of Silver",
@@ -39,7 +39,7 @@
 	"item.usefulresources.silver_plate": "Silver Plate",
 	"item.usefulresources.silver_dense_plate": "Silver Dense Plate",
 	"item.usefulresources.silver_gear": "Silver Gear",
-	"item.usefulresources.silver_stick": "Silver Stick",
+	"item.usefulresources.silver_rod": "Silver Rod",
 	"block.usefulresources.lead_ore": "Lead Ore",
 	"block.usefulresources.lead_nether_ore": "Lead Nether Ore",
 	"block.usefulresources.lead_block": "Block of Lead",
@@ -49,5 +49,5 @@
 	"item.usefulresources.lead_plate": "Lead Plate",
 	"item.usefulresources.lead_dense_plate": "Lead Dense Plate",
 	"item.usefulresources.lead_gear": "Lead Gear",
-	"item.usefulresources.lead_stick": "Lead Stick"
+	"item.usefulresources.lead_rod": "Lead Rod"
 }

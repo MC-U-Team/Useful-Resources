@@ -12,7 +12,7 @@ public class ItemResourceSet implements IResourceItems {
 	private final Item plate;
 	private final Item densePlate;
 	private final Item gear;
-	private final Item stick;
+	private final Item rod;
 	
 	public ItemResourceSet(IResource resource) {
 		ingot = new ResourceItem("ingot", resource);
@@ -21,7 +21,7 @@ public class ItemResourceSet implements IResourceItems {
 		plate = new ResourceItem("plate", resource);
 		densePlate = new ResourceItem("dense_plate", resource);
 		gear = new ResourceItem("gear", resource);
-		stick = new ResourceItem("stick", resource);
+		rod = new ResourceItem("rod", resource);
 	}
 	
 	@Override
@@ -55,7 +55,7 @@ public class ItemResourceSet implements IResourceItems {
 	}
 	
 	@Override
-	public Item getStick() {
-		return stick;
+	public Item getRod() {
+		return rod;
 	}
 }

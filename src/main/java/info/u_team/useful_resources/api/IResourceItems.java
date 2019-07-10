@@ -17,11 +17,11 @@ public interface IResourceItems extends IUArrayRegistryType<Item> {
 	
 	Item getGear();
 	
-	Item getStick();
+	Item getRod();
 	
 	@Override
 	default Item[] getArray() {
-		return new Item[] { getIngot(), getNugget(), getDust(), getPlate(), getDensePlate(), getGear(), getStick() };
+		return new Item[] { getIngot(), getNugget(), getDust(), getPlate(), getDensePlate(), getGear(), getRod() };
 	}
 	
 }

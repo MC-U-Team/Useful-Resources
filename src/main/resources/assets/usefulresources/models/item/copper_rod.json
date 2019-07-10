@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "usefulresources:item/aluminum/stick"
+        "layer0": "usefulresources:item/copper/rod"
     }
 }
