@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.init;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.IGeneratable.*;
@@ -27,9 +28,9 @@ public class UsefulResourcesWorldGeneration {
 	
 	private static void addResource(Biome biome, IResource resource) {
 		final IResourceBlocks blocks = resource.getBlocks();
-		final IResourceConfig config = resource.getConfig();
-		addGeneratable(biome, blocks.getOre().getDefaultState(), FillerBlockType.NATURAL_STONE, config.getOreGeneratable().get());
-		addGeneratable(biome, blocks.getNetherOre().getDefaultState(), FillerBlockType.NETHERRACK, config.getNetherOreGeneratable().get());
+		final Supplier<IResourceConfig> config = resource.getConfig();
+		addGeneratable(biome, blocks.getOre().getDefaultState(), FillerBlockType.NATURAL_STONE, config.get().getOreGeneratable().get());
+		addGeneratable(biome, blocks.getNetherOre().getDefaultState(), FillerBlockType.NETHERRACK, config.get().getNetherOreGeneratable().get());
 	}
 	
 	private static void addGeneratable(Biome biome, BlockState state, FillerBlockType fillerType, IGeneratable generatable) {

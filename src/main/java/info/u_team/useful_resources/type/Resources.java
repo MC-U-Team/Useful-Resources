@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.type;
 
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import info.u_team.useful_resources.api.*;
@@ -38,8 +39,8 @@ public enum Resources implements IResource, IStringSerializable {
 	}
 	
 	@Override
-	public IResourceConfig getConfig() {
-		return config;
+	public Supplier<IResourceConfig> getConfig() {
+		return () -> config;
 	}
 	
 	@Override
