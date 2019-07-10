@@ -49,7 +49,7 @@ minecraft {
         client = {
             workingDirectory project.file("run/client").canonicalPath
             mods {
-                usefulores {
+                usefulresources {
                     source sourceSets.main
 				}
 			}
@@ -57,7 +57,7 @@ minecraft {
         server = {
             workingDirectory project.file("run/server").canonicalPath
             mods {
-                usefulores {
+                usefulresources {
                     source sourceSets.main
 				}
 			}
