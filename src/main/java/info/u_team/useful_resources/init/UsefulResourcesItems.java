@@ -1,9 +1,7 @@
 package info.u_team.useful_resources.init;
 
-import java.util.Arrays;
-
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.type.Resources;
+import info.u_team.useful_resources.util.RegistryUtil;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,7 +13,7 @@ public class UsefulResourcesItems {
 	
 	@SubscribeEvent
 	public static void register(Register<Item> event) {
-		Resources.VALUES.stream().flatMap(resources -> Arrays.stream(resources.getItems().getArray())).forEach(event.getRegistry()::register);
+		RegistryUtil.getAllResourceItemsAndApplyNames().forEach(event.getRegistry()::register);
 	}
 	
 }

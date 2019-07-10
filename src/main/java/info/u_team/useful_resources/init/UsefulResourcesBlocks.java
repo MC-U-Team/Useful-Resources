@@ -1,11 +1,10 @@
 package info.u_team.useful_resources.init;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
 
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.type.Resources;
+import info.u_team.useful_resources.util.RegistryUtil;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent.Register;
@@ -18,7 +17,7 @@ public class UsefulResourcesBlocks {
 	
 	@SubscribeEvent
 	public static void register(Register<Block> event) {
-		entries = Resources.VALUES.stream().flatMap(resources -> Arrays.stream(resources.getBlocks().getArray())).collect(Collectors.toList());
+		entries = RegistryUtil.getAllResourceBlocksAndApplyNames();
 		entries.forEach(event.getRegistry()::register);
 	}
 	
