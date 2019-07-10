@@ -61,7 +61,9 @@ public class RegistryUtil {
 	 */
 	public static <T extends IForgeRegistryEntry<T>> void applyNames(List<T> list) {
 		list.stream().filter(entry -> entry instanceof IURegistryType) //
-				.forEach(entry -> entry.setRegistryName(new ResourceLocation(UsefulResourcesMod.MODID, ((IURegistryType) entry).getEntryName())));
+				.forEach(entry -> {
+					entry.setRegistryName(new ResourceLocation(UsefulResourcesMod.MODID, ((IURegistryType) entry).getEntryName()));
+				});
 	}
 	
 }
