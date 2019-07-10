@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "usefulores:item/copper/ingot"
+        "layer0": "usefulresources:item/copper/gear"
     }
 }

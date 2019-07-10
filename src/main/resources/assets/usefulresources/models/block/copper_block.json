@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "usefulores:block/copper/ore"
+        "all": "usefulresources:block/copper/block"
     }
 }

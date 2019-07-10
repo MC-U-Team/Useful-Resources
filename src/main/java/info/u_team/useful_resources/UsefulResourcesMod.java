@@ -11,7 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(UsefulResourcesMod.MODID)
 public class UsefulResourcesMod {
 	
-	public static final String MODID = "usefulores";
+	public static final String MODID = "usefulresources";
 	
 	public static final IModProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> CommonProxy::new);
 	

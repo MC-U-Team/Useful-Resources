@@ -1,0 +1,11 @@
+{
+	"itemGroup.usefulresources.group": "Useful Ores",
+	"block.usefulresources.copper_ore": "Copper Ore",
+	"block.usefulresources.copper_nether_ore": "Copper Nether Ore",
+	"block.usefulresources.copper_block": "Block of Copper",
+	"item.usefulresources.copper_ingot": "Copper Ingot",
+	"item.usefulresources.copper_nugget": "Copper Ingot",
+	"item.usefulresources.copper_plate": "Copper Plate",
+	"item.usefulresources.copper_dense_plate": "Copper Dense Plate",
+	"item.usefulresources.copper_gear": "Copper Gear"
+}
