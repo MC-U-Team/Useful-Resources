@@ -1,5 +1,6 @@
 package info.u_team.useful_ores.config;
 
+import java.lang.reflect.Type;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -94,53 +95,47 @@ public class GeneratableConfig implements IGeneratable {
 		private final Logger logger = LogManager.getLogger();
 		
 		@Override
-		public JsonElement serialize(GeneratableConfig config, java.lang.reflect.Type typeOfSrc, JsonSerializationContext context) {
+		public JsonElement serialize(GeneratableConfig config, Type typeOfSrc, JsonSerializationContext context) {
 			
 			final JsonObject object = new JsonObject();
 			
 			object.addProperty("enabled", config.isEnabled());
 			
-			{
-				final JsonObject biomeCategoryObject = new JsonObject();
-				biomeCategoryObject.addProperty("list_type", config.getBiomeCategoryListType().getName());
-				final JsonArray biomeCategoryList = new JsonArray();
-				config.getBiomeCategories().stream().map(Biome.Category::getName).forEach(biomeCategoryList::add);
-				biomeCategoryObject.add("list", biomeCategoryList);
-				object.add("biome_category", biomeCategoryObject);
-			}
+			final JsonObject biomeCategoryObject = new JsonObject();
+			biomeCategoryObject.addProperty("list_type", config.getBiomeCategoryListType().getName());
+			final JsonArray biomeCategoryList = new JsonArray();
+			config.getBiomeCategories().stream().map(Biome.Category::getName).forEach(biomeCategoryList::add);
+			biomeCategoryObject.add("list", biomeCategoryList);
+			object.add("biome_category", biomeCategoryObject);
 			
-			{
-				final JsonObject biomeObject = new JsonObject();
-				biomeObject.addProperty("list_type", config.getBiomeListType().getName());
-				final JsonArray biomeList = new JsonArray();
-				config.getBiomes().stream().map(Biome::getRegistryName).map(ResourceLocation::toString).forEach(biomeList::add);
-				biomeObject.add("list", biomeList);
-				object.add("biome", biomeObject);
-			}
+			final JsonObject biomeObject = new JsonObject();
+			biomeObject.addProperty("list_type", config.getBiomeListType().getName());
+			final JsonArray biomeList = new JsonArray();
+			config.getBiomes().stream().map(Biome::getRegistryName).map(ResourceLocation::toString).forEach(biomeList::add);
+			biomeObject.add("list", biomeList);
+			object.add("biome", biomeObject);
 			
 			object.addProperty("vein_size", config.getVeinSize());
 			
-			{
-				final JsonObject placementObject = new JsonObject();
-				placementObject.addProperty("placement_type", config.getGenerationConfig().getName());
-				if (config.getGenerationConfig() == GenerationConfig.COUNT_RANGE) {
-					placementObject.addProperty("count", config.getCountRangeConfig().count);
-					placementObject.addProperty("bottom_offset", config.getCountRangeConfig().bottomOffset);
-					placementObject.addProperty("top_offset", config.getCountRangeConfig().topOffset);
-					placementObject.addProperty("maximum", config.getCountRangeConfig().maximum);
-				} else {
-					placementObject.addProperty("count", config.getDepthAverageConfig().count);
-					placementObject.addProperty("baseline", config.getDepthAverageConfig().baseline);
-					placementObject.addProperty("spread", config.getDepthAverageConfig().spread);
-				}
-				object.add("placement", placementObject);
+			final JsonObject placementObject = new JsonObject();
+			placementObject.addProperty("placement_type", config.getGenerationConfig().getName());
+			if (config.getGenerationConfig() == GenerationConfig.COUNT_RANGE) {
+				placementObject.addProperty("count", config.getCountRangeConfig().count);
+				placementObject.addProperty("bottom_offset", config.getCountRangeConfig().bottomOffset);
+				placementObject.addProperty("top_offset", config.getCountRangeConfig().topOffset);
+				placementObject.addProperty("maximum", config.getCountRangeConfig().maximum);
+			} else {
+				placementObject.addProperty("count", config.getDepthAverageConfig().count);
+				placementObject.addProperty("baseline", config.getDepthAverageConfig().baseline);
+				placementObject.addProperty("spread", config.getDepthAverageConfig().spread);
 			}
+			object.add("placement", placementObject);
 			
 			return object;
 		}
 		
 		@Override
-		public GeneratableConfig deserialize(JsonElement json, java.lang.reflect.Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+		public GeneratableConfig deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 			final JsonObject object = json.getAsJsonObject();
 			
 			final boolean enabled = object.get("enabled").getAsBoolean();
@@ -172,19 +167,22 @@ public class GeneratableConfig implements IGeneratable {
 			final int veinSize = object.get("vein_size").getAsInt();
 			
 			final JsonObject placementObject = object.get("placement").getAsJsonObject();
-			GenerationConfig type = GenerationConfig.byName(placementObject.get("placement_type").getAsString());
-			if (type == null) {
-				throw new JsonParseException("Placement type can't be null. Undefined type for string " + placementObject.get("placement_type").getAsString());
-			}
+			final GenerationConfig type = GenerationConfig.byName(placementObject.get("placement_type").getAsString());
 			
 			final CountRangeConfig countRangeConfig;
 			final DepthAverageConfig depthAverageConfig;
-			if (type == GenerationConfig.COUNT_RANGE) {
-				countRangeConfig = new CountRangeConfig(placementObject.get("count").getAsInt(), placementObject.get("bottom_offset").getAsInt(), placementObject.get("top_offset").getAsInt(), placementObject.get("maximum").getAsInt());
-				depthAverageConfig = null;
-			} else {
-				depthAverageConfig = new DepthAverageConfig(placementObject.get("count").getAsInt(), placementObject.get("baseline").getAsInt(), placementObject.get("spread").getAsInt());
-				countRangeConfig = null;
+			
+			try {
+				if (type == GenerationConfig.COUNT_RANGE) {
+					countRangeConfig = new CountRangeConfig(placementObject.get("count").getAsInt(), placementObject.get("bottom_offset").getAsInt(), placementObject.get("top_offset").getAsInt(), placementObject.get("maximum").getAsInt());
+					depthAverageConfig = null;
+				} else {
+					depthAverageConfig = new DepthAverageConfig(placementObject.get("count").getAsInt(), placementObject.get("baseline").getAsInt(), placementObject.get("spread").getAsInt());
+					countRangeConfig = null;
+				}
+			} catch (Exception ex) {
+				logger.error("Could not parase generation config. Maybe wrong arguments defined?");
+				throw ex;
 			}
 			
 			return new GeneratableConfig(enabled, biomeCategoryListType, biomeCategories, biomeListType, biomes, veinSize, type, countRangeConfig, depthAverageConfig);
@@ -194,6 +192,5 @@ public class GeneratableConfig implements IGeneratable {
 		static {
 			Stream.of(Biome.Category.values()).forEach(category -> NAMES_TO_CATEGORY.put(category.getName(), category));
 		}
-		
 	}
 }

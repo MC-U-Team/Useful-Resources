@@ -47,7 +47,7 @@ public interface IGeneratable {
 			if ("count_depth_average".equals(name)) {
 				return COUNT_DEPTH_AVERAGE;
 			}
-			return null;
+			return COUNT_RANGE;
 		}
 	}
 	
@@ -72,7 +72,7 @@ public interface IGeneratable {
 			if ("whitelist".equals(name)) {
 				return WHITELIST;
 			}
-			return null;
+			return BLACKLIST;
 		}
 	}
 }

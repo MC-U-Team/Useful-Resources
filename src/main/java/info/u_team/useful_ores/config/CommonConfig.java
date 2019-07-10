@@ -11,10 +11,10 @@ import com.google.gson.annotations.SerializedName;
 
 import info.u_team.useful_ores.UsefulOresMod;
 import info.u_team.useful_ores.api.IGeneratable;
-import info.u_team.useful_ores.api.IGeneratable.ListType;
+import info.u_team.useful_ores.api.IGeneratable.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.placement.*;
+import net.minecraft.world.gen.placement.CountRangeConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.*;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -44,13 +44,7 @@ public class CommonConfig {
 		worldGenerationEnabled = builder.comment("If ores are generated. Every ore can be disabled in the json configs.").define("worldGenerationEnabled", true);
 		
 		builder.comment("Resource config").push("resources");
-		// copper = createResourceConfig(builder, "copper", 3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, true, new
-		// Category[] { Category.NETHER, Category.THEEND }, true, new Biome[] {}, 9, IGeneratable.Type.COUNT_RANGE, new
-		// CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, false, new Category[] { Category.NETHER }, true,
-		// new Biome[] {}, 9, IGeneratable.Type.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null));
-		
-		copper = createResourceConfig(builder, "copper", 3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, IGeneratable.GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, IGeneratable.GenerationConfig.COUNT_DEPTH_AVERAGE, null, new DepthAverageConfig(10, 32, 32)));
-		
+		copper = createResourceConfig(builder, "copper", 3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null));
 		builder.pop();
 	}
 	
