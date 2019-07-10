@@ -2,7 +2,7 @@ package info.u_team.useful_ores.config;
 
 import java.util.function.Supplier;
 
-import info.u_team.useful_ores.api.IResourceConfig;
+import info.u_team.useful_ores.api.*;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 
 public class ResourceConfig implements IResourceConfig {
@@ -14,13 +14,18 @@ public class ResourceConfig implements IResourceConfig {
 	private final ConfigValue<Float> blockHardness;
 	private final ConfigValue<Float> blockResistance;
 	
-	public ResourceConfig(ConfigValue<Float> oreHardness, ConfigValue<Float> oreResistance, ConfigValue<Float> netherOreHardness, ConfigValue<Float> netherOreResistance, ConfigValue<Float> blockHardness, ConfigValue<Float> blockResistance) {
+	private final Supplier<IGeneratable> oreGeneratable;
+	private final Supplier<IGeneratable> netherOreGeneratable;
+	
+	public ResourceConfig(ConfigValue<Float> oreHardness, ConfigValue<Float> oreResistance, ConfigValue<Float> netherOreHardness, ConfigValue<Float> netherOreResistance, ConfigValue<Float> blockHardness, ConfigValue<Float> blockResistance, Supplier<IGeneratable> oreGeneratable, Supplier<IGeneratable> netherOreGeneratable) {
 		this.oreHardness = oreHardness;
 		this.oreResistance = oreResistance;
 		this.netherOreHardness = netherOreHardness;
 		this.netherOreResistance = netherOreResistance;
 		this.blockHardness = blockHardness;
 		this.blockResistance = blockResistance;
+		this.oreGeneratable = oreGeneratable;
+		this.netherOreGeneratable = netherOreGeneratable;
 	}
 	
 	@Override
@@ -51,6 +56,16 @@ public class ResourceConfig implements IResourceConfig {
 	@Override
 	public Supplier<Float> getBlockResistance() {
 		return () -> blockResistance.get();
+	}
+	
+	@Override
+	public Supplier<IGeneratable> getOreGeneratable() {
+		return oreGeneratable;
+	}
+	
+	@Override
+	public Supplier<IGeneratable> getNetherOreGeneratable() {
+		return netherOreGeneratable;
 	}
 	
 }

@@ -11,14 +11,24 @@ public class BlockResourceSet implements IUArrayRegistryType<Block> {
 	
 	private final Block[] resources;
 	
+	private final Block ore, netherOre;
+	
 	public BlockResourceSet(IResource resource) {
 		final IResourceConfig config = resource.getConfig();
-		resources = new Block[] { new ResourceBlock("ore", resource, Properties.create(Material.ROCK), config.getOreHardness(), config.getOreResistance()), new ResourceBlock("nether_ore", resource, Properties.create(Material.ROCK), config.getNetherOreHardness(), config.getNetherOreResistance()), new ResourceBlock("block", resource, Properties.create(Material.IRON).sound(SoundType.METAL), config.getBlockHardness(), config.getBlockResistance()) };
+		resources = new Block[] { ore = new ResourceBlock("ore", resource, Properties.create(Material.ROCK), config.getOreHardness(), config.getOreResistance()), netherOre = new ResourceBlock("nether_ore", resource, Properties.create(Material.ROCK), config.getNetherOreHardness(), config.getNetherOreResistance()), new ResourceBlock("block", resource, Properties.create(Material.IRON).sound(SoundType.METAL), config.getBlockHardness(), config.getBlockResistance()) };
 	}
 	
 	@Override
 	public Block[] getArray() {
 		return resources;
+	}
+	
+	public Block getOre() {
+		return ore;
+	}
+	
+	public Block getNetherOre() {
+		return netherOre;
 	}
 	
 }

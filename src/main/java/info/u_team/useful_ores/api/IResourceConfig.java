@@ -16,4 +16,8 @@ public interface IResourceConfig {
 	
 	Supplier<Float> getBlockResistance();
 	
+	Supplier<IGeneratable> getOreGeneratable();
+	
+	Supplier<IGeneratable> getNetherOreGeneratable();
+	
 }
