@@ -17,6 +17,33 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class GeneratableConfig implements IGeneratable {
 	
+	private final static Category[] OVERWORLD_BLACKLIST = new Category[] { Category.NETHER, Category.THEEND }; // Blacklist
+	private final static Category[] NETHER_WHITELIST = new Category[] { Category.NETHER }; // Whitelist
+	
+	public static GeneratableConfig createRangeOverworld(int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
+		return createRange(ListType.BLACKLIST, OVERWORLD_BLACKLIST, veinSize, count, bottomOffset, topOffset, maximum);
+	}
+	
+	public static GeneratableConfig createRangeNether(int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
+		return createRange(ListType.WHITELIST, NETHER_WHITELIST, veinSize, count, bottomOffset, topOffset, maximum);
+	}
+	
+	public static GeneratableConfig createRange(ListType biomeCategoryListType, Category[] biomeCategories, int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
+		return new GeneratableConfig(true, biomeCategoryListType, biomeCategories, ListType.BLACKLIST, new Biome[] {}, veinSize, GenerationConfig.COUNT_RANGE, new CountRangeConfig(count, bottomOffset, topOffset, maximum), null);
+	}
+	
+	public static GeneratableConfig createDepthAverageOverworld(int veinSize, int count, int baseline, int spread) {
+		return createDepthAverage(ListType.BLACKLIST, OVERWORLD_BLACKLIST, veinSize, count, baseline, spread);
+	}
+	
+	public static GeneratableConfig createDepthAverageNether(int veinSize, int count, int baseline, int spread) {
+		return createDepthAverage(ListType.WHITELIST, NETHER_WHITELIST, veinSize, count, baseline, spread);
+	}
+	
+	public static GeneratableConfig createDepthAverage(ListType biomeCategoryListType, Category[] biomeCategories, int veinSize, int count, int baseline, int spread) {
+		return new GeneratableConfig(true, biomeCategoryListType, biomeCategories, ListType.BLACKLIST, new Biome[] {}, veinSize, GenerationConfig.COUNT_DEPTH_AVERAGE, null, new DepthAverageConfig(count, baseline, spread));
+	}
+	
 	private final boolean enabled;
 	
 	private final ListType biomeCategoryListType;
@@ -29,14 +56,14 @@ public class GeneratableConfig implements IGeneratable {
 	private final CountRangeConfig countRangeConfig;
 	private final DepthAverageConfig depthAverageConfig;
 	
-	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, Category[] biomeCategorys, ListType biomeListType, Biome[] biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
-		this(enabled, biomeCategoryListType, Arrays.asList(biomeCategorys), biomeListType, Arrays.asList(biomes), veinSize, type, countRangeConfig, depthAverageConfig);
+	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, Category[] biomeCategories, ListType biomeListType, Biome[] biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
+		this(enabled, biomeCategoryListType, Arrays.asList(biomeCategories), biomeListType, Arrays.asList(biomes), veinSize, type, countRangeConfig, depthAverageConfig);
 	}
 	
-	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, List<Category> biomeCategorys, ListType biomeListType, List<Biome> biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
+	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, List<Category> biomeCategories, ListType biomeListType, List<Biome> biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
 		this.enabled = enabled;
 		this.biomeCategoryListType = biomeCategoryListType;
-		this.biomeCategories = biomeCategorys;
+		this.biomeCategories = biomeCategories;
 		this.biomeListType = biomeListType;
 		this.biomes = biomes;
 		this.veinSize = veinSize;

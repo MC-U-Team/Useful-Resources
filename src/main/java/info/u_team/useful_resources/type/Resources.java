@@ -5,21 +5,17 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.api.IGeneratable.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.resource.*;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.placement.CountRangeConfig;
 
 public enum Resources implements IResource, IStringSerializable {
 	
-	COPPER("copper", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null))),
-	TIN("tin", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null))),
-	ALUMINUM("aluminum", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null))),
-	SILVER("silver", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null))),
-	LEAD("lead", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, new GeneratableConfig(true, ListType.BLACKLIST, new Category[] { Category.NETHER, Category.THEEND }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(20, 0, 0, 64), null), new GeneratableConfig(true, ListType.WHITELIST, new Category[] { Category.NETHER }, ListType.BLACKLIST, new Biome[] {}, 9, GenerationConfig.COUNT_RANGE, new CountRangeConfig(16, 10, 20, 128), null)));
+	COPPER("copper", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeOverworld(9, 10, 10, 20, 128))),
+	TIN("tin", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeOverworld(9, 10, 10, 20, 128))),
+	ALUMINUM("aluminum", new DefaultConfig(2.6F, 3F, 2.5F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeOverworld(9, 10, 10, 20, 128))),
+	SILVER("silver", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 2, 0, 0, 32), GeneratableConfig.createRangeOverworld(9, 3, 10, 20, 128))),
+	LEAD("lead", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(10, 3, 0, 0, 32), GeneratableConfig.createRangeOverworld(9, 3, 10, 20, 128)));
 	
 	public static final List<Resources> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	

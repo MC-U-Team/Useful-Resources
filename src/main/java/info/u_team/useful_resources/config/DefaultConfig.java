@@ -12,7 +12,6 @@ public class DefaultConfig {
 	private final GeneratableConfig netherOreConfig;
 	
 	public DefaultConfig(float oreHardness, float oreResistance, float netherOreHardness, float netherOreResistance, float blockHardness, float blockResistance, GeneratableConfig oreConfig, GeneratableConfig netherOreConfig) {
-		super();
 		this.oreHardness = oreHardness;
 		this.oreResistance = oreResistance;
 		this.netherOreHardness = netherOreHardness;
