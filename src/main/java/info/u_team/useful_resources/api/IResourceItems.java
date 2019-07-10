@@ -9,15 +9,19 @@ public interface IResourceItems extends IUArrayRegistryType<Item> {
 	
 	Item getNugget();
 	
+	Item getDust();
+	
 	Item getPlate();
 	
 	Item getDensePlate();
 	
 	Item getGear();
 	
+	Item getStick();
+	
 	@Override
 	default Item[] getArray() {
-		return new Item[] { getIngot(), getNugget(), getPlate(), getDensePlate(), getGear() };
+		return new Item[] { getIngot(), getNugget(), getDust(), getPlate(), getDensePlate(), getGear(), getStick() };
 	}
 	
 }
