@@ -11,11 +11,11 @@ import net.minecraft.util.IStringSerializable;
 
 public enum Resources implements IResource, IStringSerializable {
 	
-	COPPER("copper", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeOverworld(9, 10, 10, 20, 128))),
-	TIN("tin", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeOverworld(9, 10, 10, 20, 128))),
-	ALUMINUM("aluminum", new DefaultConfig(2.6F, 3F, 2.5F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeOverworld(9, 10, 10, 20, 128))),
-	SILVER("silver", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 2, 0, 0, 32), GeneratableConfig.createRangeOverworld(9, 3, 10, 20, 128))),
-	LEAD("lead", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(10, 3, 0, 0, 32), GeneratableConfig.createRangeOverworld(9, 3, 10, 20, 128)));
+	COPPER("copper", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
+	TIN("tin", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
+	ALUMINUM("aluminum", new DefaultConfig(2.6F, 3F, 2.5F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
+	SILVER("silver", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 2, 0, 0, 32), GeneratableConfig.createRangeNether(9, 3, 10, 20, 128))),
+	LEAD("lead", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(10, 3, 0, 0, 32), GeneratableConfig.createRangeNether(9, 3, 10, 20, 128)));
 	
 	public static final List<Resources> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	
