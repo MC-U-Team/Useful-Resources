@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.14.3-0.9.0.2-SNAPSHOT] - 2019-07-11
+## [1.14.2-0.9.0.1-SNAPSHOT] - 2019-07-11
 ### Added
 - Added base mod with easy creation of new resources
 - Added ores, nether ores, storage blocks, ingots, nuggets, dusts, plates, dense plates and rods
