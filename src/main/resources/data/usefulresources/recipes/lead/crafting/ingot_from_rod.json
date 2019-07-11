@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "lead_ingot",
+	"ingredients": [
+		{
+			"tag": "forge:rods/lead"
+		}
+	],
+	"result": {
+		"item": "usefulresources:lead_ingot",
+		"count": 2
+	}
+}

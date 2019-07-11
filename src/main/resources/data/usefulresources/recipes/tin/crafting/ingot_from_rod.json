@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "tin_ingot",
+	"ingredients": [
+		{
+			"tag": "forge:rods/tin"
+		}
+	],
+	"result": {
+		"item": "usefulresources:tin_ingot",
+		"count": 2
+	}
+}
