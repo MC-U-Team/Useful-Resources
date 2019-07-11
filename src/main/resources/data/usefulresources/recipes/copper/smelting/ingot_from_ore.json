@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:smelting",
 	"ingredient": {
-		"item": "usefulresources:copper_ore"
+		"tag": "forge:ores/copper"
 	},
 	"result": "usefulresources:copper_ingot",
 	"experience": 0.7,

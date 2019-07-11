@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"item": "usefulresources:copper_ore"
+		"tag": "forge:dusts/copper"
 	},
 	"result": "usefulresources:copper_ingot",
-	"experience": 0.7,
+	"experience": 0.5,
 	"cookingtime": 100
 }
