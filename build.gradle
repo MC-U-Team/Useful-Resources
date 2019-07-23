@@ -43,17 +43,6 @@ def getAppendix() {
 
 sourceCompatibility = targetCompatibility = "1.8"
 
-sourceSets {
-	data {
-		java
-		resources
-	}
-	main {
-		java
-		resources
-	}
-}
-
 minecraft {
     mappings channel: config.forge.mapping_channel, version: config.forge.mapping
     runs {
@@ -78,7 +67,7 @@ minecraft {
             args "--mod", "usefulresources", "--all", "--output", file("src/generated/resources/")
             mods {
                 usefulresources {
-                    source sourceSets.data
+                    source sourceSets.main
 				}
 			}
         }
@@ -140,6 +129,13 @@ artifacts {
     archives sourcesJar
     archives docJar
     archives jar
+}
+
+sourceSets {
+	main {
+		java
+		resources
+	}
 }
 
 dependencies {
