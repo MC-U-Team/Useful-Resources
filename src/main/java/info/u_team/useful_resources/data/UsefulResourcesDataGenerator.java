@@ -17,6 +17,7 @@ public class UsefulResourcesDataGenerator {
 		generator.addProvider(new BlockStatesProvider(generator));
 		generator.addProvider(new BlockModelsProvider(generator));
 		generator.addProvider(new ItemModelsProvider(generator));
+		generator.addProvider(new LootTableProvider(generator));
 	}
 	
 }
