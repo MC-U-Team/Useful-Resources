@@ -91,6 +91,8 @@ jar {
 	classifier = ""
 
     from "LICENSE"
+    
+    exclude("info/u_team/useful_resources/data")    
        
    	manifest normalManifest
 }
@@ -100,7 +102,9 @@ task deobfJar(type: Jar) {
 
     from sourceSets.main.output
     from "LICENSE"
-        
+      
+    exclude("info/u_team/useful_resources/data")  
+      
     manifest normalManifest
 }
 
