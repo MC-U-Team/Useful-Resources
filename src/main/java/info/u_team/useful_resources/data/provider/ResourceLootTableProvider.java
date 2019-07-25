@@ -11,12 +11,12 @@ import info.u_team.useful_resources.type.Resources;
 import net.minecraft.block.Block;
 import net.minecraft.data.*;
 
-public class LootTableProvider extends CommonProvider {
+public class ResourceLootTableProvider extends CommonProvider {
 	
 	private final Marker marker = MarkerManager.getMarker(getName());
 	
-	public LootTableProvider(DataGenerator generator) {
-		super("Resources-Item-Models", generator);
+	public ResourceLootTableProvider(DataGenerator generator) {
+		super("Resources-Loot-Tables", generator);
 	}
 	
 	@Override

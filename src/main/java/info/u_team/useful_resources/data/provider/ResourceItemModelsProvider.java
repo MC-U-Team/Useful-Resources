@@ -1,9 +1,8 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.io.IOException;
-
 import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 import org.apache.logging.log4j.*;
@@ -15,11 +14,11 @@ import net.minecraft.block.Block;
 import net.minecraft.data.*;
 import net.minecraft.item.*;
 
-public class ItemModelsProvider extends CommonProvider {
+public class ResourceItemModelsProvider extends CommonProvider {
 	
 	private final Marker marker = MarkerManager.getMarker(getName());
 	
-	public ItemModelsProvider(DataGenerator generator) {
+	public ResourceItemModelsProvider(DataGenerator generator) {
 		super("Resources-Item-Models", generator);
 	}
 	

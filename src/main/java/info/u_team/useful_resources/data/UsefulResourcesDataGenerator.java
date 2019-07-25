@@ -14,10 +14,17 @@ public class UsefulResourcesDataGenerator {
 	@SubscribeEvent
 	public static void data(GatherDataEvent event) {
 		final DataGenerator generator = event.getGenerator();
-		generator.addProvider(new BlockStatesProvider(generator));
-		generator.addProvider(new BlockModelsProvider(generator));
-		generator.addProvider(new ItemModelsProvider(generator));
-		generator.addProvider(new LootTableProvider(generator));
+		if (event.includeServer()) {
+			generator.addProvider(new ResourceBlockStatesProvider(generator)); // Generate states
+			generator.addProvider(new ResourceBlockModelsProvider(generator)); // Generate block models
+			generator.addProvider(new ResourceItemModelsProvider(generator)); // Generate item models
+			
+			generator.addProvider(new ResourceBlockTagsProvider(generator)); // Generate block tags
+			generator.addProvider(new ResourceItemTagsProvider(generator)); // Generate item tags
+			
+			generator.addProvider(new ResourceLootTableProvider(generator)); // Generate loot tables
+			generator.addProvider(new ResourceRecipesProvider(generator)); // Generate recipes
+		}
 	}
 	
 }

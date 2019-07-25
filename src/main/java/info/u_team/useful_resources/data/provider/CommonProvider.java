@@ -31,11 +31,19 @@ public abstract class CommonProvider implements IDataProvider {
 	protected abstract Path resolvePath(Path outputFolder);
 	
 	protected Path resolveAssets(Path outputFolder) {
-		return outputFolder.resolve("assets").resolve(UsefulResourcesMod.MODID);
+		return resolveAssets(outputFolder, UsefulResourcesMod.MODID);
+	}
+	
+	protected Path resolveAssets(Path outputFolder, String modid) {
+		return outputFolder.resolve("assets").resolve(modid);
 	}
 	
 	protected Path resolveData(Path outputFolder) {
-		return outputFolder.resolve("data").resolve(UsefulResourcesMod.MODID);
+		return resolveData(outputFolder, UsefulResourcesMod.MODID);
+	}
+	
+	protected Path resolveData(Path outputFolder, String modid) {
+		return outputFolder.resolve("data").resolve(modid);
 	}
 	
 	@Override
