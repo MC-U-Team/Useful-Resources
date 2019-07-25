@@ -92,7 +92,8 @@ jar {
 
     from "LICENSE"
     
-    exclude("info/u_team/useful_resources/data")    
+    exclude("info/u_team/useful_resources/data")
+    exclude(".cache")    
        
    	manifest normalManifest
 }
@@ -104,6 +105,7 @@ task deobfJar(type: Jar) {
     from "LICENSE"
       
     exclude("info/u_team/useful_resources/data")  
+    exclude(".cache")  
       
     manifest normalManifest
 }
