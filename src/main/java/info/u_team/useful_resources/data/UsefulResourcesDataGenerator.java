@@ -24,6 +24,8 @@ public class UsefulResourcesDataGenerator {
 			
 			generator.addProvider(new ResourceLootTableProvider(generator)); // Generate loot tables
 			generator.addProvider(new ResourceRecipesProvider(generator)); // Generate recipes
+			
+			generator.addProvider(new ResourceEnglishLanguageProvider(generator)); // Generate english language file
 		}
 	}
 	
