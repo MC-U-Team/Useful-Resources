@@ -16,7 +16,7 @@ authors="HyCraftHD"
 	[[dependencies.usefulresources]]
 	    modId="forge"
 	    mandatory=true
-	    versionRange="[27.0.13,)"
+	    versionRange="[27.0.60,)"
 	    ordering="NONE"
 	    side="BOTH"
 	
@@ -30,6 +30,6 @@ authors="HyCraftHD"
 	[[dependencies.usefulresources]]
 	    modId="uteamcore"
 	    mandatory=true
-	    versionRange="[2.5.5.117,)"
+	    versionRange="[2.6.1.125,)"
 	    ordering="NONE"
 	    side="BOTH"
