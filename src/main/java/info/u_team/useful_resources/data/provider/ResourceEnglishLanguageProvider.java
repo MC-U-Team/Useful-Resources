@@ -8,6 +8,7 @@ import java.util.stream.*;
 
 import com.google.gson.JsonObject;
 
+import info.u_team.u_team_core.data.CommonProvider;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.type.Resources;
 import net.minecraft.block.Block;
@@ -53,7 +54,7 @@ public class ResourceEnglishLanguageProvider extends CommonProvider {
 	
 	@Override
 	protected Path resolvePath(Path outputFolder) {
-		return resolveAssets(outputFolder).resolve("lang").resolve("en_us.json");
+		return resolveAssets(outputFolder, MODID).resolve("lang").resolve("en_us.json");
 	}
 	
 	public String capitalize(String words) {

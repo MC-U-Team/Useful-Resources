@@ -7,6 +7,7 @@ import java.nio.file.Path;
 
 import com.google.gson.JsonObject;
 
+import info.u_team.u_team_core.data.CommonProvider;
 import info.u_team.useful_resources.type.Resources;
 import net.minecraft.block.Block;
 import net.minecraft.data.*;
@@ -60,6 +61,6 @@ public class ResourceItemModelsProvider extends CommonProvider {
 	
 	@Override
 	protected Path resolvePath(Path outputFolder) {
-		return resolveAssets(outputFolder).resolve("models").resolve("item");
+		return resolveAssets(outputFolder, MODID).resolve("models").resolve("item");
 	}
 }

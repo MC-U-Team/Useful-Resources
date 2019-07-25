@@ -1,13 +1,16 @@
 package info.u_team.useful_resources.data.provider;
 
+import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.function.Consumer;
 
+import info.u_team.u_team_core.data.CommonProvider;
+import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.type.Resources;
-import info.u_team.useful_resources.util.TagUtil;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
 import net.minecraft.data.*;
@@ -76,7 +79,7 @@ public class ResourceRecipesProvider extends CommonProvider {
 	
 	@Override
 	protected Path resolvePath(Path outputFolder) {
-		return resolveData(outputFolder);
+		return resolveData(outputFolder, MODID);
 	}
 	
 	private InventoryChangeTrigger.Instance hasItem(MinMaxBounds.IntBound amount, IItemProvider item) {

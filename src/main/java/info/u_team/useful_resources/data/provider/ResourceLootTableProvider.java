@@ -1,10 +1,13 @@
 package info.u_team.useful_resources.data.provider;
 
+import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
+
 import java.io.IOException;
 import java.nio.file.Path;
 
 import com.google.gson.*;
 
+import info.u_team.u_team_core.data.CommonProvider;
 import info.u_team.useful_resources.type.Resources;
 import net.minecraft.block.Block;
 import net.minecraft.data.*;
@@ -55,6 +58,6 @@ public class ResourceLootTableProvider extends CommonProvider {
 	
 	@Override
 	protected Path resolvePath(Path outputFolder) {
-		return resolveData(outputFolder).resolve("loot_tables").resolve("blocks");
+		return resolveData(outputFolder, MODID).resolve("loot_tables").resolve("blocks");
 	}
 }

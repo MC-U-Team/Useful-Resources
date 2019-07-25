@@ -1,8 +1,9 @@
 package info.u_team.useful_resources.data.provider;
 
+import info.u_team.u_team_core.data.CommonBlockTagsProvider;
+import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.IResourceBlocks;
 import info.u_team.useful_resources.type.Resources;
-import info.u_team.useful_resources.util.TagUtil;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.tags.Tag;
