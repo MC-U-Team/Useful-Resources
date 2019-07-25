@@ -1,0 +1,35 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:lead/crafting/ingot_from_block"
+		]
+	},
+	"criteria": {
+		"has_at_least_9_lead_ingot": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "usefulresources:lead_ingot",
+						"count": {
+							"min": 9
+						}
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:lead/crafting/ingot_from_block"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_at_least_9_lead_ingot",
+			"has_the_recipe"
+		]
+	]
+}

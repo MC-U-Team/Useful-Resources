@@ -3,8 +3,6 @@ package info.u_team.useful_resources.data.provider;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import org.apache.logging.log4j.*;
-
 import com.google.gson.*;
 
 import info.u_team.useful_resources.type.Resources;
@@ -12,8 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.data.*;
 
 public class ResourceLootTableProvider extends CommonProvider {
-	
-	private final Marker marker = MarkerManager.getMarker(getName());
 	
 	public ResourceLootTableProvider(DataGenerator generator) {
 		super("Resources-Loot-Tables", generator);

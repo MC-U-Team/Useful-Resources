@@ -4,13 +4,13 @@ import info.u_team.useful_resources.api.IResourceBlocks;
 import info.u_team.useful_resources.type.Resources;
 import info.u_team.useful_resources.util.TagUtil;
 import net.minecraft.block.Block;
-import net.minecraft.data.*;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.tags.Tag;
 
-public class ResourceBlockTagsProvider extends BlockTagsProvider {
+public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	
 	public ResourceBlockTagsProvider(DataGenerator generator) {
-		super(generator);
+		super("Resources-Block-Tags", generator);
 	}
 	
 	@Override
@@ -38,10 +38,5 @@ public class ResourceBlockTagsProvider extends BlockTagsProvider {
 			getBuilder(netherOresTag).add(netherOreTag);
 			getBuilder(blocksTag).add(blockTag);
 		});
-	}
-	
-	@Override
-	public String getName() {
-		return "Resources-Block-Tags";
 	}
 }

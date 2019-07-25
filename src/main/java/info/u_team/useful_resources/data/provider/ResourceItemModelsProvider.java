@@ -5,8 +5,6 @@ import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import org.apache.logging.log4j.*;
-
 import com.google.gson.JsonObject;
 
 import info.u_team.useful_resources.type.Resources;
@@ -15,8 +13,6 @@ import net.minecraft.data.*;
 import net.minecraft.item.*;
 
 public class ResourceItemModelsProvider extends CommonProvider {
-	
-	private final Marker marker = MarkerManager.getMarker(getName());
 	
 	public ResourceItemModelsProvider(DataGenerator generator) {
 		super("Resources-Item-Models", generator);

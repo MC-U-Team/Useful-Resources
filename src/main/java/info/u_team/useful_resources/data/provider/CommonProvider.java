@@ -18,6 +18,8 @@ public abstract class CommonProvider implements IDataProvider {
 	protected static final Logger LOGGER = LogManager.getLogger("DataGenerator");
 	protected static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	
+	protected final Marker marker;
+	
 	private final String name;
 	protected final DataGenerator generator;
 	protected final Path path;
@@ -26,6 +28,7 @@ public abstract class CommonProvider implements IDataProvider {
 		this.generator = generator;
 		this.name = name;
 		this.path = resolvePath(generator.getOutputFolder());
+		marker = MarkerManager.getMarker(name);
 	}
 	
 	protected abstract Path resolvePath(Path outputFolder);

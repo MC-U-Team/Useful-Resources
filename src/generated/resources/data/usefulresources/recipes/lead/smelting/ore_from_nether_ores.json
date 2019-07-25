@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"tag": "forge:nether_ores/lead"
+	},
+	"result": "usefulresources:lead_ore",
+	"experience": 1.0,
+	"cookingtime": 200
+}

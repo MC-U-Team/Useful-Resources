@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:copper/blasting/ore_from_nether_ores"
+		]
+	},
+	"criteria": {
+		"has_copper_nether_ore": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:nether_ores/copper"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:copper/blasting/ore_from_nether_ores"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_copper_nether_ore",
+			"has_the_recipe"
+		]
+	]
+}

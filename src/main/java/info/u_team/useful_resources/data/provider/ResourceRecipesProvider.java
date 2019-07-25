@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.function.Consumer;
 
-import org.apache.logging.log4j.*;
-
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.type.Resources;
@@ -19,8 +17,6 @@ import net.minecraft.tags.Tag;
 import net.minecraft.util.*;
 
 public class ResourceRecipesProvider extends CommonProvider {
-	
-	private final Marker marker = MarkerManager.getMarker(getName());
 	
 	public ResourceRecipesProvider(DataGenerator generator) {
 		super("Resources-Recipes", generator);

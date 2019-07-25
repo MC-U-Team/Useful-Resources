@@ -1,0 +1,35 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:copper/crafting/ingot_from_gear"
+		]
+	},
+	"criteria": {
+		"has_at_least_4_copper_ingot": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "usefulresources:copper_ingot",
+						"count": {
+							"min": 4
+						}
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:copper/crafting/ingot_from_gear"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_at_least_4_copper_ingot",
+			"has_the_recipe"
+		]
+	]
+}

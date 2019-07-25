@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.stream.*;
 
-import org.apache.logging.log4j.*;
-
 import com.google.gson.JsonObject;
 
 import info.u_team.useful_resources.api.*;
@@ -17,8 +15,6 @@ import net.minecraft.data.*;
 import net.minecraft.item.Item;
 
 public class ResourceEnglishLanguageProvider extends CommonProvider {
-	
-	private final Marker marker = MarkerManager.getMarker(getName());
 	
 	public ResourceEnglishLanguageProvider(DataGenerator generator) {
 		super("Resources-English-Language", generator);

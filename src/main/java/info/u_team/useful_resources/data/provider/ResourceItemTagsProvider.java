@@ -4,14 +4,14 @@ import info.u_team.useful_resources.api.IResourceItems;
 import info.u_team.useful_resources.type.Resources;
 import info.u_team.useful_resources.util.TagUtil;
 import net.minecraft.block.Block;
-import net.minecraft.data.*;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 
-public class ResourceItemTagsProvider extends ItemTagsProvider {
+public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
 	public ResourceItemTagsProvider(DataGenerator generator) {
-		super(generator);
+		super("Resources-Item-Tags", generator);
 	}
 	
 	@Override
@@ -81,10 +81,5 @@ public class ResourceItemTagsProvider extends ItemTagsProvider {
 			getBuilder(gearsTag).add(gearTag);
 			getBuilder(rodsTag).add(rodTag);
 		});
-	}
-	
-	@Override
-	public String getName() {
-		return "Resources-Item-Tags";
 	}
 }

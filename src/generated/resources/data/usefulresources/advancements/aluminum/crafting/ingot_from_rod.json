@@ -1,0 +1,35 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:aluminum/crafting/ingot_from_rod"
+		]
+	},
+	"criteria": {
+		"has_at_least_2_aluminum_ingot": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "usefulresources:aluminum_ingot",
+						"count": {
+							"min": 2
+						}
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:aluminum/crafting/ingot_from_rod"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_at_least_2_aluminum_ingot",
+			"has_the_recipe"
+		]
+	]
+}
