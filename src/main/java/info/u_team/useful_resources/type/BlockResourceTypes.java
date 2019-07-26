@@ -71,7 +71,7 @@ public enum BlockResourceTypes implements IBlockResourceTypes {
 	private Pair<Tag<Block>, Tag<Item>> getTagPair(IResourceBlocks blocks) {
 		if (blocks.hasBlock(this)) {
 			return tagMap.computeIfAbsent(blocks.getResource().getName(), name -> {
-				final Tag<Block> blockTag = TagUtil.createBlockTag("forge", tagName);
+				final Tag<Block> blockTag = TagUtil.createBlockTag("forge", tagName + "/" + name);
 				return Pair.of(blockTag, TagUtil.fromBlockTag(blockTag));
 			});
 		}

@@ -56,7 +56,7 @@ public enum ItemResourceTypes implements IStringSerializable, IItemResourceTypes
 	public Tag<Item> getTag(IResourceItems items) {
 		if (items.hasItem(this)) {
 			return tagMap.computeIfAbsent(items.getResource().getName(), name -> {
-				return TagUtil.createItemTag("forge", tagName);
+				return TagUtil.createItemTag("forge", tagName + "/" + name);
 			});
 		}
 		return null;
