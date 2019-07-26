@@ -2,26 +2,21 @@ package info.u_team.useful_resources.api;
 
 import info.u_team.u_team_core.api.registry.IUArrayRegistryType;
 import net.minecraft.item.Item;
+import net.minecraft.tags.Tag;
 
 public interface IResourceItems extends IUArrayRegistryType<Item> {
 	
-	Item getIngot();
+	IResource getResource();
 	
-	Item getNugget();
+	Item getItem(IItemResourceTypes type);
 	
-	Item getDust();
+	boolean hasItem(IItemResourceTypes type);
 	
-	Item getPlate();
-	
-	Item getDensePlate();
-	
-	Item getGear();
-	
-	Item getRod();
-	
-	@Override
-	default Item[] getArray() {
-		return new Item[] { getIngot(), getNugget(), getDust(), getPlate(), getDensePlate(), getGear(), getRod() };
+	default Tag<Item> getTag(IItemResourceTypes type) {
+		return type.getTag(this);
 	}
 	
+	default Tag<Item> getUnifyTag(IItemResourceTypes type) {
+		return type.getUnifyTag();
+	}
 }

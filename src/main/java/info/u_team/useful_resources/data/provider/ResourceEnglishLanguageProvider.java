@@ -10,7 +10,7 @@ import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.CommonProvider;
 import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.type.Resources;
+import info.u_team.useful_resources.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.data.*;
 import net.minecraft.item.Item;
@@ -34,7 +34,7 @@ public class ResourceEnglishLanguageProvider extends CommonProvider {
 			
 			for (Block block : blocks.getArray()) {
 				final String name = block.getRegistryName().getPath();
-				if (block == blocks.getBlock()) {
+				if (block == blocks.getBlock(BlockResourceTypes.BLOCK)) {
 					object.addProperty("block." + MODID + "." + name, "Block of " + capitalize(resource.getName()));
 				} else {
 					object.addProperty("block." + MODID + "." + name, capitalize(name.replace("_", " ")));

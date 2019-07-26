@@ -11,5 +11,4 @@ public interface IResource {
 	IResourceBlocks getBlocks();
 	
 	IResourceItems getItems();
-	
 }

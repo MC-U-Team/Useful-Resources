@@ -7,9 +7,8 @@ import java.util.stream.Collectors;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.resource.*;
-import net.minecraft.util.IStringSerializable;
 
-public enum Resources implements IResource, IStringSerializable {
+public enum Resources implements IResource {
 	
 	COPPER("copper", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
 	TIN("tin", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),

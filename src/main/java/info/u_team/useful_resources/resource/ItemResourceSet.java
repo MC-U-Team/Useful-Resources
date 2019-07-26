@@ -1,61 +1,42 @@
 package info.u_team.useful_resources.resource;
 
+import java.util.EnumMap;
+
+import com.google.common.collect.Maps;
+
 import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.item.ResourceItem;
+import info.u_team.useful_resources.type.ItemResourceTypes;
 import net.minecraft.item.Item;
 
 public class ItemResourceSet implements IResourceItems {
 	
-	private final Item ingot;
-	private final Item nugget;
-	private final Item dust;
-	private final Item plate;
-	private final Item densePlate;
-	private final Item gear;
-	private final Item rod;
+	private final IResource resource;
+	
+	private final EnumMap<ItemResourceTypes, Item> itemMap;
 	
 	public ItemResourceSet(IResource resource) {
-		ingot = new ResourceItem("ingot", resource);
-		nugget = new ResourceItem("nugget", resource);
-		dust = new ResourceItem("dust", resource);
-		plate = new ResourceItem("plate", resource);
-		densePlate = new ResourceItem("dense_plate", resource);
-		gear = new ResourceItem("gear", resource);
-		rod = new ResourceItem("rod", resource);
+		this.resource = resource;
+		itemMap = Maps.newEnumMap(ItemResourceTypes.class);
+		ItemResourceTypes.VALUES.forEach(type -> itemMap.put(type, type.createItem(resource)));
 	}
 	
 	@Override
-	public Item getIngot() {
-		return ingot;
+	public IResource getResource() {
+		return resource;
 	}
 	
 	@Override
-	public Item getNugget() {
-		return nugget;
+	public Item getItem(IItemResourceTypes type) {
+		return itemMap.get(type);
 	}
 	
 	@Override
-	public Item getDust() {
-		return dust;
+	public boolean hasItem(IItemResourceTypes type) {
+		return itemMap.containsKey(type);
 	}
 	
 	@Override
-	public Item getPlate() {
-		return plate;
-	}
-	
-	@Override
-	public Item getDensePlate() {
-		return densePlate;
-	}
-	
-	@Override
-	public Item getGear() {
-		return gear;
-	}
-	
-	@Override
-	public Item getRod() {
-		return rod;
+	public Item[] getArray() {
+		return itemMap.values().stream().toArray(Item[]::new);
 	}
 }

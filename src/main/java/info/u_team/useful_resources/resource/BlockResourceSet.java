@@ -1,38 +1,42 @@
 package info.u_team.useful_resources.resource;
 
-import java.util.function.Supplier;
+import java.util.EnumMap;
+
+import com.google.common.collect.Maps;
 
 import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.block.ResourceBlock;
-import net.minecraft.block.*;
-import net.minecraft.block.Block.Properties;
-import net.minecraft.block.material.Material;
+import info.u_team.useful_resources.type.BlockResourceTypes;
+import net.minecraft.block.Block;
 
 public class BlockResourceSet implements IResourceBlocks {
 	
-	private final Block ore;
-	private final Block netherOre;
-	private final Block block;
+	private final IResource resource;
+	
+	private final EnumMap<BlockResourceTypes, Block> blockMap;
 	
 	public BlockResourceSet(IResource resource) {
-		final Supplier<IResourceConfig> config = resource.getConfig();
-		ore = new ResourceBlock("ore", resource, Properties.create(Material.ROCK), () -> config.get().getOreHardness().get(), () -> config.get().getOreResistance().get());
-		netherOre = new ResourceBlock("nether_ore", resource, Properties.create(Material.ROCK), () -> config.get().getNetherOreHardness().get(), () -> config.get().getNetherOreResistance().get());
-		block = new ResourceBlock("block", resource, Properties.create(Material.IRON).sound(SoundType.METAL), () -> config.get().getBlockHardness().get(), () -> config.get().getBlockResistance().get());
+		this.resource = resource;
+		blockMap = Maps.newEnumMap(BlockResourceTypes.class);
+		BlockResourceTypes.VALUES.forEach(type -> blockMap.put(type, type.createBlock(resource)));
 	}
 	
 	@Override
-	public Block getOre() {
-		return ore;
+	public IResource getResource() {
+		return resource;
 	}
 	
 	@Override
-	public Block getNetherOre() {
-		return netherOre;
+	public Block getBlock(IBlockResourceTypes type) {
+		return blockMap.get(type);
 	}
 	
 	@Override
-	public Block getBlock() {
-		return block;
+	public boolean hasBlock(IBlockResourceTypes type) {
+		return blockMap.containsKey(type);
+	}
+	
+	@Override
+	public Block[] getArray() {
+		return blockMap.values().stream().toArray(Block[]::new);
 	}
 }
