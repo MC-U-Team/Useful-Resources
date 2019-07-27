@@ -5,19 +5,19 @@ import java.util.EnumMap;
 import com.google.common.collect.Maps;
 
 import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.type.BlockResourceTypes;
+import info.u_team.useful_resources.type.ResourceBlockTypes;
 import net.minecraft.block.Block;
 
 public class BlockResourceSet implements IResourceBlocks {
 	
 	private final IResource resource;
 	
-	private final EnumMap<BlockResourceTypes, Block> blockMap;
+	private final EnumMap<ResourceBlockTypes, Block> blockMap;
 	
 	public BlockResourceSet(IResource resource) {
 		this.resource = resource;
-		blockMap = Maps.newEnumMap(BlockResourceTypes.class);
-		BlockResourceTypes.VALUES.forEach(type -> blockMap.put(type, type.createBlock(resource)));
+		blockMap = Maps.newEnumMap(ResourceBlockTypes.class);
+		ResourceBlockTypes.VALUES.forEach(type -> blockMap.put(type, type.createBlock(resource)));
 	}
 	
 	@Override
@@ -26,12 +26,12 @@ public class BlockResourceSet implements IResourceBlocks {
 	}
 	
 	@Override
-	public Block getBlock(IBlockResourceTypes type) {
+	public Block getBlock(IResourceBlockTypes type) {
 		return blockMap.get(type);
 	}
 	
 	@Override
-	public boolean hasBlock(IBlockResourceTypes type) {
+	public boolean hasBlock(IResourceBlockTypes type) {
 		return blockMap.containsKey(type);
 	}
 	

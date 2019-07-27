@@ -34,7 +34,7 @@ public class ResourceEnglishLanguageProvider extends CommonProvider {
 			
 			for (Block block : blocks.getArray()) {
 				final String name = block.getRegistryName().getPath();
-				if (block == blocks.getBlock(BlockResourceTypes.BLOCK)) {
+				if (block == blocks.getBlock(ResourceBlockTypes.BLOCK)) {
 					object.addProperty("block." + MODID + "." + name, "Block of " + capitalize(resource.getName()));
 				} else {
 					object.addProperty("block." + MODID + "." + name, capitalize(name.replace("_", " ")));

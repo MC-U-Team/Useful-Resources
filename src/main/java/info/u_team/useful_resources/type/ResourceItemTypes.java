@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.IStringSerializable;
 
-public enum ItemResourceTypes implements IStringSerializable, IItemResourceTypes {
+public enum ResourceItemTypes implements IStringSerializable, IResourceItemTypes {
 	
 	INGOT("ingot"),
 	NUGGET("nugget"),
@@ -22,7 +22,7 @@ public enum ItemResourceTypes implements IStringSerializable, IItemResourceTypes
 	GEAR("gear"),
 	ROD("rod");
 	
-	public static final List<ItemResourceTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
+	public static final List<ResourceItemTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	
 	private final Map<String, Tag<Item>> tagMap;
 	
@@ -31,11 +31,11 @@ public enum ItemResourceTypes implements IStringSerializable, IItemResourceTypes
 	
 	private final Tag<Item> unifyTag;
 	
-	private ItemResourceTypes(String name) {
+	private ResourceItemTypes(String name) {
 		this(name, name + "s");
 	}
 	
-	private ItemResourceTypes(String name, String tagName) {
+	private ResourceItemTypes(String name, String tagName) {
 		tagMap = Maps.newHashMap();
 		this.name = name;
 		this.tagName = tagName;

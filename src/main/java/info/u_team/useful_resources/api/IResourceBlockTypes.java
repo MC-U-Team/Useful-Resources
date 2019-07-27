@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 
-public interface IBlockResourceTypes {
+public interface IResourceBlockTypes {
 	
 	String getName();
 	

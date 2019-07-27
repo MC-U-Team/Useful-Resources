@@ -29,8 +29,8 @@ public class UsefulResourcesWorldGeneration {
 	private static void addResource(Biome biome, IResource resource) {
 		final IResourceBlocks blocks = resource.getBlocks();
 		final Supplier<IResourceConfig> config = resource.getConfig();
-		addGeneratable(biome, blocks.getBlock(BlockResourceTypes.ORE).getDefaultState(), FillerBlockType.NATURAL_STONE, config.get().getOreGeneratable().get());
-		addGeneratable(biome, blocks.getBlock(BlockResourceTypes.NETHER_ORE).getDefaultState(), FillerBlockType.NETHERRACK, config.get().getNetherOreGeneratable().get());
+		addGeneratable(biome, blocks.getBlock(ResourceBlockTypes.ORE).getDefaultState(), FillerBlockType.NATURAL_STONE, config.get().getOreGeneratable().get());
+		addGeneratable(biome, blocks.getBlock(ResourceBlockTypes.NETHER_ORE).getDefaultState(), FillerBlockType.NETHERRACK, config.get().getNetherOreGeneratable().get());
 	}
 	
 	private static void addGeneratable(Biome biome, BlockState state, FillerBlockType fillerType, IGeneratable generatable) {

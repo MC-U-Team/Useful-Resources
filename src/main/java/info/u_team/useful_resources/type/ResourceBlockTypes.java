@@ -15,13 +15,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 
-public enum BlockResourceTypes implements IBlockResourceTypes {
+public enum ResourceBlockTypes implements IResourceBlockTypes {
 	
 	ORE("ore"),
 	NETHER_ORE("nether_ore"),
 	BLOCK("block", "storage_blocks");
 	
-	public static final List<BlockResourceTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
+	public static final List<ResourceBlockTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	
 	private final Map<String, Pair<Tag<Block>, Tag<Item>>> tagMap;
 	
@@ -31,11 +31,11 @@ public enum BlockResourceTypes implements IBlockResourceTypes {
 	private final Tag<Block> unifyBlockTag;
 	private final Tag<Item> unifyTag;
 	
-	private BlockResourceTypes(String name) {
+	private ResourceBlockTypes(String name) {
 		this(name, name + "s");
 	}
 	
-	private BlockResourceTypes(String name, String tagName) {
+	private ResourceBlockTypes(String name, String tagName) {
 		tagMap = Maps.newHashMap();
 		this.name = name;
 		this.tagName = tagName;

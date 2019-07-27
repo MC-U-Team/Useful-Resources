@@ -6,6 +6,6 @@ import info.u_team.useful_resources.type.*;
 
 public class UsefulResourcesItemGroups {
 	
-	public static final UItemGroup GROUP = new UItemGroup(UsefulResourcesMod.MODID, "group", () -> Resources.COPPER.getBlocks().getBlock(BlockResourceTypes.ORE));
+	public static final UItemGroup GROUP = new UItemGroup(UsefulResourcesMod.MODID, "group", () -> Resources.COPPER.getBlocks().getBlock(ResourceBlockTypes.ORE));
 	
 }

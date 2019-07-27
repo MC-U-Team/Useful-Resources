@@ -22,7 +22,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	private void registerBlocks() {
 		Resources.VALUES.forEach(resource -> {
 			final IResourceBlocks blocks = resource.getBlocks();
-			BlockResourceTypes.VALUES.forEach(type -> {
+			ResourceBlockTypes.VALUES.forEach(type -> {
 				copy(blocks.getBlockTag(type), blocks.getTag(type));
 				copy(blocks.getUnifyBlockTag(type), blocks.getUnifyTag(type));
 			});
@@ -32,7 +32,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	private void registerItems() {
 		Resources.VALUES.forEach(resource -> {
 			final IResourceItems items = resource.getItems();
-			ItemResourceTypes.VALUES.forEach(type -> {
+			ResourceItemTypes.VALUES.forEach(type -> {
 				final Tag<Item> tag = items.getTag(type);
 				getBuilder(tag).add(items.getItem(type));
 				getBuilder(items.getUnifyTag(type)).add(tag);

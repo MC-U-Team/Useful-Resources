@@ -3,7 +3,7 @@ package info.u_team.useful_resources.api;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 
-public interface IItemResourceTypes {
+public interface IResourceItemTypes {
 	
 	String getName();
 	
