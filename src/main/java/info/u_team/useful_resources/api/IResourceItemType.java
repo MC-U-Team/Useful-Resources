@@ -1,9 +1,10 @@
 package info.u_team.useful_resources.api;
 
+import info.u_team.useful_resources.api.config.IResourceItemConfig;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 
-public interface IResourceItemTypes {
+public interface IResourceItemType {
 	
 	String getName();
 	
@@ -11,5 +12,5 @@ public interface IResourceItemTypes {
 	
 	Tag<Item> getTag(IResourceItems items);
 	
-	Item createItem(IResource resource);
+	Item createItem(IResource resource, IResourceItemConfig config);
 }

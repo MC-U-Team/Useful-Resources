@@ -5,8 +5,9 @@ import java.util.EnumMap;
 import com.google.common.collect.Maps;
 
 import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.config.IResourceItemConfig;
 import info.u_team.useful_resources.type.ResourceItemTypes;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 
 public class ItemResourceSet implements IResourceItems {
 	
@@ -17,7 +18,13 @@ public class ItemResourceSet implements IResourceItems {
 	public ItemResourceSet(IResource resource) {
 		this.resource = resource;
 		itemMap = Maps.newEnumMap(ResourceItemTypes.class);
-		ResourceItemTypes.VALUES.forEach(type -> itemMap.put(type, type.createItem(resource)));
+		ResourceItemTypes.VALUES.forEach(type -> itemMap.put(type, type.createItem(resource, new IResourceItemConfig() { // Just default for testing immo
+			
+			@Override
+			public Rarity getRarity() {
+				return Rarity.COMMON;
+			}
+		})));
 	}
 	
 	@Override
@@ -26,12 +33,12 @@ public class ItemResourceSet implements IResourceItems {
 	}
 	
 	@Override
-	public Item getItem(IResourceItemTypes type) {
+	public Item getItem(IResourceItemType type) {
 		return itemMap.get(type);
 	}
 	
 	@Override
-	public boolean hasItem(IResourceItemTypes type) {
+	public boolean hasItem(IResourceItemType type) {
 		return itemMap.containsKey(type);
 	}
 	

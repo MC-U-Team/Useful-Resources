@@ -9,17 +9,19 @@ import com.google.common.collect.Maps;
 
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.config.IResourceBlockConfig;
 import info.u_team.useful_resources.block.ResourceBlock;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
+import net.minecraftforge.common.ToolType;
 
-public enum ResourceBlockTypes implements IResourceBlockTypes {
+public enum ResourceBlockTypes implements IResourceBlockType {
 	
-	ORE("ore"),
-	NETHER_ORE("nether_ore"),
-	BLOCK("block", "storage_blocks");
+	ORE("ore", Material.ROCK, SoundType.STONE, ToolType.PICKAXE),
+	NETHER_ORE("nether_ore", Material.ROCK, SoundType.STONE, ToolType.PICKAXE),
+	BLOCK("block", "storage_blocks", Material.IRON, SoundType.METAL, ToolType.PICKAXE);
 	
 	public static final List<ResourceBlockTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	
@@ -28,17 +30,24 @@ public enum ResourceBlockTypes implements IResourceBlockTypes {
 	private final String name;
 	private final String tagName;
 	
+	private final Material material;
+	private final SoundType soundType;
+	private final ToolType harvestTool;
+	
 	private final Tag<Block> unifyBlockTag;
 	private final Tag<Item> unifyTag;
 	
-	private ResourceBlockTypes(String name) {
-		this(name, name + "s");
+	private ResourceBlockTypes(String name, Material material, SoundType soundType, ToolType harvestTool) {
+		this(name, name + "s", material, soundType, harvestTool);
 	}
 	
-	private ResourceBlockTypes(String name, String tagName) {
+	private ResourceBlockTypes(String name, String tagName, Material material, SoundType soundType, ToolType harvestTool) {
 		tagMap = Maps.newHashMap();
 		this.name = name;
 		this.tagName = tagName;
+		this.material = material;
+		this.soundType = soundType;
+		this.harvestTool = harvestTool;
 		unifyBlockTag = TagUtil.createBlockTag("forge", tagName);
 		unifyTag = TagUtil.fromBlockTag(unifyBlockTag);
 	}
@@ -79,8 +88,22 @@ public enum ResourceBlockTypes implements IResourceBlockTypes {
 	}
 	
 	@Override
-	public Block createBlock(IResource resource) {
-		return new ResourceBlock(name, resource, Block.Properties.create(Material.SNOW), () -> 1F, () -> 1F);
+	public Block createBlock(IResource resource, IResourceBlockConfig config) {
+		return new ResourceBlock(resource, this, config);
 	}
 	
+	@Override
+	public Material getMaterial() {
+		return material;
+	}
+	
+	@Override
+	public SoundType getSoundType() {
+		return soundType;
+	}
+	
+	@Override
+	public ToolType getHarvestTool() {
+		return harvestTool;
+	}
 }

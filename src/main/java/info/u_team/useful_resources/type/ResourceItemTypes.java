@@ -7,12 +7,13 @@ import com.google.common.collect.Maps;
 
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.config.IResourceItemConfig;
 import info.u_team.useful_resources.item.ResourceItem;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.IStringSerializable;
 
-public enum ResourceItemTypes implements IStringSerializable, IResourceItemTypes {
+public enum ResourceItemTypes implements IStringSerializable, IResourceItemType {
 	
 	INGOT("ingot"),
 	NUGGET("nugget"),
@@ -63,7 +64,7 @@ public enum ResourceItemTypes implements IStringSerializable, IResourceItemTypes
 	}
 	
 	@Override
-	public Item createItem(IResource resource) {
-		return new ResourceItem(name, resource);
+	public Item createItem(IResource resource, IResourceItemConfig config) {
+		return new ResourceItem(resource, this, config);
 	}
 }

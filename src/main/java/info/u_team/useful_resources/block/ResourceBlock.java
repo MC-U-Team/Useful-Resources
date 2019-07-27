@@ -1,35 +1,15 @@
 package info.u_team.useful_resources.block;
 
-import java.util.function.Supplier;
-
 import info.u_team.u_team_core.block.UBlock;
-import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.config.IResourceBlockConfig;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 
 public class ResourceBlock extends UBlock {
 	
-	private final Supplier<Float> hardness;
-	private final Supplier<Float> resistance;
-	
-	public ResourceBlock(String type, IResource resource, Properties properties, Supplier<Float> hardness, Supplier<Float> resistance) {
-		super(resource.getName() + "_" + type, UsefulResourcesItemGroups.GROUP, properties);
-		this.hardness = hardness;
-		this.resistance = resistance;
+	public ResourceBlock(IResource resource, IResourceBlockType type, IResourceBlockConfig config) {
+		super(resource.getName() + "_" + type.getName(), UsefulResourcesItemGroups.GROUP, Block.Properties.create(type.getMaterial()).sound(type.getSoundType()).harvestTool(type.getHarvestTool()).harvestLevel(config.getHarvestLevel()).hardnessAndResistance(config.getHardness(), config.getResistance()), new Item.Properties().rarity(config.getRarity()));
 	}
-	
-	// We need to do the hardness and resistance that way, because the config is only present after the registration.
-	
-	@Override
-	public float getBlockHardness(BlockState blockState, IBlockReader worldIn, BlockPos pos) {
-		return hardness.get();
-	}
-	
-	@Override
-	public float getExplosionResistance() {
-		return resistance.get();
-	}
-	
 }

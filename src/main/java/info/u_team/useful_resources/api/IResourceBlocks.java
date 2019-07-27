@@ -9,23 +9,23 @@ public interface IResourceBlocks extends IUArrayRegistryType<Block> {
 	
 	IResource getResource();
 	
-	Block getBlock(IResourceBlockTypes type);
+	Block getBlock(IResourceBlockType type);
 	
-	boolean hasBlock(IResourceBlockTypes type);
+	boolean hasBlock(IResourceBlockType type);
 	
-	default Tag<Block> getBlockTag(IResourceBlockTypes type) {
+	default Tag<Block> getBlockTag(IResourceBlockType type) {
 		return type.getBlockTag(this);
 	}
 	
-	default Tag<Item> getTag(IResourceBlockTypes type) {
+	default Tag<Item> getTag(IResourceBlockType type) {
 		return type.getTag(this);
 	}
 	
-	default Tag<Block> getUnifyBlockTag(IResourceBlockTypes type) {
+	default Tag<Block> getUnifyBlockTag(IResourceBlockType type) {
 		return type.getUnifyBlockTag();
 	}
 	
-	default Tag<Item> getUnifyTag(IResourceBlockTypes type) {
+	default Tag<Item> getUnifyTag(IResourceBlockType type) {
 		return type.getUnifyTag();
 	}
 	

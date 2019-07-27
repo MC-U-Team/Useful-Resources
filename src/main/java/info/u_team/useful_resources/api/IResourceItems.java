@@ -8,15 +8,15 @@ public interface IResourceItems extends IUArrayRegistryType<Item> {
 	
 	IResource getResource();
 	
-	Item getItem(IResourceItemTypes type);
+	Item getItem(IResourceItemType type);
 	
-	boolean hasItem(IResourceItemTypes type);
+	boolean hasItem(IResourceItemType type);
 	
-	default Tag<Item> getTag(IResourceItemTypes type) {
+	default Tag<Item> getTag(IResourceItemType type) {
 		return type.getTag(this);
 	}
 	
-	default Tag<Item> getUnifyTag(IResourceItemTypes type) {
+	default Tag<Item> getUnifyTag(IResourceItemType type) {
 		return type.getUnifyTag();
 	}
 }
