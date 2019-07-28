@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.type;
+package info.u_team.useful_resources.resource;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -13,6 +13,7 @@ import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.config.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.resource.*;
+import info.u_team.useful_resources.type.*;
 import info.u_team.useful_resources.util.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;

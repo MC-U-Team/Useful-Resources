@@ -21,7 +21,7 @@ public class ResourceItemModelsProvider extends CommonProvider {
 	
 	@Override
 	public void act(DirectoryCache cache) throws IOException {
-		Resources.VALUES.forEach(resource -> {
+		Resources.getValues().forEach(resource -> {
 			for (Block block : resource.getBlocks().getArray()) {
 				final String blockName = block.getRegistryName().getPath();
 				

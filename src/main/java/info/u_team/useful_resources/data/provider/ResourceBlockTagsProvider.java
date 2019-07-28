@@ -19,7 +19,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	}
 	
 	private void registerBlocks() {
-		Resources.VALUES.forEach(resource -> {
+		Resources.getValues().forEach(resource -> {
 			final IResourceBlocks blocks = resource.getBlocks();
 			ResourceBlockTypes.VALUES.forEach(type -> {
 				final Tag<Block> tag = blocks.getBlockTag(type);

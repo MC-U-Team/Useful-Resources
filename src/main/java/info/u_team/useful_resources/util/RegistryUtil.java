@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 import info.u_team.u_team_core.api.registry.IURegistryType;
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.type.*;
+import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.resource.Resource;
+import info.u_team.useful_resources.type.Resources;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -47,8 +49,8 @@ public class RegistryUtil {
 	 * @param function Function to get {@link IForgeRegistryEntry} from {@link Resource}
 	 * @return List with all {@link IForgeRegistryEntry}
 	 */
-	private static <T extends IForgeRegistryEntry<T>> List<T> getAndApplyNames(Function<Resource, T[]> function) {
-		List<T> list = Resources.VALUES.stream().flatMap(resource -> Arrays.stream(function.apply(resource))).collect(Collectors.toList());
+	private static <T extends IForgeRegistryEntry<T>> List<T> getAndApplyNames(Function<IResource, T[]> function) {
+		List<T> list = Resources.getValues().stream().flatMap(resource -> Arrays.stream(function.apply(resource))).collect(Collectors.toList());
 		applyNames(list);
 		return list;
 	}

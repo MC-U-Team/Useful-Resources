@@ -2,9 +2,13 @@ package info.u_team.useful_resources.type;
 
 import java.util.*;
 
-import info.u_team.useful_resources.type.Resource.Builder;
+import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.resource.Resource;
+import info.u_team.useful_resources.resource.Resource.Builder;
 
 public class Resources {
+	
+	private static final List<IResource> VALUES = new ArrayList<>();
 	
 	public static final Resource COPPER = register(new Builder("copper", 3F, 1));
 	public static final Resource TIN = register(new Builder("tin", 3F, 1));
@@ -14,11 +18,12 @@ public class Resources {
 	
 	private static Resource register(Builder builder) {
 		Resource resource = builder.build();
-		INTERN_VALUES.add(resource);
+		VALUES.add(resource);
 		return resource;
 	}
 	
-	private static final List<Resource> INTERN_VALUES = new ArrayList<>();
-	public static final List<Resource> VALUES = Collections.unmodifiableList(INTERN_VALUES);
+	public static List<IResource> getValues() {
+		return Collections.unmodifiableList(VALUES);
+	}
 	
 }

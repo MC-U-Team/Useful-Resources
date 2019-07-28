@@ -27,7 +27,7 @@ public class ResourceEnglishLanguageProvider extends CommonProvider {
 		
 		object.addProperty("itemGroup." + MODID + ".group", "Useful Resources");
 		
-		Resources.VALUES.forEach(resource -> {
+		Resources.getValues().forEach(resource -> {
 			
 			final IResourceBlocks blocks = resource.getBlocks();
 			final IResourceItems items = resource.getItems();
