@@ -63,10 +63,10 @@ public class Resource implements IResource {
 		private final Map<ResourceBlockTypes, ResourceBlockConfig> defaultBlockSettings;
 		private final Map<ResourceItemTypes, ResourceItemConfig> defaultItemSettings;
 		
+		private final Map<ResourceBlockTypes, ResourceGenerationConfig> defaultGenerationSettings;
+		
 		private final Map<ResourceBlockTypes, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block>> specialBlocks;
 		private final Map<ResourceItemTypes, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item>> specialItems;
-		
-		private final Map<ResourceBlockTypes, ResourceGenerationConfig> defaultGenerationSettings;
 		
 		public Builder(String name, float commonHardness, int commonHarvestLevel) {
 			this.name = name;
@@ -76,9 +76,9 @@ public class Resource implements IResource {
 			ores = true;
 			defaultBlockSettings = Maps.newEnumMap(ResourceBlockTypes.class);
 			defaultItemSettings = Maps.newEnumMap(ResourceItemTypes.class);
+			defaultGenerationSettings = Maps.newEnumMap(ResourceBlockTypes.class);
 			specialBlocks = Maps.newEnumMap(ResourceBlockTypes.class);
 			specialItems = Maps.newEnumMap(ResourceItemTypes.class);
-			defaultGenerationSettings = Maps.newEnumMap(ResourceBlockTypes.class);
 		}
 		
 		public Builder setCommonRarity(Rarity commonRarity) {
@@ -121,6 +121,7 @@ public class Resource implements IResource {
 			final List<ResourceItemTypes> itemTypes = new ArrayList<>(ResourceItemTypes.VALUES);
 			
 			removeUnwanted(blockTypes, itemTypes);
+			validateDefaultConfigs(blockTypes, itemTypes);
 			
 			blockTypes.forEach(type -> defaultBlockSettings.putIfAbsent(type, new ResourceBlockConfig(commonRarity, commonHardness, commonHardness, commonHarvestLevel)));
 			itemTypes.forEach(type -> defaultItemSettings.putIfAbsent(type, new ResourceItemConfig(commonRarity)));
@@ -155,6 +156,21 @@ public class Resource implements IResource {
 			if (!ores) {
 				blockTypes.remove(ResourceBlockTypes.ORE);
 				blockTypes.remove(ResourceBlockTypes.NETHER_ORE);
+			}
+		}
+		
+		private void validateDefaultConfigs(List<ResourceBlockTypes> blockTypes, List<ResourceItemTypes> itemTypes) {
+			removeIfNotInValidTypes(blockTypes, defaultBlockSettings.keySet());
+			removeIfNotInValidTypes(itemTypes, defaultItemSettings.keySet());
+			removeIfNotInValidTypes(blockTypes, defaultGenerationSettings.keySet());
+		}
+		
+		private <T> void removeIfNotInValidTypes(List<T> validTypes, Collection<T> defaultSettings) {
+			Iterator<T> iterator = defaultSettings.iterator();
+			while (iterator.hasNext()) {
+				if (!validTypes.contains(iterator.next())) {
+					iterator.remove();
+				}
 			}
 		}
 		
@@ -201,6 +217,7 @@ public class Resource implements IResource {
 						generationSettings.put(type, defaultConfig);
 					}, reader -> {
 						ResourceGenerationConfig config = GSON.fromJson(reader, ResourceGenerationConfig.class);
+						config.validate();
 						generationSettings.put(type, config);
 					});
 				} catch (IOException ex) {

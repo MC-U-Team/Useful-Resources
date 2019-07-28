@@ -117,6 +117,12 @@ public class ResourceGenerationConfig implements IResourceGenerationConfig {
 		return depthAverageConfig;
 	}
 	
+	public void validate() {
+		if (biomeCategoryListType == null || biomeCategories == null || biomeListType == null || biomes == null || type == null || type == GenerationConfig.COUNT_RANGE && countRangeConfig == null || type == GenerationConfig.COUNT_DEPTH_AVERAGE && depthAverageConfig == null) {
+			throw new IllegalStateException("Some values were not correctly deserialized");
+		}
+	}
+	
 	public static class Serializer implements JsonSerializer<ResourceGenerationConfig>, JsonDeserializer<ResourceGenerationConfig> {
 		
 		private final Logger logger = LogManager.getLogger();
