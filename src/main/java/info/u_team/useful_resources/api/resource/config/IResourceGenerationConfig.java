@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.api;
+package info.u_team.useful_resources.api.resource.config;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.placement.*;
 
-public interface IGeneratable {
+public interface IResourceGenerationConfig {
 	
 	boolean isEnabled();
 	

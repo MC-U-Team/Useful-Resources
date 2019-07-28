@@ -8,40 +8,40 @@ import org.apache.logging.log4j.*;
 
 import com.google.gson.*;
 
-import info.u_team.useful_resources.api.IGeneratable;
+import info.u_team.useful_resources.api.resource.config.IResourceGenerationConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.placement.*;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class GeneratableConfig implements IGeneratable {
+public class ResourceGenerationConfig implements IResourceGenerationConfig {
 	
 	private final static Category[] OVERWORLD_BLACKLIST = new Category[] { Category.NETHER, Category.THEEND }; // Blacklist
 	private final static Category[] NETHER_WHITELIST = new Category[] { Category.NETHER }; // Whitelist
 	
-	public static GeneratableConfig createRangeOverworld(int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
+	public static ResourceGenerationConfig createRangeOverworld(int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
 		return createRange(ListType.BLACKLIST, OVERWORLD_BLACKLIST, veinSize, count, bottomOffset, topOffset, maximum);
 	}
 	
-	public static GeneratableConfig createRangeNether(int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
+	public static ResourceGenerationConfig createRangeNether(int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
 		return createRange(ListType.WHITELIST, NETHER_WHITELIST, veinSize, count, bottomOffset, topOffset, maximum);
 	}
 	
-	public static GeneratableConfig createRange(ListType biomeCategoryListType, Category[] biomeCategories, int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
-		return new GeneratableConfig(true, biomeCategoryListType, biomeCategories, ListType.BLACKLIST, new Biome[] {}, veinSize, GenerationConfig.COUNT_RANGE, new CountRangeConfig(count, bottomOffset, topOffset, maximum), null);
+	public static ResourceGenerationConfig createRange(ListType biomeCategoryListType, Category[] biomeCategories, int veinSize, int count, int bottomOffset, int topOffset, int maximum) {
+		return new ResourceGenerationConfig(true, biomeCategoryListType, biomeCategories, ListType.BLACKLIST, new Biome[] {}, veinSize, GenerationConfig.COUNT_RANGE, new CountRangeConfig(count, bottomOffset, topOffset, maximum), null);
 	}
 	
-	public static GeneratableConfig createDepthAverageOverworld(int veinSize, int count, int baseline, int spread) {
+	public static ResourceGenerationConfig createDepthAverageOverworld(int veinSize, int count, int baseline, int spread) {
 		return createDepthAverage(ListType.BLACKLIST, OVERWORLD_BLACKLIST, veinSize, count, baseline, spread);
 	}
 	
-	public static GeneratableConfig createDepthAverageNether(int veinSize, int count, int baseline, int spread) {
+	public static ResourceGenerationConfig createDepthAverageNether(int veinSize, int count, int baseline, int spread) {
 		return createDepthAverage(ListType.WHITELIST, NETHER_WHITELIST, veinSize, count, baseline, spread);
 	}
 	
-	public static GeneratableConfig createDepthAverage(ListType biomeCategoryListType, Category[] biomeCategories, int veinSize, int count, int baseline, int spread) {
-		return new GeneratableConfig(true, biomeCategoryListType, biomeCategories, ListType.BLACKLIST, new Biome[] {}, veinSize, GenerationConfig.COUNT_DEPTH_AVERAGE, null, new DepthAverageConfig(count, baseline, spread));
+	public static ResourceGenerationConfig createDepthAverage(ListType biomeCategoryListType, Category[] biomeCategories, int veinSize, int count, int baseline, int spread) {
+		return new ResourceGenerationConfig(true, biomeCategoryListType, biomeCategories, ListType.BLACKLIST, new Biome[] {}, veinSize, GenerationConfig.COUNT_DEPTH_AVERAGE, null, new DepthAverageConfig(count, baseline, spread));
 	}
 	
 	private final boolean enabled;
@@ -56,11 +56,11 @@ public class GeneratableConfig implements IGeneratable {
 	private final CountRangeConfig countRangeConfig;
 	private final DepthAverageConfig depthAverageConfig;
 	
-	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, Category[] biomeCategories, ListType biomeListType, Biome[] biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
+	public ResourceGenerationConfig(boolean enabled, ListType biomeCategoryListType, Category[] biomeCategories, ListType biomeListType, Biome[] biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
 		this(enabled, biomeCategoryListType, Arrays.asList(biomeCategories), biomeListType, Arrays.asList(biomes), veinSize, type, countRangeConfig, depthAverageConfig);
 	}
 	
-	public GeneratableConfig(boolean enabled, ListType biomeCategoryListType, List<Category> biomeCategories, ListType biomeListType, List<Biome> biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
+	public ResourceGenerationConfig(boolean enabled, ListType biomeCategoryListType, List<Category> biomeCategories, ListType biomeListType, List<Biome> biomes, int veinSize, GenerationConfig type, CountRangeConfig countRangeConfig, DepthAverageConfig depthAverageConfig) {
 		this.enabled = enabled;
 		this.biomeCategoryListType = biomeCategoryListType;
 		this.biomeCategories = biomeCategories;
@@ -117,12 +117,12 @@ public class GeneratableConfig implements IGeneratable {
 		return depthAverageConfig;
 	}
 	
-	public static class Serializer implements JsonSerializer<GeneratableConfig>, JsonDeserializer<GeneratableConfig> {
+	public static class Serializer implements JsonSerializer<ResourceGenerationConfig>, JsonDeserializer<ResourceGenerationConfig> {
 		
 		private final Logger logger = LogManager.getLogger();
 		
 		@Override
-		public JsonElement serialize(GeneratableConfig config, Type typeOfSrc, JsonSerializationContext context) {
+		public JsonElement serialize(ResourceGenerationConfig config, Type typeOfSrc, JsonSerializationContext context) {
 			
 			final JsonObject object = new JsonObject();
 			
@@ -162,7 +162,7 @@ public class GeneratableConfig implements IGeneratable {
 		}
 		
 		@Override
-		public GeneratableConfig deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+		public ResourceGenerationConfig deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 			final JsonObject object = json.getAsJsonObject();
 			
 			final boolean enabled = object.get("enabled").getAsBoolean();
@@ -212,7 +212,7 @@ public class GeneratableConfig implements IGeneratable {
 				throw ex;
 			}
 			
-			return new GeneratableConfig(enabled, biomeCategoryListType, biomeCategories, biomeListType, biomes, veinSize, type, countRangeConfig, depthAverageConfig);
+			return new ResourceGenerationConfig(enabled, biomeCategoryListType, biomeCategories, biomeListType, biomes, veinSize, type, countRangeConfig, depthAverageConfig);
 		}
 		
 		private static final Map<String, Biome.Category> NAMES_TO_CATEGORY = new HashMap<>();

@@ -3,7 +3,6 @@ package info.u_team.useful_resources.resource;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
-import java.util.function.BiFunction;
 
 import com.google.common.collect.Maps;
 import com.google.gson.*;
@@ -26,9 +25,9 @@ public class Resource implements IResource {
 	private final IResourceBlocks blocks;
 	private final IResourceItems items;
 	
-	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items) {
+	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items, Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig) {
 		this.name = name;
-		this.blocks = new ResourceBlocks(this, blocks);
+		this.blocks = new ResourceBlocks(this, blocks, generationConfig);
 		this.items = new ResourceItems(this, items);
 	}
 	
@@ -49,8 +48,9 @@ public class Resource implements IResource {
 	
 	public static class Builder {
 		
-		private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve(UsefulResourcesMod.MODID).resolve("resources");
-		private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Rarity.class, new RaritySerializer()).create();
+		private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve(UsefulResourcesMod.MODID);
+		private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Rarity.class, new RaritySerializer()).registerTypeAdapter(ResourceGenerationConfig.class, new ResourceGenerationConfig.Serializer()).create();
+		private static final TriFunction<Exception, String, String, RuntimeException> CONFIG_EXCEPTION = (ex, name, typeName) -> new RuntimeException("Could not access config file for resource " + name + " with type " + typeName, ex);
 		
 		private final String name;
 		
@@ -66,7 +66,7 @@ public class Resource implements IResource {
 		private final Map<ResourceBlockTypes, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block>> specialBlocks;
 		private final Map<ResourceItemTypes, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item>> specialItems;
 		
-		private final Map<ResourceBlockTypes, GeneratableConfig> defaultGenerationSettings;
+		private final Map<ResourceBlockTypes, ResourceGenerationConfig> defaultGenerationSettings;
 		
 		public Builder(String name, float commonHardness, int commonHarvestLevel) {
 			this.name = name;
@@ -111,7 +111,7 @@ public class Resource implements IResource {
 			return this;
 		}
 		
-		public Builder setGeneration(ResourceBlockTypes type, GeneratableConfig config) {
+		public Builder setGeneration(ResourceBlockTypes type, ResourceGenerationConfig config) {
 			defaultGenerationSettings.put(type, config);
 			return this;
 		}
@@ -127,13 +127,15 @@ public class Resource implements IResource {
 			
 			final Map<ResourceBlockTypes, ResourceBlockConfig> blockSettings = Maps.newEnumMap(ResourceBlockTypes.class);
 			final Map<ResourceItemTypes, ResourceItemConfig> itemSettings = Maps.newEnumMap(ResourceItemTypes.class);
+			final Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig = Maps.newEnumMap(ResourceBlockTypes.class);
 			
 			loadConfig(blockSettings, itemSettings);
+			loadGenerationConfig(generationConfig);
 			
 			final Map<ResourceBlockTypes, Block> blocks = Maps.newEnumMap(ResourceBlockTypes.class);
 			final Map<ResourceItemTypes, Item> items = Maps.newEnumMap(ResourceItemTypes.class);
 			
-			final Resource resource = new Resource(name, blocks, items);
+			final Resource resource = new Resource(name, blocks, items, generationConfig);
 			
 			specialBlocks.forEach((type, function) -> blocks.put(type, function.apply(resource, type, blockSettings.get(type))));
 			blockTypes.forEach(type -> blocks.putIfAbsent(type, type.createBlock(resource, blockSettings.get(type))));
@@ -157,9 +159,7 @@ public class Resource implements IResource {
 		}
 		
 		private void loadConfig(Map<ResourceBlockTypes, ResourceBlockConfig> blockSettings, Map<ResourceItemTypes, ResourceItemConfig> itemSettings) {
-			final Path resourcePath = CONFIG_PATH.resolve(name);
-			
-			final BiFunction<Exception, String, RuntimeException> createException = (ex, typeName) -> new RuntimeException("Could not access config file for resource " + name + " with type " + typeName, ex);
+			final Path resourcePath = CONFIG_PATH.resolve("resources").resolve(name);
 			
 			defaultBlockSettings.forEach((type, defaultConfig) -> {
 				try {
@@ -172,7 +172,7 @@ public class Resource implements IResource {
 						blockSettings.put(type, config);
 					});
 				} catch (IOException ex) {
-					createException.apply(ex, type.getName());
+					CONFIG_EXCEPTION.apply(ex, name, type.getName());
 				}
 			});
 			defaultItemSettings.forEach((type, defaultConfig) -> {
@@ -186,7 +186,25 @@ public class Resource implements IResource {
 						itemSettings.put(type, config);
 					});
 				} catch (IOException ex) {
-					createException.apply(ex, type.getName());
+					CONFIG_EXCEPTION.apply(ex, name, type.getName());
+				}
+			});
+		}
+		
+		private void loadGenerationConfig(Map<ResourceBlockTypes, ResourceGenerationConfig> generationSettings) {
+			final Path resourcePath = CONFIG_PATH.resolve("worldgen").resolve(name);
+			
+			defaultGenerationSettings.forEach((type, defaultConfig) -> {
+				try {
+					ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
+						GSON.toJson(defaultConfig, defaultConfig.getClass(), writer);
+						generationSettings.put(type, defaultConfig);
+					}, reader -> {
+						ResourceGenerationConfig config = GSON.fromJson(reader, ResourceGenerationConfig.class);
+						generationSettings.put(type, config);
+					});
+				} catch (IOException ex) {
+					CONFIG_EXCEPTION.apply(ex, name, type.getName());
 				}
 			});
 		}

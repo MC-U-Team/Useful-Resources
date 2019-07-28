@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.api.resource;
 
 import info.u_team.u_team_core.api.registry.IUArrayRegistryType;
+import info.u_team.useful_resources.api.resource.config.IResourceGenerationConfig;
 import info.u_team.useful_resources.api.resource.type.IResourceBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -13,6 +14,10 @@ public interface IResourceBlocks extends IUArrayRegistryType<Block> {
 	Block getBlock(IResourceBlockType type);
 	
 	boolean hasBlock(IResourceBlockType type);
+	
+	IResourceGenerationConfig getWorldGeneration(IResourceBlockType type);
+	
+	boolean hasWorldGeneration(IResourceBlockType type);
 	
 	default Tag<Block> getBlockTag(IResourceBlockType type) {
 		return type.getBlockTag(this);
