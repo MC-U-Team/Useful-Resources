@@ -6,13 +6,13 @@ import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.type.ResourceBlockTypes;
 import net.minecraft.block.Block;
 
-public class BlockResourceSet implements IResourceBlocks {
+public class ResourceBlocks implements IResourceBlocks {
 	
 	private final IResource resource;
 	
 	private final Map<ResourceBlockTypes, Block> blockMap;
 	
-	public BlockResourceSet(IResource resource, Map<ResourceBlockTypes, Block> blockMap) {
+	public ResourceBlocks(IResource resource, Map<ResourceBlockTypes, Block> blockMap) {
 		this.resource = resource;
 		this.blockMap = blockMap;
 	}

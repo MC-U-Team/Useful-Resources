@@ -12,7 +12,6 @@ import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.config.*;
 import info.u_team.useful_resources.config.*;
-import info.u_team.useful_resources.resource.*;
 import info.u_team.useful_resources.type.*;
 import info.u_team.useful_resources.util.*;
 import net.minecraft.block.Block;
@@ -27,8 +26,8 @@ public class Resource implements IResource {
 	
 	private Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items) {
 		this.name = name;
-		this.blocks = new BlockResourceSet(this, blocks);
-		this.items = new ItemResourceSet(this, items);
+		this.blocks = new ResourceBlocks(this, blocks);
+		this.items = new ResourceItems(this, items);
 	}
 	
 	@Override

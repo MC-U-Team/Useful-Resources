@@ -6,13 +6,13 @@ import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.type.ResourceItemTypes;
 import net.minecraft.item.Item;
 
-public class ItemResourceSet implements IResourceItems {
+public class ResourceItems implements IResourceItems {
 	
 	private final IResource resource;
 	
 	private final Map<ResourceItemTypes, Item> itemMap;
 	
-	public ItemResourceSet(IResource resource, Map<ResourceItemTypes, Item> itemMap) {
+	public ResourceItems(IResource resource, Map<ResourceItemTypes, Item> itemMap) {
 		this.resource = resource;
 		this.itemMap = itemMap;
 	}
