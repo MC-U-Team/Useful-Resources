@@ -1,7 +1,7 @@
 package info.u_team.useful_resources.data.provider;
 
 import info.u_team.u_team_core.data.CommonItemTagsProvider;
-import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.type.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;

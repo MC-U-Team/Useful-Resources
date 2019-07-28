@@ -1,6 +1,7 @@
-package info.u_team.useful_resources.api;
+package info.u_team.useful_resources.api.resource.type;
 
-import info.u_team.useful_resources.api.config.IResourceItemConfig;
+import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.config.IResourceItemConfig;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 

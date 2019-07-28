@@ -2,7 +2,7 @@ package info.u_team.useful_resources.config;
 
 import com.google.gson.annotations.SerializedName;
 
-import info.u_team.useful_resources.api.config.IResourceBlockConfig;
+import info.u_team.useful_resources.api.resource.config.IResourceBlockConfig;
 import net.minecraft.item.Rarity;
 
 public class ResourceBlockConfig implements IResourceBlockConfig {

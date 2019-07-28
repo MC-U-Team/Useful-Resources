@@ -9,7 +9,7 @@ import java.util.stream.*;
 import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.CommonProvider;
-import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.data.*;

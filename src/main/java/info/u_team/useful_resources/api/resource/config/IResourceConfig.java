@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.api.config;
+package info.u_team.useful_resources.api.resource.config;
 
 import net.minecraft.item.Rarity;
 

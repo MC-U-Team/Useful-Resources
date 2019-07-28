@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.config;
 
-import info.u_team.useful_resources.api.config.IResourceItemConfig;
+import info.u_team.useful_resources.api.resource.config.IResourceItemConfig;
 import net.minecraft.item.Rarity;
 
 public class ResourceItemConfig implements IResourceItemConfig {

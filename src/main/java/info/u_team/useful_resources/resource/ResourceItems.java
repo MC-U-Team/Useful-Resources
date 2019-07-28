@@ -2,7 +2,8 @@ package info.u_team.useful_resources.resource;
 
 import java.util.Map;
 
-import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.type.IResourceItemType;
 import info.u_team.useful_resources.type.ResourceItemTypes;
 import net.minecraft.item.Item;
 

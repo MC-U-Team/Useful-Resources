@@ -2,7 +2,7 @@ package info.u_team.useful_resources.type;
 
 import java.util.*;
 
-import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.resource.Resource;
 import info.u_team.useful_resources.resource.Resource.Builder;
 

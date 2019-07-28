@@ -9,8 +9,10 @@ import com.google.common.collect.Maps;
 import com.google.gson.*;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.api.config.*;
+import info.u_team.useful_resources.api.TriFunction;
+import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.config.*;
+import info.u_team.useful_resources.api.resource.type.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.type.*;
 import info.u_team.useful_resources.util.*;
@@ -24,7 +26,7 @@ public class Resource implements IResource {
 	private final IResourceBlocks blocks;
 	private final IResourceItems items;
 	
-	private Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items) {
+	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items) {
 		this.name = name;
 		this.blocks = new ResourceBlocks(this, blocks);
 		this.items = new ResourceItems(this, items);
@@ -64,6 +66,8 @@ public class Resource implements IResource {
 		private final Map<ResourceBlockTypes, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block>> specialBlocks;
 		private final Map<ResourceItemTypes, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item>> specialItems;
 		
+		private final Map<ResourceBlockTypes, GeneratableConfig> defaultGenerationSettings;
+		
 		public Builder(String name, float commonHardness, int commonHarvestLevel) {
 			this.name = name;
 			this.commonHardness = commonHardness;
@@ -74,6 +78,7 @@ public class Resource implements IResource {
 			defaultItemSettings = Maps.newEnumMap(ResourceItemTypes.class);
 			specialBlocks = Maps.newEnumMap(ResourceBlockTypes.class);
 			specialItems = Maps.newEnumMap(ResourceItemTypes.class);
+			defaultGenerationSettings = Maps.newEnumMap(ResourceBlockTypes.class);
 		}
 		
 		public Builder setCommonRarity(Rarity commonRarity) {
@@ -86,23 +91,28 @@ public class Resource implements IResource {
 			return this;
 		}
 		
-		public Builder setSpecialConfig(ResourceBlockTypes type, ResourceBlockConfig config) {
+		public Builder setConfig(ResourceBlockTypes type, ResourceBlockConfig config) {
 			defaultBlockSettings.put(type, config);
 			return this;
 		}
 		
-		public Builder setSpecialConfig(ResourceItemTypes type, ResourceItemConfig config) {
+		public Builder setConfig(ResourceItemTypes type, ResourceItemConfig config) {
 			defaultItemSettings.put(type, config);
 			return this;
 		}
 		
-		public Builder setSpecialBlock(ResourceBlockTypes type, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block> function) {
+		public Builder setBlock(ResourceBlockTypes type, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block> function) {
 			specialBlocks.put(type, function);
 			return this;
 		}
 		
-		public Builder setSpecialItem(ResourceItemTypes type, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item> function) {
+		public Builder setItem(ResourceItemTypes type, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item> function) {
 			specialItems.put(type, function);
+			return this;
+		}
+		
+		public Builder setGeneration(ResourceBlockTypes type, GeneratableConfig config) {
+			defaultGenerationSettings.put(type, config);
 			return this;
 		}
 		

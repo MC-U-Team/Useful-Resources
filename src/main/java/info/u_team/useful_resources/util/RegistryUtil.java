@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import info.u_team.u_team_core.api.registry.IURegistryType;
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.resource.Resource;
 import info.u_team.useful_resources.type.Resources;
 import net.minecraft.block.Block;

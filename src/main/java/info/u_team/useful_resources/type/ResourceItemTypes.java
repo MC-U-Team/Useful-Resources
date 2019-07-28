@@ -6,8 +6,9 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Maps;
 
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.api.config.IResourceItemConfig;
+import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.config.IResourceItemConfig;
+import info.u_team.useful_resources.api.resource.type.IResourceItemType;
 import info.u_team.useful_resources.item.ResourceItem;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;

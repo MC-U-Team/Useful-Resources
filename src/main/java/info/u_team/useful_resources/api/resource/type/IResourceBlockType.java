@@ -1,6 +1,7 @@
-package info.u_team.useful_resources.api;
+package info.u_team.useful_resources.api.resource.type;
 
-import info.u_team.useful_resources.api.config.IResourceBlockConfig;
+import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.config.IResourceBlockConfig;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

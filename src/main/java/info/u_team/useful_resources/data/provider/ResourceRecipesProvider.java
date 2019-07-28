@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 import info.u_team.u_team_core.data.CommonProvider;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.type.*;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
