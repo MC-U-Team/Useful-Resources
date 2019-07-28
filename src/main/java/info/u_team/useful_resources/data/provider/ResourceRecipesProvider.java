@@ -44,7 +44,7 @@ public class ResourceRecipesProvider extends CommonProvider {
 		Resources.VALUES.forEach(resource -> registerResourceRecipes(resource, consumer));
 	}
 	
-	private void registerResourceRecipes(Resources resource, Consumer<IFinishedRecipe> consumer) {
+	private void registerResourceRecipes(Resource resource, Consumer<IFinishedRecipe> consumer) {
 		final String name = resource.getName();
 		final IResourceItems items = resource.getItems();
 		final IResourceBlocks blocks = resource.getBlocks();
@@ -98,7 +98,7 @@ public class ResourceRecipesProvider extends CommonProvider {
 		return new InventoryChangeTrigger.Instance(IntBound.UNBOUNDED, IntBound.UNBOUNDED, IntBound.UNBOUNDED, predicates);
 	}
 	
-	private ResourceLocation createLocation(Resources resource, String name) {
+	private ResourceLocation createLocation(Resource resource, String name) {
 		return new ResourceLocation(UsefulResourcesMod.MODID, resource.getName() + "/" + name);
 	}
 	

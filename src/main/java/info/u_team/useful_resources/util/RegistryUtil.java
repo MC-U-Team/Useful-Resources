@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import info.u_team.u_team_core.api.registry.IURegistryType;
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.type.Resources;
+import info.u_team.useful_resources.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -40,14 +40,14 @@ public class RegistryUtil {
 	}
 	
 	/**
-	 * General method to retrieve some {@link IForgeRegistryEntry} from {@link Resources}. In this case this can only be a
+	 * General method to retrieve some {@link IForgeRegistryEntry} from {@link Resource}. In this case this can only be a
 	 * {@link Block} or an {@link Item}. Apply names when the {@link IForgeRegistryEntry} implements {@link IURegistryType}.
 	 * 
 	 * @param <T> Type of {@link IForgeRegistryEntry}
-	 * @param function Function to get {@link IForgeRegistryEntry} from {@link Resources}
+	 * @param function Function to get {@link IForgeRegistryEntry} from {@link Resource}
 	 * @return List with all {@link IForgeRegistryEntry}
 	 */
-	private static <T extends IForgeRegistryEntry<T>> List<T> getAndApplyNames(Function<Resources, T[]> function) {
+	private static <T extends IForgeRegistryEntry<T>> List<T> getAndApplyNames(Function<Resource, T[]> function) {
 		List<T> list = Resources.VALUES.stream().flatMap(resource -> Arrays.stream(function.apply(resource))).collect(Collectors.toList());
 		applyNames(list);
 		return list;

@@ -7,9 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraftforge.common.ToolType;
 
-public interface IResourceBlockType {
-	
-	String getName();
+public interface IResourceBlockType extends IResourceType {
 	
 	Tag<Block> getUnifyBlockTag();
 	

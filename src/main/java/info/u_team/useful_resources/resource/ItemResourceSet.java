@@ -1,30 +1,20 @@
 package info.u_team.useful_resources.resource;
 
-import java.util.EnumMap;
-
-import com.google.common.collect.Maps;
+import java.util.Map;
 
 import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.api.config.IResourceItemConfig;
 import info.u_team.useful_resources.type.ResourceItemTypes;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
 
 public class ItemResourceSet implements IResourceItems {
 	
 	private final IResource resource;
 	
-	private final EnumMap<ResourceItemTypes, Item> itemMap;
+	private final Map<ResourceItemTypes, Item> itemMap;
 	
-	public ItemResourceSet(IResource resource) {
+	public ItemResourceSet(IResource resource, Map<ResourceItemTypes, Item> itemMap) {
 		this.resource = resource;
-		itemMap = Maps.newEnumMap(ResourceItemTypes.class);
-		ResourceItemTypes.VALUES.forEach(type -> itemMap.put(type, type.createItem(resource, new IResourceItemConfig() { // Just default for testing immo
-			
-			@Override
-			public Rarity getRarity() {
-				return Rarity.COMMON;
-			}
-		})));
+		this.itemMap = itemMap;
 	}
 	
 	@Override
