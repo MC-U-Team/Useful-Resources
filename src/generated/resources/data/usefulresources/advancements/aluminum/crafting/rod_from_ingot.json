@@ -13,7 +13,7 @@
 					{
 						"tag": "forge:ingots/aluminum",
 						"count": {
-							"min": 9
+							"min": 2
 						}
 					}
 				]
