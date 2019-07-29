@@ -2,7 +2,7 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:aluminum/blasting/ore_from_nether_ores"
+			"usefulresources:aluminum/smelting/ore_from_nether_ore"
 		]
 	},
 	"criteria": {
@@ -19,7 +19,7 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:aluminum/blasting/ore_from_nether_ores"
+				"recipe": "usefulresources:aluminum/smelting/ore_from_nether_ore"
 			}
 		}
 	},

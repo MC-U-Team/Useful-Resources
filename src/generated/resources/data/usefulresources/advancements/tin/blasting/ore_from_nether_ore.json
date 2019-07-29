@@ -2,16 +2,16 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:copper/smelting/ore_from_nether_ores"
+			"usefulresources:tin/blasting/ore_from_nether_ore"
 		]
 	},
 	"criteria": {
-		"has_copper_nether_ore": {
+		"has_tin_nether_ore": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:nether_ores/copper"
+						"tag": "forge:nether_ores/tin"
 					}
 				]
 			}
@@ -19,13 +19,13 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:copper/smelting/ore_from_nether_ores"
+				"recipe": "usefulresources:tin/blasting/ore_from_nether_ore"
 			}
 		}
 	},
 	"requirements": [
 		[
-			"has_copper_nether_ore",
+			"has_tin_nether_ore",
 			"has_the_recipe"
 		]
 	]

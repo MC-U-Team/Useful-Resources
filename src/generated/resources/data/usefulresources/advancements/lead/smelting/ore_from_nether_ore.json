@@ -2,16 +2,16 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:silver/smelting/ore_from_nether_ores"
+			"usefulresources:lead/smelting/ore_from_nether_ore"
 		]
 	},
 	"criteria": {
-		"has_silver_nether_ore": {
+		"has_lead_nether_ore": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:nether_ores/silver"
+						"tag": "forge:nether_ores/lead"
 					}
 				]
 			}
@@ -19,13 +19,13 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:silver/smelting/ore_from_nether_ores"
+				"recipe": "usefulresources:lead/smelting/ore_from_nether_ore"
 			}
 		}
 	},
 	"requirements": [
 		[
-			"has_silver_nether_ore",
+			"has_lead_nether_ore",
 			"has_the_recipe"
 		]
 	]

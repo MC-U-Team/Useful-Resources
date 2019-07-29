@@ -2,16 +2,16 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:tin/blasting/ore_from_nether_ores"
+			"usefulresources:aluminum/blasting/ore_from_nether_ore"
 		]
 	},
 	"criteria": {
-		"has_tin_nether_ore": {
+		"has_aluminum_nether_ore": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:nether_ores/tin"
+						"tag": "forge:nether_ores/aluminum"
 					}
 				]
 			}
@@ -19,13 +19,13 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:tin/blasting/ore_from_nether_ores"
+				"recipe": "usefulresources:aluminum/blasting/ore_from_nether_ore"
 			}
 		}
 	},
 	"requirements": [
 		[
-			"has_tin_nether_ore",
+			"has_aluminum_nether_ore",
 			"has_the_recipe"
 		]
 	]
