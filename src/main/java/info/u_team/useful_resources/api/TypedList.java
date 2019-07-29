@@ -19,4 +19,14 @@ public class TypedList<E> {
 	public List<E> getList() {
 		return list;
 	}
+	
+	/**
+	 * Returns true if the element is accepted and not blacklisted or whitelisted
+	 * 
+	 * @param element
+	 * @return true if element is accepted
+	 */
+	public boolean testWithType(E element) {
+		return !(type == ListType.BLACKLIST && list.contains(element) || type == ListType.WHITELIST && !list.contains(element));
+	}
 }
