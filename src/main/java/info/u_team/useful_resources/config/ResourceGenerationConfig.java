@@ -40,17 +40,17 @@ public class ResourceGenerationConfig implements IResourceGenerationConfig {
 	}
 	
 	public static ResourceGenerationConfig create(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, int veinSize, ResourceGenerationType type) {
-		return new ResourceGenerationConfig(true, Stream.of(categories).collect(Collectors.toCollection(() -> new TypedArrayList<Category>(categoriesType))), Stream.of(biomes).collect(Collectors.toCollection(() -> new TypedArrayList<Biome>(biomesType))), veinSize, type);
+		return new ResourceGenerationConfig(true, new TypedList<>(categoriesType, Stream.of(categories).collect(Collectors.toList())), new TypedList<>(biomesType, Stream.of(biomes).collect(Collectors.toList())), veinSize, type);
 	}
 	
 	private final boolean enabled;
-	private final TypedArrayList<Category> categories;
-	private final TypedArrayList<Biome> biomes;
+	private final TypedList<Category> categories;
+	private final TypedList<Biome> biomes;
 	private final int veinSize;
 	@SerializedName("generation")
 	private final IResourceGenerationTypeConfig type;
 	
-	public ResourceGenerationConfig(boolean enabled, TypedArrayList<Category> categories, TypedArrayList<Biome> biomes, int veinSize, ResourceGenerationType type) {
+	public ResourceGenerationConfig(boolean enabled, TypedList<Category> categories, TypedList<Biome> biomes, int veinSize, ResourceGenerationType type) {
 		this.enabled = enabled;
 		this.categories = categories;
 		this.biomes = biomes;
@@ -64,12 +64,12 @@ public class ResourceGenerationConfig implements IResourceGenerationConfig {
 	}
 	
 	@Override
-	public TypedArrayList<Category> getBiomeCategories() {
+	public TypedList<Category> getBiomeCategories() {
 		return categories;
 	}
 	
 	@Override
-	public TypedArrayList<Biome> getBiomes() {
+	public TypedList<Biome> getBiomes() {
 		return biomes;
 	}
 	
@@ -88,5 +88,4 @@ public class ResourceGenerationConfig implements IResourceGenerationConfig {
 			throw new IllegalStateException("Generation config is not valid. Some values are null.");
 		}
 	}
-	
 }
