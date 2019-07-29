@@ -15,6 +15,7 @@ import info.u_team.useful_resources.api.resource.type.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.type.*;
 import info.u_team.useful_resources.util.*;
+import info.u_team.useful_resources.util.serializer.RaritySerializer;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.loading.FMLPaths;

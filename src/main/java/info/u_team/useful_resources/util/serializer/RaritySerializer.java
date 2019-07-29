@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.util;
+package info.u_team.useful_resources.util.serializer;
 
 import java.lang.reflect.Type;
 
@@ -15,7 +15,11 @@ public class RaritySerializer implements JsonSerializer<Rarity>, JsonDeserialize
 	
 	@Override
 	public Rarity deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-		return Enum.valueOf(Rarity.class, json.getAsString().toUpperCase());
+		Rarity rarity = Enum.valueOf(Rarity.class, json.getAsString().toUpperCase());
+		if (rarity == null) {
+			throw new JsonParseException("Rarity " + json.getAsString() + " could not be found.");
+		}
+		return rarity;
 	}
 	
 }
