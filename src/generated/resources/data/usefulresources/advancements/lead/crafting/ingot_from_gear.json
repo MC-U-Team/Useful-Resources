@@ -6,15 +6,12 @@
 		]
 	},
 	"criteria": {
-		"has_at_least_4_lead_ingot": {
+		"has_lead_gear": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"item": "usefulresources:lead_ingot",
-						"count": {
-							"min": 4
-						}
+						"tag": "forge:ingots/lead"
 					}
 				]
 			}
@@ -28,7 +25,7 @@
 	},
 	"requirements": [
 		[
-			"has_at_least_4_lead_ingot",
+			"has_lead_gear",
 			"has_the_recipe"
 		]
 	]

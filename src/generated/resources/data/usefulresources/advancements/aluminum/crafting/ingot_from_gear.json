@@ -6,15 +6,12 @@
 		]
 	},
 	"criteria": {
-		"has_at_least_4_aluminum_ingot": {
+		"has_aluminum_gear": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"item": "usefulresources:aluminum_ingot",
-						"count": {
-							"min": 4
-						}
+						"tag": "forge:ingots/aluminum"
 					}
 				]
 			}
@@ -28,7 +25,7 @@
 	},
 	"requirements": [
 		[
-			"has_at_least_4_aluminum_ingot",
+			"has_aluminum_gear",
 			"has_the_recipe"
 		]
 	]

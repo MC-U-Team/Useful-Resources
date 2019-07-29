@@ -62,19 +62,16 @@ public class ResourceRecipesProvider extends CommonProvider {
 		ShapedRecipeBuilder.shapedRecipe(items.getItem(GEAR)).key('#', items.getTag(INGOT)).patternLine(" # ").patternLine("# #").patternLine(" # ").addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/gear_from_ingot"));
 		ShapedRecipeBuilder.shapedRecipe(items.getItem(ROD)).key('#', items.getTag(INGOT)).patternLine("#").patternLine("#").addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/rod_from_ingot"));
 		ShapedRecipeBuilder.shapedRecipe(items.getItem(INGOT)).key('#', items.getTag(NUGGET)).patternLine("###").patternLine("###").patternLine("###").addCriterion("has_at_least_9_" + name + "_nugget", hasItem(IntBound.atLeast(9), items.getTag(NUGGET))).build(consumer, createLocation(resource, "crafting/ingot_from_nugget"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(NUGGET), 9).addIngredient(items.getTag(INGOT)).addCriterion("has_at_least_9_" + name + "_nugget", hasItem(IntBound.atLeast(9), items.getItem(NUGGET))).build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 9).addIngredient(blocks.getTag(BLOCK)).addCriterion("has_at_least_9_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getItem(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_block"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 4).addIngredient(items.getTag(GEAR)).addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(4), items.getItem(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_gear"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 2).addIngredient(items.getTag(ROD)).addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(2), items.getItem(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_rod"));
+		
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(NUGGET), 9).addIngredient(items.getTag(INGOT)).addCriterion("has_" + name + "_nugget", hasItem(items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 9).addIngredient(blocks.getTag(BLOCK)).addCriterion("has_" + name + "_block", hasItem(items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_block"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 4).addIngredient(items.getTag(GEAR)).addCriterion("has_" + name + "_gear", hasItem(items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_gear"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 2).addIngredient(items.getTag(ROD)).addCriterion("has_" + name + "_rod", hasItem(items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_rod"));
 	}
 	
 	@Override
 	protected Path resolvePath(Path outputFolder) {
 		return resolveData(outputFolder, MODID);
-	}
-	
-	private InventoryChangeTrigger.Instance hasItem(MinMaxBounds.IntBound amount, IItemProvider item) {
-		return hasItem(ItemPredicate.Builder.create().item(item).count(amount).build());
 	}
 	
 	private InventoryChangeTrigger.Instance hasItem(IntBound amount, Tag<Item> tag) {
