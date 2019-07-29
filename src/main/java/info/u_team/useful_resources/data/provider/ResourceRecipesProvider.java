@@ -1,16 +1,17 @@
 package info.u_team.useful_resources.data.provider;
 
 import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
+import static info.u_team.useful_resources.type.ResourceBlockTypes.*;
+import static info.u_team.useful_resources.type.ResourceItemTypes.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.function.Consumer;
 
 import info.u_team.u_team_core.data.CommonProvider;
-import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.resource.*;
-import info.u_team.useful_resources.type.*;
+import info.u_team.useful_resources.type.Resources;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
 import net.minecraft.data.*;
@@ -49,32 +50,22 @@ public class ResourceRecipesProvider extends CommonProvider {
 		final IResourceItems items = resource.getItems();
 		final IResourceBlocks blocks = resource.getBlocks();
 		
-		final Tag<Item> ingotTag = TagUtil.createItemTag("forge", "ingots/" + name);
-		final Tag<Item> nuggetTag = TagUtil.createItemTag("forge", "nuggets/" + name);
-		final Tag<Item> dustTag = TagUtil.createItemTag("forge", "dusts/" + name);
-		final Tag<Item> gearTag = TagUtil.createItemTag("forge", "gears/" + name);
-		final Tag<Item> rodTag = TagUtil.createItemTag("forge", "rods/" + name);
+		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(items.getTag(DUST)), items.getItem(INGOT), 0.5F, 100).addCriterion("has_" + name + "_dust", hasItem(items.getTag(DUST))).build(consumer, createLocation(resource, "blasting/ingot_from_dust"));
+		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(blocks.getTag(ORE)), items.getItem(INGOT), 0.7F, 100).addCriterion("has_" + name + "_ore", hasItem(blocks.getTag(ORE))).build(consumer, createLocation(resource, "blasting/ingot_from_ore"));
+		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(blocks.getTag(NETHER_ORE)), blocks.getBlock(ORE), 1F, 100).addCriterion("has_" + name + "_nether_ore", hasItem(blocks.getTag(NETHER_ORE))).build(consumer, createLocation(resource, "blasting/ore_from_nether_ores"));
 		
-		final Tag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + name);
-		final Tag<Item> netherOreTag = TagUtil.createItemTag("forge", "nether_ores/" + name);
-		final Tag<Item> blockTag = TagUtil.createItemTag("forge", "storage_blocks/" + name);
+		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(items.getTag(DUST)), items.getItem(INGOT), 0.5F, 200).addCriterion("has_" + name + "_dust", hasItem(items.getTag(DUST))).build(consumer, createLocation(resource, "smelting/ingot_from_dust"));
+		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(blocks.getTag(ORE)), items.getItem(INGOT), 0.7F, 200).addCriterion("has_" + name + "_ore", hasItem(blocks.getTag(ORE))).build(consumer, createLocation(resource, "smelting/ingot_from_ore"));
+		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(blocks.getTag(NETHER_ORE)), blocks.getBlock(ORE), 1F, 200).addCriterion("has_" + name + "_nether_ore", hasItem(blocks.getTag(NETHER_ORE))).build(consumer, createLocation(resource, "smelting/ore_from_nether_ores"));
 		
-		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(dustTag), items.getItem(ResourceItemTypes.INGOT), 0.5F, 100).addCriterion("has_" + name + "_dust", hasItem(dustTag)).build(consumer, createLocation(resource, "blasting/ingot_from_dust"));
-		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(oreTag), items.getItem(ResourceItemTypes.INGOT), 0.7F, 100).addCriterion("has_" + name + "_ore", hasItem(oreTag)).build(consumer, createLocation(resource, "blasting/ingot_from_ore"));
-		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(netherOreTag), blocks.getBlock(ResourceBlockTypes.ORE), 1F, 100).addCriterion("has_" + name + "_nether_ore", hasItem(netherOreTag)).build(consumer, createLocation(resource, "blasting/ore_from_nether_ores"));
-		
-		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(dustTag), items.getItem(ResourceItemTypes.INGOT), 0.5F, 200).addCriterion("has_" + name + "_dust", hasItem(dustTag)).build(consumer, createLocation(resource, "smelting/ingot_from_dust"));
-		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(oreTag), items.getItem(ResourceItemTypes.INGOT), 0.7F, 200).addCriterion("has_" + name + "_ore", hasItem(oreTag)).build(consumer, createLocation(resource, "smelting/ingot_from_ore"));
-		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(netherOreTag), blocks.getBlock(ResourceBlockTypes.ORE), 1F, 200).addCriterion("has_" + name + "_nether_ore", hasItem(netherOreTag)).build(consumer, createLocation(resource, "smelting/ore_from_nether_ores"));
-		
-		ShapedRecipeBuilder.shapedRecipe(blocks.getBlock(ResourceBlockTypes.BLOCK)).key('#', ingotTag).patternLine("###").patternLine("###").patternLine("###").addCriterion("has_at_least_9_" + name + "_ingot", hasItem(IntBound.atLeast(9), ingotTag)).build(consumer, createLocation(resource, "crafting/block_from_ingot"));
-		ShapedRecipeBuilder.shapedRecipe(items.getItem(ResourceItemTypes.GEAR)).key('#', ingotTag).patternLine(" # ").patternLine("# #").patternLine(" # ").addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(9), ingotTag)).build(consumer, createLocation(resource, "crafting/gear_from_ingot"));
-		ShapedRecipeBuilder.shapedRecipe(items.getItem(ResourceItemTypes.ROD)).key('#', ingotTag).patternLine("#").patternLine("#").addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(9), ingotTag)).build(consumer, createLocation(resource, "crafting/rod_from_ingot"));
-		ShapedRecipeBuilder.shapedRecipe(items.getItem(ResourceItemTypes.INGOT)).key('#', nuggetTag).patternLine("###").patternLine("###").patternLine("###").addCriterion("has_at_least_9_" + name + "_nugget", hasItem(IntBound.atLeast(9), nuggetTag)).build(consumer, createLocation(resource, "crafting/ingot_from_nugget"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(ResourceItemTypes.NUGGET), 9).addIngredient(ingotTag).addCriterion("has_at_least_9_" + name + "_nugget", hasItem(IntBound.atLeast(9), items.getItem(ResourceItemTypes.NUGGET))).build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(ResourceItemTypes.INGOT), 9).addIngredient(blockTag).addCriterion("has_at_least_9_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getItem(ResourceItemTypes.INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_block"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(ResourceItemTypes.INGOT), 4).addIngredient(gearTag).addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(4), items.getItem(ResourceItemTypes.INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_gear"));
-		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(ResourceItemTypes.INGOT), 2).addIngredient(rodTag).addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(2), items.getItem(ResourceItemTypes.INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_rod"));
+		ShapedRecipeBuilder.shapedRecipe(blocks.getBlock(BLOCK)).key('#', items.getTag(INGOT)).patternLine("###").patternLine("###").patternLine("###").addCriterion("has_at_least_9_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/block_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(GEAR)).key('#', items.getTag(INGOT)).patternLine(" # ").patternLine("# #").patternLine(" # ").addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/gear_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(ROD)).key('#', items.getTag(INGOT)).patternLine("#").patternLine("#").addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/rod_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(INGOT)).key('#', items.getTag(NUGGET)).patternLine("###").patternLine("###").patternLine("###").addCriterion("has_at_least_9_" + name + "_nugget", hasItem(IntBound.atLeast(9), items.getTag(NUGGET))).build(consumer, createLocation(resource, "crafting/ingot_from_nugget"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(NUGGET), 9).addIngredient(items.getTag(INGOT)).addCriterion("has_at_least_9_" + name + "_nugget", hasItem(IntBound.atLeast(9), items.getItem(NUGGET))).build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 9).addIngredient(blocks.getTag(BLOCK)).addCriterion("has_at_least_9_" + name + "_ingot", hasItem(IntBound.atLeast(9), items.getItem(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_block"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 4).addIngredient(items.getTag(GEAR)).addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(4), items.getItem(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_gear"));
+		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 2).addIngredient(items.getTag(ROD)).addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(2), items.getItem(INGOT))).build(consumer, createLocation(resource, "crafting/ingot_from_rod"));
 	}
 	
 	@Override
