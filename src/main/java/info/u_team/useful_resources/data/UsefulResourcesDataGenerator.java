@@ -14,19 +14,19 @@ public class UsefulResourcesDataGenerator {
 	@SubscribeEvent
 	public static void data(GatherDataEvent event) {
 		final DataGenerator generator = event.getGenerator();
-		if (event.includeServer()) {
+		if (event.includeClient()) {
 			generator.addProvider(new ResourceBlockStatesProvider(generator)); // Generate states
 			generator.addProvider(new ResourceBlockModelsProvider(generator)); // Generate block models
 			generator.addProvider(new ResourceItemModelsProvider(generator)); // Generate item models
 			
+			generator.addProvider(new ResourceEnglishLanguageProvider(generator)); // Generate english language file
+		}
+		if (event.includeServer()) {
 			generator.addProvider(new ResourceBlockTagsProvider(generator)); // Generate block tags
 			generator.addProvider(new ResourceItemTagsProvider(generator)); // Generate item tags
 			
 			generator.addProvider(new ResourceLootTableProvider(generator)); // Generate loot tables
 			generator.addProvider(new ResourceRecipesProvider(generator)); // Generate recipes
-			
-			generator.addProvider(new ResourceEnglishLanguageProvider(generator)); // Generate english language file
 		}
 	}
-	
 }
