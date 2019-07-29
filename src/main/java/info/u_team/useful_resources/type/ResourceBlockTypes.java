@@ -8,6 +8,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.google.common.collect.Maps;
 
 import info.u_team.u_team_core.util.TagUtil;
+import info.u_team.useful_resources.api.TriFunction;
 import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.api.resource.config.IResourceBlockConfig;
 import info.u_team.useful_resources.api.resource.type.IResourceBlockType;
@@ -35,20 +36,31 @@ public enum ResourceBlockTypes implements IResourceBlockType {
 	private final SoundType soundType;
 	private final ToolType harvestTool;
 	
+	private final TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block> blockFunction;
+	
 	private final Tag<Block> unifyBlockTag;
 	private final Tag<Item> unifyTag;
 	
 	private ResourceBlockTypes(String name, Material material, SoundType soundType, ToolType harvestTool) {
-		this(name, name + "s", material, soundType, harvestTool);
+		this(name, material, soundType, harvestTool, ResourceBlock::new);
+	}
+	
+	private ResourceBlockTypes(String name, Material material, SoundType soundType, ToolType harvestTool, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block> blockFunction) {
+		this(name, name + "s", material, soundType, harvestTool, blockFunction);
 	}
 	
 	private ResourceBlockTypes(String name, String tagName, Material material, SoundType soundType, ToolType harvestTool) {
+		this(name, tagName, material, soundType, harvestTool, ResourceBlock::new);
+	}
+	
+	private ResourceBlockTypes(String name, String tagName, Material material, SoundType soundType, ToolType harvestTool, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block> blockFunction) {
 		tagMap = Maps.newHashMap();
 		this.name = name;
 		this.tagName = tagName;
 		this.material = material;
 		this.soundType = soundType;
 		this.harvestTool = harvestTool;
+		this.blockFunction = blockFunction;
 		unifyBlockTag = TagUtil.createBlockTag("forge", tagName);
 		unifyTag = TagUtil.fromBlockTag(unifyBlockTag);
 	}
@@ -90,7 +102,7 @@ public enum ResourceBlockTypes implements IResourceBlockType {
 	
 	@Override
 	public Block createBlock(IResource resource, IResourceBlockConfig config) {
-		return new ResourceBlock(resource, this, config);
+		return blockFunction.apply(resource, this, config);
 	}
 	
 	@Override

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Maps;
 
 import info.u_team.u_team_core.util.TagUtil;
+import info.u_team.useful_resources.api.TriFunction;
 import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.api.resource.config.IResourceItemConfig;
 import info.u_team.useful_resources.api.resource.type.IResourceItemType;
@@ -31,16 +32,27 @@ public enum ResourceItemTypes implements IStringSerializable, IResourceItemType 
 	private final String name;
 	private final String tagName;
 	
+	private final TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item> itemFunction;
+	
 	private final Tag<Item> unifyTag;
 	
 	private ResourceItemTypes(String name) {
-		this(name, name + "s");
+		this(name, ResourceItem::new);
+	}
+	
+	private ResourceItemTypes(String name, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item> itemFunction) {
+		this(name, name + "s", itemFunction);
 	}
 	
 	private ResourceItemTypes(String name, String tagName) {
+		this(name, tagName, ResourceItem::new);
+	}
+	
+	private ResourceItemTypes(String name, String tagName, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item> itemFunction) {
 		tagMap = Maps.newHashMap();
 		this.name = name;
 		this.tagName = tagName;
+		this.itemFunction = itemFunction;
 		unifyTag = TagUtil.createItemTag("forge", tagName);
 	}
 	
@@ -66,6 +78,6 @@ public enum ResourceItemTypes implements IStringSerializable, IResourceItemType 
 	
 	@Override
 	public Item createItem(IResource resource, IResourceItemConfig config) {
-		return new ResourceItem(resource, this, config);
+		return itemFunction.apply(resource, this, config);
 	}
 }
