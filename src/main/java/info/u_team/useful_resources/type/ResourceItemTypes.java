@@ -10,7 +10,7 @@ import info.u_team.useful_resources.api.TriFunction;
 import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.api.resource.config.IResourceItemConfig;
 import info.u_team.useful_resources.api.resource.type.IResourceItemType;
-import info.u_team.useful_resources.item.ResourceItem;
+import info.u_team.useful_resources.item.*;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.IStringSerializable;
@@ -23,7 +23,18 @@ public enum ResourceItemTypes implements IStringSerializable, IResourceItemType 
 	PLATE("plate"),
 	DENSE_PLATE("dense_plate"),
 	GEAR("gear"),
-	ROD("rod");
+	ROD("rod"),
+	
+	AXE("axe", ResourceAxeItem::new),
+	HOE("hoe", ResourceHoeItem::new),
+	PICKAXE("pickaxe", ResourcePickaxeItem::new),
+	SPADE("shovel", ResourceSpadeItem::new),
+	SWORD("sword", ResourceSwordItem::new),
+	
+	HELMET("helmet", ResourceHelmetItem::new),
+	CHESTPLATE("chestplate", ResourceChestplateItem::new),
+	LEGGINGS("leggings", ResourceLeggingsItem::new),
+	BOOTS("boots", ResourceBootsItem::new);
 	
 	public static final List<ResourceItemTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	
