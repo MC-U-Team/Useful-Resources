@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:bootss/copper",
+		"#forge:bootss/tin",
+		"#forge:bootss/aluminum",
+		"#forge:bootss/silver",
+		"#forge:bootss/lead"
+	]
+}

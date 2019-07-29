@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:helmets/copper",
+		"#forge:helmets/tin",
+		"#forge:helmets/aluminum",
+		"#forge:helmets/silver",
+		"#forge:helmets/lead"
+	]
+}
