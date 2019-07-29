@@ -52,7 +52,7 @@ public class ResourceGenerationConfig implements IResourceGenerationConfig {
 	@SerializedName("vein_size")
 	private final int veinSize;
 	@SerializedName("generation")
-	private final IResourceGenerationTypeConfig type;
+	private final ResourceGenerationType type;
 	
 	public ResourceGenerationConfig(boolean enabled, TypedList<Category> categories, TypedList<Biome> biomes, FillerBlockType fillerBlock, int veinSize, ResourceGenerationType type) {
 		this.enabled = enabled;
