@@ -8,16 +8,18 @@ import com.google.common.collect.Maps;
 import com.google.gson.*;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.api.TriFunction;
+import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.api.resource.config.*;
 import info.u_team.useful_resources.api.resource.type.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.type.*;
-import info.u_team.useful_resources.util.*;
-import info.u_team.useful_resources.util.serializer.RaritySerializer;
+import info.u_team.useful_resources.util.ConfigUtil;
+import info.u_team.useful_resources.util.serializer.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.Category;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class Resource implements IResource {
@@ -50,7 +52,7 @@ public class Resource implements IResource {
 	public static class Builder {
 		
 		private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve(UsefulResourcesMod.MODID);
-		private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Rarity.class, new RaritySerializer()).registerTypeAdapter(ResourceGenerationConfig.class, new ResourceGenerationConfig.Serializer()).create();
+		private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Rarity.class, new RaritySerializer()).registerTypeAdapter(ListType.class, new ListTypeSerializer()).registerTypeAdapter(ResourceGenerationType.class, new ResourceGenerationType.Serializer()).registerTypeAdapter(Biome.class, new BiomeSerializer()).registerTypeAdapter(Category.class, new BiomeCategorySerializer()).create();
 		private static final TriFunction<Exception, String, String, RuntimeException> CONFIG_EXCEPTION = (ex, name, typeName) -> new RuntimeException("Could not access config file for resource " + name + " with type " + typeName, ex);
 		
 		private final String name;

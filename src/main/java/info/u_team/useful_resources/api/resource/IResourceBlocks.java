@@ -1,7 +1,7 @@
 package info.u_team.useful_resources.api.resource;
 
 import info.u_team.u_team_core.api.registry.IUArrayRegistryType;
-import info.u_team.useful_resources.api.resource.config.IResourceGenerationConfig;
+import info.u_team.useful_resources.api.resource.config.generation.IResourceGenerationConfig;
 import info.u_team.useful_resources.api.resource.type.IResourceBlockType;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
