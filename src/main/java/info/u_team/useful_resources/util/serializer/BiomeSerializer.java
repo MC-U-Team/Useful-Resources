@@ -6,7 +6,7 @@ import com.google.gson.*;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.registries.*;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BiomeSerializer implements JsonSerializer<Biome>, JsonDeserializer<Biome> {
 	

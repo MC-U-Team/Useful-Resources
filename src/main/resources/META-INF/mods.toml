@@ -30,6 +30,6 @@ authors="HyCraftHD"
 	[[dependencies.usefulresources]]
 	    modId="uteamcore"
 	    mandatory=true
-	    versionRange="[2.6.1.125,)"
+	    versionRange="[2.7.0.128,)"
 	    ordering="NONE"
 	    side="BOTH"

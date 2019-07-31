@@ -198,7 +198,7 @@ public class Resource implements IResource {
 				itemTypes.remove(ResourceItemTypes.AXE);
 				itemTypes.remove(ResourceItemTypes.HOE);
 				itemTypes.remove(ResourceItemTypes.PICKAXE);
-				itemTypes.remove(ResourceItemTypes.SPADE);
+				itemTypes.remove(ResourceItemTypes.SHOVEL);
 				itemTypes.remove(ResourceItemTypes.SWORD);
 			}
 		}

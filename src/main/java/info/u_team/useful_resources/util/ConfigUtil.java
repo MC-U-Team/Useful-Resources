@@ -2,7 +2,7 @@ package info.u_team.useful_resources.util;
 
 import java.io.*;
 import java.nio.file.*;
-import java.util.function.*;
+import java.util.function.Function;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonWriter;
@@ -24,5 +24,4 @@ public class ConfigUtil {
 			}
 		}
 	}
-	
 }

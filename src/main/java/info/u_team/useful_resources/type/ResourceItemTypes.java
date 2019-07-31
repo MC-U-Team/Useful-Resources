@@ -28,7 +28,7 @@ public enum ResourceItemTypes implements IStringSerializable, IResourceItemType 
 	AXE("axe", ResourceAxeItem::new),
 	HOE("hoe", ResourceHoeItem::new),
 	PICKAXE("pickaxe", ResourcePickaxeItem::new),
-	SPADE("shovel", ResourceSpadeItem::new),
+	SHOVEL("shovel", ResourceShovelItem::new),
 	SWORD("sword", ResourceSwordItem::new),
 	
 	HELMET("helmet", ResourceHelmetItem::new),

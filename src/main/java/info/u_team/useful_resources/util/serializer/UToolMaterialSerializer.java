@@ -12,7 +12,7 @@ import net.minecraft.item.crafting.Ingredient;
 
 public class UToolMaterialSerializer implements JsonSerializer<UToolMaterial>, JsonDeserializer<UToolMaterial> {
 	
-	private static final List<Tools> TOOLS = Arrays.asList(Tools.AXE, Tools.HOE, Tools.PICKAXE, Tools.SPADE, Tools.SWORD);
+	private static final List<Tools> TOOLS = Arrays.asList(Tools.AXE, Tools.HOE, Tools.PICKAXE, Tools.SHOVEL, Tools.SWORD);
 	
 	@Override
 	public JsonElement serialize(UToolMaterial material, Type typeOfSrc, JsonSerializationContext context) {
@@ -38,11 +38,11 @@ public class UToolMaterialSerializer implements JsonSerializer<UToolMaterial>, J
 	public UToolMaterial deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 		final JsonObject object = json.getAsJsonObject();
 		
-		final int[] additionalDamage = new int[TOOLS.size()];
-		TOOLS.stream().collect(Collectors.toMap(tool -> tool, tool -> object.get("additional_damage").getAsJsonObject().get(tool.name().toLowerCase()).getAsInt())).forEach((tool, value) -> additionalDamage[tool.getIndex()] = value);
+		final float[] additionalDamage = new float[TOOLS.size()];
+		TOOLS.stream().collect(Collectors.toMap(tool -> tool, tool -> object.get("additional_damage").getAsJsonObject().get(tool.name().toLowerCase()).getAsFloat())).forEach((tool, value) -> additionalDamage[tool.getIndex()] = value);
 		
 		final float[] attackSpeed = new float[TOOLS.size()];
-		TOOLS.stream().collect(Collectors.toMap(tool -> tool, tool -> object.get("attack_speed").getAsJsonObject().get(tool.name().toLowerCase()).getAsInt())).forEach((tool, value) -> attackSpeed[tool.getIndex()] = value);
+		TOOLS.stream().collect(Collectors.toMap(tool -> tool, tool -> object.get("attack_speed").getAsJsonObject().get(tool.name().toLowerCase()).getAsFloat())).forEach((tool, value) -> attackSpeed[tool.getIndex()] = value);
 		
 		final int harvestLevel = object.get("harvest_level").getAsInt();
 		final int durability = object.get("durability").getAsInt();
