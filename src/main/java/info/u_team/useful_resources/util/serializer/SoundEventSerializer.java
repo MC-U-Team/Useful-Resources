@@ -11,7 +11,6 @@ public class SoundEventSerializer implements JsonSerializer<SoundEvent>, JsonDes
 	
 	@Override
 	public JsonElement serialize(SoundEvent soundEvent, Type typeOfSrc, JsonSerializationContext context) {
-		System.out.println("NEW soundevent ser");
 		return new JsonPrimitive(soundEvent.getRegistryName().toString());
 	}
 	

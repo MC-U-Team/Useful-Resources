@@ -8,6 +8,7 @@ import java.util.function.BiFunction;
 import com.google.common.collect.Maps;
 import com.google.gson.*;
 
+import info.u_team.u_team_core.api.IToolMaterial.Tools;
 import info.u_team.u_team_core.item.armor.UArmorMaterial;
 import info.u_team.u_team_core.item.tool.UToolMaterial;
 import info.u_team.useful_resources.UsefulResourcesMod;
@@ -20,6 +21,7 @@ import info.u_team.useful_resources.type.*;
 import info.u_team.useful_resources.util.ConfigUtil;
 import info.u_team.useful_resources.util.serializer.*;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
@@ -261,7 +263,6 @@ public class Resource implements IResource {
 						return defaultConfig;
 					}, reader -> {
 						ResourceGenerationConfig config = GSON.fromJson(reader, ResourceGenerationConfig.class);
-						System.out.println(config.getBiomes().getList());
 						config.validate();
 						return config;
 					}));
@@ -280,6 +281,21 @@ public class Resource implements IResource {
 					return defaultArmorMaterial;
 				}, reader -> {
 					UArmorMaterial material = GSON.fromJson(reader, UArmorMaterial.class);
+					System.out.println(material.getDurability(EquipmentSlotType.HEAD));
+					System.out.println(material.getDurability(EquipmentSlotType.CHEST));
+					System.out.println(material.getDurability(EquipmentSlotType.LEGS));
+					System.out.println(material.getDurability(EquipmentSlotType.FEET));
+					
+					System.out.println(material.getDamageReductionAmount(EquipmentSlotType.HEAD));
+					System.out.println(material.getDamageReductionAmount(EquipmentSlotType.CHEST));
+					System.out.println(material.getDamageReductionAmount(EquipmentSlotType.LEGS));
+					System.out.println(material.getDamageReductionAmount(EquipmentSlotType.FEET));
+					
+					System.out.println(material.getEnchantability());
+					
+					System.out.println(material.getSoundEvent());
+					
+					System.out.println(material.getToughness());
 					return material;
 				});
 			} catch (IOException ex) {
@@ -297,6 +313,29 @@ public class Resource implements IResource {
 					return defaultToolMaterial;
 				}, reader -> {
 					UToolMaterial material = GSON.fromJson(reader, UToolMaterial.class);
+					
+					System.out.println(material.getAdditionalDamage(Tools.AXE));
+					System.out.println(material.getAdditionalDamage(Tools.HOE));
+					System.out.println(material.getAdditionalDamage(Tools.PICKAXE));
+					System.out.println(material.getAdditionalDamage(Tools.SPADE));
+					System.out.println(material.getAdditionalDamage(Tools.SPADE));
+					
+					System.out.println(material.getAttackSpeed(Tools.AXE));
+					System.out.println(material.getAttackSpeed(Tools.HOE));
+					System.out.println(material.getAttackSpeed(Tools.PICKAXE));
+					System.out.println(material.getAttackSpeed(Tools.SPADE));
+					System.out.println(material.getAttackSpeed(Tools.SPADE));
+					
+					System.out.println(material.getHarvestLevel());
+					
+					System.out.println(material.getMaxUses());
+					
+					System.out.println(material.getEfficiency());
+					
+					System.out.println(material.getAttackDamage());
+					
+					System.out.println(material.getEnchantability());
+					
 					return material;
 				});
 			} catch (IOException ex) {

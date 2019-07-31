@@ -6,13 +6,12 @@ import com.google.gson.*;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.*;
 
 public class BiomeSerializer implements JsonSerializer<Biome>, JsonDeserializer<Biome> {
 	
 	@Override
 	public JsonElement serialize(Biome biome, Type typeOfSrc, JsonSerializationContext context) {
-		System.out.println("NEW biome ser");
 		return new JsonPrimitive(biome.getRegistryName().toString());
 	}
 	
