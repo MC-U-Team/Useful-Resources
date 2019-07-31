@@ -12,6 +12,7 @@ public class BiomeSerializer implements JsonSerializer<Biome>, JsonDeserializer<
 	
 	@Override
 	public JsonElement serialize(Biome biome, Type typeOfSrc, JsonSerializationContext context) {
+		System.out.println("NEW biome ser");
 		return new JsonPrimitive(biome.getRegistryName().toString());
 	}
 	

@@ -3,10 +3,13 @@ package info.u_team.useful_resources.resource;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.function.BiFunction;
 
 import com.google.common.collect.Maps;
 import com.google.gson.*;
 
+import info.u_team.u_team_core.item.armor.UArmorMaterial;
+import info.u_team.u_team_core.item.tool.UToolMaterial;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.resource.*;
@@ -18,6 +21,7 @@ import info.u_team.useful_resources.util.ConfigUtil;
 import info.u_team.useful_resources.util.serializer.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
@@ -29,10 +33,10 @@ public class Resource implements IResource {
 	private final IResourceBlocks blocks;
 	private final IResourceItems items;
 	
-	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items, Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig) {
+	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items, Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig, UArmorMaterial armorMaterial, UToolMaterial toolMaterial) {
 		this.name = name;
 		this.blocks = new ResourceBlocks(this, blocks, generationConfig);
-		this.items = new ResourceItems(this, items);
+		this.items = new ResourceItems(this, items, armorMaterial, toolMaterial);
 	}
 	
 	@Override
@@ -53,8 +57,10 @@ public class Resource implements IResource {
 	public static class Builder {
 		
 		private static final Path CONFIG_PATH = FMLPaths.CONFIGDIR.get().resolve(UsefulResourcesMod.MODID);
-		private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Rarity.class, new RaritySerializer()).registerTypeAdapter(ListType.class, new ListTypeSerializer()).registerTypeAdapter(ResourceGenerationType.class, new ResourceGenerationType.Serializer()).registerTypeAdapter(Biome.class, new BiomeSerializer()).registerTypeAdapter(Category.class, new BiomeCategorySerializer()).registerTypeAdapter(FillerBlockType.class, new FillerBlockTypeSerializer()).create();
-		private static final TriFunction<Exception, String, String, RuntimeException> CONFIG_EXCEPTION = (ex, name, typeName) -> new RuntimeException("Could not access config file for resource " + name + " with type " + typeName, ex);
+		private static final Gson GSON = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Rarity.class, new RaritySerializer()).registerTypeAdapter(ListType.class, new ListTypeSerializer()).registerTypeHierarchyAdapter(ResourceGenerationType.class, new ResourceGenerationType.Serializer()).registerTypeHierarchyAdapter(Biome.class, new BiomeSerializer()).registerTypeAdapter(Category.class, new BiomeCategorySerializer()).registerTypeAdapter(FillerBlockType.class, new FillerBlockTypeSerializer()).registerTypeHierarchyAdapter(SoundEvent.class, new SoundEventSerializer()).registerTypeHierarchyAdapter(UArmorMaterial.class, new UArmorMaterialSerializer()).registerTypeHierarchyAdapter(UToolMaterial.class, new UToolMaterialSerializer()).create();
+		
+		private static final TriFunction<Exception, String, String, RuntimeException> CONFIG_EXCEPTION_WITH_TYPE = (ex, name, typeName) -> new RuntimeException("Could not access config file for resource " + name + " with type " + typeName, ex);
+		private static final BiFunction<Exception, String, RuntimeException> CONFIG_EXCEPTION = (ex, name) -> new RuntimeException("Could not access config file for resource " + name, ex);
 		
 		private final String name;
 		
@@ -68,6 +74,12 @@ public class Resource implements IResource {
 		private final Map<ResourceItemTypes, ResourceItemConfig> defaultItemSettings;
 		
 		private final Map<ResourceBlockTypes, ResourceGenerationConfig> defaultGenerationSettings;
+		
+		private boolean armor;
+		private UArmorMaterial defaultArmorMaterial;
+		
+		private boolean tools;
+		private UToolMaterial defaultToolMaterial;
 		
 		private final Map<ResourceBlockTypes, TriFunction<IResource, IResourceBlockType, IResourceBlockConfig, Block>> specialBlocks;
 		private final Map<ResourceItemTypes, TriFunction<IResource, IResourceItemType, IResourceItemConfig, Item>> specialItems;
@@ -120,6 +132,18 @@ public class Resource implements IResource {
 			return this;
 		}
 		
+		public Builder setArmor(UArmorMaterial material) {
+			armor = true;
+			defaultArmorMaterial = material;
+			return this;
+		}
+		
+		public Builder setTools(UToolMaterial material) {
+			tools = true;
+			defaultToolMaterial = material;
+			return this;
+		}
+		
 		public Resource build() {
 			final List<ResourceBlockTypes> blockTypes = new ArrayList<>(ResourceBlockTypes.VALUES);
 			final List<ResourceItemTypes> itemTypes = new ArrayList<>(ResourceItemTypes.VALUES);
@@ -134,13 +158,16 @@ public class Resource implements IResource {
 			final Map<ResourceItemTypes, ResourceItemConfig> itemSettings = Maps.newEnumMap(ResourceItemTypes.class);
 			final Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig = Maps.newEnumMap(ResourceBlockTypes.class);
 			
+			final UArmorMaterial armorMaterial = armor ? loadArmorConfig() : null;
+			final UToolMaterial toolMaterial = tools ? loadToolsConfig() : null;
+			
 			loadConfig(blockSettings, itemSettings);
 			loadGenerationConfig(generationConfig);
 			
 			final Map<ResourceBlockTypes, Block> blocks = Maps.newEnumMap(ResourceBlockTypes.class);
 			final Map<ResourceItemTypes, Item> items = Maps.newEnumMap(ResourceItemTypes.class);
 			
-			final Resource resource = new Resource(name, blocks, items, generationConfig);
+			final Resource resource = new Resource(name, blocks, items, generationConfig, armorMaterial, toolMaterial);
 			
 			specialBlocks.forEach((type, function) -> blocks.put(type, function.apply(resource, type, blockSettings.get(type))));
 			blockTypes.forEach(type -> blocks.putIfAbsent(type, type.createBlock(resource, blockSettings.get(type))));
@@ -160,6 +187,19 @@ public class Resource implements IResource {
 			if (!ores) {
 				blockTypes.remove(ResourceBlockTypes.ORE);
 				blockTypes.remove(ResourceBlockTypes.NETHER_ORE);
+			}
+			if (!armor) {
+				itemTypes.remove(ResourceItemTypes.HELMET);
+				itemTypes.remove(ResourceItemTypes.CHESTPLATE);
+				itemTypes.remove(ResourceItemTypes.LEGGINGS);
+				itemTypes.remove(ResourceItemTypes.BOOTS);
+			}
+			if (!tools) {
+				itemTypes.remove(ResourceItemTypes.AXE);
+				itemTypes.remove(ResourceItemTypes.HOE);
+				itemTypes.remove(ResourceItemTypes.PICKAXE);
+				itemTypes.remove(ResourceItemTypes.SPADE);
+				itemTypes.remove(ResourceItemTypes.SWORD);
 			}
 		}
 		
@@ -183,30 +223,30 @@ public class Resource implements IResource {
 			
 			defaultBlockSettings.forEach((type, defaultConfig) -> {
 				try {
-					ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
-						GSON.toJson(defaultConfig, defaultConfig.getClass(), writer);
-						blockSettings.put(type, defaultConfig);
+					blockSettings.put(type, ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
+						GSON.toJson(defaultConfig, ResourceBlockConfig.class, writer);
+						return defaultConfig;
 					}, reader -> {
 						ResourceBlockConfig config = GSON.fromJson(reader, ResourceBlockConfig.class);
 						config.validate();
-						blockSettings.put(type, config);
-					});
+						return config;
+					}));
 				} catch (IOException ex) {
-					CONFIG_EXCEPTION.apply(ex, name, type.getName());
+					CONFIG_EXCEPTION_WITH_TYPE.apply(ex, name, type.getName());
 				}
 			});
 			defaultItemSettings.forEach((type, defaultConfig) -> {
 				try {
-					ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
-						GSON.toJson(defaultConfig, defaultConfig.getClass(), writer);
-						itemSettings.put(type, defaultConfig);
+					itemSettings.put(type, ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
+						GSON.toJson(defaultConfig, ResourceItemConfig.class, writer);
+						return defaultConfig;
 					}, reader -> {
 						ResourceItemConfig config = GSON.fromJson(reader, ResourceItemConfig.class);
 						config.validate();
-						itemSettings.put(type, config);
-					});
+						return config;
+					}));
 				} catch (IOException ex) {
-					CONFIG_EXCEPTION.apply(ex, name, type.getName());
+					CONFIG_EXCEPTION_WITH_TYPE.apply(ex, name, type.getName());
 				}
 			});
 		}
@@ -216,18 +256,53 @@ public class Resource implements IResource {
 			
 			defaultGenerationSettings.forEach((type, defaultConfig) -> {
 				try {
-					ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
-						GSON.toJson(defaultConfig, defaultConfig.getClass(), writer);
-						generationSettings.put(type, defaultConfig);
+					generationSettings.put(type, ConfigUtil.loadConfig(resourcePath, type.getName(), GSON, writer -> {
+						GSON.toJson(defaultConfig, ResourceGenerationConfig.class, writer);
+						return defaultConfig;
 					}, reader -> {
 						ResourceGenerationConfig config = GSON.fromJson(reader, ResourceGenerationConfig.class);
+						System.out.println(config.getBiomes().getList());
 						config.validate();
-						generationSettings.put(type, config);
-					});
+						return config;
+					}));
 				} catch (IOException ex) {
-					CONFIG_EXCEPTION.apply(ex, name, type.getName());
+					CONFIG_EXCEPTION_WITH_TYPE.apply(ex, name, type.getName());
 				}
 			});
+		}
+		
+		private UArmorMaterial loadArmorConfig() {
+			final Path resourcePath = CONFIG_PATH.resolve("material").resolve(name);
+			
+			try {
+				return ConfigUtil.loadConfig(resourcePath, "armor", GSON, writer -> {
+					GSON.toJson(defaultArmorMaterial, UArmorMaterial.class, writer);
+					return defaultArmorMaterial;
+				}, reader -> {
+					UArmorMaterial material = GSON.fromJson(reader, UArmorMaterial.class);
+					return material;
+				});
+			} catch (IOException ex) {
+				CONFIG_EXCEPTION.apply(ex, name);
+				return null;
+			}
+		}
+		
+		private UToolMaterial loadToolsConfig() {
+			final Path resourcePath = CONFIG_PATH.resolve("material").resolve(name);
+			
+			try {
+				return ConfigUtil.loadConfig(resourcePath, "tools", GSON, writer -> {
+					GSON.toJson(defaultToolMaterial, UToolMaterial.class, writer);
+					return defaultToolMaterial;
+				}, reader -> {
+					UToolMaterial material = GSON.fromJson(reader, UToolMaterial.class);
+					return material;
+				});
+			} catch (IOException ex) {
+				CONFIG_EXCEPTION.apply(ex, name);
+				return null;
+			}
 		}
 	}
 }
