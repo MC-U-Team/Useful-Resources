@@ -10,6 +10,7 @@ import com.google.gson.*;
 
 import info.u_team.u_team_core.item.armor.UArmorMaterial;
 import info.u_team.u_team_core.item.tool.UToolMaterial;
+import info.u_team.u_team_core.util.ConfigUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.*;
 import info.u_team.useful_resources.api.resource.*;
@@ -17,7 +18,6 @@ import info.u_team.useful_resources.api.resource.config.*;
 import info.u_team.useful_resources.api.resource.type.*;
 import info.u_team.useful_resources.config.*;
 import info.u_team.useful_resources.type.*;
-import info.u_team.useful_resources.util.ConfigUtil;
 import info.u_team.useful_resources.util.serializer.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
