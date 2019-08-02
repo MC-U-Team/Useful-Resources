@@ -4,6 +4,7 @@ import java.util.Map;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.config.IHorseArmorMaterial;
 import info.u_team.useful_resources.api.resource.type.IResourceItemType;
 import info.u_team.useful_resources.type.ResourceItemTypes;
 import net.minecraft.item.*;
@@ -15,12 +16,14 @@ public class ResourceItems implements IResourceItems {
 	private final Map<ResourceItemTypes, Item> itemMap;
 	
 	private final IArmorMaterial armorMaterial;
+	private final IHorseArmorMaterial horseArmorMaterial;
 	private final IToolMaterial toolMaterial;
 	
-	public ResourceItems(IResource resource, Map<ResourceItemTypes, Item> itemMap, IArmorMaterial armorMaterial, IToolMaterial toolMaterial) {
+	public ResourceItems(IResource resource, Map<ResourceItemTypes, Item> itemMap, IArmorMaterial armorMaterial, IHorseArmorMaterial horseArmorMaterial, IToolMaterial toolMaterial) {
 		this.resource = resource;
 		this.itemMap = itemMap;
 		this.armorMaterial = armorMaterial;
+		this.horseArmorMaterial = horseArmorMaterial;
 		this.toolMaterial = toolMaterial;
 	}
 	
@@ -47,6 +50,16 @@ public class ResourceItems implements IResourceItems {
 	@Override
 	public boolean hasArmorMaterial() {
 		return armorMaterial != null;
+	}
+	
+	@Override
+	public IHorseArmorMaterial getHorseArmorMaterial() {
+		return horseArmorMaterial;
+	}
+	
+	@Override
+	public boolean hasHorseArmorMaterial() {
+		return horseArmorMaterial != null;
 	}
 	
 	@Override

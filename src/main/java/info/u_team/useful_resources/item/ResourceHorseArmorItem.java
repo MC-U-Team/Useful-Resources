@@ -14,7 +14,7 @@ public class ResourceHorseArmorItem extends HorseArmorItem implements IURegistry
 	protected final String name;
 	
 	public ResourceHorseArmorItem(IResource resource, IResourceItemType type, IResourceItemConfig config) {
-		super(5, new ResourceLocation(UsefulResourcesMod.MODID, "textures/entity/horse/armor/" + resource.getName() + ".png"), new Properties().group(UsefulResourcesItemGroups.GROUP).rarity(config.getRarity()));
+		super(resource.getItems().getHorseArmorMaterial().getArmorPoints(), new ResourceLocation(UsefulResourcesMod.MODID, "textures/entity/horse/armor/" + resource.getName() + ".png"), new Properties().group(UsefulResourcesItemGroups.GROUP).rarity(config.getRarity()).maxStackSize(1));
 		name = resource.getName() + "_" + type.getName();
 	}
 	
@@ -22,5 +22,4 @@ public class ResourceHorseArmorItem extends HorseArmorItem implements IURegistry
 	public String getEntryName() {
 		return name;
 	}
-	
 }

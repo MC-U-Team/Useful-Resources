@@ -17,6 +17,7 @@ import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.api.resource.config.*;
 import info.u_team.useful_resources.api.resource.type.*;
 import info.u_team.useful_resources.config.*;
+import info.u_team.useful_resources.item.HorseArmorMaterial;
 import info.u_team.useful_resources.type.*;
 import info.u_team.useful_resources.util.serializer.*;
 import net.minecraft.block.Block;
@@ -33,10 +34,10 @@ public class Resource implements IResource {
 	private final IResourceBlocks blocks;
 	private final IResourceItems items;
 	
-	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items, Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig, UArmorMaterial armorMaterial, UToolMaterial toolMaterial) {
+	public Resource(String name, Map<ResourceBlockTypes, Block> blocks, Map<ResourceItemTypes, Item> items, Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig, UArmorMaterial armorMaterial, HorseArmorMaterial horseArmorMaterial, UToolMaterial toolMaterial) {
 		this.name = name;
 		this.blocks = new ResourceBlocks(this, blocks, generationConfig);
-		this.items = new ResourceItems(this, items, armorMaterial, toolMaterial);
+		this.items = new ResourceItems(this, items, armorMaterial, horseArmorMaterial, toolMaterial);
 	}
 	
 	@Override
@@ -68,6 +69,7 @@ public class Resource implements IResource {
 		private final int commonHarvestLevel;
 		
 		private Rarity commonRarity;
+		
 		private boolean ores;
 		
 		private final Map<ResourceBlockTypes, ResourceBlockConfig> defaultBlockSettings;
@@ -77,6 +79,9 @@ public class Resource implements IResource {
 		
 		private boolean armor;
 		private UArmorMaterial defaultArmorMaterial;
+		
+		private boolean horseArmor;
+		private HorseArmorMaterial defaultHorseArmorMaterial;
 		
 		private boolean tools;
 		private UToolMaterial defaultToolMaterial;
@@ -138,6 +143,12 @@ public class Resource implements IResource {
 			return this;
 		}
 		
+		public Builder setHorseArmor(HorseArmorMaterial material) {
+			horseArmor = true;
+			defaultHorseArmorMaterial = material;
+			return this;
+		}
+		
 		public Builder setTools(UToolMaterial material) {
 			tools = true;
 			defaultToolMaterial = material;
@@ -159,6 +170,7 @@ public class Resource implements IResource {
 			final Map<ResourceBlockTypes, ResourceGenerationConfig> generationConfig = Maps.newEnumMap(ResourceBlockTypes.class);
 			
 			final UArmorMaterial armorMaterial = armor ? loadArmorConfig() : null;
+			final HorseArmorMaterial horseArmorMaterial = horseArmor ? loadHorseArmorConfig() : null;
 			final UToolMaterial toolMaterial = tools ? loadToolsConfig() : null;
 			
 			loadConfig(blockSettings, itemSettings);
@@ -167,7 +179,7 @@ public class Resource implements IResource {
 			final Map<ResourceBlockTypes, Block> blocks = Maps.newEnumMap(ResourceBlockTypes.class);
 			final Map<ResourceItemTypes, Item> items = Maps.newEnumMap(ResourceItemTypes.class);
 			
-			final Resource resource = new Resource(name, blocks, items, generationConfig, armorMaterial, toolMaterial);
+			final Resource resource = new Resource(name, blocks, items, generationConfig, armorMaterial, horseArmorMaterial, toolMaterial);
 			
 			specialBlocks.forEach((type, function) -> blocks.put(type, function.apply(resource, type, blockSettings.get(type))));
 			blockTypes.forEach(type -> blocks.putIfAbsent(type, type.createBlock(resource, blockSettings.get(type))));
@@ -193,6 +205,9 @@ public class Resource implements IResource {
 				itemTypes.remove(ResourceItemTypes.CHESTPLATE);
 				itemTypes.remove(ResourceItemTypes.LEGGINGS);
 				itemTypes.remove(ResourceItemTypes.BOOTS);
+			}
+			if (!horseArmor) {
+				itemTypes.remove(ResourceItemTypes.HORSE_ARMOR);
 			}
 			if (!tools) {
 				itemTypes.remove(ResourceItemTypes.AXE);
@@ -279,6 +294,23 @@ public class Resource implements IResource {
 					return defaultArmorMaterial;
 				}, reader -> {
 					UArmorMaterial material = GSON.fromJson(reader, UArmorMaterial.class);
+					return material;
+				});
+			} catch (IOException ex) {
+				CONFIG_EXCEPTION.apply(ex, name);
+				return null;
+			}
+		}
+		
+		private HorseArmorMaterial loadHorseArmorConfig() {
+			final Path resourcePath = CONFIG_PATH.resolve("material").resolve(name);
+			
+			try {
+				return ConfigUtil.loadConfig(resourcePath, "horse_armor", GSON, writer -> {
+					GSON.toJson(defaultHorseArmorMaterial, HorseArmorMaterial.class, writer);
+					return defaultHorseArmorMaterial;
+				}, reader -> {
+					HorseArmorMaterial material = GSON.fromJson(reader, HorseArmorMaterial.class);
 					return material;
 				});
 			} catch (IOException ex) {
