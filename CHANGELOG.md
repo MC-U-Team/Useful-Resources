@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.14.2-0.10.0.3-SNAPSHOT] - 2019-08-03
+### Changed
+- Backported all changes from 1.14.3
+- Introduce tools and armors including horse armor
+- Rewritten the nearly the whole mod to make it very modular (Adding new resources and items is very easy now)
+- Added many json configurations for armor, tool material, item and blocks and world generator
+
 ## [1.14.2-0.9.0.1-SNAPSHOT] - 2019-07-11
 ### Added
 - Added base mod with easy creation of new resources
