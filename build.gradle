@@ -140,7 +140,9 @@ artifacts {
 sourceSets {
 	main {
 		java
-		resources
+		resources {
+      		srcDirs += "src/generated/resources"
+    	}
 	}
 }
 
