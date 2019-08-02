@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:lead/crafting/ingot_from_gear"
+		]
+	},
+	"criteria": {
+		"has_lead_gear": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:gears/lead"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:lead/crafting/ingot_from_gear"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_lead_gear",
+			"has_the_recipe"
+		]
+	]
+}

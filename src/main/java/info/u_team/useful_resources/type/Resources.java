@@ -1,70 +1,62 @@
 package info.u_team.useful_resources.type;
 
+import static info.u_team.useful_resources.config.ResourceGenerationConfig.*;
+import static info.u_team.useful_resources.type.ResourceBlockTypes.*;
+import static info.u_team.useful_resources.util.MaterialUtil.*;
+
 import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
-import info.u_team.useful_resources.api.*;
-import info.u_team.useful_resources.config.*;
-import info.u_team.useful_resources.resource.*;
-import net.minecraft.util.IStringSerializable;
+import info.u_team.useful_resources.api.resource.IResource;
+import info.u_team.useful_resources.resource.Resource;
+import info.u_team.useful_resources.resource.Resource.Builder;
 
-public enum Resources implements IResource, IStringSerializable {
+public class Resources {
 	
-	COPPER("copper", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
-	TIN("tin", new DefaultConfig(3F, 3F, 3F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
-	ALUMINUM("aluminum", new DefaultConfig(2.6F, 3F, 2.5F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 20, 0, 0, 64), GeneratableConfig.createRangeNether(9, 10, 10, 20, 128))),
-	SILVER("silver", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(9, 2, 0, 0, 32), GeneratableConfig.createRangeNether(9, 3, 10, 20, 128))),
-	LEAD("lead", new DefaultConfig(4F, 4F, 4F, 3F, 3F, 6F, GeneratableConfig.createRangeOverworld(10, 3, 0, 0, 32), GeneratableConfig.createRangeNether(9, 3, 10, 20, 128)));
+	private static final List<IResource> VALUES = new ArrayList<>();
 	
-	public static final List<Resources> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
+	public static final Resource COPPER = register(new Builder("copper", 3F, 1) //
+			.setArmor(createArmor(12, new int[] { 2, 5, 6, 2 }, 9)) //
+			.setHorseArmor(createHorseArmor(6)) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 200, 5, 1, 14)) //
+			.setGeneration(ORE, createRangeOverworld(9, 20, 0, 0, 64)) //
+			.setGeneration(NETHER_ORE, createRangeNether(9, 10, 10, 20, 128)));
 	
-	private final String name;
-	private final DefaultConfig defaultConfig;
-	private final IResourceBlocks blocks;
-	private final IResourceItems items;
+	public static final Resource TIN = register(new Builder("tin", 3F, 1) //
+			.setArmor(createArmor(12, new int[] { 1, 3, 5, 2 }, 9)) //
+			.setHorseArmor(createHorseArmor(6)) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 200, 5, 1, 14)) //
+			.setGeneration(ORE, createRangeOverworld(9, 20, 0, 0, 64)) //
+			.setGeneration(NETHER_ORE, createRangeNether(9, 10, 10, 20, 128)));
 	
-	private IResourceConfig config;
+	public static final Resource ALUMINUM = register(new Builder("aluminum", 2.6F, 1) //
+			.setArmor(createArmor(10, new int[] { 1, 3, 5, 2 }, 9)) //
+			.setHorseArmor(createHorseArmor(5)) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 1, 150, 5, 1, 14)) //
+			.setGeneration(ORE, createRangeOverworld(9, 20, 0, 0, 64)) //
+			.setGeneration(NETHER_ORE, createRangeNether(9, 10, 10, 20, 128)));
 	
-	private Resources(String name, DefaultConfig defaultConfig) {
-		this.name = name;
-		this.defaultConfig = defaultConfig;
-		blocks = new BlockResourceSet(this);
-		items = new ItemResourceSet(this);
+	public static final Resource SILVER = register(new Builder("silver", 4F, 2) //
+			.setArmor(createArmor(15, new int[] { 2, 5, 6, 2 }, 9)) //
+			.setHorseArmor(createHorseArmor(7)) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 250, 6, 2, 14)) //
+			.setGeneration(ORE, createRangeOverworld(9, 2, 0, 0, 32)) //
+			.setGeneration(NETHER_ORE, createRangeNether(9, 3, 10, 20, 128)));
+	
+	public static final Resource LEAD = register(new Builder("lead", 4F, 2) //
+			.setArmor(createArmor(20, new int[] { 1, 3, 5, 2 }, 9)) //
+			.setHorseArmor(createHorseArmor(7)) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 1, 250, 6, 2, 14)) //
+			.setGeneration(ORE, createRangeOverworld(10, 3, 0, 0, 32)) //
+			.setGeneration(NETHER_ORE, createRangeNether(9, 3, 10, 20, 128)));
+	
+	private static Resource register(Builder builder) {
+		Resource resource = builder.build();
+		VALUES.add(resource);
+		return resource;
 	}
 	
-	@Override
-	public String getName() {
-		return name;
-	}
-	
-	@Override
-	public Supplier<IResourceConfig> getConfig() {
-		return () -> config;
-	}
-	
-	@Override
-	public IResourceBlocks getBlocks() {
-		return blocks;
-	}
-	
-	@Override
-	public IResourceItems getItems() {
-		return items;
-	}
-	
-	/**
-	 * ONLY INTERNAL USE
-	 */
-	public void setConfig(IResourceConfig config) {
-		this.config = config;
-	}
-	
-	/**
-	 * ONLY INTERNAL USE
-	 */
-	public DefaultConfig getDefaultConfig() {
-		return defaultConfig;
+	public static List<IResource> getValues() {
+		return Collections.unmodifiableList(VALUES);
 	}
 	
 }

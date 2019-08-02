@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:swords/copper",
+		"#forge:swords/tin",
+		"#forge:swords/aluminum",
+		"#forge:swords/silver",
+		"#forge:swords/lead"
+	]
+}

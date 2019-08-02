@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:leggingss/copper",
+		"#forge:leggingss/tin",
+		"#forge:leggingss/aluminum",
+		"#forge:leggingss/silver",
+		"#forge:leggingss/lead"
+	]
+}

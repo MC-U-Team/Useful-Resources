@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:tin/crafting/ingot_from_rod"
+		]
+	},
+	"criteria": {
+		"has_tin_rod": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:rods/tin"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:tin/crafting/ingot_from_rod"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_tin_rod",
+			"has_the_recipe"
+		]
+	]
+}

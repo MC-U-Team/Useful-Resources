@@ -1,0 +1,35 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:aluminum/crafting/ingot_from_nugget"
+		]
+	},
+	"criteria": {
+		"has_at_least_9_aluminum_nugget": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:nuggets/aluminum",
+						"count": {
+							"min": 9
+						}
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:aluminum/crafting/ingot_from_nugget"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_at_least_9_aluminum_nugget",
+			"has_the_recipe"
+		]
+	]
+}

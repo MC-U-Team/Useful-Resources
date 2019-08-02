@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:chestplates/copper",
+		"#forge:chestplates/tin",
+		"#forge:chestplates/aluminum",
+		"#forge:chestplates/silver",
+		"#forge:chestplates/lead"
+	]
+}

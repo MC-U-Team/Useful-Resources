@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:hoes/copper",
+		"#forge:hoes/tin",
+		"#forge:hoes/aluminum",
+		"#forge:hoes/silver",
+		"#forge:hoes/lead"
+	]
+}

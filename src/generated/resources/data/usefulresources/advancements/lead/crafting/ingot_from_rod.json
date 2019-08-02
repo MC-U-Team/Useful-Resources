@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:lead/crafting/ingot_from_rod"
+		]
+	},
+	"criteria": {
+		"has_lead_rod": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:rods/lead"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:lead/crafting/ingot_from_rod"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_lead_rod",
+			"has_the_recipe"
+		]
+	]
+}

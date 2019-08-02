@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:tin/crafting/ingot_from_gear"
+		]
+	},
+	"criteria": {
+		"has_tin_gear": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:gears/tin"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:tin/crafting/ingot_from_gear"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_tin_gear",
+			"has_the_recipe"
+		]
+	]
+}
