@@ -19,6 +19,7 @@
 	"item.usefulresources.copper_chestplate": "Copper Chestplate",
 	"item.usefulresources.copper_leggings": "Copper Leggings",
 	"item.usefulresources.copper_boots": "Copper Boots",
+	"item.usefulresources.copper_horse_armor": "Copper Horse Armor",
 	"block.usefulresources.tin_ore": "Tin Ore",
 	"block.usefulresources.tin_nether_ore": "Tin Nether Ore",
 	"block.usefulresources.tin_block": "Block of Tin",
@@ -38,6 +39,7 @@
 	"item.usefulresources.tin_chestplate": "Tin Chestplate",
 	"item.usefulresources.tin_leggings": "Tin Leggings",
 	"item.usefulresources.tin_boots": "Tin Boots",
+	"item.usefulresources.tin_horse_armor": "Tin Horse Armor",
 	"block.usefulresources.aluminum_ore": "Aluminum Ore",
 	"block.usefulresources.aluminum_nether_ore": "Aluminum Nether Ore",
 	"block.usefulresources.aluminum_block": "Block of Aluminum",
@@ -57,6 +59,7 @@
 	"item.usefulresources.aluminum_chestplate": "Aluminum Chestplate",
 	"item.usefulresources.aluminum_leggings": "Aluminum Leggings",
 	"item.usefulresources.aluminum_boots": "Aluminum Boots",
+	"item.usefulresources.aluminum_horse_armor": "Aluminum Horse Armor",
 	"block.usefulresources.silver_ore": "Silver Ore",
 	"block.usefulresources.silver_nether_ore": "Silver Nether Ore",
 	"block.usefulresources.silver_block": "Block of Silver",
@@ -76,6 +79,7 @@
 	"item.usefulresources.silver_chestplate": "Silver Chestplate",
 	"item.usefulresources.silver_leggings": "Silver Leggings",
 	"item.usefulresources.silver_boots": "Silver Boots",
+	"item.usefulresources.silver_horse_armor": "Silver Horse Armor",
 	"block.usefulresources.lead_ore": "Lead Ore",
 	"block.usefulresources.lead_nether_ore": "Lead Nether Ore",
 	"block.usefulresources.lead_block": "Block of Lead",
@@ -94,5 +98,6 @@
 	"item.usefulresources.lead_helmet": "Lead Helmet",
 	"item.usefulresources.lead_chestplate": "Lead Chestplate",
 	"item.usefulresources.lead_leggings": "Lead Leggings",
-	"item.usefulresources.lead_boots": "Lead Boots"
+	"item.usefulresources.lead_boots": "Lead Boots",
+	"item.usefulresources.lead_horse_armor": "Lead Horse Armor"
 }

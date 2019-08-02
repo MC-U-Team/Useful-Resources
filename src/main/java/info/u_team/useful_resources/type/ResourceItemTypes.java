@@ -34,7 +34,9 @@ public enum ResourceItemTypes implements IStringSerializable, IResourceItemType 
 	HELMET("helmet", ResourceHelmetItem::new),
 	CHESTPLATE("chestplate", ResourceChestplateItem::new),
 	LEGGINGS("leggings", ResourceLeggingsItem::new),
-	BOOTS("boots", ResourceBootsItem::new);
+	BOOTS("boots", ResourceBootsItem::new),
+	
+	HORSE_ARMOR("horse_armor", ResourceHorseArmorItem::new);
 	
 	public static final List<ResourceItemTypes> VALUES = Collections.unmodifiableList(Arrays.stream(values()).collect(Collectors.toList()));
 	
