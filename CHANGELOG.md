@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.14.2-0.10.1.6] - 2019-08-04
+- Fixes [#1](https://github.com/MC-U-Team/Useful-Resources/issues/1)
+
 ## [1.14.2-0.10.0.3-SNAPSHOT] - 2019-08-03
 ### Changed
 - Backported all changes from 1.14.3

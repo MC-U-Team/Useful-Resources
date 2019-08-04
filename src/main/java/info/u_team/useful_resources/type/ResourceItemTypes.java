@@ -13,9 +13,8 @@ import info.u_team.useful_resources.api.resource.type.IResourceItemType;
 import info.u_team.useful_resources.item.*;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
-import net.minecraft.util.IStringSerializable;
 
-public enum ResourceItemTypes implements IStringSerializable, IResourceItemType {
+public enum ResourceItemTypes implements IResourceItemType {
 	
 	INGOT("ingot"),
 	NUGGET("nugget"),
