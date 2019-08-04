@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.14.3-0.10.1.7] - 2019-08-04
+- Fixes [#1](https://github.com/MC-U-Team/Useful-Resources/issues/1)
+
 ## [1.14.3-0.10.0.4-SNAPSHOT] - 2019-08-03
 ### Changed
 - Rewritten the nearly the whole mod to make it very modular (Adding new resources and items is very easy now).
