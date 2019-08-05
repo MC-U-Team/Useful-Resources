@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.14.3-0.10.2.10] - 2019-08-05
+- Last update tough because 1.14.3 forge is outdated and why play on old forge versions??
+- Implement armor and tool recipes [#2](https://github.com/MC-U-Team/Useful-Resources/issues/2)
+
 ## [1.14.3-0.10.1.7] - 2019-08-04
 - Fixes [#1](https://github.com/MC-U-Team/Useful-Resources/issues/1)
 
