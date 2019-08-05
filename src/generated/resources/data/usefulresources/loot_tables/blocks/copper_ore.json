@@ -2,6 +2,7 @@
 	"type": "minecraft:block",
 	"pools": [
 		{
+			"name": "dummy",
 			"rolls": 1,
 			"entries": [
 				{
