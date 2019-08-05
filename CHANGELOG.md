@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.14.4-0.10.2.11] - 2019-08-05
+- Implement armor and tool recipes [#2](https://github.com/MC-U-Team/Useful-Resources/issues/2)
+
 ## [1.14.4-0.10.1.8] - 2019-08-04
 - Fixes [#1](https://github.com/MC-U-Team/Useful-Resources/issues/1)
 
