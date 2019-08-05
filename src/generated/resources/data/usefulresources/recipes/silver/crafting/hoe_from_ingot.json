@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"##",
+		" X",
+		" X"
+	],
+	"key": {
+		"#": {
+			"tag": "forge:ingots/silver"
+		},
+		"X": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "usefulresources:silver_hoe"
+	}
+}
