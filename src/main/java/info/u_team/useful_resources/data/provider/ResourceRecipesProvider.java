@@ -15,7 +15,7 @@ import info.u_team.useful_resources.type.Resources;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
 import net.minecraft.data.*;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
@@ -67,6 +67,17 @@ public class ResourceRecipesProvider extends CommonProvider {
 		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 9).addIngredient(blocks.getTag(BLOCK)).addCriterion("has_" + name + "_block", hasItem(blocks.getTag(BLOCK))).build(consumer, createLocation(resource, "crafting/ingot_from_block"));
 		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 4).addIngredient(items.getTag(GEAR)).addCriterion("has_" + name + "_gear", hasItem(items.getTag(GEAR))).build(consumer, createLocation(resource, "crafting/ingot_from_gear"));
 		ShapelessRecipeBuilder.shapelessRecipe(items.getItem(INGOT), 2).addIngredient(items.getTag(ROD)).addCriterion("has_" + name + "_rod", hasItem(items.getTag(ROD))).build(consumer, createLocation(resource, "crafting/ingot_from_rod"));
+		
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(HELMET)).key('#', items.getTag(INGOT)).patternLine("###").patternLine("# #").addCriterion("has_at_least_5_" + name + "_ingot", hasItem(IntBound.atLeast(5), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/helmet_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(CHESTPLATE)).key('#', items.getTag(INGOT)).patternLine("# #").patternLine("###").patternLine("###").addCriterion("has_at_least_8_" + name + "_ingot", hasItem(IntBound.atLeast(8), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/chestplate_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(LEGGINGS)).key('#', items.getTag(INGOT)).patternLine("###").patternLine("# #").patternLine("# #").addCriterion("has_at_least_7_" + name + "_ingot", hasItem(IntBound.atLeast(7), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/leggings_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(BOOTS)).key('#', items.getTag(INGOT)).patternLine("# #").patternLine("# #").addCriterion("has_at_least_4_" + name + "_ingot", hasItem(IntBound.atLeast(4), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/boots_from_ingot"));
+		
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(AXE)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("##").patternLine("#X").patternLine(" X").addCriterion("has_at_least_3_" + name + "_ingot", hasItem(IntBound.atLeast(3), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/axe_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(HOE)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("##").patternLine(" X").patternLine(" X").addCriterion("has_at_least_2_" + name + "_ingot", hasItem(IntBound.atLeast(2), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/boots_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(PICKAXE)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("###").patternLine(" X ").patternLine(" X ").addCriterion("has_at_least_3_" + name + "_ingot", hasItem(IntBound.atLeast(3), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/pickaxe_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(SHOVEL)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("#").patternLine("X").patternLine("X").addCriterion("has_at_least_1_" + name + "_ingot", hasItem(IntBound.atLeast(1), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/shovel_from_ingot"));
+		ShapedRecipeBuilder.shapedRecipe(items.getItem(SWORD)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("#").patternLine("#").patternLine("X").addCriterion("has_at_least_1_" + name + "_ingot", hasItem(IntBound.atLeast(1), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/sword_from_ingot"));
 	}
 	
 	@Override
