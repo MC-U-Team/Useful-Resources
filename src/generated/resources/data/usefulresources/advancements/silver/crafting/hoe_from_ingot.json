@@ -2,18 +2,18 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:lead/crafting/boots_from_ingot"
+			"usefulresources:silver/crafting/hoe_from_ingot"
 		]
 	},
 	"criteria": {
-		"has_at_least_4_lead_ingot": {
+		"has_at_least_2_silver_ingot": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:ingots/lead",
+						"tag": "forge:ingots/silver",
 						"count": {
-							"min": 4
+							"min": 2
 						}
 					}
 				]
@@ -22,13 +22,13 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:lead/crafting/boots_from_ingot"
+				"recipe": "usefulresources:silver/crafting/hoe_from_ingot"
 			}
 		}
 	},
 	"requirements": [
 		[
-			"has_at_least_4_lead_ingot",
+			"has_at_least_2_silver_ingot",
 			"has_the_recipe"
 		]
 	]

@@ -1,15 +1,19 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"# #",
-		"# #"
+		"##",
+		" X",
+		" X"
 	],
 	"key": {
 		"#": {
 			"tag": "forge:ingots/tin"
+		},
+		"X": {
+			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "usefulresources:tin_boots"
+		"item": "usefulresources:tin_hoe"
 	}
 }

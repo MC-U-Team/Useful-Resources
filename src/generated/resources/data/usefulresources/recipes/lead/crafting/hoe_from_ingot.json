@@ -1,15 +1,19 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"# #",
-		"# #"
+		"##",
+		" X",
+		" X"
 	],
 	"key": {
 		"#": {
 			"tag": "forge:ingots/lead"
+		},
+		"X": {
+			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "usefulresources:lead_boots"
+		"item": "usefulresources:lead_hoe"
 	}
 }
