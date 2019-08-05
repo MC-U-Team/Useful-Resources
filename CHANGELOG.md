@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.14.2-0.10.2.9] - 2019-08-05
+- Fixes [#3](https://github.com/MC-U-Team/Useful-Resources/issues/3)
+- Last update tough because 1.14.2 forge is very buggy and data generators don't work here.
+- Implement armor and tool recipes [#2](https://github.com/MC-U-Team/Useful-Resources/issues/2)
+
 ## [1.14.2-0.10.1.6] - 2019-08-04
 - Fixes [#1](https://github.com/MC-U-Team/Useful-Resources/issues/1)
 
