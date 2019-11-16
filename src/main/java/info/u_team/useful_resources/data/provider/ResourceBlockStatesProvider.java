@@ -1,48 +1,23 @@
 package info.u_team.useful_resources.data.provider;
 
-import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
+import java.util.stream.Stream;
 
-import java.io.IOException;
-import java.nio.file.Path;
-
-import com.google.gson.JsonObject;
-
-import info.u_team.u_team_core.data.CommonProvider;
+import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.type.Resources;
-import net.minecraft.block.Block;
-import net.minecraft.data.*;
 
-public class ResourceBlockStatesProvider extends CommonProvider {
+public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
-	public ResourceBlockStatesProvider(DataGenerator generator) {
-		super("Resources-Block-States", generator);
+	public ResourceBlockStatesProvider(GenerationData data) {
+		super(data);
 	}
 	
 	@Override
-	public void act(DirectoryCache cache) throws IOException {
+	protected void registerStatesAndModels() {
 		Resources.getValues().forEach(resource -> {
-			for (Block block : resource.getBlocks().getArray()) {
+			Stream.of(resource.getBlocks().getArray()).forEach(block -> {
 				final String blockName = block.getRegistryName().getPath();
-				
-				JsonObject object = new JsonObject();
-				JsonObject variantsObject = new JsonObject();
-				JsonObject modelObject = new JsonObject();
-				
-				modelObject.addProperty("model", MODID + ":block/" + blockName);
-				variantsObject.add("", modelObject);
-				object.add("variants", variantsObject);
-				
-				try {
-					write(cache, object, path.resolve(blockName + ".json"));
-				} catch (IOException ex) {
-					LOGGER.error(marker, "Could not write data.", ex);
-				}
-			}
+				simpleBlock(block, cubeAll(blockName, modLoc("block/" + resource.getName() + "/" + blockName.replace(resource.getName() + "_", ""))));
+			});
 		});
-	}
-	
-	@Override
-	protected Path resolvePath(Path outputFolder) {
-		return resolveAssets(outputFolder, MODID).resolve("blockstates");
 	}
 }
