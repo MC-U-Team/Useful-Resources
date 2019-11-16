@@ -1,66 +1,29 @@
 package info.u_team.useful_resources.data.provider;
 
-import static info.u_team.useful_resources.UsefulResourcesMod.MODID;
+import java.util.stream.Stream;
 
-import java.io.IOException;
-import java.nio.file.Path;
-
-import com.google.gson.JsonObject;
-
-import info.u_team.u_team_core.data.CommonProvider;
+import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.type.Resources;
-import net.minecraft.block.Block;
-import net.minecraft.data.*;
-import net.minecraft.item.*;
+import net.minecraft.item.TieredItem;
+import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 
-public class ResourceItemModelsProvider extends CommonProvider {
+public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	
-	public ResourceItemModelsProvider(DataGenerator generator) {
-		super("Resources-Item-Models", generator);
+	public ResourceItemModelsProvider(GenerationData data) {
+		super(data);
 	}
 	
 	@Override
-	public void act(DirectoryCache cache) throws IOException {
+	protected void registerModels() {
+		Resources.getValues().stream().flatMap(resource -> Stream.of(resource.getBlocks().getArray())).forEach(this::simpleBlock);
+		
 		Resources.getValues().forEach(resource -> {
-			for (Block block : resource.getBlocks().getArray()) {
-				final String blockName = block.getRegistryName().getPath();
-				
-				JsonObject object = new JsonObject();
-				object.addProperty("parent", MODID + ":block/" + blockName);
-				
-				try {
-					write(cache, object, path.resolve(blockName + ".json"));
-				} catch (IOException ex) {
-					LOGGER.error(marker, "Could not write data.", ex);
-				}
-			}
-			
-			for (Item item : resource.getItems().getArray()) {
+			Stream.of(resource.getItems().getArray()).forEach(item -> {
 				final String itemName = item.getRegistryName().getPath();
-				final boolean isTiered = item instanceof TieredItem;
+				final String parent = item instanceof TieredItem ? "handheld" : "generated";
 				
-				JsonObject object = new JsonObject();
-				JsonObject texturesObject = new JsonObject();
-				
-				if (isTiered) {
-					object.addProperty("parent", "item/handheld");
-				} else {
-					object.addProperty("parent", "item/generated");
-				}
-				texturesObject.addProperty("layer0", MODID + ":item/" + resource.getName() + "/" + itemName.replace(resource.getName() + "_", ""));
-				object.add("textures", texturesObject);
-				
-				try {
-					write(cache, object, path.resolve(itemName + ".json"));
-				} catch (IOException ex) {
-					LOGGER.error(marker, "Could not write data.", ex);
-				}
-			}
+				getBuilder(itemName).parent(new UncheckedModelFile("item/" + parent)).texture("layer0", "item/" + resource.getName() + "/" + itemName.replace(resource.getName() + "_", ""));
+			});
 		});
-	}
-	
-	@Override
-	protected Path resolvePath(Path outputFolder) {
-		return resolveAssets(outputFolder, MODID).resolve("models").resolve("item");
 	}
 }

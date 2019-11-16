@@ -1,8 +1,8 @@
 package info.u_team.useful_resources.data;
 
+import info.u_team.u_team_core.data.GenerationData;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.data.provider.*;
-import net.minecraft.data.DataGenerator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -13,20 +13,17 @@ public class UsefulResourcesDataGenerator {
 	
 	@SubscribeEvent
 	public static void data(GatherDataEvent event) {
-		final DataGenerator generator = event.getGenerator();
+		final GenerationData data = new GenerationData(UsefulResourcesMod.MODID, event);
 		if (event.includeClient()) {
-			generator.addProvider(new ResourceBlockStatesProvider(generator)); // Generate states
-			generator.addProvider(new ResourceBlockModelsProvider(generator)); // Generate block models
-			generator.addProvider(new ResourceItemModelsProvider(generator)); // Generate item models
-			
-			generator.addProvider(new ResourceEnglishLanguageProvider(generator)); // Generate english language file
+			data.addProvider(ResourceBlockStatesProvider::new);
+			data.addProvider(ResourceItemModelsProvider::new);
+			data.addProvider(ResourceLanguagesProvider::new);
 		}
 		if (event.includeServer()) {
-			generator.addProvider(new ResourceBlockTagsProvider(generator)); // Generate block tags
-			generator.addProvider(new ResourceItemTagsProvider(generator)); // Generate item tags
-			
-			generator.addProvider(new ResourceLootTableProvider(generator)); // Generate loot tables
-			generator.addProvider(new ResourceRecipesProvider(generator)); // Generate recipes
+			data.addProvider(ResourceBlockTagsProvider::new);
+			data.addProvider(ResourceItemTagsProvider::new);
+			data.addProvider(ResourceLootTableProvider::new);
+			data.addProvider(ResourceRecipesProvider::new);
 		}
 	}
 }
