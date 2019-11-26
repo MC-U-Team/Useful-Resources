@@ -11,7 +11,7 @@ public class UsefulResourcesMod {
 	public static final String MODID = "usefulresources";
 	
 	public UsefulResourcesMod() {
-		ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfig.CONFIG, UsefulResourcesMod.MODID + "/common.toml");
+		ModLoadingContext.get().registerConfig(Type.COMMON, CommonConfig.CONFIG);
 	}
 	
 }
