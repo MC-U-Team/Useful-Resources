@@ -1,5 +1,5 @@
 {
-	"parent": "block/cube_all",
+	"parent": "usefulresources:block/test_tint",
 	"textures": {
 		"all": "usefulresources:block/ore"
 	}
