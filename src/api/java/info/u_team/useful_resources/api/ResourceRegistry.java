@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.google.common.collect.Iterables;
 
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import net.minecraft.util.IItemProvider;
 

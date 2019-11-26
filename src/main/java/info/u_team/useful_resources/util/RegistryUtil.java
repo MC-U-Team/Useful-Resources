@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import info.u_team.u_team_core.api.registry.IURegistryType;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.resource.IResource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 

@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.api;
+package info.u_team.useful_resources.api.resource;
 
 import java.util.Map;
 
@@ -18,6 +18,8 @@ public interface IResource {
 	Map<BlockResourceType, Block> getBlocks();
 	
 	Map<ItemResourceType, Item> getItems();
+	
+	IDataGeneratorConfigurator getDataGeneratorConfigurator();
 	
 	void addFeature(IResourceFeatureBuilder builder);
 	
