@@ -1,8 +1,9 @@
-package info.u_team.useful_resources.api;
+package info.u_team.useful_resources.api.feature;
 
 import java.util.Map;
 
 import info.u_team.u_team_core.api.registry.IURegistryType;
+import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 

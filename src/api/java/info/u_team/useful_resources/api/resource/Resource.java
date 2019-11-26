@@ -2,11 +2,13 @@ package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
 
-import info.u_team.useful_resources.api.*;
+import info.u_team.useful_resources.api.IResource;
+import info.u_team.useful_resources.api.feature.*;
+import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public class Resource implements info.u_team.useful_resources.api.IResource {
+public class Resource implements IResource {
 	
 	private final String name;
 	
