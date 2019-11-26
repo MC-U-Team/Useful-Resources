@@ -31,17 +31,17 @@ public class BasicIngotResource extends Resource {
 		addFeature(createBasicItem(ROD, rarity));
 	}
 	
-	public BasicIngotResource addTools(IToolMaterial toolMaterial) {
+	public BasicIngotResource setTools(IToolMaterial toolMaterial) {
 		addFeature(createTools(rarity, new WrappedToolMaterial(toolMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
 		return this;
 	}
 	
-	public BasicIngotResource addArmor(IArmorMaterial armorMaterial) {
+	public BasicIngotResource setArmor(IArmorMaterial armorMaterial) {
 		addFeature(createArmor(rarity, new WrappedArmorMaterial(armorMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
 		return this;
 	}
 	
-	public BasicIngotResource addHorseArmor(int armorPoints) {
+	public BasicIngotResource setHorseArmor(int armorPoints) {
 		addFeature(createHorseArmor(rarity, armorPoints));
 		return this;
 	}
