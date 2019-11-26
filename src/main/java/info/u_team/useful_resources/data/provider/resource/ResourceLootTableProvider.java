@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.data.provider;
+package info.u_team.useful_resources.data.provider.resource;
 
 import java.util.function.BiConsumer;
 

@@ -3,6 +3,7 @@ package info.u_team.useful_resources.data;
 import info.u_team.u_team_core.data.GenerationData;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.data.provider.*;
+import info.u_team.useful_resources.data.provider.resource.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -15,15 +16,17 @@ public class UsefulResourcesDataGenerator {
 	public static void data(GatherDataEvent event) {
 		final GenerationData data = new GenerationData(UsefulResourcesMod.MODID, event);
 		if (event.includeClient()) {
+			data.addProvider(UsefulResourcesBlockModelsProvider::new);
+			
 			data.addProvider(ResourceBlockStatesProvider::new);
-			data.addProvider(ResourceItemModelsProvider::new);
-			data.addProvider(ResourceLanguagesProvider::new);
+			//data.addProvider(ResourceItemModelsProvider::new);
+			//data.addProvider(ResourceLanguagesProvider::new);
 		}
-		if (event.includeServer()) {
-			data.addProvider(ResourceBlockTagsProvider::new);
-			data.addProvider(ResourceItemTagsProvider::new);
-			data.addProvider(ResourceLootTableProvider::new);
-			data.addProvider(ResourceRecipesProvider::new);
-		}
+//		if (event.includeServer()) {
+//			data.addProvider(ResourceBlockTagsProvider::new);
+//			data.addProvider(ResourceItemTagsProvider::new);
+//			data.addProvider(ResourceLootTableProvider::new);
+//			data.addProvider(ResourceRecipesProvider::new);
+//		}
 	}
 }

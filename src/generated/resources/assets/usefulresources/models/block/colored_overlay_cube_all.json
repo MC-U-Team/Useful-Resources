@@ -1,0 +1,46 @@
+{
+	"parent": "usefulresources:block/colored_cube_all",
+	"textures": {
+		"all": "#colored"
+	},
+	"elements": [
+		{
+			"from": [
+				0,
+				0,
+				0
+			],
+			"to": [
+				16,
+				16,
+				16
+			],
+			"faces": {
+				"down": {
+					"texture": "#uncolored",
+					"cullface": "down"
+				},
+				"up": {
+					"texture": "#uncolored",
+					"cullface": "up"
+				},
+				"north": {
+					"texture": "#uncolored",
+					"cullface": "north"
+				},
+				"south": {
+					"texture": "#uncolored",
+					"cullface": "south"
+				},
+				"west": {
+					"texture": "#uncolored",
+					"cullface": "west"
+				},
+				"east": {
+					"texture": "#uncolored",
+					"cullface": "east"
+				}
+			}
+		}
+	]
+}
