@@ -2,6 +2,8 @@ package info.u_team.useful_resources.api;
 
 import java.util.*;
 
+import com.google.common.collect.Iterables;
+
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import net.minecraft.util.IItemProvider;
 
@@ -20,6 +22,10 @@ public class ResourceRegistry {
 	
 	public static List<IResource> getResources() {
 		return Collections.unmodifiableList(RESOURCES);
+	}
+	
+	public IResource get(String name) {
+		return Iterables.tryFind(RESOURCES, resource -> resource.getName().equals(name)).orNull();
 	}
 	
 	public static IItemProvider getItemGroupItem() {
