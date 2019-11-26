@@ -18,7 +18,7 @@ public class ResourceRegistry {
 			throw new IllegalStateException("Cannot register a resource with the same name twice.");
 		}
 		RESOURCES.add(resource);
-		return resource;s
+		return resource;
 	}
 	
 	public static List<IResource> getResources() {
