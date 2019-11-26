@@ -8,7 +8,7 @@ import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public class Resource implements IResource {
+public class Resource implements IResource { 
 	
 	private final String name;
 	
