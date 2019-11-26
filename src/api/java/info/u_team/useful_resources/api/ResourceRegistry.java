@@ -2,9 +2,14 @@ package info.u_team.useful_resources.api;
 
 import java.util.*;
 
+import info.u_team.useful_resources.api.type.BlockResourceType;
+import net.minecraft.util.IItemProvider;
+
 public class ResourceRegistry {
 	
 	private static final List<IResource> RESOURCES = new ArrayList<>();
+	
+	private static IItemProvider itemGroupItem;
 	
 	public static void register(IResource resource) {
 		if (RESOURCES.stream().anyMatch(registeredResources -> registeredResources.getName().equals(resource.getName()))) {
@@ -15,6 +20,13 @@ public class ResourceRegistry {
 	
 	public static List<IResource> getResources() {
 		return Collections.unmodifiableList(RESOURCES);
+	}
+	
+	public static IItemProvider getItemGroupItem() {
+		if (itemGroupItem == null) {
+			itemGroupItem = RESOURCES.stream().filter(resource -> resource.getName().equals("copper")).map(resource -> resource.getBlocks().get(BlockResourceType.ORE)).findAny().orElseThrow(IllegalStateException::new);
+		}
+		return itemGroupItem;
 	}
 	
 }
