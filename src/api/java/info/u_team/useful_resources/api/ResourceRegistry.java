@@ -13,11 +13,12 @@ public class ResourceRegistry {
 	
 	private static IItemProvider itemGroupItem;
 	
-	public static void register(IResource resource) {
+	public static <T extends IResource> T register(T resource) {
 		if (RESOURCES.stream().anyMatch(registeredResources -> registeredResources.getName().equals(resource.getName()))) {
 			throw new IllegalStateException("Cannot register a resource with the same name twice.");
 		}
 		RESOURCES.add(resource);
+		return resource;s
 	}
 	
 	public static List<IResource> getResources() {
