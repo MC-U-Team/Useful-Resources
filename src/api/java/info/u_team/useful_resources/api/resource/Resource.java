@@ -12,13 +12,15 @@ public class Resource implements IResource {
 	
 	private final String name;
 	private final int color;
+	private final ItemResourceType repairType;
 	
 	private final Map<BlockResourceType, Block> blocks;
 	private final Map<ItemResourceType, Item> items;
 	
-	public Resource(String name, int color) {
+	public Resource(String name, int color, ItemResourceType repairType) {
 		this.name = name;
 		this.color = color;
+		this.repairType = repairType;
 		blocks = new EnumMap<>(BlockResourceType.class);
 		items = new EnumMap<>(ItemResourceType.class);
 	}
@@ -31,6 +33,11 @@ public class Resource implements IResource {
 	@Override
 	public int getColor() {
 		return color;
+	}
+	
+	@Override
+	public ItemResourceType getRepairType() {
+		return repairType;
 	}
 	
 	@Override

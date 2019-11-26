@@ -13,6 +13,8 @@ public interface IResource {
 	
 	int getColor();
 	
+	ItemResourceType getRepairType();
+	
 	Map<BlockResourceType, Block> getBlocks();
 	
 	Map<ItemResourceType, Item> getItems();
