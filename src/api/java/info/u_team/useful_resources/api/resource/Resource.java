@@ -8,15 +8,17 @@ import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
-public class Resource implements IResource { 
+public class Resource implements IResource {
 	
 	private final String name;
+	private final int color;
 	
 	private final Map<BlockResourceType, Block> blocks;
 	private final Map<ItemResourceType, Item> items;
 	
-	public Resource(String name) {
+	public Resource(String name, int color) {
 		this.name = name;
+		this.color = color;
 		blocks = new EnumMap<>(BlockResourceType.class);
 		items = new EnumMap<>(ItemResourceType.class);
 	}
@@ -24,6 +26,11 @@ public class Resource implements IResource {
 	@Override
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public int getColor() {
+		return color;
 	}
 	
 	@Override

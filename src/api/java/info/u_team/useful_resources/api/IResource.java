@@ -11,6 +11,8 @@ public interface IResource {
 	
 	String getName();
 	
+	int getColor();
+	
 	Map<BlockResourceType, Block> getBlocks();
 	
 	Map<ItemResourceType, Item> getItems();
