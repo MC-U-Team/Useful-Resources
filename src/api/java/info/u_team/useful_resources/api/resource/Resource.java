@@ -42,12 +42,12 @@ public class Resource implements IResource {
 	
 	@Override
 	public Map<BlockResourceType, Block> getBlocks() {
-		return blocks;
+		return Collections.unmodifiableMap(blocks);
 	}
 	
 	@Override
 	public Map<ItemResourceType, Item> getItems() {
-		return items;
+		return Collections.unmodifiableMap(items);
 	}
 	
 	@Override
