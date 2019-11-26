@@ -139,7 +139,6 @@ sourceSets {
 	main {
 		java {
 			srcDirs += "src/api/java"
-			srcDirs += "src/java_script_integration/java"
 		}
 		resources {
 			srcDirs += "src/generated/resources"
