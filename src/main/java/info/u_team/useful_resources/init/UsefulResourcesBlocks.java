@@ -17,7 +17,7 @@ public class UsefulResourcesBlocks {
 	
 	@SubscribeEvent
 	public static void register(Register<Block> event) {
-		entries = RegistryUtil.getAllResourceBlocksAndApplyNames();
+		entries = RegistryUtil.getAndApplyNames(resource -> resource.getBlocks().values());
 		entries.forEach(event.getRegistry()::register);
 	}
 	
