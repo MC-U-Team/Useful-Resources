@@ -1,3 +1,23 @@
 {
+	"block.usefulresources.copper_block": "Block of Copper",
+	"block.usefulresources.copper_nether_ore": "Copper Nether Ore",
+	"block.usefulresources.copper_ore": "Copper Ore",
+	"item.usefulresources.copper_axe": "Copper Axe",
+	"item.usefulresources.copper_boots": "Copper Boots",
+	"item.usefulresources.copper_chestplate": "Copper Chestplate",
+	"item.usefulresources.copper_dense_plate": "Copper Dense Plate",
+	"item.usefulresources.copper_dust": "Copper Dust",
+	"item.usefulresources.copper_gear": "Copper Gear",
+	"item.usefulresources.copper_helmet": "Copper Helmet",
+	"item.usefulresources.copper_hoe": "Copper Hoe",
+	"item.usefulresources.copper_horse_armor": "Copper Horse Armor",
+	"item.usefulresources.copper_ingot": "Copper Ingot",
+	"item.usefulresources.copper_leggings": "Copper Leggings",
+	"item.usefulresources.copper_nugget": "Copper Nugget",
+	"item.usefulresources.copper_pickaxe": "Copper Pickaxe",
+	"item.usefulresources.copper_plate": "Copper Plate",
+	"item.usefulresources.copper_rod": "Copper Rod",
+	"item.usefulresources.copper_shovel": "Copper Shovel",
+	"item.usefulresources.copper_sword": "Copper Sword",
 	"itemGroup.usefulresources.group": "Useful Resources"
 }
