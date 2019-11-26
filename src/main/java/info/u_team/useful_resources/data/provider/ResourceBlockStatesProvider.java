@@ -1,9 +1,7 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.util.stream.Stream;
-
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.resources.Resources;
+import info.u_team.useful_resources.api.ResourceRegistry;
 
 public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
@@ -13,8 +11,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
 	@Override
 	protected void registerStatesAndModels() {
-		Resources.getValues().forEach(resource -> {
-			Stream.of(resource.getBlocks().getArray()).forEach(block -> {
+		ResourceRegistry.getResources().forEach(resource -> {
+			resource.getBlocks().values().forEach(block -> {
 				final String blockName = block.getRegistryName().getPath();
 				simpleBlock(block, cubeAll(blockName, modLoc("block/" + resource.getName() + "/" + blockName.replace(resource.getName() + "_", ""))));
 			});

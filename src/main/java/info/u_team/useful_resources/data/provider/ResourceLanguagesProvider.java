@@ -3,8 +3,9 @@ package info.u_team.useful_resources.data.provider;
 import java.util.stream.*;
 
 import info.u_team.u_team_core.data.*;
+import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
-import info.u_team.useful_resources.type.*;
 
 public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 	
@@ -16,15 +17,15 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 	public void addTranslations() {
 		add(UsefulResourcesItemGroups.GROUP, "Useful Resources");
 		
-		Resources.getValues().forEach(resource -> {
-			Stream.of(resource.getBlocks().getArray()).forEach(block -> {
-				if (block == resource.getBlocks().getBlock(ResourceBlockTypes.BLOCK)) {
+		ResourceRegistry.getResources().forEach(resource -> {
+			resource.getBlocks().forEach((type, block) -> {
+				if (type == BlockResourceType.BLOCK) {
 					add(block, "Block of " + capitalize(resource.getName()));
 				} else {
 					add(block, capitalize(block.getRegistryName().getPath().replace("_", " ")));
 				}
 			});
-			Stream.of(resource.getItems().getArray()).forEach(item -> {
+			resource.getItems().values().forEach(item -> {
 				add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
 			});
 		});

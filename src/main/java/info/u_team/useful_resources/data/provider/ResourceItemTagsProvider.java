@@ -1,9 +1,6 @@
 package info.u_team.useful_resources.data.provider;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.type.*;
-import net.minecraft.item.Item;
-import net.minecraft.tags.Tag;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
@@ -13,7 +10,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
 	@Override
 	protected void registerTags() {
-		Resources.getValues().forEach(resource -> {
+		/*Resources.getValues().forEach(resource -> {
 			final IResourceBlocks blocks = resource.getBlocks();
 			ResourceBlockTypes.VALUES.stream().filter(blocks::hasBlock).forEach(type -> {
 				copy(blocks.getBlockTag(type), blocks.getTag(type));
@@ -27,6 +24,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 				getBuilder(tag).add(items.getItem(type));
 				getBuilder(items.getUnifyTag(type)).add(tag);
 			});
-		});
+		});*/
 	}
 }
