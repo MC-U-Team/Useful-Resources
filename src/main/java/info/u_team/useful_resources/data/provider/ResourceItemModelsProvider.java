@@ -3,7 +3,6 @@ package info.u_team.useful_resources.data.provider;
 import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.type.Resources;
 import net.minecraft.item.TieredItem;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 

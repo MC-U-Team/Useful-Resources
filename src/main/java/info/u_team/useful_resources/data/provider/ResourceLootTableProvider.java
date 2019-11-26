@@ -4,7 +4,6 @@ import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.type.Resources;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTable;
 

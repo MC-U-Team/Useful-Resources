@@ -6,8 +6,7 @@ import static info.u_team.useful_resources.type.ResourceItemTypes.*;
 import java.util.function.Consumer;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.resource.*;
-import info.u_team.useful_resources.type.Resources;
+import info.u_team.useful_resources.api.resource.IResource;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
 import net.minecraft.data.*;
