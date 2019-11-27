@@ -49,7 +49,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("colored", "block/default_block");
 		
 		withExistingParent("base/default_stone_ore", modLoc("base/colored_overlay_block")) //
-				.texture("uncolored", mcLoc("block/stone")) //
+				.texture("uncolored", "block/stone_background") //
 				.texture("colored", "block/default_ore");
 		
 		ResourceRegistry.getResources().forEach(resource -> {
