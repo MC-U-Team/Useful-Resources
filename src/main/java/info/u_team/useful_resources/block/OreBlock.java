@@ -8,6 +8,7 @@ import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.ToolType;
@@ -26,4 +27,8 @@ public class OreBlock extends UBlock {
 		return silktouch == 0 ? experienceDrop.apply(RANDOM) : 0;
 	}
 	
+	@Override
+	public BlockRenderLayer getRenderLayer() {
+		return BlockRenderLayer.CUTOUT;
+	}
 }

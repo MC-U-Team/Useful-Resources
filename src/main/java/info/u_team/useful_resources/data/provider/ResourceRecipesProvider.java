@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.data.provider.resource;
+package info.u_team.useful_resources.data.provider;
 
 import java.util.function.Consumer;
 

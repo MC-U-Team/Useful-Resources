@@ -1,0 +1,7 @@
+{
+	"parent": "usefulresources:base/colored_overlay_block",
+	"textures": {
+		"uncolored": "block/stone",
+		"colored": "usefulresources:block/default_ore"
+	}
+}

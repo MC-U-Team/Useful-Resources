@@ -22,6 +22,7 @@ public class ColorHandler {
 	@SubscribeEvent
 	public static void register(ColorHandlerEvent.Block event) {
 		event.getBlockColors().register((state, world, pos, index) -> {
+			System.out.println(index);
 			return 0xeb4034;
 		}, Resources.COPPER.getBlocks().get(BlockResourceType.BLOCK), Resources.COPPER.getBlocks().get(BlockResourceType.ORE));
 	}
