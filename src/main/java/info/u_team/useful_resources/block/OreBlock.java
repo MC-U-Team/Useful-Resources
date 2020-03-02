@@ -10,7 +10,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.server.ServerWorld;
@@ -30,10 +29,10 @@ public class OreBlock extends UBlock {
 		return silktouch == 0 ? experienceDrop.apply(RANDOM) : 0;
 	}
 	
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
+//	@Override // TODO
+//	public BlockRenderLayer getRenderLayer() {
+//		return BlockRenderLayer.CUTOUT;
+//	}
 	
 	@Override
 	public boolean addLandingEffects(BlockState state1, ServerWorld worldserver, BlockPos pos, BlockState state2, LivingEntity entity, int numberOfParticles) {

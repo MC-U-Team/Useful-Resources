@@ -13,7 +13,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	@Override
 	protected void registerStatesAndModels() {
 		// Make base blocks
-		withExistingParent("base/colored_block", "block") //
+		models().withExistingParent("base/colored_block", "block") //
 				.texture("particle", "#colored") //
 				.element() //
 				.from(0, 0, 0) //
@@ -25,7 +25,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
-		withExistingParent("base/colored_overlay_block", "block") //
+		models().withExistingParent("base/colored_overlay_block", "block") //
 				.texture("particle", "#colored") //
 				.element() //
 				.from(0, 0, 0) //
@@ -45,10 +45,10 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
-		withExistingParent("base/default_block", modLoc("base/colored_block")) //
+		models().withExistingParent("base/default_block", modLoc("base/colored_block")) //
 				.texture("colored", "block/default_block");
 		
-		withExistingParent("base/default_stone_ore", modLoc("base/colored_overlay_block")) //
+		models().withExistingParent("base/default_stone_ore", modLoc("base/colored_overlay_block")) //
 				.texture("uncolored", "block/stone_background") //
 				.texture("colored", "block/default_ore");
 		
@@ -58,9 +58,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				// simpleBlock(block, cubeAll(blockName, modLoc("block/" + resource.getName() + "/" +
 				// blockName.replace(resource.getName() + "_", ""))));
 				if (type == BlockResourceType.BLOCK) {
-					simpleBlock(block, withExistingParent(blockName, modLoc("base/default_block")));
+					simpleBlock(block, models().withExistingParent(blockName, modLoc("base/default_block")));
 				} else {
-					simpleBlock(block, withExistingParent(blockName, modLoc("base/default_stone_ore")));
+					simpleBlock(block, models().withExistingParent(blockName, modLoc("base/default_stone_ore")));
 				}
 			});
 		});

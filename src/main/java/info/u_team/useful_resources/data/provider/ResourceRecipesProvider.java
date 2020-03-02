@@ -3,13 +3,7 @@ package info.u_team.useful_resources.data.provider;
 import java.util.function.Consumer;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.resource.IResource;
-import net.minecraft.advancements.criterion.*;
-import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Item;
-import net.minecraft.tags.Tag;
-import net.minecraft.util.ResourceLocation;
 
 public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
@@ -55,12 +49,12 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		});*/
 	}
 	
-	private InventoryChangeTrigger.Instance hasItem(IntBound amount, Tag<Item> tag) {
-		return hasItem(ItemPredicate.Builder.create().tag(tag).count(amount).build());
-	}
-	
-	private ResourceLocation createLocation(IResource resource, String name) {
-		return new ResourceLocation(modid, resource.getName() + "/" + name);
-	}
+//	private InventoryChangeTrigger.Instance hasItem(IntBound amount, Tag<Item> tag) {
+//		return hasItem(ItemPredicate.Builder.create().tag(tag).count(amount).build());
+//	}
+//	
+//	private ResourceLocation createLocation(IResource resource, String name) {
+//		return new ResourceLocation(modid, resource.getName() + "/" + name);
+//	}
 	
 }
