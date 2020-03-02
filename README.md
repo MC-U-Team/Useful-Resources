@@ -8,7 +8,7 @@
 ![Discord](https://img.shields.io/discord/297104769649213441?label=Discord)
 ](https://discordapp.com/invite/QXbWS36)
 
-### This mod adds three new backpacks to the game which enhance your gaming experience.
+### This mod adds many resources to the game and tries to unify them between mods.
 
 - Download on [curseforge](https://www.curseforge.com/minecraft/mc-mods/useful-resources).  
 - Find more information on our [website](https://u-team.info/mods/usefulresources).
