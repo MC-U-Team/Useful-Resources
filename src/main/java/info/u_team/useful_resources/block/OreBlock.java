@@ -29,11 +29,6 @@ public class OreBlock extends UBlock {
 		return silktouch == 0 ? experienceDrop.apply(RANDOM) : 0;
 	}
 	
-//	@Override // TODO
-//	public BlockRenderLayer getRenderLayer() {
-//		return BlockRenderLayer.CUTOUT;
-//	}
-	
 	@Override
 	public boolean addLandingEffects(BlockState state1, ServerWorld worldserver, BlockPos pos, BlockState state2, LivingEntity entity, int numberOfParticles) {
 		return super.addLandingEffects(state1, worldserver, pos, state2, entity, numberOfParticles);
