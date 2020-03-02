@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:smelting",
-	"ingredient": {
-		"tag": "forge:nether_ores/tin"
-	},
-	"result": "usefulresources:tin_ore",
-	"experience": 1.0,
-	"cookingtime": 200
-}

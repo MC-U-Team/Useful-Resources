@@ -1,6 +1,3 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "usefulresources:block/copper/nether_ore"
-	}
+	"parent": "usefulresources:base/default_stone_ore"
 }

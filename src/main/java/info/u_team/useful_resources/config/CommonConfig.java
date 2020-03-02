@@ -3,7 +3,7 @@ package info.u_team.useful_resources.config;
 import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.*;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 
 public class CommonConfig {
 	
@@ -11,7 +11,7 @@ public class CommonConfig {
 	private static final CommonConfig INSTANCE;
 	
 	static {
-		Pair<CommonConfig, ForgeConfigSpec> pair = new Builder().configure(CommonConfig::new);
+		Pair<CommonConfig, ForgeConfigSpec> pair = new ForgeConfigSpec.Builder().configure(CommonConfig::new);
 		CONFIG = pair.getRight();
 		INSTANCE = pair.getLeft();
 	}
@@ -22,8 +22,8 @@ public class CommonConfig {
 	
 	public final BooleanValue worldGenerationEnabled;
 	
-	private CommonConfig(Builder builder) {
-		worldGenerationEnabled = builder.comment("If the world generation should be enabled. Every ore can be disabled in the json configs.").define("worldGenerationEnabled", true);
+	private CommonConfig(ForgeConfigSpec.Builder builder) {
+		worldGenerationEnabled = builder.comment("If the world generation should be enabled.").define("worldGenerationEnabled", true);
 	}
 	
 }

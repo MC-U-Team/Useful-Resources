@@ -13,7 +13,7 @@ public class UsefulResourcesItems {
 	
 	@SubscribeEvent
 	public static void register(Register<Item> event) {
-		RegistryUtil.getAllResourceItemsAndApplyNames().forEach(event.getRegistry()::register);
+		RegistryUtil.getAndApplyNames(resource -> resource.getItems().values()).forEach(event.getRegistry()::register);
 	}
 	
 }

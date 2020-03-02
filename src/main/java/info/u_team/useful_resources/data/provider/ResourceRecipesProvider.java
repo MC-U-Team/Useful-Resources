@@ -1,18 +1,13 @@
 package info.u_team.useful_resources.data.provider;
 
-import static info.u_team.useful_resources.type.ResourceBlockTypes.*;
-import static info.u_team.useful_resources.type.ResourceItemTypes.*;
-
 import java.util.function.Consumer;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.resource.*;
-import info.u_team.useful_resources.type.Resources;
+import info.u_team.useful_resources.api.resource.IResource;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.advancements.criterion.MinMaxBounds.IntBound;
-import net.minecraft.data.*;
-import net.minecraft.item.*;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.data.IFinishedRecipe;
+import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 
@@ -24,7 +19,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
-		Resources.getValues().forEach(resource -> {
+		/*Resources.getValues().forEach(resource -> {
 			final String name = resource.getName();
 			final IResourceItems items = resource.getItems();
 			final IResourceBlocks blocks = resource.getBlocks();
@@ -57,7 +52,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			ShapedRecipeBuilder.shapedRecipe(items.getItem(PICKAXE)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("###").patternLine(" X ").patternLine(" X ").addCriterion("has_at_least_3_" + name + "_ingot", hasItem(IntBound.atLeast(3), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/pickaxe_from_ingot"));
 			ShapedRecipeBuilder.shapedRecipe(items.getItem(SHOVEL)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("#").patternLine("X").patternLine("X").addCriterion("has_at_least_1_" + name + "_ingot", hasItem(IntBound.atLeast(1), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/shovel_from_ingot"));
 			ShapedRecipeBuilder.shapedRecipe(items.getItem(SWORD)).key('#', items.getTag(INGOT)).key('X', Items.STICK).patternLine("#").patternLine("#").patternLine("X").addCriterion("has_at_least_1_" + name + "_ingot", hasItem(IntBound.atLeast(1), items.getTag(INGOT))).build(consumer, createLocation(resource, "crafting/sword_from_ingot"));
-		});
+		});*/
 	}
 	
 	private InventoryChangeTrigger.Instance hasItem(IntBound amount, Tag<Item> tag) {

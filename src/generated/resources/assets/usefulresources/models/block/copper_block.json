@@ -1,6 +1,3 @@
 {
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "usefulresources:block/copper/block"
-	}
+	"parent": "usefulresources:base/default_block"
 }
