@@ -6,7 +6,8 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
-import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.Resource;
+import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
@@ -14,6 +15,8 @@ import net.minecraft.item.crafting.Ingredient;
 public class BasicIngotResource extends Resource {
 	
 	private final Rarity rarity;
+	
+	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
 	
 	public BasicIngotResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness) {
 		super(name, color, ItemResourceType.INGOT);
@@ -29,6 +32,14 @@ public class BasicIngotResource extends Resource {
 		addFeature(createBasicItem(DENSE_PLATE, rarity));
 		addFeature(createBasicItem(GEAR, rarity));
 		addFeature(createBasicItem(ROD, rarity));
+		
+		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
+			
+			@Override
+			public OreType getOreType() {
+				return OreType.INGOT;
+			}
+		};
 	}
 	
 	public BasicIngotResource setTools(IToolMaterial toolMaterial) {
@@ -48,7 +59,7 @@ public class BasicIngotResource extends Resource {
 	
 	@Override
 	public IDataGeneratorConfigurator getDataGeneratorConfigurator() {
-		return null;
+		return dataGeneratorConfigurator;
 	}
 	
 }
