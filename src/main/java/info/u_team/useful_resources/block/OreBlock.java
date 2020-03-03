@@ -31,15 +31,15 @@ public class OreBlock extends UBlock {
 	}
 	
 	@Override
-	public boolean addLandingEffects(BlockState state1, ServerWorld world, BlockPos pos, BlockState state2, LivingEntity entity, int numberOfParticles) {
-		world.spawnParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, state2), entity.getPosX(), entity.getPosY(), entity.getPosZ(), numberOfParticles, 0, 0, 0, 0.15);
+	public boolean addLandingEffects(BlockState stateUnused, ServerWorld world, BlockPos pos, BlockState state, LivingEntity entity, int numberOfParticles) {
+		world.spawnParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, state), entity.getPosX(), entity.getPosY(), entity.getPosZ(), numberOfParticles, 0, 0, 0, 0.15);
 		return true;
 	}
 	
 	@Override
 	public boolean addRunningEffects(BlockState state, World world, BlockPos pos, Entity entity) {
 		final Vec3d motion = entity.getMotion();
-		world.addParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, state), entity.getPosX() + ((double) entity.rand.nextFloat() - 0.5D) * (double) entity.getWidth(), entity.getPosY() + 0.1D, entity.getPosZ() + ((double) entity.rand.nextFloat() - 0.5D) * (double) entity.getWidth(), motion.x * -4.0D, 1.5D, motion.z * -4.0D);
+		world.addParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, state), entity.getPosX() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), entity.getPosY() + 0.1, entity.getPosZ() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), motion.x * -4, 1.5, motion.z * -4);
 		return true;
 	}
 	
