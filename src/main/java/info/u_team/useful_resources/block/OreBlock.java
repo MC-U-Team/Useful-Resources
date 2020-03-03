@@ -97,6 +97,29 @@ public class OreBlock extends UBlock {
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public boolean addDestroyEffects(BlockState state, World world, BlockPos pos, ParticleManager manager) {
+		state.getShape(world, pos).forEachBox((shapeMinX, shapeMinY, shapeMinZ, shapeMaxX, shapeMaxY, shapeMaxZ) -> {
+			final double x = Math.min(1, shapeMaxX - shapeMinX);
+			final double y = Math.min(1, shapeMaxY - shapeMinY);
+			final double z = Math.min(1, shapeMaxZ - shapeMinZ);
+			final int maxX = Math.max(2, MathHelper.ceil(x / 0.25));
+			final int maxY = Math.max(2, MathHelper.ceil(y / 0.25));
+			final int maxZ = Math.max(2, MathHelper.ceil(z / 0.25));
+			
+			for (int indexX = 0; indexX < maxX; ++indexX) {
+				for (int indexY = 0; indexY < maxY; ++indexY) {
+					for (int indexZ = 0; indexZ < maxZ; ++indexZ) {
+						final double centerX = (indexX + 0.5) / maxX;
+						final double centerY = (indexY + 0.5) / maxY;
+						final double centerZ = (indexZ + 0.5) / maxZ;
+						final double offsetX = centerX * x + shapeMinX;
+						final double offsetY = centerY * y + shapeMinY;
+						final double offsetZ = centerZ * z + shapeMinZ;
+						manager.addEffect((new ColoredOverlayDiggingParticle(world, pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ, centerX - 0.5, centerY - 0.5, centerZ - 0.5, state)).setBlockPos(pos));
+					}
+				}
+			}
+			
+		});
 		return true;
 	}
 }
