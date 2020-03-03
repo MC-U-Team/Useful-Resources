@@ -9,6 +9,7 @@ import net.minecraft.client.particle.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.particles.BlockParticleData;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.*;
 import net.minecraft.world.World;
@@ -112,9 +113,9 @@ public class ColoredOverlayDiggingParticle extends DiggingParticle {
 	}
 	
 	@OnlyIn(Dist.CLIENT)
-	public static class Factory implements IParticleFactory<ColoredOverlayBlockParticleData> {
+	public static class Factory implements IParticleFactory<BlockParticleData> {
 		
-		public Particle makeParticle(ColoredOverlayBlockParticleData data, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+		public Particle makeParticle(BlockParticleData data, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			return new ColoredOverlayDiggingParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, data.getBlockState(), data.getTexture()).init();
 		}
 	}

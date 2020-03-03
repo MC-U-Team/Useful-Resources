@@ -4,12 +4,13 @@ import java.util.Random;
 import java.util.function.Function;
 
 import info.u_team.u_team_core.block.UBlock;
-import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
+import info.u_team.useful_resources.init.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
+import net.minecraft.particles.BlockParticleData;
 import net.minecraft.util.math.*;
 import net.minecraft.world.*;
 import net.minecraft.world.server.ServerWorld;
@@ -30,13 +31,16 @@ public class OreBlock extends UBlock {
 	}
 	
 	@Override
-	public boolean addLandingEffects(BlockState state1, ServerWorld worldserver, BlockPos pos, BlockState state2, LivingEntity entity, int numberOfParticles) {
-		return super.addLandingEffects(state1, worldserver, pos, state2, entity, numberOfParticles);
+	public boolean addLandingEffects(BlockState state1, ServerWorld world, BlockPos pos, BlockState state2, LivingEntity entity, int numberOfParticles) {
+		world.spawnParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, state2), entity.getPosX(), entity.getPosY(), entity.getPosZ(), numberOfParticles, 0, 0, 0, 0.15);
+		return true;
 	}
 	
 	@Override
 	public boolean addRunningEffects(BlockState state, World world, BlockPos pos, Entity entity) {
-		return super.addRunningEffects(state, world, pos, entity);
+		final Vec3d motion = entity.getMotion();
+		world.addParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, state), entity.getPosX() + ((double) entity.rand.nextFloat() - 0.5D) * (double) entity.getWidth(), entity.getPosY() + 0.1D, entity.getPosZ() + ((double) entity.rand.nextFloat() - 0.5D) * (double) entity.getWidth(), motion.x * -4.0D, 1.5D, motion.z * -4.0D);
+		return true;
 	}
 	
 	@Override
