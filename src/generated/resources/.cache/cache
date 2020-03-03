@@ -18,6 +18,7 @@ b168d267966f9b9957e9cafd3e3a54233f5755a8 assets\usefulresources\models\base\item
 179c048c0cffc3036d3978bacf561ae311754f5b assets\usefulresources\models\base\item\special\gear.json
 f3f6944aa2047a1fbf4d1b3dbe4194af7a294319 assets\usefulresources\models\base\item\special\helmet.json
 1b8642d74b11715895b487f6f06da8bfb4a28be3 assets\usefulresources\models\base\item\special\hoe.json
+5e739941c1a588f6ab0882eb382897dadd5da3e5 assets\usefulresources\models\base\item\special\horse_armor.json
 12b7dcbcc28f93a4f3ab9b17ca43fbe5761be8ab assets\usefulresources\models\base\item\special\ingot.json
 5d116482efef7051b5214df9b9114cfdba0f1777 assets\usefulresources\models\base\item\special\leggings.json
 41435dd3829bef1fcf467f5797069a95d763177b assets\usefulresources\models\base\item\special\nugget.json
@@ -38,6 +39,7 @@ abeb04fe917ab74f619a0dd386c4487417f63472 assets\usefulresources\models\item\copp
 6a3d35e7d857928d3a534ada527e3c3a1cf4f1df assets\usefulresources\models\item\copper_gear.json
 82d68862f025754cbd458223b5ceb5d87419bdb6 assets\usefulresources\models\item\copper_helmet.json
 1baaa426f9f84b942822bb9de879470d30e023a6 assets\usefulresources\models\item\copper_hoe.json
+22486c4bae6fa89dd9581e788bb72c7b77a5ce84 assets\usefulresources\models\item\copper_horse_armor.json
 3b189933ade32f4f4735393ef8298bc818b4b2db assets\usefulresources\models\item\copper_ingot.json
 47bef518a8418bb67f645845add50a25e0ff43ed assets\usefulresources\models\item\copper_leggings.json
 8692b2118e7c4bd5993a3c074a29731325360194 assets\usefulresources\models\item\copper_nether_ore.json

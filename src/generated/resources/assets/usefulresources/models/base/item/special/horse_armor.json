@@ -1,0 +1,7 @@
+{
+	"parent": "usefulresources:base/item/colored_overlay_generated_item",
+	"textures": {
+		"colored": "usefulresources:item/horse_armor_material",
+		"uncolored": "usefulresources:item/horse_armor_saddle"
+	}
+}
