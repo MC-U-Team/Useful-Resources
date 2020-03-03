@@ -1,0 +1,7 @@
+{
+	"parent": "usefulresources:base/item/colored_overlay_handheld_item",
+	"textures": {
+		"colored": "usefulresources:item/shovel_material",
+		"uncolored": "usefulresources:item/shovel_handle"
+	}
+}

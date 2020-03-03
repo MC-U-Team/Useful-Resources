@@ -74,5 +74,30 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		// ItemResourceType.ROD
 		withExistingParent("base/item/special/rod", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/rod");
+		
+		// ItemResourceType.AXE
+		withExistingParent("base/item/special/axe", modLoc("base/item/colored_overlay_handheld_item")) //
+				.texture("colored", "item/axe_material") //
+				.texture("uncolored", "item/axe_handle");
+		
+		// ItemResourceType.HOE
+		withExistingParent("base/item/special/hoe", modLoc("base/item/colored_overlay_handheld_item")) //
+				.texture("colored", "item/hoe_material") //
+				.texture("uncolored", "item/hoe_handle");
+		
+		// ItemResourceType.PICKAXE
+		withExistingParent("base/item/special/pickaxe", modLoc("base/item/colored_overlay_handheld_item")) //
+				.texture("colored", "item/pickaxe_material") //
+				.texture("uncolored", "item/pickaxe_handle");
+		
+		// ItemResourceType.SHOVEL
+		withExistingParent("base/item/special/shovel", modLoc("base/item/colored_overlay_handheld_item")) //
+				.texture("colored", "item/shovel_material") //
+				.texture("uncolored", "item/shovel_handle");
+		
+		// ItemResourceType.SWORD
+		withExistingParent("base/item/special/sword", modLoc("base/item/colored_overlay_handheld_item")) //
+				.texture("colored", "item/sword_material") //
+				.texture("uncolored", "item/sword_handle");
 	}
 }
