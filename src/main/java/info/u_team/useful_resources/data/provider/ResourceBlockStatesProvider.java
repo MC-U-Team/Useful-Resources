@@ -29,11 +29,11 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		if (type == BlockResourceType.ORE) {
 			baseModel = oreType.getName() + "_stone_ore";
 		} else if (type == BlockResourceType.NETHER_ORE) {
-			baseModel = oreType.getName() + "_netherrack_ore";
+			baseModel = oreType.getName() + "_netherrack_nether_ore";
 		} else {
 			baseModel = type.getName();
 		}
-		return modLoc("base/block/" + baseModel);
+		return modLoc("base/block/special/" + baseModel);
 	}
 	
 	private void generateBaseModels() {
@@ -74,17 +74,17 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		// Special models for each type
 		
 		// BlockResourceType.ORE
-		models().withExistingParent("base/block/ingot_stone_ore", modLoc("base/block/colored_overlay_block")) //
+		models().withExistingParent("base/block/special/ingot_stone_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/stone_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
 		
 		// BlockResourceType.NETHER_ORE
-		models().withExistingParent("base/block/ingot_netherrack_ore", modLoc("base/block/colored_overlay_block")) //
+		models().withExistingParent("base/block/special/ingot_netherrack_nether_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/netherrack_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
 		
 		// BlockResourceType.BLOCK
-		models().withExistingParent("base/block/block", modLoc("base/block/colored_block")) //
+		models().withExistingParent("base/block/special/block", modLoc("base/block/colored_block")) //
 				.texture("colored", "block/block");
 	}
 }
