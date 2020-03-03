@@ -35,11 +35,11 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		} else {
 			baseModel = "invalid";
 		}
-		return modLoc("base/" + baseModel);
+		return modLoc("base/block/" + baseModel);
 	}
 	
 	private void generateBaseModels() {
-		models().withExistingParent("base/colored_block", "block") //
+		models().withExistingParent("base/block/colored_block", "block") //
 				.texture("particle", "#colored") //
 				.element() //
 				.from(0, 0, 0) //
@@ -51,7 +51,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
-		models().withExistingParent("base/colored_overlay_block", "block") //
+		models().withExistingParent("base/block/colored_overlay_block", "block") //
 				.texture("particle", "#colored") //
 				.element() //
 				.from(0, 0, 0) //
@@ -71,14 +71,14 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
-		models().withExistingParent("base/block", modLoc("base/colored_block")) //
+		models().withExistingParent("base/block/block", modLoc("base/block/colored_block")) //
 				.texture("colored", "block/block");
 		
-		models().withExistingParent("base/ingot_stone_ore", modLoc("base/colored_overlay_block")) //
+		models().withExistingParent("base/block/ingot_stone_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/stone_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
 		
-		models().withExistingParent("base/ingot_netherrack_ore", modLoc("base/colored_overlay_block")) //
+		models().withExistingParent("base/block/ingot_netherrack_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/netherrack_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
 	}
