@@ -1,6 +1,6 @@
 {
 	"parent": "usefulresources:base/colored_block",
 	"textures": {
-		"colored": "usefulresources:block/default_block"
+		"colored": "usefulresources:block/block"
 	}
 }
