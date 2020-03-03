@@ -1,3 +1,3 @@
 {
-	"parent": "usefulresources:base/block/block"
+	"parent": "usefulresources:base/block/special/block"
 }
