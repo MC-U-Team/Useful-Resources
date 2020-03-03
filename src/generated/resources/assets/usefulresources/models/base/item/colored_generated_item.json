@@ -1,6 +1,7 @@
 {
 	"parent": "item/generated",
 	"textures": {
+		"layer0": "usefulresources:empty",
 		"layer1": "#colored"
 	}
 }

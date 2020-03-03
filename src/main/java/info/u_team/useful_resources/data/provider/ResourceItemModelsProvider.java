@@ -32,9 +32,11 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	private void generateBaseModels() {
 		// Basic types
 		withExistingParent("base/item/colored_generated_item", "generated") //
+				.texture("layer0", modLoc("empty")) //
 				.texture("layer1", "#colored");
 		
 		withExistingParent("base/item/colored_handheld_item", "handheld") //
+				.texture("layer0", modLoc("empty")) //
 				.texture("layer1", "#colored");
 		
 		withExistingParent("base/item/colored_overlay_generated_item", modLoc("base/item/colored_generated_item")) //
