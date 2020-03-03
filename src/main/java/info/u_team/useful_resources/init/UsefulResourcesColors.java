@@ -22,7 +22,7 @@ public class UsefulResourcesColors {
 				if (tintIndex == 1) {
 					return resource.getColor();
 				} else {
-					return 0xFFFFFF;
+					return -1;
 				}
 			}, resource.getBlocks().values().stream().toArray(Block[]::new));
 		});
@@ -32,7 +32,7 @@ public class UsefulResourcesColors {
 				if (tintIndex == 1) {
 					return resource.getColor();
 				} else {
-					return 0xFFFFFF;
+					return -1;
 				}
 			}, Streams.concat(resource.getBlocks().values().stream().map(Block::asItem), resource.getItems().values().stream()).toArray(Item[]::new));
 		});
