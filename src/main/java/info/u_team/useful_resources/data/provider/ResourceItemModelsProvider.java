@@ -116,5 +116,10 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		withExistingParent("base/item/special/boots", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/boots");
 		
+		// ItemResourceType.HORSE_ARMOR
+		withExistingParent("base/item/special/horse_armor", modLoc("base/item/colored_overlay_generated_item")) //
+				.texture("colored", "item/horse_armor_material") //
+				.texture("uncolored", "item/horse_armor_saddle");
+		
 	}
 }
