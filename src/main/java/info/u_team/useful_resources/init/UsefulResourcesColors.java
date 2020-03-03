@@ -1,5 +1,7 @@
 package info.u_team.useful_resources.init;
 
+import com.google.common.collect.Streams;
+
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import net.minecraft.block.Block;
@@ -32,7 +34,7 @@ public class UsefulResourcesColors {
 				} else {
 					return 0;
 				}
-			}, resource.getItems().values().stream().toArray(Item[]::new));
+			}, Streams.concat(resource.getBlocks().values().stream().map(Block::asItem), resource.getItems().values().stream()).toArray(Item[]::new));
 		});
 	}
 	
