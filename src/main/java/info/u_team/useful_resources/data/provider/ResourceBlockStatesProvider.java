@@ -39,6 +39,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	}
 	
 	private void generateBaseModels() {
+		// Basic types
+		
 		models().withExistingParent("base/block/colored_block", "block") //
 				.texture("particle", "#colored") //
 				.element() //
@@ -71,15 +73,20 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
-		models().withExistingParent("base/block/block", modLoc("base/block/colored_block")) //
-				.texture("colored", "block/block");
+		// Special models for each type
 		
+		// BlockResourceType.ORE
 		models().withExistingParent("base/block/ingot_stone_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/stone_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
 		
+		// BlockResourceType.NETHER_ORE
 		models().withExistingParent("base/block/ingot_netherrack_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/netherrack_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
+		
+		// BlockResourceType.BLOCK
+		models().withExistingParent("base/block/block", modLoc("base/block/colored_block")) //
+				.texture("colored", "block/block");
 	}
 }
