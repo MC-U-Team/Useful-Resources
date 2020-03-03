@@ -2,7 +2,7 @@ package info.u_team.useful_resources.data;
 
 import info.u_team.u_team_core.data.GenerationData;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.data.provider.ResourceBlockStatesProvider;
+import info.u_team.useful_resources.data.provider.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -16,7 +16,7 @@ public class UsefulResourcesDataGenerator {
 		final GenerationData data = new GenerationData(UsefulResourcesMod.MODID, event);
 		if (event.includeClient()) {
 			data.addProvider(ResourceBlockStatesProvider::new);
-			// data.addProvider(ResourceItemModelsProvider::new);
+			data.addProvider(ResourceItemModelsProvider::new);
 			// data.addProvider(ResourceLanguagesProvider::new);
 		}
 		// if (event.includeServer()) {

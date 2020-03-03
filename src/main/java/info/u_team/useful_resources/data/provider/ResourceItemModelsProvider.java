@@ -14,14 +14,14 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	@Override
 	protected void registerModels() {
 		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getBlocks().values().stream()).forEach(this::simpleBlock);
-		
-		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getItems().values().forEach(item -> {
-				final String itemName = item.getRegistryName().getPath();
-				final String parent = item instanceof TieredItem ? "handheld" : "generated";
-				
-				getBuilder(itemName).parent(new UncheckedModelFile("item/" + parent)).texture("layer0", "item/" + resource.getName() + "/" + itemName.replace(resource.getName() + "_", ""));
-			});
-		});
+//		
+//		ResourceRegistry.getResources().forEach(resource -> {
+//			resource.getItems().values().forEach(item -> {
+//				final String itemName = item.getRegistryName().getPath();
+//				final String parent = item instanceof TieredItem ? "handheld" : "generated";
+//				
+//				getBuilder(itemName).parent(new UncheckedModelFile("item/" + parent)).texture("layer0", "item/" + resource.getName() + "/" + itemName.replace(resource.getName() + "_", ""));
+//			});
+//		});
 	}
 }
