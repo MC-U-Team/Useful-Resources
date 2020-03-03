@@ -99,5 +99,22 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		withExistingParent("base/item/special/sword", modLoc("base/item/colored_overlay_handheld_item")) //
 				.texture("colored", "item/sword_material") //
 				.texture("uncolored", "item/sword_handle");
+		
+		// ItemResourceType.HELMET
+		withExistingParent("base/item/special/helmet", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/helmet");
+		
+		// ItemResourceType.CHESTPLATE
+		withExistingParent("base/item/special/chestplate", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/chestplate");
+		
+		// ItemResourceType.LEGGINGS
+		withExistingParent("base/item/special/leggings", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/leggings");
+		
+		// ItemResourceType.BOOTS
+		withExistingParent("base/item/special/boots", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/boots");
+		
 	}
 }

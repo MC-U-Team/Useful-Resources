@@ -1,0 +1,6 @@
+{
+	"parent": "usefulresources:base/item/colored_generated_item",
+	"textures": {
+		"colored": "usefulresources:item/boots"
+	}
+}
