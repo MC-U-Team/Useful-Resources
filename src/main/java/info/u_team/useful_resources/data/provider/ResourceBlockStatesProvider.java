@@ -30,10 +30,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 			baseModel = oreType.getName() + "_stone_ore";
 		} else if (type == BlockResourceType.NETHER_ORE) {
 			baseModel = oreType.getName() + "_netherrack_ore";
-		} else if (type == BlockResourceType.BLOCK) {
-			baseModel = "block";
 		} else {
-			baseModel = "invalid";
+			baseModel = type.getName();
 		}
 		return modLoc("base/block/" + baseModel);
 	}
