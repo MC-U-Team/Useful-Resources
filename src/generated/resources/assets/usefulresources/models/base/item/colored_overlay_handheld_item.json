@@ -1,0 +1,6 @@
+{
+	"parent": "usefulresources:base/item/colored_handheld_item",
+	"textures": {
+		"layer0": "#uncolored"
+	}
+}
