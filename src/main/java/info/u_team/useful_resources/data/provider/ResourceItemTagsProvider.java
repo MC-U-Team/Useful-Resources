@@ -1,6 +1,9 @@
 package info.u_team.useful_resources.data.provider;
 
 import info.u_team.u_team_core.data.*;
+import info.u_team.useful_resources.api.ResourceRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.tags.Tag;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
@@ -10,20 +13,19 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
 	@Override
 	protected void registerTags() {
-		/*Resources.getValues().forEach(resource -> {
-			final IResourceBlocks blocks = resource.getBlocks();
-			ResourceBlockTypes.VALUES.stream().filter(blocks::hasBlock).forEach(type -> {
-				copy(blocks.getBlockTag(type), blocks.getTag(type));
-				copy(blocks.getUnifyBlockTag(type), blocks.getUnifyTag(type));
+		ResourceRegistry.getResources().forEach(resource -> {
+			resource.getBlocks().forEach((type, block) -> {
+				copy(type.getBlockTag(resource), type.getTag(resource));
+				copy(type.getBlockUnifyTag(), type.getUnifyTag());
 			});
 		});
-		Resources.getValues().forEach(resource -> {
-			final IResourceItems items = resource.getItems();
-			ResourceItemTypes.VALUES.stream().filter(items::hasItem).forEach(type -> {
-				final Tag<Item> tag = items.getTag(type);
-				getBuilder(tag).add(items.getItem(type));
-				getBuilder(items.getUnifyTag(type)).add(tag);
+		
+		ResourceRegistry.getResources().forEach(resource -> {
+			resource.getItems().forEach((type, item) -> {
+				final Tag<Item> tag = type.getTag(resource);
+				getBuilder(tag).add(item);
+				getBuilder(type.getUnifyTag()).add(tag);
 			});
-		});*/
+		});
 	}
 }
