@@ -7,6 +7,7 @@ import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.item.armor.*;
 import info.u_team.u_team_core.item.tool.*;
 import info.u_team.useful_resources.api.feature.*;
+import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.block.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;

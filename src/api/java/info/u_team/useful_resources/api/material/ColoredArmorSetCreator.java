@@ -1,9 +1,8 @@
-package info.u_team.useful_resources.item;
+package info.u_team.useful_resources.api.material;
 
 import info.u_team.u_team_core.item.armor.*;
 import info.u_team.u_team_core.util.ItemProperties;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.api.material.IColoredArmor;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
