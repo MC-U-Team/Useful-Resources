@@ -20,8 +20,8 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceLanguagesProvider::new);
 		}
 		if (event.includeServer()) {
-			// data.addProvider(ResourceBlockTagsProvider::new);
-			// data.addProvider(ResourceItemTagsProvider::new);
+			data.addProvider(ResourceBlockTagsProvider::new);
+			data.addProvider(ResourceItemTagsProvider::new);
 			data.addProvider(ResourceLootTableProvider::new);
 			// data.addProvider(ResourceRecipesProvider::new);
 		}
