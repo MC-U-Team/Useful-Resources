@@ -51,7 +51,7 @@ public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createArmor(Rarity rarity, IArmorMaterial material) {
 		return basicBuilder((name, feature) -> {
-			final ArmorSet armorSet = ArmorSetCreator.create(name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
+			final ArmorSet armorSet = ColoredArmorSetCreator.create(name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
 			feature.add(ItemResourceType.HELMET, armorSet.getHelmet());
 			feature.add(ItemResourceType.CHESTPLATE, armorSet.getChestplate());
 			feature.add(ItemResourceType.LEGGINGS, armorSet.getLeggings());

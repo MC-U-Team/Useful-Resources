@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.item;
+package info.u_team.useful_resources.api.material;
 
 import com.google.common.base.MoreObjects;
 
