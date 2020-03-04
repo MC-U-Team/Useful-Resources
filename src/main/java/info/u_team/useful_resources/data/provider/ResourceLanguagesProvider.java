@@ -32,7 +32,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 		
 	}
 	
-	public String capitalize(String words) {
+	private String capitalize(String words) {
 		return Stream.of(words.trim().split("\\s")).filter(word -> word.length() > 0).map(word -> word.substring(0, 1).toUpperCase() + word.substring(1)).collect(Collectors.joining(" "));
 	}
 }
