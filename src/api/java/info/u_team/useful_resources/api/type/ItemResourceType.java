@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.api.type;
 
 import info.u_team.u_team_core.util.TagUtil;
+import info.u_team.useful_resources.api.resource.IResource;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 
@@ -29,15 +30,15 @@ public enum ItemResourceType implements IResourceType {
 	
 	private final String name;
 	
-	private final Tag<Item> unifyTag;
+	private final String tagName;
 	
 	private ItemResourceType(String name) {
 		this(name, name + "s");
 	}
 	
-	private ItemResourceType(String name, String unifyTagName) {
+	private ItemResourceType(String name, String tagName) {
 		this.name = name;
-		unifyTag = TagUtil.createItemTag("forge", unifyTagName);
+		this.tagName = tagName;
 	}
 	
 	public String getName() {
@@ -46,7 +47,12 @@ public enum ItemResourceType implements IResourceType {
 	
 	@Override
 	public Tag<Item> getUnifyTag() {
-		return unifyTag;
+		return TagUtil.createItemTag("forge", tagName);
+	}
+	
+	@Override
+	public Tag<Item> getTag(IResource resource) {
+		return TagUtil.createItemTag("forge", tagName + "/" + resource.getName());
 	}
 	
 }
