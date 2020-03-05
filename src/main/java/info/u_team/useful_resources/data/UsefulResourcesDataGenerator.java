@@ -21,6 +21,7 @@ public class UsefulResourcesDataGenerator {
 		}
 		if (event.includeServer()) {
 			data.addProvider(ResourceBlockTagsProvider::new);
+			data.addProvider(ResourceFluidTagsProvider::new);
 			data.addProvider(ResourceItemTagsProvider::new);
 			data.addProvider(ResourceLootTableProvider::new);
 			data.addProvider(ResourceRecipesProvider::new);
