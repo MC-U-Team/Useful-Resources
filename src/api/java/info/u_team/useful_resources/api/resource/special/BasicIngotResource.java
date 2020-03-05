@@ -25,6 +25,8 @@ public class BasicIngotResource extends Resource {
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
 		
+		addFeature(createMoltenFluid(0xFF000000 + color));
+		
 		addFeature(createBasicItem(INGOT, rarity));
 		addFeature(createBasicItem(NUGGET, rarity));
 		addFeature(createBasicItem(DUST, rarity));
