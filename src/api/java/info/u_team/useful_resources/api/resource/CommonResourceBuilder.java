@@ -66,7 +66,7 @@ public class CommonResourceBuilder {
 		});
 	}
 	
-	private static String basicName(String name, IResourceType type) {
+	private static String basicName(String name, IResourceType<?> type) {
 		return name + "_" + type.getName();
 	}
 	
