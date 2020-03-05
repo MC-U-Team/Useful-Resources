@@ -62,6 +62,7 @@ public abstract class Resource implements IResource {
 		final IResourceFeature feature = builder.build(name);
 		
 		addEntriesToMap(blocks, feature.getBlocks());
+		addEntriesToMap(fluids, feature.getFluids());
 		addEntriesToMap(items, feature.getItems());
 	}
 	
