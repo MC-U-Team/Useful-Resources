@@ -1,10 +1,14 @@
 package info.u_team.useful_resources.data.provider;
 
+import com.google.gson.JsonObject;
+
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
-import info.u_team.useful_resources.api.type.ItemResourceType;
+import info.u_team.useful_resources.api.type.*;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 
 public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	
@@ -16,11 +20,25 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	protected void registerModels() {
 		generateBaseModels();
 		
-		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getBlocks().values().stream()).forEach(this::simpleBlock);
+		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getBlocks().values().stream()).filter(block -> !block.asItem().equals(Items.AIR)).forEach(this::simpleBlock);
 		
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.getItems().forEach((type, item) -> {
-				withExistingParent(getPath(item), getBaseModel(type, resource.getDataGeneratorConfigurator()));
+				if (type == ItemResourceType.MOLTEN_BUCKET) {
+					generatedModels.computeIfAbsent(modLoc("item/" + getPath(item)), location -> new ItemModelBuilder(location, existingFileHelper) {
+						
+						@Override
+						public JsonObject toJson() {
+							final JsonObject root = new JsonObject();
+							root.addProperty("parent", "forge:item/bucket_drip");
+							root.addProperty("loader", "forge:bucket");
+							root.addProperty("fluid", resource.getFluids().get(FluidResourceType.MOLTEN).getRegistryName().toString());
+							return root;
+						}
+					});
+				} else {
+					withExistingParent(getPath(item), getBaseModel(type, resource.getDataGeneratorConfigurator()));
+				}
 			});
 		});
 	}
@@ -120,6 +138,6 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		withExistingParent("base/item/special/horse_armor", modLoc("base/item/colored_overlay_generated_item")) //
 				.texture("colored", "item/horse_armor_material") //
 				.texture("uncolored", "item/horse_armor_saddle");
-		
 	}
+	
 }

@@ -16,16 +16,24 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	protected void registerTags() {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.getBlocks().forEach((type, block) -> {
-				copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
-				copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
+				if (type.hasTag()) {
+					copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
+				}
+				if (type.hasUnifyTag()) {
+					copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
+				}
 			});
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.getItems().forEach((type, item) -> {
-				final Tag<Item> tag = type.getTag(resource);
-				getBuilder(tag).add(item);
-				getBuilder(type.getUnifyTag()).add(tag);
+				if (type.hasTag()) {
+					final Tag<Item> tag = type.getTag(resource);
+					getBuilder(tag).add(item);
+					if (type.hasUnifyTag()) {
+						getBuilder(type.getUnifyTag()).add(tag);
+					}
+				}
 			});
 		});
 	}
