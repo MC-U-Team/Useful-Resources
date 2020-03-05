@@ -15,9 +15,9 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	protected void registerTags() {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.getBlocks().forEach((type, block) -> {
-				final Tag<Block> tag = type.getBlockTag(resource);
+				final Tag<Block> tag = type.getTag(resource);
 				getBuilder(tag).add(block);
-				getBuilder(type.getBlockUnifyTag()).add(tag);
+				getBuilder(type.getUnifyTag()).add(tag);
 			});
 		});
 	}
