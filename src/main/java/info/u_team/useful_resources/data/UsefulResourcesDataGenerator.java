@@ -23,7 +23,7 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceBlockTagsProvider::new);
 			data.addProvider(ResourceItemTagsProvider::new);
 			data.addProvider(ResourceLootTableProvider::new);
-			// data.addProvider(ResourceRecipesProvider::new);
+			data.addProvider(ResourceRecipesProvider::new);
 		}
 	}
 }
