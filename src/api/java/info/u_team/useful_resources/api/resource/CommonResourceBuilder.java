@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
-import info.u_team.u_team_core.item.armor.*;
+import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
@@ -13,6 +13,7 @@ import info.u_team.useful_resources.block.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
 import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 
 public class CommonResourceBuilder {
@@ -82,16 +83,23 @@ public class CommonResourceBuilder {
 	private static class ResourceFeature implements IResourceFeature {
 		
 		private final Map<BlockResourceType, Block> blocks;
+		private final Map<FluidResourceType, Fluid> fluids;
 		private final Map<ItemResourceType, Item> items;
 		
 		private ResourceFeature() {
 			blocks = new EnumMap<>(BlockResourceType.class);
+			fluids = new EnumMap<>(FluidResourceType.class);
 			items = new EnumMap<>(ItemResourceType.class);
 		}
 		
 		private Block add(BlockResourceType type, Block block) {
 			blocks.put(type, block);
 			return block;
+		}
+		
+		private Fluid add(FluidResourceType type, Fluid fluid) {
+			fluids.put(type, fluid);
+			return fluid;
 		}
 		
 		private Item add(ItemResourceType type, Item item) {
@@ -102,6 +110,11 @@ public class CommonResourceBuilder {
 		@Override
 		public Map<BlockResourceType, Block> getBlocks() {
 			return blocks;
+		}
+		
+		@Override
+		public Map<FluidResourceType, Fluid> getFluids() {
+			return fluids;
 		}
 		
 		@Override

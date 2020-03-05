@@ -5,6 +5,7 @@ import java.util.*;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 
 public abstract class Resource implements IResource {
@@ -14,6 +15,7 @@ public abstract class Resource implements IResource {
 	private final ItemResourceType repairType;
 	
 	private final Map<BlockResourceType, Block> blocks;
+	private final Map<FluidResourceType, Fluid> fluids;
 	private final Map<ItemResourceType, Item> items;
 	
 	public Resource(String name, int color, ItemResourceType repairType) {
@@ -21,6 +23,7 @@ public abstract class Resource implements IResource {
 		this.color = color;
 		this.repairType = repairType;
 		blocks = new EnumMap<>(BlockResourceType.class);
+		fluids = new EnumMap<>(FluidResourceType.class);
 		items = new EnumMap<>(ItemResourceType.class);
 	}
 	
@@ -42,6 +45,11 @@ public abstract class Resource implements IResource {
 	@Override
 	public Map<BlockResourceType, Block> getBlocks() {
 		return Collections.unmodifiableMap(blocks);
+	}
+	
+	@Override
+	public Map<FluidResourceType, Fluid> getFluids() {
+		return Collections.unmodifiableMap(fluids);
 	}
 	
 	@Override

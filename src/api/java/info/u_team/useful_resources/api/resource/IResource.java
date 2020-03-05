@@ -6,6 +6,7 @@ import info.u_team.useful_resources.api.feature.IResourceFeatureBuilder;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 
 public interface IResource {
@@ -18,7 +19,7 @@ public interface IResource {
 	
 	Map<BlockResourceType, Block> getBlocks();
 	
-	Map<FluidResourceType, Block> getFluids();
+	Map<FluidResourceType, Fluid> getFluids();
 	
 	Map<ItemResourceType, Item> getItems();
 	
