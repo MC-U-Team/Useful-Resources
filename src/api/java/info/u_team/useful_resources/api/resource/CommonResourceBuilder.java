@@ -18,6 +18,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.*;
 
 public class CommonResourceBuilder {
@@ -36,6 +37,10 @@ public class CommonResourceBuilder {
 		return basicBuilder((name, feature) -> {
 			feature.add(type, new OreBlock(basicName(name, type), rarity, harvestLevel, hardness, resistance, experienceDrop));
 		});
+	}
+	
+	public static IResourceFeatureBuilder createMoltenFluid(int color) {
+		return createMoltenFluid(FluidAttributes.builder(new ResourceLocation("block/water_still"), new ResourceLocation("block/water_flow")).overlay(new ResourceLocation("block/water_overlay")).temperature(1300).color(color));
 	}
 	
 	public static IResourceFeatureBuilder createMoltenFluid(FluidAttributes.Builder builder) {
