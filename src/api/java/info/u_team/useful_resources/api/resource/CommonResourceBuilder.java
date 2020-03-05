@@ -1,8 +1,10 @@
 package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.*;
 
+import info.u_team.move_to_u_team_core.*;
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
@@ -13,8 +15,10 @@ import info.u_team.useful_resources.block.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
+import net.minecraftforge.fluids.*;
 
 public class CommonResourceBuilder {
 	
@@ -31,6 +35,22 @@ public class CommonResourceBuilder {
 	public static IResourceFeatureBuilder createOre(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance, Function<Random, Integer> experienceDrop) {
 		return basicBuilder((name, feature) -> {
 			feature.add(type, new OreBlock(basicName(name, type), rarity, harvestLevel, hardness, resistance, experienceDrop));
+		});
+	}
+	
+	public static IResourceFeatureBuilder createMoltenFluid(FluidAttributes.Builder builder) {
+		return basicBuilder((name, feature) -> {
+			final AtomicReference<USourceFluid> sourceFluidReference = new AtomicReference<>();
+			final AtomicReference<UFlowingFluid> flowingFluidReference = new AtomicReference<>();
+			final AtomicReference<UFluidBlock> fluidBlockReference = new AtomicReference<>();
+			final AtomicReference<UBucketItem> bucketItemReference = new AtomicReference<>();
+			
+			final ForgeFlowingFluid.Properties properties = new ForgeFlowingFluid.Properties(sourceFluidReference::get, flowingFluidReference::get, builder).block(fluidBlockReference::get).bucket(bucketItemReference::get);
+			
+			sourceFluidReference.set(feature.add(FluidResourceType.MOLTEN, new USourceFluid(basicName(name, FluidResourceType.MOLTEN), properties)));
+			flowingFluidReference.set(feature.add(FluidResourceType.MOLTEN_FLOWING, new UFlowingFluid(basicName(name, FluidResourceType.MOLTEN_FLOWING), properties)));
+			fluidBlockReference.set(feature.add(BlockResourceType.MOLTEN_BLOCK, new UFluidBlock(basicName(name, BlockResourceType.MOLTEN_BLOCK), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops(), sourceFluidReference::get)));
+			bucketItemReference.set(feature.add(ItemResourceType.MOLTEN_BUCKET, new UBucketItem(basicName(name, ItemResourceType.MOLTEN_BUCKET), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(UsefulResourcesItemGroups.GROUP), sourceFluidReference::get)));
 		});
 	}
 	
@@ -92,17 +112,17 @@ public class CommonResourceBuilder {
 			items = new EnumMap<>(ItemResourceType.class);
 		}
 		
-		private Block add(BlockResourceType type, Block block) {
+		private <T extends Block> T add(BlockResourceType type, T block) {
 			blocks.put(type, block);
 			return block;
 		}
 		
-		private Fluid add(FluidResourceType type, Fluid fluid) {
+		private <T extends Fluid> T add(FluidResourceType type, T fluid) {
 			fluids.put(type, fluid);
 			return fluid;
 		}
 		
-		private Item add(ItemResourceType type, Item item) {
+		private <T extends Item> T add(ItemResourceType type, T item) {
 			items.put(type, item);
 			return item;
 		}
