@@ -7,7 +7,7 @@ import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.data.OreType;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootTable;
+import net.minecraft.world.storage.loot.*;
 
 public class ResourceLootTableProvider extends CommonLootTablesProvider {
 	
@@ -20,7 +20,7 @@ public class ResourceLootTableProvider extends CommonLootTablesProvider {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.getBlocks().forEach((type, block) -> {
 				final LootTable lootTable;
-				if (type == BlockResourceType.MOLTEN_BLOCK) {
+				if (block.getLootTable().equals(LootTables.EMPTY)) {
 					lootTable = null;
 				} else if (resource.getDataGeneratorConfigurator().getOreType() == OreType.GEM) {
 					lootTable = addFortuneBlockLootTable(block, resource.getItems().get(ItemResourceType.BOOTS)); // SET GEM THERE WHEN WE HAVE A GEM TYPE
