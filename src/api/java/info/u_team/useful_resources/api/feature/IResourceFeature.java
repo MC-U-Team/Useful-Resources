@@ -5,6 +5,7 @@ import java.util.Map;
 import info.u_team.u_team_core.api.registry.IURegistryType;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
 
 /**
@@ -22,6 +23,15 @@ public interface IResourceFeature {
 	 * @return The collection of blocks
 	 */
 	Map<BlockResourceType, Block> getBlocks();
+	
+	/**
+	 * Returns a list of all fluids that are added with this feature. Can return an empty list. Cannot return null. The
+	 * blocks must be named with {@link IURegistryType} or have a
+	 * {@link Block#setRegistryName(net.minecraft.util.ResourceLocation)} set.
+	 * 
+	 * @return The collection of blocks
+	 */
+	Map<FluidResourceType, Fluid> getFluids();
 	
 	/**
 	 * Returns a list of all items that are added with this feature. Can return an empty list. Cannot return null. The items

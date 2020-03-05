@@ -18,6 +18,8 @@ public interface IResource {
 	
 	Map<BlockResourceType, Block> getBlocks();
 	
+	Map<FluidResourceType, Block> getFluids();
+	
 	Map<ItemResourceType, Item> getItems();
 	
 	IDataGeneratorConfigurator getDataGeneratorConfigurator();
