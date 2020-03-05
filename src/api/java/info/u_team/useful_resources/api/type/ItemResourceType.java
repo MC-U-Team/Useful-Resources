@@ -26,7 +26,9 @@ public enum ItemResourceType implements IResourceType<Item> {
 	LEGGINGS("leggings", "armor/leggings"),
 	BOOTS("boots", "armor/boots"),
 	
-	HORSE_ARMOR("horse_armor");
+	HORSE_ARMOR("horse_armor"),
+	
+	BUCKET("molten_bucket");
 	
 	private final String name;
 	
