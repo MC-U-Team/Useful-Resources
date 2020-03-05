@@ -12,7 +12,7 @@ public enum BlockResourceType implements IResourceType<Block> {
 	
 	BLOCK("block", "storage_blocks"),
 	
-	MOLTEN_BLOCK("molten_block", "molten_blocks");
+	MOLTEN_BLOCK("molten_block", null);
 	
 	private final String name;
 	
@@ -32,12 +32,28 @@ public enum BlockResourceType implements IResourceType<Block> {
 	}
 	
 	@Override
+	public boolean hasUnifyTag() {
+		return tagName != null;
+	}
+	
+	@Override
 	public Tag<Block> getUnifyTag() {
+		if (tagName == null) {
+			return null;
+		}
 		return TagUtil.createBlockTag("forge", tagName);
 	}
 	
 	@Override
+	public boolean hasTag() {
+		return tagName != null;
+	}
+	
+	@Override
 	public Tag<Block> getTag(IResource resource) {
+		if (tagName == null) {
+			return null;
+		}
 		return TagUtil.createBlockTag("forge", tagName + "/" + resource.getName());
 	}
 }
