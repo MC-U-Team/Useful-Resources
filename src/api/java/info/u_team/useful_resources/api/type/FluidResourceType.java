@@ -28,12 +28,28 @@ public enum FluidResourceType implements IResourceType<Fluid> {
 	}
 	
 	@Override
+	public boolean hasUnifyTag() {
+		return tagName != null;
+	}
+	
+	@Override
 	public Tag<Fluid> getUnifyTag() {
+		if (tagName == null) {
+			return null;
+		}
 		return new FluidTags.Wrapper(new ResourceLocation("forge", tagName));
 	}
 	
 	@Override
+	public boolean hasTag() {
+		return tagName != null;
+	}
+	
+	@Override
 	public Tag<Fluid> getTag(IResource resource) {
+		if (tagName == null) {
+			return null;
+		}
 		return new FluidTags.Wrapper(new ResourceLocation("forge", tagName + "/" + resource.getName()));
 	}
 	

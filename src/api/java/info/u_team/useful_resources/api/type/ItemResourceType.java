@@ -48,12 +48,28 @@ public enum ItemResourceType implements IResourceType<Item> {
 	}
 	
 	@Override
+	public boolean hasUnifyTag() {
+		return tagName != null;
+	}
+	
+	@Override
 	public Tag<Item> getUnifyTag() {
+		if (tagName == null) {
+			return null;
+		}
 		return TagUtil.createItemTag("forge", tagName);
 	}
 	
 	@Override
+	public boolean hasTag() {
+		return tagName != null;
+	}
+	
+	@Override
 	public Tag<Item> getTag(IResource resource) {
+		if (tagName == null) {
+			return null;
+		}
 		return TagUtil.createItemTag("forge", tagName + "/" + resource.getName());
 	}
 	

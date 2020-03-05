@@ -8,7 +8,11 @@ public interface IResourceType<T extends IForgeRegistryEntry<T>> {
 	
 	String getName();
 	
+	boolean hasUnifyTag();
+	
 	Tag<T> getUnifyTag();
+	
+	boolean hasTag();
 	
 	Tag<T> getTag(IResource resource);
 	
