@@ -4,7 +4,7 @@ import java.util.stream.*;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.type.BlockResourceType;
+import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 
 public class ResourceLanguagesProvider extends CommonLanguagesProvider {
@@ -21,11 +21,22 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 			resource.getBlocks().forEach((type, block) -> {
 				if (type == BlockResourceType.BLOCK) {
 					add(block, "Block of " + capitalize(resource.getName()));
+				} else if (type == BlockResourceType.MOLTEN_FLUID) {
+					add(block, "Molten " + capitalize(resource.getName()));
 				} else {
 					add(block, capitalize(block.getRegistryName().getPath().replace("_", " ")));
 				}
 			});
-			resource.getItems().values().forEach(item -> {
+			resource.getFluids().forEach((type, fluid) -> {
+				if (type == FluidResourceType.MOLTEN || type == FluidResourceType.MOLTEN_FLOWING) {
+					add(fluid, "Molten " + capitalize(resource.getName()));
+				}
+				add(fluid, capitalize(fluid.getRegistryName().getPath().replace("_", " ")));
+			});
+			resource.getItems().forEach((type, item) -> {
+				if (type == ItemResourceType.MOLTEN_BUCKET) {
+					add(item, "Molten " + capitalize(resource.getName() + " Bucket"));
+				}
 				add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
 			});
 		});
