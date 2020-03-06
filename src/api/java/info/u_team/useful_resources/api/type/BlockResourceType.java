@@ -1,11 +1,13 @@
 package info.u_team.useful_resources.api.type;
 
+import java.util.*;
+
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.resource.IResource;
 import net.minecraft.block.Block;
 import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 
-public enum BlockResourceType implements IResourceType<Block> {
+public enum BlockResourceType implements CacheResourceType<Block> {
 	
 	ORE("ore"),
 	NETHER_ORE("nether_ore"),
@@ -13,6 +15,8 @@ public enum BlockResourceType implements IResourceType<Block> {
 	BLOCK("block", "storage_blocks"),
 	
 	MOLTEN_BLOCK("molten_block", null);
+	
+	private static final Map<ResourceLocation, Tag<Block>> CACHE = new HashMap<>();
 	
 	private final String name;
 	
@@ -32,28 +36,17 @@ public enum BlockResourceType implements IResourceType<Block> {
 	}
 	
 	@Override
-	public boolean hasUnifyTag() {
-		return tagName != null;
+	public String getTagName() {
+		return tagName;
 	}
 	
 	@Override
-	public Tag<Block> getUnifyTag() {
-		if (tagName == null) {
-			return null;
-		}
-		return TagUtil.createBlockTag("forge", tagName);
+	public Tag<Block> createTag(ResourceLocation location) {
+		return TagUtil.createBlockTag(location.getNamespace(), location.getPath());
 	}
 	
 	@Override
-	public boolean hasTag() {
-		return tagName != null;
-	}
-	
-	@Override
-	public Tag<Block> getTag(IResource resource) {
-		if (tagName == null) {
-			return null;
-		}
-		return TagUtil.createBlockTag("forge", tagName + "/" + resource.getName());
+	public Map<ResourceLocation, Tag<Block>> getCache() {
+		return CACHE;
 	}
 }

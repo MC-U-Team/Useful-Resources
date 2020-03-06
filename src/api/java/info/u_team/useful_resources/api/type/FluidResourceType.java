@@ -1,14 +1,17 @@
 package info.u_team.useful_resources.api.type;
 
-import info.u_team.useful_resources.api.resource.IResource;
+import java.util.*;
+
 import net.minecraft.fluid.Fluid;
 import net.minecraft.tags.*;
 import net.minecraft.util.ResourceLocation;
 
-public enum FluidResourceType implements IResourceType<Fluid> {
+public enum FluidResourceType implements CacheResourceType<Fluid> {
 	
 	MOLTEN("molten"),
 	MOLTEN_FLOWING("molten_flowing", "moltens");
+	
+	private static final Map<ResourceLocation, Tag<Fluid>> CACHE = new HashMap<>();
 	
 	private final String name;
 	
@@ -28,29 +31,18 @@ public enum FluidResourceType implements IResourceType<Fluid> {
 	}
 	
 	@Override
-	public boolean hasUnifyTag() {
-		return tagName != null;
+	public String getTagName() {
+		return tagName;
 	}
 	
 	@Override
-	public Tag<Fluid> getUnifyTag() {
-		if (tagName == null) {
-			return null;
-		}
-		return new FluidTags.Wrapper(new ResourceLocation("forge", tagName));
+	public Tag<Fluid> createTag(ResourceLocation location) {
+		return new FluidTags.Wrapper(location);
 	}
 	
 	@Override
-	public boolean hasTag() {
-		return tagName != null;
-	}
-	
-	@Override
-	public Tag<Fluid> getTag(IResource resource) {
-		if (tagName == null) {
-			return null;
-		}
-		return new FluidTags.Wrapper(new ResourceLocation("forge", tagName + "/" + resource.getName()));
+	public Map<ResourceLocation, Tag<Fluid>> getCache() {
+		return CACHE;
 	}
 	
 }

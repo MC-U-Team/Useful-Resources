@@ -1,11 +1,13 @@
 package info.u_team.useful_resources.api.type;
 
+import java.util.*;
+
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.resource.IResource;
 import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
+import net.minecraft.util.ResourceLocation;
 
-public enum ItemResourceType implements IResourceType<Item> {
+public enum ItemResourceType implements CacheResourceType<Item> {
 	
 	INGOT("ingot"),
 	NUGGET("nugget"),
@@ -30,6 +32,8 @@ public enum ItemResourceType implements IResourceType<Item> {
 	
 	MOLTEN_BUCKET("molten_bucket");
 	
+	private static final Map<ResourceLocation, Tag<Item>> CACHE = new HashMap<>();
+	
 	private final String name;
 	
 	private final String tagName;
@@ -48,29 +52,18 @@ public enum ItemResourceType implements IResourceType<Item> {
 	}
 	
 	@Override
-	public boolean hasUnifyTag() {
-		return tagName != null;
+	public String getTagName() {
+		return tagName;
 	}
 	
 	@Override
-	public Tag<Item> getUnifyTag() {
-		if (tagName == null) {
-			return null;
-		}
-		return TagUtil.createItemTag("forge", tagName);
+	public Tag<Item> createTag(ResourceLocation location) {
+		return TagUtil.createItemTag(location.getNamespace(), location.getPath());
 	}
 	
 	@Override
-	public boolean hasTag() {
-		return tagName != null;
-	}
-	
-	@Override
-	public Tag<Item> getTag(IResource resource) {
-		if (tagName == null) {
-			return null;
-		}
-		return TagUtil.createItemTag("forge", tagName + "/" + resource.getName());
+	public Map<ResourceLocation, Tag<Item>> getCache() {
+		return CACHE;
 	}
 	
 }
