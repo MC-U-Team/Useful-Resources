@@ -9,10 +9,30 @@ import net.minecraft.item.Rarity;
 
 public class Resources {
 	
-	public static final IResource COPPER = new BasicIngotResource("copper", 0xcf6617, Rarity.COMMON, 1, 3) //
+	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
 			.setArmor(createArmor(12, new int[] { 2, 5, 6, 2 }, 9)) //
 			.setHorseArmor(6) //
 			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 200, 5, 1, 14));
+	
+	public static final IResource TIN = new BasicIngotResource("tin", 0xc5f6fa, Rarity.COMMON, 1, 3) //
+			.setArmor(createArmor(12, new int[] { 2, 5, 6, 2 }, 9)) //
+			.setHorseArmor(6) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 200, 5, 1, 14));
+	
+	public static final IResource ALUMINUM = new BasicIngotResource("aluminum", 0xebf0ee, Rarity.COMMON, 1, 2.6F) //
+			.setArmor(createArmor(10, new int[] { 1, 3, 5, 2 }, 9)) //
+			.setHorseArmor(5) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 1, 150, 5, 1, 14));
+	
+	public static final IResource SILVER = new BasicIngotResource("silver", 0xabe9ff, Rarity.COMMON, 2, 4) //
+			.setArmor(createArmor(15, new int[] { 2, 5, 6, 2 }, 9)) //
+			.setHorseArmor(7) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 250, 6, 2, 14));
+	
+	public static final IResource LEAD = new BasicIngotResource("lead", 0x5b62c9, Rarity.COMMON, 2, 3) //
+			.setArmor(createArmor(20, new int[] { 1, 3, 5, 2 }, 9)) //
+			.setHorseArmor(7) //
+			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 1, 250, 6, 2, 14));
 	
 	public static void register() {
 		ResourceRegistry.register(COPPER);
