@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:armors/leggings/copper"
+		"#forge:armors/leggings/copper",
+		"#forge:armors/leggings/tin",
+		"#forge:armors/leggings/aluminum",
+		"#forge:armors/leggings/silver",
+		"#forge:armors/leggings/lead"
 	]
 }

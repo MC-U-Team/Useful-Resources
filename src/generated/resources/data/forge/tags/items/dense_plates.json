@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:dense_plates/copper"
+		"#forge:dense_plates/copper",
+		"#forge:dense_plates/tin",
+		"#forge:dense_plates/aluminum",
+		"#forge:dense_plates/silver",
+		"#forge:dense_plates/lead"
 	]
 }

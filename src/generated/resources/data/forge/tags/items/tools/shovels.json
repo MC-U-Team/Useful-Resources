@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:tools/shovels/copper"
+		"#forge:tools/shovels/copper",
+		"#forge:tools/shovels/tin",
+		"#forge:tools/shovels/aluminum",
+		"#forge:tools/shovels/silver",
+		"#forge:tools/shovels/lead"
 	]
 }

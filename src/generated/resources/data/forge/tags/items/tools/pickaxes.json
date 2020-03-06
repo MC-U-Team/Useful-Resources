@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:tools/pickaxes/copper"
+		"#forge:tools/pickaxes/copper",
+		"#forge:tools/pickaxes/tin",
+		"#forge:tools/pickaxes/aluminum",
+		"#forge:tools/pickaxes/silver",
+		"#forge:tools/pickaxes/lead"
 	]
 }

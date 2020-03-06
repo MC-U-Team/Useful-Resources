@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:armors/helmets/copper"
+		"#forge:armors/helmets/copper",
+		"#forge:armors/helmets/tin",
+		"#forge:armors/helmets/aluminum",
+		"#forge:armors/helmets/silver",
+		"#forge:armors/helmets/lead"
 	]
 }

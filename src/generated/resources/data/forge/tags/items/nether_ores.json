@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:nether_ores/copper"
+		"#forge:nether_ores/copper",
+		"#forge:nether_ores/tin",
+		"#forge:nether_ores/aluminum",
+		"#forge:nether_ores/silver",
+		"#forge:nether_ores/lead"
 	]
 }

@@ -1,6 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:moltens/copper"
+		"#forge:moltens/copper",
+		"#forge:moltens/tin",
+		"#forge:moltens/aluminum",
+		"#forge:moltens/silver",
+		"#forge:moltens/lead"
 	]
 }
