@@ -36,6 +36,10 @@ public class Resources {
 	
 	public static void register() {
 		ResourceRegistry.register(COPPER);
+		ResourceRegistry.register(TIN);
+		ResourceRegistry.register(ALUMINUM);
+		ResourceRegistry.register(SILVER);
+		ResourceRegistry.register(LEAD);
 	}
 	
 }
