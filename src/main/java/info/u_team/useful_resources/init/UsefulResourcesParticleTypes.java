@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.init;
 
-import info.u_team.move_to_u_team_core.UParticleType;
+import info.u_team.u_team_core.particletype.UParticleType;
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import net.minecraft.particles.*;

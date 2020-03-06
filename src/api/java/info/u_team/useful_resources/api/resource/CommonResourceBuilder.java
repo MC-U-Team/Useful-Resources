@@ -4,8 +4,10 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.*;
 
-import info.u_team.move_to_u_team_core.*;
 import info.u_team.u_team_core.api.IToolMaterial;
+import info.u_team.u_team_core.block.UFluidBlock;
+import info.u_team.u_team_core.fluid.*;
+import info.u_team.u_team_core.item.UBucketItem;
 import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
 import info.u_team.useful_resources.api.feature.*;

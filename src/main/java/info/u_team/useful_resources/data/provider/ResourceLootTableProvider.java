@@ -5,7 +5,7 @@ import java.util.function.BiConsumer;
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.data.OreType;
-import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
 
