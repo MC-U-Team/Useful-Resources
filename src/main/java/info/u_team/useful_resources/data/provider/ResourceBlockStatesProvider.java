@@ -87,8 +87,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		models().withExistingParent("base/block/special/block", modLoc("base/block/colored_block")) //
 				.texture("colored", "block/block");
 		
-		// BlockResourceType.MOLTEN_BLOCK
-		models().getBuilder("base/block/special/molten_block") //
+		// BlockResourceType.MOLTEN_FLUID
+		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
 	}
 }
