@@ -7,8 +7,8 @@ import net.minecraft.util.ResourceLocation;
 
 public enum FluidResourceType implements IResourceType<Fluid> {
 	
-	MOLTEN("molten", "molten"),
-	MOLTEN_FLOWING("molten_flowing", "molten");
+	MOLTEN("molten"),
+	MOLTEN_FLOWING("molten_flowing", "moltens");
 	
 	private final String name;
 	
