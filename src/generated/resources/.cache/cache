@@ -63,6 +63,7 @@ d91fa4e51252cb1d014340a33495106efe2a5343 data\forge\tags\blocks\storage_blocks.j
 d5a6a24cdfb52625f363f343927f9dadafdb88ed data\forge\tags\blocks\storage_blocks\copper.json
 7a23e3cf2aa1576aadc8c5f39ec224a958dec4a6 data\forge\tags\fluids\moltens.json
 1ca4eda30b7fb44c8d78e1423e064d62ae132b78 data\forge\tags\fluids\moltens\copper.json
+51c1d2b6b31ff14cda44a5c8c8972e57e075ad7c data\forge\tags\items\armors.json
 8eeff3b396582e87c56cc135b21b3b738eb6bbed data\forge\tags\items\armors\boots.json
 d33a24bf709df12e0f5ebf2eca9b656f02ade701 data\forge\tags\items\armors\boots\copper.json
 37fa0a4bd1cdb336b7ff50393d0f98da4d9275ce data\forge\tags\items\armors\chestplates.json
@@ -95,6 +96,7 @@ a8ea9a6876f8f864327eac414fabbd44bd0e7265 data\forge\tags\items\rods.json
 eff5ad78989e54d8d87f0542b8b89d627c81ff99 data\forge\tags\items\rods\copper.json
 d91fa4e51252cb1d014340a33495106efe2a5343 data\forge\tags\items\storage_blocks.json
 d5a6a24cdfb52625f363f343927f9dadafdb88ed data\forge\tags\items\storage_blocks\copper.json
+9dd82bcbc5ee871d7d80c9ae146c8a470a896b86 data\forge\tags\items\tools.json
 4a79d632e012181ddbcd7f579d20ec74b87d0c60 data\forge\tags\items\tools\axes.json
 ede4d461790c29b33f607bc2dd12dbbf0de1486a data\forge\tags\items\tools\axes\copper.json
 1cd1fe8d02a0e928d2424e447a5638dec9f80738 data\forge\tags\items\tools\hoes.json
