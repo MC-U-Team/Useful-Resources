@@ -1,6 +1,6 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:armor/chestplates/copper"
+		"#forge:armors/chestplates/copper"
 	]
 }

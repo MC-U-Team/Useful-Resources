@@ -23,10 +23,10 @@ public enum ItemResourceType implements CacheResourceType<Item> {
 	SHOVEL("shovel", "tools/shovels"),
 	SWORD("sword", "tools/swords"),
 	
-	HELMET("helmet", "armor/helmets"),
-	CHESTPLATE("chestplate", "armor/chestplates"),
-	LEGGINGS("leggings", "armor/leggings"),
-	BOOTS("boots", "armor/boots"),
+	HELMET("helmet", "armors/helmets"),
+	CHESTPLATE("chestplate", "armors/chestplates"),
+	LEGGINGS("leggings", "armors/leggings"),
+	BOOTS("boots", "armors/boots"),
 	
 	HORSE_ARMOR("horse_armor"),
 	
