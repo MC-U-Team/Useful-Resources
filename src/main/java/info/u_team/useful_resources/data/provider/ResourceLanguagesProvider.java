@@ -30,14 +30,16 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 			resource.getFluids().forEach((type, fluid) -> {
 				if (type == FluidResourceType.MOLTEN || type == FluidResourceType.MOLTEN_FLOWING) {
 					add(fluid, "Molten " + capitalize(resource.getName()));
+				} else {
+					add(fluid, capitalize(fluid.getRegistryName().getPath().replace("_", " ")));
 				}
-				add(fluid, capitalize(fluid.getRegistryName().getPath().replace("_", " ")));
 			});
 			resource.getItems().forEach((type, item) -> {
 				if (type == ItemResourceType.MOLTEN_BUCKET) {
 					add(item, "Molten " + capitalize(resource.getName() + " Bucket"));
+				} else {
+					add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
 				}
-				add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
 			});
 		});
 		
