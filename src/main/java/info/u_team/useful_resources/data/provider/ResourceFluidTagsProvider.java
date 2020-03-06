@@ -25,14 +25,4 @@ public class ResourceFluidTagsProvider extends CommonFluidTagsProvider {
 			});
 		});
 	}
-	
-//	@Override
-//	protected Builder<Fluid> getBuilder(Tag<Fluid> tag) {
-//		final Optional<Builder<Fluid>> optional = tagToBuilder.entrySet().stream().filter(entry -> entry.getKey().getId().equals(tag.getId())).findAny().map(Entry::getValue);
-//		if (optional.isPresent()) {
-//			return optional.get();
-//		} else {
-//			return super.getBuilder(tag);
-//		}
-//	}
 }
