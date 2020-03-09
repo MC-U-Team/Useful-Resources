@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.api.worldgen;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.Dynamic;
@@ -20,7 +21,7 @@ public class CategoryTypeList extends TypeList<Category> {
 	}
 	
 	public static <T> CategoryTypeList deserialize(Dynamic<T> ops) {
-		return new CategoryTypeList(ListType.byName(ops.get("type").asString("")), ops.get("entries").asList(entry -> Category.BY_NAME.getOrDefault(entry.asString(""), Category.NONE)));
+		return new CategoryTypeList(ListType.byName(ops.get("type").asString("")), ops.get("entries").asStream().map(entry -> entry.asString("")).filter(Category.BY_NAME::containsKey).map(Category.BY_NAME::get).collect(Collectors.toList()));
 	}
 	
 }
