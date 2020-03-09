@@ -37,4 +37,12 @@ public class WorldGenFeature implements IWorldGenFeature {
 	public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
 		return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("categories"), categories.serialize(ops).getValue(), ops.createString("biomes"), biomes.serialize(ops).getValue(), ops.createString("feature"), feature.serialize(ops).getValue())));
 	}
+	
+	public static <T> WorldGenFeature deserialize(Dynamic<T> ops) {
+		final CategoryTypeList categories = CategoryTypeList.deserialize(ops.get("categories").orElseEmptyMap());
+		final BiomeTypeList biomes = BiomeTypeList.deserialize(ops.get("biomes").orElseEmptyMap());
+		final ConfiguredFeature<?, ?> feature = ConfiguredFeature.deserialize(ops.get("biomes").orElseEmptyMap());
+		return new WorldGenFeature(categories, biomes, feature);
+	}
+	
 }
