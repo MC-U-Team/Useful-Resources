@@ -52,7 +52,7 @@ public class WorldGenFeature implements IWorldGenFeature {
 	public static <T> WorldGenFeature deserialize(Dynamic<T> ops) {
 		final CategoryTypeList categories = CategoryTypeList.deserialize(ops.get("categories").orElseEmptyMap());
 		final BiomeTypeList biomes = BiomeTypeList.deserialize(ops.get("biomes").orElseEmptyMap());
-		final Decoration decoration = Decoration.BY_NAME.getOrDefault(ops.get("decoration").asString(""), Decoration.UNDERGROUND_DECORATION);
+		final Decoration decoration = Decoration.BY_NAME.getOrDefault(ops.get("decoration").asString(""), Decoration.RAW_GENERATION);
 		final ConfiguredFeature<?, ?> feature = ConfiguredFeature.deserialize(ops.get("feature").orElseEmptyMap());
 		return new WorldGenFeature(categories, biomes, decoration, feature);
 	}
