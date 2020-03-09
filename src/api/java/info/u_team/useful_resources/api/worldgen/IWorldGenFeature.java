@@ -1,15 +1,12 @@
 package info.u_team.useful_resources.api.worldgen;
 
-import info.u_team.useful_resources.api.list.TypeList;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.Category;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public interface IWorldGenFeature {
 	
-	TypeList<Category> getCategories();
+	CategoryTypeList getCategories();
 	
-	TypeList<Biome> getBiomes();
+	BiomeTypeList getBiomes();
 	
 	ConfiguredFeature<?, ?> getFeature();
 	
