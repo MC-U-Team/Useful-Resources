@@ -5,9 +5,9 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.feature.*;
 
-public interface IWorldGenFeature<C extends IFeatureConfig> {
+public interface IWorldGenFeature {
 	
-	Feature<C> getFeature();
+	ConfiguredFeature<?, ?> getFeature();
 	
 	TypeList<Category> getCategories();
 	
