@@ -1,5 +1,7 @@
 package info.u_team.useful_resources.api.worldgen;
 
+import java.util.Objects;
+
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.Dynamic;
 import com.mojang.datafixers.types.DynamicOps;
@@ -14,9 +16,9 @@ public class WorldGenFeature implements IWorldGenFeature {
 	private final ConfiguredFeature<?, ?> feature;
 	
 	public WorldGenFeature(CategoryTypeList categories, BiomeTypeList biomes, ConfiguredFeature<?, ?> feature) {
-		this.categories = categories;
-		this.biomes = biomes;
-		this.feature = feature;
+		this.categories = Objects.requireNonNull(categories);
+		this.biomes = Objects.requireNonNull(biomes);
+		this.feature = Objects.requireNonNull(feature);
 	}
 	
 	@Override
