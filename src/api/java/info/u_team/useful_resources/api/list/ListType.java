@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.api.worldgen;
+package info.u_team.useful_resources.api.list;
 
 public enum ListType {
 	
