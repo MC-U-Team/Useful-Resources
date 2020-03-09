@@ -36,4 +36,8 @@ public class WorldGenFeature implements IWorldGenFeature {
 	public ConfiguredFeature<?, ?> getFeature() {
 		return feature;
 	}
+	
+	public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
+		return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("feature"), feature.serialize(ops).getValue())));
+	}
 }
