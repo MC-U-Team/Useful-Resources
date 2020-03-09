@@ -19,9 +19,6 @@ public enum ListType {
 		if ("whitelist".equals(name)) {
 			return WHITELIST;
 		}
-		if ("blacklist".equals(name)) {
-			return BLACKLIST;
-		}
-		return null;
+		return BLACKLIST;
 	}
 }
