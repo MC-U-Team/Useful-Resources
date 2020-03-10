@@ -4,17 +4,22 @@ import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
 import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
+import java.util.*;
+
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.Resource;
 import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.type.ItemResourceType;
+import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 
 public class BasicIngotResource extends Resource {
 	
 	private final Rarity rarity;
+	
+	private final List<WorldGenFeature> worldGenFeatures;
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
 	
@@ -35,11 +40,18 @@ public class BasicIngotResource extends Resource {
 		addFeature(createBasicItem(GEAR, rarity));
 		addFeature(createBasicItem(ROD, rarity));
 		
+		worldGenFeatures = new ArrayList<>();
+		
 		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
 			
 			@Override
 			public OreType getOreType() {
 				return OreType.INGOT;
+			}
+			
+			@Override
+			public List<WorldGenFeature> getWorldGeneration() {
+				return worldGenFeatures;
 			}
 		};
 	}
