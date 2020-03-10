@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.api.resource.data;
 
-import java.util.List;
+import java.util.Map;
 
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 
@@ -8,6 +8,6 @@ public interface IDataGeneratorConfigurator {
 	
 	OreType getOreType();
 	
-	List<WorldGenFeature> getWorldGeneration();
+	Map<String, WorldGenFeature> getWorldGeneration();
 	
 }

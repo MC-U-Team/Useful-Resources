@@ -19,7 +19,7 @@ public class BasicIngotResource extends Resource {
 	
 	private final Rarity rarity;
 	
-	private final List<WorldGenFeature> worldGenFeatures;
+	private final Map<String, WorldGenFeature> worldGenFeatures;
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
 	
@@ -40,7 +40,7 @@ public class BasicIngotResource extends Resource {
 		addFeature(createBasicItem(GEAR, rarity));
 		addFeature(createBasicItem(ROD, rarity));
 		
-		worldGenFeatures = new ArrayList<>();
+		worldGenFeatures = new HashMap<>();
 		
 		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
 			
@@ -50,7 +50,7 @@ public class BasicIngotResource extends Resource {
 			}
 			
 			@Override
-			public List<WorldGenFeature> getWorldGeneration() {
+			public Map<String, WorldGenFeature> getWorldGeneration() {
 				return worldGenFeatures;
 			}
 		};
