@@ -171,6 +171,7 @@ b53c823bf2404ff67eb957cd8dae1da4493d7a52 assets\usefulresources\models\item\tin_
 796d48db5a092b0458eae5659e18f41ac4202f2c assets\usefulresources\models\item\tin_rod.json
 c7787cf753c1182751f7596d15b39223ce56f88a assets\usefulresources\models\item\tin_shovel.json
 7eee53ee23361c4ddae6f337a753299b910ac2b7 assets\usefulresources\models\item\tin_sword.json
+9ed931619e39f59a8520c1e3b03fea2e9a56fb60 assets\usefulresources\particles\colored_overlay_block.json
 eddd654a6681d950143cad4ee0dc250fa15b0b7b data\forge\tags\blocks\nether_ores.json
 fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data\forge\tags\blocks\nether_ores\aluminum.json
 58f69b549cf2b0d4ed78b20da687b20e0b6d2c6f data\forge\tags\blocks\nether_ores\copper.json
