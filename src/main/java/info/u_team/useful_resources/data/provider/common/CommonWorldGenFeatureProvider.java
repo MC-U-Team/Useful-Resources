@@ -37,4 +37,8 @@ public abstract class CommonWorldGenFeatureProvider extends CommonProvider {
 		return "Worldgen-Feature";
 	}
 	
+	protected void addFeature(String path, WorldGenFeature feature) {
+		data.put(path, feature);
+	}
+	
 }
