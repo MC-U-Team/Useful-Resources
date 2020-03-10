@@ -53,6 +53,10 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 		loaded.clear();
 		
 		map.forEach((resourceLocation, json) -> {
+			if (json.size() == 0) { // DO not load jsons that do not contain any values
+				return;
+			}
+			
 			final WorldGenFeature feature = WorldGenFeature.deserialize(new Dynamic<>(JsonOps.INSTANCE, json));
 			
 			ForgeRegistries.BIOMES.forEach(biome -> {
