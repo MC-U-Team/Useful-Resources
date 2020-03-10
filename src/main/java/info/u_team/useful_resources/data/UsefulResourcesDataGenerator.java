@@ -18,6 +18,7 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceBlockStatesProvider::new);
 			data.addProvider(ResourceItemModelsProvider::new);
 			data.addProvider(ResourceLanguagesProvider::new);
+			data.addProvider(ResourceSpecialProvider::new);
 		}
 		if (event.includeServer()) {
 			data.addProvider(ResourceBlockTagsProvider::new);
