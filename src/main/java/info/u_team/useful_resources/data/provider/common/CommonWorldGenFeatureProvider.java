@@ -23,7 +23,7 @@ public abstract class CommonWorldGenFeatureProvider extends CommonProvider {
 		addFeatures();
 		data.forEach((path, feature) -> {
 			try {
-				write(cache, GSON.toJson(feature.serialize(JsonOps.INSTANCE).getValue()), resolveModData().resolve("useful_resources").resolve("worldgen_feature").resolve(path + ".json"));
+				write(cache, feature.serialize(JsonOps.INSTANCE).getValue(), resolveModData().resolve("useful_resources").resolve("worldgen_feature").resolve(path + ".json"));
 			} catch (final IOException ex) {
 				LOGGER.error(marker, "Could not write data.", ex);
 			}
