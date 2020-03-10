@@ -10,7 +10,7 @@ import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.Resource;
 import info.u_team.useful_resources.api.resource.data.*;
-import info.u_team.useful_resources.api.type.ItemResourceType;
+import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
@@ -68,6 +68,11 @@ public class BasicIngotResource extends Resource {
 	
 	public BasicIngotResource setHorseArmor(int armorPoints) {
 		addFeature(createHorseArmor(rarity, armorPoints));
+		return this;
+	}
+	
+	public BasicIngotResource setGeneration(BlockResourceType type, WorldGenFeature worldGenFeature) {
+		worldGenFeatures.put(type.getName(), worldGenFeature);
 		return this;
 	}
 	
