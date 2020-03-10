@@ -5,6 +5,7 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import java.util.*;
+import java.util.function.Function;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
@@ -12,6 +13,7 @@ import info.u_team.useful_resources.api.resource.Resource;
 import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
+import net.minecraft.block.*;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -71,8 +73,12 @@ public class BasicIngotResource extends Resource {
 		return this;
 	}
 	
-	public BasicIngotResource setGeneration(BlockResourceType type, WorldGenFeature worldGenFeature) {
-		worldGenFeatures.put(type.getName(), worldGenFeature);
+	public BasicIngotResource setGenerationDefault(BlockResourceType type, Function<BlockState, WorldGenFeature> function) {
+		return setGeneration(type, block -> function.apply(block.getDefaultState()));
+	}
+	
+	public BasicIngotResource setGeneration(BlockResourceType type, Function<Block, WorldGenFeature> function) {
+		worldGenFeatures.put(type.getName(), function.apply(getBlocks().get(type)));
 		return this;
 	}
 	
