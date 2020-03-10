@@ -63,8 +63,6 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 			});
 		});
 		
-		System.out.println(loaded);
-		
 		loaded.forEach((biome, list) -> {
 			list.forEach(pair -> {
 				final Decoration decoration = pair.getKey();
