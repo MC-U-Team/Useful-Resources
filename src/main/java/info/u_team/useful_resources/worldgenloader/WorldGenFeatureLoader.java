@@ -8,6 +8,7 @@ import com.google.gson.*;
 import com.mojang.datafixers.Dynamic;
 import com.mojang.datafixers.types.JsonOps;
 
+import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.profiler.IProfiler;
@@ -16,13 +17,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
+@EventBusSubscriber(modid = UsefulResourcesMod.MODID, bus = Bus.FORGE)
 public class WorldGenFeatureLoader extends JsonReloadListener {
 	
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 	
 	private static final Map<Biome, List<Pair<Decoration, ConfiguredFeature<?, ?>>>> loaded = new HashMap<>();
+	
+	@SubscribeEvent
+	public static void serverStart(FMLServerAboutToStartEvent event) {
+		event.getServer().getResourceManager().addReloadListener(new WorldGenFeatureLoader());
+	}
 	
 	public WorldGenFeatureLoader() {
 		super(GSON, "useful_resources/worldgen_feature");
