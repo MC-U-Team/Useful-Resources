@@ -53,7 +53,7 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 		loaded.clear();
 		
 		map.forEach((resourceLocation, json) -> {
-			if (json.size() == 0) { // DO not load jsons that do not contain any values
+			if (json.size() == 0) { // Do not load jsons that do not contain any values
 				return;
 			}
 			
