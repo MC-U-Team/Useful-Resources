@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#",
+		"X",
+		"X"
+	],
+	"key": {
+		"#": {
+			"tag": "forge:ingots/aluminum"
+		},
+		"X": {
+			"tag": "forge:rods/wooden"
+		}
+	},
+	"result": {
+		"item": "usefulresources:aluminum_shovel"
+	}
+}

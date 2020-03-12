@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:lead/crafting/leggings_from_ingot"
+		]
+	},
+	"criteria": {
+		"has_ingot": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:ingots/lead"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:lead/crafting/leggings_from_ingot"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_ingot",
+			"has_the_recipe"
+		]
+	]
+}

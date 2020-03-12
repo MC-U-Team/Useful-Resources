@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": {
+		"tag": "forge:nether_ores/aluminum"
+	},
+	"result": "usefulresources:aluminum_ingot",
+	"experience": 0.7,
+	"cookingtime": 100
+}
