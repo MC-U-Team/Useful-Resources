@@ -201,6 +201,60 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.addCriterion("has_ingot", hasItem(ingotTag)) //
 						.build(consumer, createLocation(resource, "crafting/sword_from_ingot"));
 			}
+			
+			// INGOT -> HELMET
+			if (items.containsKey(INGOT) && items.containsKey(HELMET)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Item helmetItem = items.get(HELMET);
+				
+				shapedRecipe(helmetItem) //
+						.key('#', ingotTag) //
+						.patternLine("###") //
+						.patternLine("# #") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/helmet_from_ingot"));
+			}
+			
+			// INGOT -> CHESTPLATE
+			if (items.containsKey(INGOT) && items.containsKey(CHESTPLATE)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Item chestplateItem = items.get(CHESTPLATE);
+				
+				shapedRecipe(chestplateItem) //
+						.key('#', ingotTag) //
+						.patternLine("# #") //
+						.patternLine("###") //
+						.patternLine("###") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/chestplate_from_ingot"));
+			}
+			
+			// INGOT -> LEGGINGS
+			if (items.containsKey(INGOT) && items.containsKey(LEGGINGS)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Item leggingsItem = items.get(LEGGINGS);
+				
+				shapedRecipe(leggingsItem) //
+						.key('#', ingotTag) //
+						.patternLine("###") //
+						.patternLine("# #") //
+						.patternLine("# #") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/leggings_from_ingot"));
+			}
+			
+			// INGOT -> BOOTS
+			if (items.containsKey(INGOT) && items.containsKey(BOOTS)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Item bootsItem = items.get(BOOTS);
+				
+				shapedRecipe(bootsItem) //
+						.key('#', ingotTag) //
+						.patternLine("# #") //
+						.patternLine("# #") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/boots_from_ingot"));
+			}
 		});
 	}
 	
