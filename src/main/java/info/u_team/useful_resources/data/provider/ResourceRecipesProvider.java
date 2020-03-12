@@ -17,9 +17,10 @@ import info.u_team.useful_resources.api.type.*;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.block.Block;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.Tags;
 
 public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
@@ -119,6 +120,86 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.addIngredient(ingotTag) //
 						.addCriterion("has_ingot", hasItem(ingotTag)) //
 						.build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
+			}
+			
+			// INGOT -> AXE
+			if (items.containsKey(INGOT) && items.containsKey(AXE)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final Item axeItem = items.get(AXE);
+				
+				shapedRecipe(axeItem) //
+						.key('#', ingotTag) //
+						.key('X', stickTag) //
+						.patternLine("##") //
+						.patternLine("#X") //
+						.patternLine(" X") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/axe_from_ingot"));
+			}
+			
+			// INGOT -> HOE
+			if (items.containsKey(INGOT) && items.containsKey(HOE)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final Item axeItem = items.get(HOE);
+				
+				shapedRecipe(axeItem) //
+						.key('#', ingotTag) //
+						.key('X', stickTag) //
+						.patternLine("##") //
+						.patternLine(" X") //
+						.patternLine(" X") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/hoe_from_ingot"));
+			}
+			
+			// INGOT -> PICKAXE
+			if (items.containsKey(INGOT) && items.containsKey(PICKAXE)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final Item axeItem = items.get(PICKAXE);
+				
+				shapedRecipe(axeItem) //
+						.key('#', ingotTag) //
+						.key('X', stickTag) //
+						.patternLine("###") //
+						.patternLine(" X ") //
+						.patternLine(" X ") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/pickaxe_from_ingot"));
+			}
+			
+			// INGOT -> SHOVEL
+			if (items.containsKey(INGOT) && items.containsKey(SHOVEL)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final Item axeItem = items.get(SHOVEL);
+				
+				shapedRecipe(axeItem) //
+						.key('#', ingotTag) //
+						.key('X', stickTag) //
+						.patternLine("#") //
+						.patternLine("X") //
+						.patternLine("X") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/shovel_from_ingot"));
+			}
+			
+			// INGOT -> SWORD
+			if (items.containsKey(INGOT) && items.containsKey(SWORD)) {
+				final Tag<Item> ingotTag = INGOT.getTag(resource);
+				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final Item axeItem = items.get(SWORD);
+				
+				shapedRecipe(axeItem) //
+						.key('#', ingotTag) //
+						.key('X', stickTag) //
+						.patternLine("#") //
+						.patternLine("#") //
+						.patternLine("X") //
+						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.build(consumer, createLocation(resource, "crafting/sword_from_ingot"));
 			}
 		});
 	}
