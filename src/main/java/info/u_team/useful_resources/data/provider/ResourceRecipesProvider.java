@@ -142,9 +142,9 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			if (items.containsKey(INGOT) && items.containsKey(HOE)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
-				final Item axeItem = items.get(HOE);
+				final Item hoeItem = items.get(HOE);
 				
-				shapedRecipe(axeItem) //
+				shapedRecipe(hoeItem) //
 						.key('#', ingotTag) //
 						.key('X', stickTag) //
 						.patternLine("##") //
@@ -158,9 +158,9 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			if (items.containsKey(INGOT) && items.containsKey(PICKAXE)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
-				final Item axeItem = items.get(PICKAXE);
+				final Item pickaxeItem = items.get(PICKAXE);
 				
-				shapedRecipe(axeItem) //
+				shapedRecipe(pickaxeItem) //
 						.key('#', ingotTag) //
 						.key('X', stickTag) //
 						.patternLine("###") //
@@ -174,9 +174,9 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			if (items.containsKey(INGOT) && items.containsKey(SHOVEL)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
-				final Item axeItem = items.get(SHOVEL);
+				final Item shovelItem = items.get(SHOVEL);
 				
-				shapedRecipe(axeItem) //
+				shapedRecipe(shovelItem) //
 						.key('#', ingotTag) //
 						.key('X', stickTag) //
 						.patternLine("#") //
@@ -190,9 +190,9 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			if (items.containsKey(INGOT) && items.containsKey(SWORD)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
-				final Item axeItem = items.get(SWORD);
+				final Item swordItem = items.get(SWORD);
 				
-				shapedRecipe(axeItem) //
+				shapedRecipe(swordItem) //
 						.key('#', ingotTag) //
 						.key('X', stickTag) //
 						.patternLine("#") //
