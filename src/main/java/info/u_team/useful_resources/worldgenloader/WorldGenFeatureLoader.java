@@ -32,7 +32,7 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 	
 	private static final Logger LOGGER = LogManager.getLogger();
 	
-	private static final Map<Biome, List<Pair<Decoration, ConfiguredFeature<?, ?>>>> loaded = new HashMap<>();
+	private static final Map<Biome, List<Pair<Decoration, ConfiguredFeature<?, ?>>>> LOADED = new HashMap<>();
 	
 	@SubscribeEvent
 	public static void serverStart(FMLServerAboutToStartEvent event) {
@@ -45,7 +45,7 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 	
 	@Override
 	protected void apply(Map<ResourceLocation, JsonObject> map, IResourceManager resourceManager, IProfiler profiler) {
-		loaded.forEach((biome, list) -> {
+		LOADED.forEach((biome, list) -> {
 			list.forEach(pair -> {
 				final Decoration decoration = pair.getKey();
 				final ConfiguredFeature<?, ?> configuredFeature = pair.getValue();
@@ -54,7 +54,7 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 				}
 			});
 		});
-		loaded.clear();
+		LOADED.clear();
 		
 		final AtomicInteger counter = new AtomicInteger();
 		
@@ -71,11 +71,11 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 				if (!feature.getCategories().testWithType(biome.getCategory()) || !feature.getBiomes().testWithType(biome)) {
 					return;
 				}
-				loaded.computeIfAbsent(biome, $ -> new ArrayList<>()).add(Pair.of(feature.getDecoration(), feature.getFeature()));
+				LOADED.computeIfAbsent(biome, $ -> new ArrayList<>()).add(Pair.of(feature.getDecoration(), feature.getFeature()));
 			});
 		});
 		
-		loaded.forEach((biome, list) -> {
+		LOADED.forEach((biome, list) -> {
 			list.forEach(pair -> {
 				final Decoration decoration = pair.getKey();
 				final ConfiguredFeature<?, ?> configuredFeature = pair.getValue();
