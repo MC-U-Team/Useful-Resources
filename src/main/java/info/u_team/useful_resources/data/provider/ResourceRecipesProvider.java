@@ -14,10 +14,9 @@ import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
-import net.minecraft.advancements.criterion.*;
 import net.minecraft.block.Block;
 import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
@@ -264,10 +263,6 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
 	private ResourceLocation createLocation(IResource resource, String name) {
 		return new ResourceLocation(modid, resource.getName() + "/" + name);
-	}
-	
-	protected InventoryChangeTrigger.Instance hasItem(Tag<Item> tag) {
-		return hasItem(ItemPredicate.Builder.create().tag(tag).build());
 	}
 	
 }
