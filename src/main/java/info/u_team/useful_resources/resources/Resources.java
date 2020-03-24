@@ -1,19 +1,35 @@
 package info.u_team.useful_resources.resources;
 
 import static info.u_team.useful_resources.api.type.BlockResourceType.*;
+import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import static info.u_team.useful_resources.util.GenerationUtil.*;
 import static info.u_team.useful_resources.util.MaterialUtil.*;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.special.*;
-import net.minecraft.item.Rarity;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.*;
 
 public class Resources {
 	
 	// VANILLA
 	
 	public static final IResource IRON = new VanillaIngotResource("iron", 0xe8e8e8, 1, 3) //
+			.setExisting(ORE, Blocks.IRON_ORE) //
+			.setExisting(BLOCK, Blocks.IRON_BLOCK) //
+			.setExisting(INGOT, Items.IRON_INGOT) //
+			.setExisting(NUGGET, Items.IRON_NUGGET) //
+			.setExisting(HELMET, Items.IRON_HELMET) //
+			.setExisting(CHESTPLATE, Items.IRON_CHESTPLATE) //
+			.setExisting(LEGGINGS, Items.IRON_LEGGINGS) //
+			.setExisting(BOOTS, Items.IRON_BOOTS) //
+			.setExisting(HORSE_ARMOR, Items.IRON_HORSE_ARMOR) //
+			.setExisting(AXE, Items.IRON_AXE) //
+			.setExisting(HOE, Items.IRON_HOE) //
+			.setExisting(PICKAXE, Items.IRON_PICKAXE) //
+			.setExisting(SHOVEL, Items.IRON_SHOVEL) //
+			.setExisting(SWORD, Items.IRON_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	// CUSTOM
