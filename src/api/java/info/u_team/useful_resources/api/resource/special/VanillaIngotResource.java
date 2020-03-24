@@ -5,15 +5,13 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.NETHER_ORE
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.type.ItemResourceType;
-import net.minecraft.item.*;
+import net.minecraft.item.Rarity;
 
 public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 	
 	public VanillaIngotResource(String name, int color, int harvestLevel, float baseHardness) {
 		super(name, color, ItemResourceType.INGOT, Rarity.COMMON);
 		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
-		
-		addFeature(addExistingItem(INGOT, Items.IRON_INGOT));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
