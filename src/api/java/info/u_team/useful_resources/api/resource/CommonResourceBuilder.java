@@ -25,12 +25,6 @@ import net.minecraftforge.fluids.*;
 
 public class CommonResourceBuilder {
 	
-	public static IResourceFeatureBuilder addExistingItem(ItemResourceType type, Item item) {
-		return basicBuilder((name, feature) -> {
-			feature.add(type, item);
-		});
-	}
-	
 	public static IResourceFeatureBuilder createBasicBlock(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, feature) -> {
 			feature.add(type, new BasicBlock(basicName(name, type), rarity, harvestLevel, hardness, resistance));
@@ -100,6 +94,24 @@ public class CommonResourceBuilder {
 		});
 	}
 	
+	public static IResourceFeatureBuilder addExistingBlock(BlockResourceType type, Block block) {
+		return basicBuilder((name, feature) -> {
+			feature.addExisting(type, block);
+		});
+	}
+	
+	public static IResourceFeatureBuilder addExistingItem(FluidResourceType type, Fluid fluid) {
+		return basicBuilder((name, feature) -> {
+			feature.addExisting(type, fluid);
+		});
+	}
+	
+	public static IResourceFeatureBuilder addExistingItem(ItemResourceType type, Item item) {
+		return basicBuilder((name, feature) -> {
+			feature.addExisting(type, item);
+		});
+	}
+	
 	private static String basicName(String name, IResourceType<?> type) {
 		return name + "_" + type.getName();
 	}
@@ -110,7 +122,6 @@ public class CommonResourceBuilder {
 			consumer.accept(name, feature);
 			return feature;
 		};
-		
 	}
 	
 	private static class ResourceFeature implements IResourceFeature {
@@ -119,23 +130,48 @@ public class CommonResourceBuilder {
 		private final Map<FluidResourceType, Fluid> fluids;
 		private final Map<ItemResourceType, Item> items;
 		
+		private final Collection<Block> registryBlocks;
+		private final Collection<Fluid> registryFluids;
+		private final Collection<Item> registryItems;
+		
 		private ResourceFeature() {
 			blocks = new EnumMap<>(BlockResourceType.class);
 			fluids = new EnumMap<>(FluidResourceType.class);
 			items = new EnumMap<>(ItemResourceType.class);
+			registryBlocks = new HashSet<>();
+			registryFluids = new HashSet<>();
+			registryItems = new HashSet<>();
 		}
 		
 		private <T extends Block> T add(BlockResourceType type, T block) {
 			blocks.put(type, block);
+			registryBlocks.add(block);
 			return block;
 		}
 		
 		private <T extends Fluid> T add(FluidResourceType type, T fluid) {
 			fluids.put(type, fluid);
+			registryFluids.add(fluid);
 			return fluid;
 		}
 		
 		private <T extends Item> T add(ItemResourceType type, T item) {
+			items.put(type, item);
+			registryItems.add(item);
+			return item;
+		}
+		
+		private <T extends Block> T addExisting(BlockResourceType type, T block) {
+			blocks.put(type, block);
+			return block;
+		}
+		
+		private <T extends Fluid> T addExisting(FluidResourceType type, T fluid) {
+			fluids.put(type, fluid);
+			return fluid;
+		}
+		
+		private <T extends Item> T addExisting(ItemResourceType type, T item) {
 			items.put(type, item);
 			return item;
 		}
@@ -157,17 +193,17 @@ public class CommonResourceBuilder {
 		
 		@Override
 		public Collection<Block> getRegistryBlocks() {
-			return blocks.values();
+			return registryBlocks;
 		}
 		
 		@Override
 		public Collection<Fluid> getRegistryFluids() {
-			return fluids.values();
+			return registryFluids;
 		}
 		
 		@Override
 		public Collection<Item> getRegistryItems() {
-			return items.values();
+			return registryItems;
 		}
 	}
 }
