@@ -8,7 +8,7 @@ import java.util.function.Function;
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.Resource;
-import info.u_team.useful_resources.api.resource.data.*;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.block.*;
@@ -43,6 +43,17 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		};
 	}
 	
+	@Override
+	public IDataGeneratorConfigurator getDataGeneratorConfigurator() {
+		return dataGeneratorConfigurator;
+	}
+	
+	@Override
+	public void clearDataGeneratorConfig() {
+		worldGenFeatures.clear();
+		extraProperties.clear();
+	}
+	
 	public T setTools(IToolMaterial toolMaterial) {
 		addFeature(createTools(rarity, new WrappedToolMaterial(toolMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
 		return getThis();
@@ -66,14 +77,9 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return setGeneration(type.getName(), function.apply(getBlocks().get(type)));
 	}
 	
-	public T setGeneration(String name, WorldGenFeature feature) {
+	private T setGeneration(String name, WorldGenFeature feature) {
 		worldGenFeatures.put(name, feature);
 		return getThis();
-	}
-	
-	@Override
-	public IDataGeneratorConfigurator getDataGeneratorConfigurator() {
-		return dataGeneratorConfigurator;
 	}
 	
 	@SuppressWarnings("unchecked")
