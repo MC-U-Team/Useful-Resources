@@ -39,6 +39,7 @@ b168d267966f9b9957e9cafd3e3a54233f5755a8 assets\usefulresources\models\base\item
 57297a58eb906ac70cb91e25978a7d309d7d54a0 assets\usefulresources\models\base\item\special\dense_plate.json
 51c2bb8bf94c854afc8fcfeba70702d4a13b48e0 assets\usefulresources\models\base\item\special\dust.json
 179c048c0cffc3036d3978bacf561ae311754f5b assets\usefulresources\models\base\item\special\gear.json
+8af23e26b0fd1c04e0b0ef998efc30820e82c0a7 assets\usefulresources\models\base\item\special\gem.json
 f3f6944aa2047a1fbf4d1b3dbe4194af7a294319 assets\usefulresources\models\base\item\special\helmet.json
 1b8642d74b11715895b487f6f06da8bfb4a28be3 assets\usefulresources\models\base\item\special\hoe.json
 5e739941c1a588f6ab0882eb382897dadd5da3e5 assets\usefulresources\models\base\item\special\horse_armor.json
@@ -46,6 +47,7 @@ f3f6944aa2047a1fbf4d1b3dbe4194af7a294319 assets\usefulresources\models\base\item
 5d116482efef7051b5214df9b9114cfdba0f1777 assets\usefulresources\models\base\item\special\leggings.json
 41435dd3829bef1fcf467f5797069a95d763177b assets\usefulresources\models\base\item\special\nugget.json
 647d6a20c5abdeb06472d925f10aea02d9dbb9eb assets\usefulresources\models\base\item\special\pickaxe.json
+856563ba12cd16e02f5202e0eba8a8bc8253b978 assets\usefulresources\models\base\item\special\piece.json
 4247e7a5ad918ac991352e46f38bff978a32d523 assets\usefulresources\models\base\item\special\plate.json
 9b9da250dccd0917c7b12a093e75fd2d6f9a3143 assets\usefulresources\models\base\item\special\rod.json
 2e1e275df91e8f433af8fe0ec610f70948e8907a assets\usefulresources\models\base\item\special\shovel.json
