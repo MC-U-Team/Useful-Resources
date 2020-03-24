@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"usefulresources:lead_molten_flowing",
-		"usefulresources:lead_molten"
+		"usefulresources:lead_molten",
+		"usefulresources:lead_molten_flowing"
 	]
 }
