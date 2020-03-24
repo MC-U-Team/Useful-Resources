@@ -4,6 +4,7 @@ import java.util.List;
 
 import info.u_team.u_team_core.util.registry.BaseRegistryUtil;
 import info.u_team.useful_resources.UsefulResourcesMod;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.util.RegistryUtil;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -17,7 +18,7 @@ public class UsefulResourcesBlocks {
 	
 	@SubscribeEvent
 	public static void register(Register<Block> event) {
-		entries = RegistryUtil.getAndApplyNames(resource -> resource.getBlocks().values());
+		entries = RegistryUtil.getAndApplyNames(IResource::getRegistryBlocks);
 		entries.forEach(event.getRegistry()::register);
 	}
 	

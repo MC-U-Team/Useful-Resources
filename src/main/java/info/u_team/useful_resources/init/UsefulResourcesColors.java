@@ -24,7 +24,7 @@ public class UsefulResourcesColors {
 				} else {
 					return -1;
 				}
-			}, resource.getBlocks().values().stream().toArray(Block[]::new));
+			}, resource.getRegistryBlocks().stream().toArray(Block[]::new));
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
@@ -34,7 +34,7 @@ public class UsefulResourcesColors {
 				} else {
 					return -1;
 				}
-			}, Streams.concat(resource.getBlocks().values().stream().map(Block::asItem), resource.getItems().values().stream()).toArray(Item[]::new));
+			}, Streams.concat(resource.getRegistryBlocks().stream().map(Block::asItem), resource.getRegistryItems().stream()).toArray(Item[]::new));
 		});
 	}
 	

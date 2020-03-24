@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.init;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.util.RegistryUtil;
 import net.minecraft.fluid.Fluid;
 import net.minecraftforge.event.RegistryEvent.Register;
@@ -13,7 +14,7 @@ public class UsefulResourcesFluids {
 	
 	@SubscribeEvent
 	public static void register(Register<Fluid> event) {
-		RegistryUtil.getAndApplyNames(resource -> resource.getFluids().values()).forEach(event.getRegistry()::register);
+		RegistryUtil.getAndApplyNames(IResource::getRegistryFluids).forEach(event.getRegistry()::register);
 	}
 	
 }
