@@ -16,7 +16,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	@Override
 	protected void registerTags() {
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getBlocks().forEach((type, block) -> {
+			resource.iterateRegistryBlocks((type, block) -> {
 				if (type.hasTag()) {
 					copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
 				}
@@ -27,7 +27,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getItems().forEach((type, item) -> {
+			resource.iterateRegistryItems((type, item) -> {
 				if (type.hasTag()) {
 					final Tag<Item> tag = type.getTag(resource);
 					getBuilder(tag).add(item);

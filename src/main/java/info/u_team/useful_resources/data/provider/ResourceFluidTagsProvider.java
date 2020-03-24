@@ -14,7 +14,7 @@ public class ResourceFluidTagsProvider extends CommonFluidTagsProvider {
 	@Override
 	protected void registerTags() {
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getFluids().forEach((type, fluid) -> {
+			resource.iterateRegistryFluids((type, fluid) -> {
 				if (type.hasTag()) {
 					final Tag<Fluid> tag = type.getTag(resource);
 					getBuilder(tag).add(fluid);

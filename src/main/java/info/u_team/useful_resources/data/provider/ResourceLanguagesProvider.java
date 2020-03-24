@@ -18,7 +18,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 		add(UsefulResourcesItemGroups.GROUP, "Useful Resources");
 		
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getBlocks().forEach((type, block) -> {
+			resource.iterateRegistryBlocks((type, block) -> {
 				if (type == BlockResourceType.BLOCK) {
 					add(block, "Block of " + capitalize(resource.getName()));
 				} else if (type == BlockResourceType.MOLTEN_FLUID) {
@@ -27,14 +27,14 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 					add(block, capitalize(block.getRegistryName().getPath().replace("_", " ")));
 				}
 			});
-			resource.getFluids().forEach((type, fluid) -> {
+			resource.iterateRegistryFluids((type, fluid) -> {
 				if (type == FluidResourceType.MOLTEN || type == FluidResourceType.MOLTEN_FLOWING) {
 					add(fluid, "Molten " + capitalize(resource.getName()));
 				} else {
 					add(fluid, capitalize(fluid.getRegistryName().getPath().replace("_", " ")));
 				}
 			});
-			resource.getItems().forEach((type, item) -> {
+			resource.iterateRegistryItems((type, item) -> {
 				if (type == ItemResourceType.MOLTEN_BUCKET) {
 					add(item, "Molten " + capitalize(resource.getName() + " Bucket"));
 				} else {

@@ -50,7 +50,6 @@ public interface IResource {
 					map //
 							.entrySet() //
 							.stream() //
-							.limit(1) //
 							.filter(entry -> block.equals(entry.getValue())) //
 							.map(Entry::getKey) //
 							.findAny() //

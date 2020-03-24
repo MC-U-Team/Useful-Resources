@@ -20,10 +20,10 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	protected void registerModels() {
 		generateBaseModels();
 		
-		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getBlocks().values().stream()).filter(block -> !block.asItem().equals(Items.AIR)).forEach(this::simpleBlock);
+		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getRegistryBlocks().stream()).filter(block -> !block.asItem().equals(Items.AIR)).forEach(this::simpleBlock);
 		
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getItems().forEach((type, item) -> {
+			resource.iterateRegistryItems((type, item) -> {
 				if (type == ItemResourceType.MOLTEN_BUCKET) {
 					generatedModels.computeIfAbsent(modLoc("item/" + getPath(item)), location -> new ItemModelBuilder(location, existingFileHelper) {
 						

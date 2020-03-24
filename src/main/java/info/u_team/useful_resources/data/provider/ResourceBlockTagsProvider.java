@@ -14,7 +14,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	@Override
 	protected void registerTags() {
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getBlocks().forEach((type, block) -> {
+			resource.iterateRegistryBlocks((type, block) -> {
 				if (type.hasTag()) {
 					final Tag<Block> tag = type.getTag(resource);
 					getBuilder(tag).add(block);

@@ -16,12 +16,13 @@ public class ResourceLootTableProvider extends CommonLootTablesProvider {
 	@Override
 	protected void registerLootTables(BiConsumer<ResourceLocation, LootTable> consumer) {
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getBlocks().forEach((type, block) -> {
+			resource.iterateRegistryBlocks((type, block) -> {
 				final LootTable lootTable;
 				if (block.getLootTable().equals(LootTables.EMPTY)) {
 					lootTable = null;
-//				} else if (resource.getDataGeneratorConfigurator().getOreType() == OreType.GEM) { // TODO
-//					lootTable = addFortuneBlockLootTable(block, resource.getItems().get(ItemResourceType.BOOTS)); // SET GEM THERE WHEN WE HAVE A GEM TYPE
+					// } else if (resource.getDataGeneratorConfigurator().getOreType() == OreType.GEM) { // TODO
+					// lootTable = addFortuneBlockLootTable(block, resource.getItems().get(ItemResourceType.BOOTS)); // SET GEM THERE WHEN
+					// WE HAVE A GEM TYPE
 				} else {
 					lootTable = addBasicBlockLootTable(block);
 				}

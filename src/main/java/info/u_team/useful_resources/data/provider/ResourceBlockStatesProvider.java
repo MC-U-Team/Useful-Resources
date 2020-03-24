@@ -17,7 +17,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		generateBaseModels();
 		
 		ResourceRegistry.getResources().forEach(resource -> {
-			resource.getBlocks().forEach((type, block) -> {
+			resource.iterateRegistryBlocks((type, block) -> {
 				simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator())));
 			});
 		});
@@ -25,7 +25,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
 	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final String baseModel;
-//		final OreType oreType = dataGeneratorConfigurator.getOreType(); TODO
+		// final OreType oreType = dataGeneratorConfigurator.getOreType(); TODO
 		if (type == BlockResourceType.ORE) {
 			baseModel = "ingot" + "_stone_ore";
 		} else if (type == BlockResourceType.NETHER_ORE) {
