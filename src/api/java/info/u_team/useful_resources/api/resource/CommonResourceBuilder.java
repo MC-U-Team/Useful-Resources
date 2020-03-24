@@ -148,7 +148,5 @@ public class CommonResourceBuilder {
 		public Map<ItemResourceType, Item> getItems() {
 			return items;
 		}
-		
 	}
-	
 }
