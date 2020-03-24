@@ -12,6 +12,7 @@ import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.block.*;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
 
@@ -66,6 +67,21 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	public T setHorseArmor(int armorPoints) {
 		addFeature(createHorseArmor(rarity, armorPoints));
+		return getThis();
+	}
+	
+	public T setExisting(BlockResourceType type, Block block) {
+		addFeature(addExistingBlock(type, block));
+		return getThis();
+	}
+	
+	public T setExisting(FluidResourceType type, Fluid fluid) {
+		addFeature(addExistingFluid(type, fluid));
+		return getThis();
+	}
+	
+	public T setExisting(ItemResourceType type, Item item) {
+		addFeature(addExistingItem(type, item));
 		return getThis();
 	}
 	

@@ -100,7 +100,7 @@ public class CommonResourceBuilder {
 		});
 	}
 	
-	public static IResourceFeatureBuilder addExistingItem(FluidResourceType type, Fluid fluid) {
+	public static IResourceFeatureBuilder addExistingFluid(FluidResourceType type, Fluid fluid) {
 		return basicBuilder((name, feature) -> {
 			feature.addExisting(type, fluid);
 		});
