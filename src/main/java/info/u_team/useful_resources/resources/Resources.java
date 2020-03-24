@@ -13,7 +13,7 @@ public class Resources {
 	
 	// VANILLA
 	
-	public static final IResource IRON = new VanillaIngotResource("iron", 0xe3e3e3, 1, 3) //
+	public static final IResource IRON = new VanillaIngotResource("iron", 0xe8e8e8, 1, 3) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	// CUSTOM

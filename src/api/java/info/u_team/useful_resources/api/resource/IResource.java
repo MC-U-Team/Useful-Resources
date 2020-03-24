@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.api.resource;
 
-import java.util.Map;
+import java.util.*;
 
 import info.u_team.useful_resources.api.feature.IResourceFeatureBuilder;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
@@ -22,6 +22,12 @@ public interface IResource {
 	Map<FluidResourceType, Fluid> getFluids();
 	
 	Map<ItemResourceType, Item> getItems();
+	
+	List<Block> getRegistryBlocks();
+	
+	List<Fluid> getRegistryFluids();
+	
+	List<Item> getRegistryItems();
 	
 	IDataGeneratorConfigurator getDataGeneratorConfigurator();
 	

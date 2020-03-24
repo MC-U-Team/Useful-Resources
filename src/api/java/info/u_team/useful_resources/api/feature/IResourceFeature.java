@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.api.feature;
 
-import java.util.Map;
+import java.util.*;
 
 import info.u_team.u_team_core.api.registry.IURegistryType;
 import info.u_team.useful_resources.api.type.*;
@@ -41,5 +41,11 @@ public interface IResourceFeature {
 	 * @return The collection of blocks
 	 */
 	Map<ItemResourceType, Item> getItems();
+	
+	Collection<Block> getRegistryBlocks();
+	
+	Collection<Fluid> getRegistryFluids();
+	
+	Collection<Item> getRegistryItems();
 	
 }

@@ -25,6 +25,12 @@ import net.minecraftforge.fluids.*;
 
 public class CommonResourceBuilder {
 	
+	public static IResourceFeatureBuilder addExistingItem(ItemResourceType type, Item item) {
+		return basicBuilder((name, feature) -> {
+			feature.add(type, item);
+		});
+	}
+	
 	public static IResourceFeatureBuilder createBasicBlock(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, feature) -> {
 			feature.add(type, new BasicBlock(basicName(name, type), rarity, harvestLevel, hardness, resistance));
@@ -147,6 +153,21 @@ public class CommonResourceBuilder {
 		@Override
 		public Map<ItemResourceType, Item> getItems() {
 			return items;
+		}
+		
+		@Override
+		public Collection<Block> getRegistryBlocks() {
+			return blocks.values();
+		}
+		
+		@Override
+		public Collection<Fluid> getRegistryFluids() {
+			return fluids.values();
+		}
+		
+		@Override
+		public Collection<Item> getRegistryItems() {
+			return items.values();
 		}
 	}
 }

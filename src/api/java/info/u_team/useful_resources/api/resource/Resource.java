@@ -18,6 +18,10 @@ public abstract class Resource implements IResource {
 	private final Map<FluidResourceType, Fluid> fluids;
 	private final Map<ItemResourceType, Item> items;
 	
+	private final List<Block> registryBlocks;
+	private final List<Fluid> registryFluids;
+	private final List<Item> registryItems;
+	
 	public Resource(String name, int color, ItemResourceType repairType) {
 		this.name = name;
 		this.color = color;
@@ -25,6 +29,9 @@ public abstract class Resource implements IResource {
 		blocks = new EnumMap<>(BlockResourceType.class);
 		fluids = new EnumMap<>(FluidResourceType.class);
 		items = new EnumMap<>(ItemResourceType.class);
+		registryBlocks = new ArrayList<>();
+		registryFluids = new ArrayList<>();
+		registryItems = new ArrayList<>();
 	}
 	
 	@Override
@@ -58,20 +65,43 @@ public abstract class Resource implements IResource {
 	}
 	
 	@Override
+	public List<Block> getRegistryBlocks() {
+		return registryBlocks;
+	}
+	
+	@Override
+	public List<Fluid> getRegistryFluids() {
+		return registryFluids;
+	}
+	
+	@Override
+	public List<Item> getRegistryItems() {
+		return registryItems;
+	}
+	
+	@Override
 	public void addFeature(IResourceFeatureBuilder builder) {
 		final IResourceFeature feature = builder.build(name);
 		
-		addEntriesToMap(blocks, feature.getBlocks());
-		addEntriesToMap(fluids, feature.getFluids());
-		addEntriesToMap(items, feature.getItems());
+		addEntriesToMap(blocks, feature.getBlocks(), registryBlocks, feature.getRegistryBlocks());
+		addEntriesToMap(fluids, feature.getFluids(), registryFluids, feature.getRegistryFluids());
+		addEntriesToMap(items, feature.getItems(), registryItems, feature.getRegistryItems());
 	}
 	
-	private <K, V> void addEntriesToMap(Map<K, V> baseMap, Map<K, V> map) {
+	private <K, V> void addEntriesToMap(Map<K, V> baseMap, Map<K, V> map, List<V> baseRegistryList, Collection<V> registryCollection) {
 		map.entrySet().stream().peek(entry -> {
-			if (blocks.containsKey(entry.getKey())) {
+			if (baseMap.containsKey(entry.getKey())) {
 				throw new IllegalStateException("Cannot add a feature with entries that already exist in the resource");
 			}
 		}).forEach(entry -> baseMap.put(entry.getKey(), entry.getValue()));
+		registryCollection.stream().peek(value -> {
+			if (!map.containsValue(value)) {
+				throw new IllegalStateException("Cannot add a feature with registry entries that are not in the normal feature entry map");
+			}
+			if (registryCollection.contains(value)) {
+				throw new IllegalStateException("Cannot add a feature with registry entries that already exist in the resource");
+			}
+		}).forEach(baseRegistryList::add);
 	}
 	
 }
