@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"usefulresources:aluminum_molten",
-		"usefulresources:aluminum_molten_flowing"
+		"usefulresources:aluminum_molten_flowing",
+		"usefulresources:aluminum_molten"
 	]
 }
