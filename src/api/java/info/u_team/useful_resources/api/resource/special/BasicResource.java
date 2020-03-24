@@ -98,6 +98,11 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return getThis();
 	}
 	
+	public T setProperty(String key, Object value) {
+		extraProperties.put(key, value);
+		return getThis();
+	}
+	
 	@SuppressWarnings("unchecked")
 	private T getThis() {
 		return (T) this;
