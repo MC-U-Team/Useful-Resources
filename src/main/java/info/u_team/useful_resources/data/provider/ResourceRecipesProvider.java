@@ -8,6 +8,7 @@ import static net.minecraft.data.ShapelessRecipeBuilder.shapelessRecipe;
 
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
@@ -34,7 +35,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final Map<ItemResourceType, Item> items = resource.getItems();
 			
 			// ORE -> INGOT
-			if (blocks.containsKey(ORE) && items.containsKey(INGOT)) {
+			if (blocks.containsKey(ORE) && items.containsKey(INGOT) && oneIsInRegistryList(resource, ORE, INGOT)) {
 				final Tag<Item> oreTag = getItemTag(ORE, resource);
 				final Item ingotItem = items.get(INGOT);
 				
@@ -254,6 +255,19 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.addCriterion("has_ingot", hasItem(ingotTag)) //
 						.build(consumer, createLocation(resource, "crafting/boots_from_ingot"));
 			}
+		});
+	}
+	
+	private boolean oneIsInRegistryList(IResource resource, IResourceType<?>... types) {
+		return Stream.of(types).anyMatch(type -> {
+			if (type instanceof BlockResourceType) {
+				return resource.getRegistryBlocks().contains(resource.getBlocks().get(type));
+			} else if (type instanceof FluidResourceType) {
+				return resource.getRegistryFluids().contains(resource.getFluids().get(type));
+			} else if (type instanceof ItemResourceType) {
+				return resource.getRegistryItems().contains(resource.getItems().get(type));
+			}
+			return false;
 		});
 	}
 	
