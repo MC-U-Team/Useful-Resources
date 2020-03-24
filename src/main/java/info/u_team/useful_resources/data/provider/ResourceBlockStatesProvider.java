@@ -25,11 +25,11 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
 	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final String baseModel;
-		final OreType oreType = dataGeneratorConfigurator.getOreType();
+//		final OreType oreType = dataGeneratorConfigurator.getOreType(); TODO
 		if (type == BlockResourceType.ORE) {
-			baseModel = oreType.getName() + "_stone_ore";
+			baseModel = "ingot" + "_stone_ore";
 		} else if (type == BlockResourceType.NETHER_ORE) {
-			baseModel = oreType.getName() + "_netherrack_nether_ore";
+			baseModel = "ingot" + "_netherrack_nether_ore";
 		} else {
 			baseModel = type.getName();
 		}

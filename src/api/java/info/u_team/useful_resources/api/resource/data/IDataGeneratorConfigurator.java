@@ -6,8 +6,8 @@ import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 
 public interface IDataGeneratorConfigurator {
 	
-	OreType getOreType();
-	
 	Map<String, WorldGenFeature> getWorldGeneration();
+	
+	Map<String, Object> getExtraProperties();
 	
 }
