@@ -6,10 +6,17 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
-import info.u_team.useful_resources.api.resource.special.BasicIngotResource;
+import info.u_team.useful_resources.api.resource.special.*;
 import net.minecraft.item.Rarity;
 
 public class Resources {
+	
+	// VANILLA
+	
+	public static final IResource IRON = new VanillaIngotResource("iron", 0xCBCDCD, 1, 3) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
+	// CUSTOM
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
 			.setArmor(createArmor(12, new int[] { 2, 5, 6, 2 }, 9)) //
