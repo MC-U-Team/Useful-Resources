@@ -32,6 +32,23 @@ public class Resources {
 			.setExisting(SWORD, Items.IRON_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
+	public static final IResource GOLD = new VanillaIngotResource("gold", 0xe0c812, 1, 3) //
+			.setExisting(ORE, Blocks.GOLD_ORE) //
+			.setExisting(BLOCK, Blocks.GOLD_BLOCK) //
+			.setExisting(INGOT, Items.GOLD_INGOT) //
+			.setExisting(NUGGET, Items.GOLD_NUGGET) //
+			.setExisting(HELMET, Items.GOLDEN_HELMET) //
+			.setExisting(CHESTPLATE, Items.GOLDEN_CHESTPLATE) //
+			.setExisting(LEGGINGS, Items.GOLDEN_LEGGINGS) //
+			.setExisting(BOOTS, Items.GOLDEN_BOOTS) //
+			.setExisting(HORSE_ARMOR, Items.GOLDEN_HORSE_ARMOR) //
+			.setExisting(AXE, Items.GOLDEN_AXE) //
+			.setExisting(HOE, Items.GOLDEN_HOE) //
+			.setExisting(PICKAXE, Items.GOLDEN_PICKAXE) //
+			.setExisting(SHOVEL, Items.GOLDEN_SHOVEL) //
+			.setExisting(SWORD, Items.GOLDEN_SWORD) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
 	// CUSTOM
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
@@ -71,6 +88,7 @@ public class Resources {
 	
 	public static void register() {
 		ResourceRegistry.register(IRON);
+		ResourceRegistry.register(GOLD);
 		ResourceRegistry.register(COPPER);
 		ResourceRegistry.register(TIN);
 		ResourceRegistry.register(ALUMINUM);
