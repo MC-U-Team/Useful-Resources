@@ -73,6 +73,14 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		withExistingParent("base/item/special/nugget", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/nugget");
 		
+		// ItemResourceType.GEM
+		withExistingParent("base/item/special/gem", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/gem");
+		
+		// ItemResourceType.PIECE
+		withExistingParent("base/item/special/piece", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/piece");
+		
 		// ItemResourceType.DUST
 		withExistingParent("base/item/special/dust", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/dust");
