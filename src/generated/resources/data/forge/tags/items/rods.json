@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:rods/iron",
 		"#forge:rods/copper",
 		"#forge:rods/tin",
 		"#forge:rods/aluminum",

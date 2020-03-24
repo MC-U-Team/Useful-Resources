@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:plates/iron",
 		"#forge:plates/copper",
 		"#forge:plates/tin",
 		"#forge:plates/aluminum",

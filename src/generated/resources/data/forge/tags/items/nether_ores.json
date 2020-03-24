@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:nether_ores/iron",
 		"#forge:nether_ores/copper",
 		"#forge:nether_ores/tin",
 		"#forge:nether_ores/aluminum",
