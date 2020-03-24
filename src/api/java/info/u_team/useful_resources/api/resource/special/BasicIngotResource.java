@@ -4,30 +4,13 @@ import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
 import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
-import java.util.*;
-import java.util.function.Function;
+import info.u_team.useful_resources.api.type.ItemResourceType;
+import net.minecraft.item.Rarity;
 
-import info.u_team.u_team_core.api.IToolMaterial;
-import info.u_team.useful_resources.api.material.*;
-import info.u_team.useful_resources.api.resource.Resource;
-import info.u_team.useful_resources.api.resource.data.*;
-import info.u_team.useful_resources.api.type.*;
-import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
-import net.minecraft.block.*;
-import net.minecraft.item.*;
-import net.minecraft.item.crafting.Ingredient;
-
-public class BasicIngotResource extends Resource {
-	
-	private final Rarity rarity;
-	
-	private final Map<String, WorldGenFeature> worldGenFeatures;
-	
-	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
+public class BasicIngotResource extends BasicResource<BasicIngotResource> {
 	
 	public BasicIngotResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness) {
-		super(name, color, ItemResourceType.INGOT);
-		this.rarity = rarity;
+		super(name, color, ItemResourceType.INGOT, rarity);
 		addFeature(createOre(ORE, rarity, harvestLevel, baseHardness, baseHardness * 1.5F));
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
@@ -41,50 +24,5 @@ public class BasicIngotResource extends Resource {
 		addFeature(createBasicItem(DENSE_PLATE, rarity));
 		addFeature(createBasicItem(GEAR, rarity));
 		addFeature(createBasicItem(ROD, rarity));
-		
-		worldGenFeatures = new HashMap<>();
-		
-		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
-			
-			@Override
-			public OreType getOreType() {
-				return OreType.INGOT;
-			}
-			
-			@Override
-			public Map<String, WorldGenFeature> getWorldGeneration() {
-				return worldGenFeatures;
-			}
-		};
 	}
-	
-	public BasicIngotResource setTools(IToolMaterial toolMaterial) {
-		addFeature(createTools(rarity, new WrappedToolMaterial(toolMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
-		return this;
-	}
-	
-	public BasicIngotResource setArmor(IArmorMaterial armorMaterial) {
-		addFeature(createArmor(rarity, new WrappedArmorMaterial(armorMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
-		return this;
-	}
-	
-	public BasicIngotResource setHorseArmor(int armorPoints) {
-		addFeature(createHorseArmor(rarity, armorPoints));
-		return this;
-	}
-	
-	public BasicIngotResource setGenerationDefault(BlockResourceType type, Function<BlockState, WorldGenFeature> function) {
-		return setGeneration(type, block -> function.apply(block.getDefaultState()));
-	}
-	
-	public BasicIngotResource setGeneration(BlockResourceType type, Function<Block, WorldGenFeature> function) {
-		worldGenFeatures.put(type.getName(), function.apply(getBlocks().get(type)));
-		return this;
-	}
-	
-	@Override
-	public IDataGeneratorConfigurator getDataGeneratorConfigurator() {
-		return dataGeneratorConfigurator;
-	}
-	
 }
