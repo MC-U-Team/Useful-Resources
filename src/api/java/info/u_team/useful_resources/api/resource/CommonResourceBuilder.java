@@ -130,17 +130,17 @@ public class CommonResourceBuilder {
 		private final Map<FluidResourceType, Fluid> fluids;
 		private final Map<ItemResourceType, Item> items;
 		
-		private final Collection<Block> registryBlocks;
-		private final Collection<Fluid> registryFluids;
-		private final Collection<Item> registryItems;
+		private final List<Block> registryBlocks;
+		private final List<Fluid> registryFluids;
+		private final List<Item> registryItems;
 		
 		private ResourceFeature() {
 			blocks = new EnumMap<>(BlockResourceType.class);
 			fluids = new EnumMap<>(FluidResourceType.class);
 			items = new EnumMap<>(ItemResourceType.class);
-			registryBlocks = new HashSet<>();
-			registryFluids = new HashSet<>();
-			registryItems = new HashSet<>();
+			registryBlocks = new ArrayList<>();
+			registryFluids = new ArrayList<>();
+			registryItems = new ArrayList<>();
 		}
 		
 		private <T extends Block> T add(BlockResourceType type, T block) {
@@ -192,17 +192,17 @@ public class CommonResourceBuilder {
 		}
 		
 		@Override
-		public Collection<Block> getRegistryBlocks() {
+		public List<Block> getRegistryBlocks() {
 			return registryBlocks;
 		}
 		
 		@Override
-		public Collection<Fluid> getRegistryFluids() {
+		public List<Fluid> getRegistryFluids() {
 			return registryFluids;
 		}
 		
 		@Override
-		public Collection<Item> getRegistryItems() {
+		public List<Item> getRegistryItems() {
 			return registryItems;
 		}
 	}

@@ -42,10 +42,10 @@ public interface IResourceFeature {
 	 */
 	Map<ItemResourceType, Item> getItems();
 	
-	Collection<Block> getRegistryBlocks();
+	List<Block> getRegistryBlocks();
 	
-	Collection<Fluid> getRegistryFluids();
+	List<Fluid> getRegistryFluids();
 	
-	Collection<Item> getRegistryItems();
+	List<Item> getRegistryItems();
 	
 }
