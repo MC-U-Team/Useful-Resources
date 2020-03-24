@@ -25,6 +25,8 @@ public interface IResource {
 	
 	IDataGeneratorConfigurator getDataGeneratorConfigurator();
 	
+	void clearDataGeneratorConfig();
+	
 	void addFeature(IResourceFeatureBuilder builder);
 	
 }
