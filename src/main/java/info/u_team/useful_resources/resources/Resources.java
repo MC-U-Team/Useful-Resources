@@ -15,7 +15,7 @@ public class Resources {
 	
 	// VANILLA
 	
-	public static final IResource IRON = new VanillaIngotResource("iron", 0xe8e8e8, 1, 3) //
+	public static final IResource IRON = new VanillaIngotResource("iron", 0xf5f5f5, 1, 3) //
 			.setExisting(ORE, Blocks.IRON_ORE) //
 			.setExisting(BLOCK, Blocks.IRON_BLOCK) //
 			.setExisting(INGOT, Items.IRON_INGOT) //
