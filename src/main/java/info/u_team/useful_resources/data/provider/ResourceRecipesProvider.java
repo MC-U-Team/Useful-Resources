@@ -35,7 +35,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final Map<ItemResourceType, Item> items = resource.getItems();
 			
 			// ORE -> INGOT
-			if (blocks.containsKey(ORE) && items.containsKey(INGOT) && oneIsInRegistryList(resource, ORE, INGOT)) {
+			if (shouldAddRecipe(resource, ORE, INGOT)) {
 				final Tag<Item> oreTag = getItemTag(ORE, resource);
 				final Item ingotItem = items.get(INGOT);
 				
@@ -49,7 +49,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// NETHER_ORE -> INGOT
-			if (blocks.containsKey(NETHER_ORE) && items.containsKey(INGOT)) {
+			if (shouldAddRecipe(resource, NETHER_ORE, INGOT)) {
 				final Tag<Item> oreTag = getItemTag(NETHER_ORE, resource);
 				final Item ingotItem = items.get(INGOT);
 				
@@ -63,7 +63,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// DUST -> INGOT
-			if (items.containsKey(DUST) && items.containsKey(INGOT)) {
+			if (shouldAddRecipe(resource, DUST, INGOT)) {
 				final Tag<Item> dustTag = DUST.getTag(resource);
 				final Item ingotItem = items.get(INGOT);
 				
@@ -77,7 +77,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT <-> BLOCK
-			if (items.containsKey(INGOT) && blocks.containsKey(BLOCK)) {
+			if (shouldAddRecipe(resource, INGOT, BLOCK)) {
 				// INGOT -> BLOCK
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Block blockBlock = blocks.get(BLOCK);
@@ -100,7 +100,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// NUGGET <-> INGOT
-			if (items.containsKey(NUGGET) && items.containsKey(INGOT)) {
+			if (shouldAddRecipe(resource, NUGGET, INGOT)) {
 				// NUGGET -> INGOT
 				final Tag<Item> nuggetTag = NUGGET.getTag(resource);
 				final Item ingotItem = items.get(INGOT);
@@ -123,7 +123,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> AXE
-			if (items.containsKey(INGOT) && items.containsKey(AXE)) {
+			if (shouldAddRecipe(resource, INGOT, AXE)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item axeItem = items.get(AXE);
@@ -139,7 +139,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> HOE
-			if (items.containsKey(INGOT) && items.containsKey(HOE)) {
+			if (shouldAddRecipe(resource, INGOT, HOE)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item hoeItem = items.get(HOE);
@@ -155,7 +155,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> PICKAXE
-			if (items.containsKey(INGOT) && items.containsKey(PICKAXE)) {
+			if (shouldAddRecipe(resource, INGOT, PICKAXE)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item pickaxeItem = items.get(PICKAXE);
@@ -171,7 +171,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> SHOVEL
-			if (items.containsKey(INGOT) && items.containsKey(SHOVEL)) {
+			if (shouldAddRecipe(resource, INGOT, SHOVEL)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item shovelItem = items.get(SHOVEL);
@@ -187,7 +187,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> SWORD
-			if (items.containsKey(INGOT) && items.containsKey(SWORD)) {
+			if (shouldAddRecipe(resource, INGOT, SWORD)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item swordItem = items.get(SWORD);
@@ -203,7 +203,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> HELMET
-			if (items.containsKey(INGOT) && items.containsKey(HELMET)) {
+			if (shouldAddRecipe(resource, INGOT, HELMET)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Item helmetItem = items.get(HELMET);
 				
@@ -216,7 +216,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> CHESTPLATE
-			if (items.containsKey(INGOT) && items.containsKey(CHESTPLATE)) {
+			if (shouldAddRecipe(resource, INGOT, CHESTPLATE)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Item chestplateItem = items.get(CHESTPLATE);
 				
@@ -230,7 +230,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> LEGGINGS
-			if (items.containsKey(INGOT) && items.containsKey(LEGGINGS)) {
+			if (shouldAddRecipe(resource, INGOT, LEGGINGS)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Item leggingsItem = items.get(LEGGINGS);
 				
@@ -244,7 +244,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			
 			// INGOT -> BOOTS
-			if (items.containsKey(INGOT) && items.containsKey(BOOTS)) {
+			if (shouldAddRecipe(resource, INGOT, BOOTS)) {
 				final Tag<Item> ingotTag = INGOT.getTag(resource);
 				final Item bootsItem = items.get(BOOTS);
 				
@@ -258,8 +258,18 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		});
 	}
 	
-	private boolean oneIsInRegistryList(IResource resource, IResourceType<?>... types) {
-		return Stream.of(types).anyMatch(type -> {
+	private boolean shouldAddRecipe(IResource resource, IResourceType<?>... types) {
+		final boolean allTypes = Stream.of(types).allMatch(type -> {
+			if (type instanceof BlockResourceType) {
+				return resource.getBlocks().containsKey(type);
+			} else if (type instanceof FluidResourceType) {
+				return resource.getFluids().containsKey(type);
+			} else if (type instanceof ItemResourceType) {
+				return resource.getItems().containsKey(type);
+			}
+			return false;
+		});
+		final boolean anyRegistered = Stream.of(types).anyMatch(type -> {
 			if (type instanceof BlockResourceType) {
 				return resource.getRegistryBlocks().contains(resource.getBlocks().get(type));
 			} else if (type instanceof FluidResourceType) {
@@ -269,6 +279,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			return false;
 		});
+		return allTypes && anyRegistered;
 	}
 	
 	private final Tag<Item> getItemTag(BlockResourceType type, IResource resource) {
