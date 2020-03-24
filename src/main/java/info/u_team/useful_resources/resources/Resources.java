@@ -32,7 +32,7 @@ public class Resources {
 			.setExisting(SWORD, Items.IRON_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
-	public static final IResource GOLD = new VanillaIngotResource("gold", 0xfff766, 1, 3) //
+	public static final IResource GOLD = new VanillaIngotResource("gold", 0xfff373, 1, 3) //
 			.setExisting(ORE, Blocks.GOLD_ORE) //
 			.setExisting(BLOCK, Blocks.GOLD_BLOCK) //
 			.setExisting(INGOT, Items.GOLD_INGOT) //
