@@ -98,7 +98,7 @@ public abstract class Resource implements IResource {
 			if (!map.containsValue(value)) {
 				throw new IllegalStateException("Cannot add a feature with registry entries that are not in the normal feature entry map");
 			}
-			if (registryCollection.contains(value)) {
+			if (baseRegistryList.contains(value)) {
 				throw new IllegalStateException("Cannot add a feature with registry entries that already exist in the resource");
 			}
 		}).forEach(baseRegistryList::add);
