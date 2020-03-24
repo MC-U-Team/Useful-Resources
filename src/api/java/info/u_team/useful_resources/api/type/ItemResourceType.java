@@ -11,6 +11,10 @@ public enum ItemResourceType implements CacheResourceType<Item> {
 	
 	INGOT("ingot"),
 	NUGGET("nugget"),
+	
+	GEM("gem"),
+	PIECE("piece"),
+	
 	DUST("dust"),
 	PLATE("plate"),
 	DENSE_PLATE("dense_plate"),
