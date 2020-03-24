@@ -49,6 +49,22 @@ public class Resources {
 			.setExisting(SWORD, Items.GOLDEN_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
+	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 1, 3) //
+			.setExisting(ORE, Blocks.DIAMOND_ORE) //
+			.setExisting(BLOCK, Blocks.DIAMOND_BLOCK) //
+			.setExisting(GEM, Items.DIAMOND) //
+			.setExisting(HELMET, Items.DIAMOND_HELMET) //
+			.setExisting(CHESTPLATE, Items.DIAMOND_CHESTPLATE) //
+			.setExisting(LEGGINGS, Items.DIAMOND_LEGGINGS) //
+			.setExisting(BOOTS, Items.DIAMOND_BOOTS) //
+			.setExisting(HORSE_ARMOR, Items.DIAMOND_HORSE_ARMOR) //
+			.setExisting(AXE, Items.DIAMOND_AXE) //
+			.setExisting(HOE, Items.DIAMOND_HOE) //
+			.setExisting(PICKAXE, Items.DIAMOND_PICKAXE) //
+			.setExisting(SHOVEL, Items.DIAMOND_SHOVEL) //
+			.setExisting(SWORD, Items.DIAMOND_SWORD) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
 	// CUSTOM
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
