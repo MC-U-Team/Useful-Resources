@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		" X ",
+		" X "
+	],
+	"key": {
+		"#": {
+			"tag": "forge:gems/emerald"
+		},
+		"X": {
+			"tag": "forge:rods/wooden"
+		}
+	},
+	"result": {
+		"item": "usefulresources:emerald_pickaxe"
+	}
+}

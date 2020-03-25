@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:tools/axes/emerald",
 		"#forge:tools/axes/copper",
 		"#forge:tools/axes/tin",
 		"#forge:tools/axes/aluminum",

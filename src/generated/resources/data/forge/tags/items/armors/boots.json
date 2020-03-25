@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:armors/boots/emerald",
 		"#forge:armors/boots/copper",
 		"#forge:armors/boots/tin",
 		"#forge:armors/boots/aluminum",

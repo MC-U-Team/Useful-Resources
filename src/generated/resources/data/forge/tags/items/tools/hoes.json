@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:tools/hoes/emerald",
 		"#forge:tools/hoes/copper",
 		"#forge:tools/hoes/tin",
 		"#forge:tools/hoes/aluminum",

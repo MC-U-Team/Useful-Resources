@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:armors/chestplates/emerald",
 		"#forge:armors/chestplates/copper",
 		"#forge:armors/chestplates/tin",
 		"#forge:armors/chestplates/aluminum",

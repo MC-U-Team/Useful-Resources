@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:tools/pickaxes/emerald",
 		"#forge:tools/pickaxes/copper",
 		"#forge:tools/pickaxes/tin",
 		"#forge:tools/pickaxes/aluminum",
