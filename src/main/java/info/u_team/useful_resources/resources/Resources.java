@@ -74,6 +74,15 @@ public class Resources {
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1561, 8, 3, 10)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
+	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3) //
+			.setExisting(ORE, Blocks.LAPIS_ORE) //
+			.setExisting(BLOCK, Blocks.LAPIS_BLOCK) //
+			.setExisting(GEM, Items.LAPIS_LAZULI) //
+			.setArmor(createArmor(20, new int[] { 3, 5, 7, 3 }, 20)) //
+			.setHorseArmor(9) //
+			.setTools(createTools(new float[] { 4.5F, 0, 1, 1.5F, 2.5F }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 2, 500, 7, 3, 10)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
 	// CUSTOM
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
@@ -117,6 +126,7 @@ public class Resources {
 		ResourceRegistry.register(GOLD);
 		ResourceRegistry.register(DIAMOND);
 		ResourceRegistry.register(EMERALD);
+		ResourceRegistry.register(LAPIS);
 		
 		// Ingots
 		ResourceRegistry.register(COPPER);
