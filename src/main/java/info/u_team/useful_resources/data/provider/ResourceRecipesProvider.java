@@ -34,228 +34,245 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final Map<BlockResourceType, Block> blocks = resource.getBlocks();
 			final Map<ItemResourceType, Item> items = resource.getItems();
 			
-			// ORE -> INGOT
-			if (shouldAddRecipe(resource, ORE, INGOT)) {
+			final ItemResourceType normalResourceType = getNormalResourceType(resource);
+			final ItemResourceType tinyResourceType = getTinyResourceType(resource);
+			
+			// ORE -> INGOT / GEM
+			if (shouldAddRecipe(resource, ORE, normalResourceType)) {
 				final Tag<Item> oreTag = getItemTag(ORE, resource);
-				final Item ingotItem = items.get(INGOT);
+				final Item normalItem = items.get(normalResourceType);
 				
-				smeltingRecipe(getIngredientOfTag(oreTag), ingotItem, 0.7F, 200) //
+				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "smelting/ingot_from_ore"));
 				
-				blastingRecipe(getIngredientOfTag(oreTag), ingotItem, 0.7F, 100) //
+				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "blasting/ingot_from_ore"));
 			}
 			
-			// NETHER_ORE -> INGOT
-			if (shouldAddRecipe(resource, NETHER_ORE, INGOT)) {
+			// NETHER_ORE -> INGOT / GEM
+			if (shouldAddRecipe(resource, NETHER_ORE, normalResourceType)) {
 				final Tag<Item> oreTag = getItemTag(NETHER_ORE, resource);
-				final Item ingotItem = items.get(INGOT);
+				final Item normalItem = items.get(normalResourceType);
 				
-				smeltingRecipe(getIngredientOfTag(oreTag), ingotItem, 0.7F, 200) //
+				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
 						.addCriterion("has_nether_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "smelting/ingot_from_nether_ore"));
 				
-				blastingRecipe(getIngredientOfTag(oreTag), ingotItem, 0.7F, 100) //
+				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
 						.addCriterion("has_nether_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "blasting/ingot_from_nether_ore"));
 			}
 			
-			// DUST -> INGOT
-			if (shouldAddRecipe(resource, DUST, INGOT)) {
+			// DUST -> INGOT / GEM
+			if (shouldAddRecipe(resource, DUST, normalResourceType)) {
 				final Tag<Item> dustTag = DUST.getTag(resource);
-				final Item ingotItem = items.get(INGOT);
+				final Item normalItem = items.get(normalResourceType);
 				
-				smeltingRecipe(getIngredientOfTag(dustTag), ingotItem, 0.5F, 200) //
+				smeltingRecipe(getIngredientOfTag(dustTag), normalItem, 0.5F, 200) //
 						.addCriterion("has_dust", hasItem(dustTag)) //
 						.build(consumer, createLocation(resource, "smelting/ingot_from_dust"));
 				
-				blastingRecipe(getIngredientOfTag(dustTag), ingotItem, 0.5F, 100) //
+				blastingRecipe(getIngredientOfTag(dustTag), normalItem, 0.5F, 100) //
 						.addCriterion("has_dust", hasItem(dustTag)) //
 						.build(consumer, createLocation(resource, "blasting/ingot_from_dust"));
 			}
 			
-			// INGOT <-> BLOCK
-			if (shouldAddRecipe(resource, INGOT, BLOCK)) {
-				// INGOT -> BLOCK
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			// INGOT / GEM <-> BLOCK
+			if (shouldAddRecipe(resource, normalResourceType, BLOCK)) {
+				// INGOT / GEM -> BLOCK
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Block blockBlock = blocks.get(BLOCK);
 				shapedRecipe(blockBlock) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.patternLine("###") //
 						.patternLine("###") //
 						.patternLine("###") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/block_from_ingot"));
 				
-				// BLOCK -> INGOT
+				// BLOCK -> INGOT / GEM
 				final Tag<Item> blockTag = getItemTag(BLOCK, resource);
-				final Item ingotItem = items.get(INGOT);
+				final Item normalItem = items.get(normalResourceType);
 				
-				shapelessRecipe(ingotItem, 9) //
+				shapelessRecipe(normalItem, 9) //
 						.addIngredient(blockTag) //
 						.addCriterion("has_block", hasItem(blockTag)) //
 						.build(consumer, createLocation(resource, "crafting/ingot_from_block"));
 			}
 			
-			// NUGGET <-> INGOT
-			if (shouldAddRecipe(resource, NUGGET, INGOT)) {
-				// NUGGET -> INGOT
-				final Tag<Item> nuggetTag = NUGGET.getTag(resource);
-				final Item ingotItem = items.get(INGOT);
-				shapedRecipe(ingotItem) //
-						.key('#', nuggetTag) //
+			// NUGGET / PIECE <-> INGOT / GEM
+			if (shouldAddRecipe(resource, tinyResourceType, normalResourceType)) {
+				// NUGGET / PIECE -> INGOT / GEM
+				final Tag<Item> tinyTag = tinyResourceType.getTag(resource);
+				final Item normalItem = items.get(normalResourceType);
+				shapedRecipe(normalItem) //
+						.key('#', tinyTag) //
 						.patternLine("###") //
 						.patternLine("###") //
 						.patternLine("###") //
-						.addCriterion("has_nugget", hasItem(nuggetTag)) //
+						.addCriterion("has_nugget", hasItem(tinyTag)) //
 						.build(consumer, createLocation(resource, "crafting/ingot_from_nugget"));
 				
-				// INGOT -> NUGGET
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
-				final Item nuggetItem = items.get(NUGGET);
+				// INGOT / GEM -> NUGGET / PIECE
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final Item tinyItem = items.get(tinyResourceType);
 				
-				shapelessRecipe(nuggetItem, 9) //
-						.addIngredient(ingotTag) //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+				shapelessRecipe(tinyItem, 9) //
+						.addIngredient(normalTag) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
 			}
 			
-			// INGOT -> AXE
-			if (shouldAddRecipe(resource, INGOT, AXE)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			// INGOT / GEM -> AXE
+			if (shouldAddRecipe(resource, normalResourceType, AXE)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item axeItem = items.get(AXE);
 				
 				shapedRecipe(axeItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.key('X', stickTag) //
 						.patternLine("##") //
 						.patternLine("#X") //
 						.patternLine(" X") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/axe_from_ingot"));
 			}
 			
-			// INGOT -> HOE
-			if (shouldAddRecipe(resource, INGOT, HOE)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			// INGOT / GEM -> HOE
+			if (shouldAddRecipe(resource, normalResourceType, HOE)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item hoeItem = items.get(HOE);
 				
 				shapedRecipe(hoeItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.key('X', stickTag) //
 						.patternLine("##") //
 						.patternLine(" X") //
 						.patternLine(" X") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/hoe_from_ingot"));
 			}
 			
-			// INGOT -> PICKAXE
-			if (shouldAddRecipe(resource, INGOT, PICKAXE)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			// INGOT / GEM -> PICKAXE
+			if (shouldAddRecipe(resource, normalResourceType, PICKAXE)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item pickaxeItem = items.get(PICKAXE);
 				
 				shapedRecipe(pickaxeItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.key('X', stickTag) //
 						.patternLine("###") //
 						.patternLine(" X ") //
 						.patternLine(" X ") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/pickaxe_from_ingot"));
 			}
 			
-			// INGOT -> SHOVEL
-			if (shouldAddRecipe(resource, INGOT, SHOVEL)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			// INGOT / GEM -> SHOVEL
+			if (shouldAddRecipe(resource, normalResourceType, SHOVEL)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item shovelItem = items.get(SHOVEL);
 				
 				shapedRecipe(shovelItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.key('X', stickTag) //
 						.patternLine("#") //
 						.patternLine("X") //
 						.patternLine("X") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/shovel_from_ingot"));
 			}
 			
 			// INGOT -> SWORD
-			if (shouldAddRecipe(resource, INGOT, SWORD)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			if (shouldAddRecipe(resource, normalResourceType, SWORD)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item swordItem = items.get(SWORD);
 				
 				shapedRecipe(swordItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.key('X', stickTag) //
 						.patternLine("#") //
 						.patternLine("#") //
 						.patternLine("X") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/sword_from_ingot"));
 			}
 			
 			// INGOT -> HELMET
-			if (shouldAddRecipe(resource, INGOT, HELMET)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			if (shouldAddRecipe(resource, normalResourceType, HELMET)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item helmetItem = items.get(HELMET);
 				
 				shapedRecipe(helmetItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.patternLine("###") //
 						.patternLine("# #") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/helmet_from_ingot"));
 			}
 			
 			// INGOT -> CHESTPLATE
-			if (shouldAddRecipe(resource, INGOT, CHESTPLATE)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			if (shouldAddRecipe(resource, normalResourceType, CHESTPLATE)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item chestplateItem = items.get(CHESTPLATE);
 				
 				shapedRecipe(chestplateItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.patternLine("# #") //
 						.patternLine("###") //
 						.patternLine("###") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/chestplate_from_ingot"));
 			}
 			
 			// INGOT -> LEGGINGS
-			if (shouldAddRecipe(resource, INGOT, LEGGINGS)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			if (shouldAddRecipe(resource, normalResourceType, LEGGINGS)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item leggingsItem = items.get(LEGGINGS);
 				
 				shapedRecipe(leggingsItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.patternLine("###") //
 						.patternLine("# #") //
 						.patternLine("# #") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/leggings_from_ingot"));
 			}
 			
 			// INGOT -> BOOTS
-			if (shouldAddRecipe(resource, INGOT, BOOTS)) {
-				final Tag<Item> ingotTag = INGOT.getTag(resource);
+			if (shouldAddRecipe(resource, normalResourceType, BOOTS)) {
+				final Tag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item bootsItem = items.get(BOOTS);
 				
 				shapedRecipe(bootsItem) //
-						.key('#', ingotTag) //
+						.key('#', normalTag) //
 						.patternLine("# #") //
 						.patternLine("# #") //
-						.addCriterion("has_ingot", hasItem(ingotTag)) //
+						.addCriterion("has_ingot", hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/boots_from_ingot"));
 			}
 		});
+	}
+	
+	private ItemResourceType getNormalResourceType(IResource resource) {
+		if (resource.getItems().containsKey(INGOT)) {
+			return INGOT;
+		}
+		return GEM;
+	}
+	
+	private ItemResourceType getTinyResourceType(IResource resource) {
+		if (resource.getItems().containsKey(NUGGET)) {
+			return NUGGET;
+		}
+		return PIECE;
 	}
 	
 	private boolean shouldAddRecipe(IResource resource, IResourceType<?>... types) {
