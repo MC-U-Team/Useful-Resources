@@ -65,6 +65,15 @@ public class Resources {
 			.setExisting(SWORD, Items.DIAMOND_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
+	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 1, 3) //
+			.setExisting(ORE, Blocks.EMERALD_ORE) //
+			.setExisting(BLOCK, Blocks.EMERALD_BLOCK) //
+			.setExisting(GEM, Items.EMERALD) //
+			.setArmor(createArmor(33, new int[] { 3, 6, 8, 3 }, 11)) //
+			.setHorseArmor(11) //
+			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1561, 8, 3, 10)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
 	// CUSTOM
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
@@ -107,6 +116,7 @@ public class Resources {
 		ResourceRegistry.register(IRON);
 		ResourceRegistry.register(GOLD);
 		ResourceRegistry.register(DIAMOND);
+		ResourceRegistry.register(EMERALD);
 		
 		// Ingots
 		ResourceRegistry.register(COPPER);
