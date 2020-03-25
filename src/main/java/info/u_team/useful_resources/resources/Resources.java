@@ -105,6 +105,7 @@ public class Resources {
 	public static void register() {
 		ResourceRegistry.register(IRON);
 		ResourceRegistry.register(GOLD);
+		ResourceRegistry.register(DIAMOND);
 		ResourceRegistry.register(COPPER);
 		ResourceRegistry.register(TIN);
 		ResourceRegistry.register(ALUMINUM);
