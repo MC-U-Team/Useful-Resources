@@ -3,8 +3,9 @@ package info.u_team.useful_resources.data.provider;
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.type.ItemResourceType;
-import net.minecraft.item.Item;
+import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.resources.Resources;
+import net.minecraft.item.*;
 import net.minecraft.tags.Tag;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
@@ -40,5 +41,9 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
 		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
+		
+		final Tag<Item> netherQuartzOreTag = TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(Resources.QUARTZ));
+		getBuilder(netherQuartzOreTag).add(Items.NETHER_QUARTZ_ORE);
+		getBuilder(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getUnifyTag())).add(netherQuartzOreTag);
 	}
 }

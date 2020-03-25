@@ -274,7 +274,7 @@ b53c823bf2404ff67eb957cd8dae1da4493d7a52 assets\usefulresources\models\item\tin_
 c7787cf753c1182751f7596d15b39223ce56f88a assets\usefulresources\models\item\tin_shovel.json
 7eee53ee23361c4ddae6f337a753299b910ac2b7 assets\usefulresources\models\item\tin_sword.json
 9ed931619e39f59a8520c1e3b03fea2e9a56fb60 assets\usefulresources\particles\colored_overlay_block.json
-808991c344fa29e817f3016b51ffac40ba54dbb1 data\forge\tags\blocks\nether_ores.json
+f96fd6704e04cdc9c6bed77deee0205e4a195f50 data\forge\tags\blocks\nether_ores.json
 fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data\forge\tags\blocks\nether_ores\aluminum.json
 58f69b549cf2b0d4ed78b20da687b20e0b6d2c6f data\forge\tags\blocks\nether_ores\copper.json
 17ada15bb88704d44268dee3a8413cf4bc13fcd0 data\forge\tags\blocks\nether_ores\diamond.json
@@ -283,6 +283,7 @@ ba44f7dc74310aaded9b19ab503555b463382dde data\forge\tags\blocks\nether_ores\gold
 53096847bf95b0bc14562b6e8437028f819cc6d4 data\forge\tags\blocks\nether_ores\iron.json
 2e298197e86a8f42953b41d80bd68cb2c946f88f data\forge\tags\blocks\nether_ores\lapis.json
 116a2c13c04f6d8180e9fb3fb1fddde7509396ae data\forge\tags\blocks\nether_ores\lead.json
+f7dacc08e5ef483efceb968b8bb2f88d43d1fbf6 data\forge\tags\blocks\nether_ores\quartz.json
 2e7e7cc7d641a75ad2916061d73a5755f3d9a437 data\forge\tags\blocks\nether_ores\silver.json
 d70ae2d28cde3966a365e355c32257cd7d76d07d data\forge\tags\blocks\nether_ores\tin.json
 45aa294922697a4ca674c5864d64b77a0dea8b2e data\forge\tags\blocks\ores.json
@@ -410,7 +411,7 @@ e4581653eb9d78187d082c693d20cb4a990c0cc0 data\forge\tags\items\molten_buckets\go
 fe08ed85501a849a0130a3c87ac5309c472217c9 data\forge\tags\items\molten_buckets\quartz.json
 2343e7051975dd04eb3e6b7ea23d0f4a6f1e76d3 data\forge\tags\items\molten_buckets\silver.json
 2b55f8987f8383b1969408384d96390041198941 data\forge\tags\items\molten_buckets\tin.json
-808991c344fa29e817f3016b51ffac40ba54dbb1 data\forge\tags\items\nether_ores.json
+f96fd6704e04cdc9c6bed77deee0205e4a195f50 data\forge\tags\items\nether_ores.json
 fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data\forge\tags\items\nether_ores\aluminum.json
 58f69b549cf2b0d4ed78b20da687b20e0b6d2c6f data\forge\tags\items\nether_ores\copper.json
 17ada15bb88704d44268dee3a8413cf4bc13fcd0 data\forge\tags\items\nether_ores\diamond.json
@@ -419,6 +420,7 @@ ba44f7dc74310aaded9b19ab503555b463382dde data\forge\tags\items\nether_ores\gold.
 53096847bf95b0bc14562b6e8437028f819cc6d4 data\forge\tags\items\nether_ores\iron.json
 2e298197e86a8f42953b41d80bd68cb2c946f88f data\forge\tags\items\nether_ores\lapis.json
 116a2c13c04f6d8180e9fb3fb1fddde7509396ae data\forge\tags\items\nether_ores\lead.json
+f7dacc08e5ef483efceb968b8bb2f88d43d1fbf6 data\forge\tags\items\nether_ores\quartz.json
 2e7e7cc7d641a75ad2916061d73a5755f3d9a437 data\forge\tags\items\nether_ores\silver.json
 d70ae2d28cde3966a365e355c32257cd7d76d07d data\forge\tags\items\nether_ores\tin.json
 042178e431f58358630c54a19c12058611b461b5 data\forge\tags\items\nuggets.json

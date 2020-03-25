@@ -22,7 +22,7 @@ public class ResourceRegistry {
 		return Collections.unmodifiableList(RESOURCES);
 	}
 	
-	public IResource get(String name) {
+	public static IResource get(String name) {
 		return Iterables.tryFind(RESOURCES, resource -> resource.getName().equals(name)).orNull();
 	}
 	

@@ -10,6 +10,7 @@
 		"#forge:nether_ores/tin",
 		"#forge:nether_ores/aluminum",
 		"#forge:nether_ores/silver",
-		"#forge:nether_ores/lead"
+		"#forge:nether_ores/lead",
+		"#forge:nether_ores/quartz"
 	]
 }
