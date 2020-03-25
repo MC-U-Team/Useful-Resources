@@ -34,4 +34,5 @@ public class MaterialUtil {
 	public static UToolMaterial createTools(float[] additionalDamage, float[] speed, int harvestlevel, int durability, float efficiency, float baseDamage, int enchantability) {
 		return new UToolMaterial(additionalDamage, speed, harvestlevel, durability, efficiency, baseDamage, enchantability, () -> Ingredient.EMPTY);
 	}
+	
 }
