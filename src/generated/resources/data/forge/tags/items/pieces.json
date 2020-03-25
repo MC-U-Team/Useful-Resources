@@ -3,6 +3,7 @@
 	"values": [
 		"#forge:pieces/diamond",
 		"#forge:pieces/emerald",
-		"#forge:pieces/lapis"
+		"#forge:pieces/lapis",
+		"#forge:pieces/quartz"
 	]
 }
