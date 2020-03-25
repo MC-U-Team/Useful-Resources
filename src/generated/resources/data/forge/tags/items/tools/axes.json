@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:tools/axes/emerald",
+		"#forge:tools/axes/lapis",
 		"#forge:tools/axes/copper",
 		"#forge:tools/axes/tin",
 		"#forge:tools/axes/aluminum",

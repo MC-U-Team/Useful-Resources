@@ -1,0 +1,37 @@
+{
+	"categories": {
+		"type": "whitelist",
+		"entries": [
+			"nether"
+		]
+	},
+	"biomes": {
+		"type": "blacklist",
+		"entries": []
+	},
+	"decoration": "underground_ores",
+	"feature": {
+		"name": "minecraft:decorated",
+		"config": {
+			"feature": {
+				"name": "minecraft:ore",
+				"config": {
+					"size": 9,
+					"target": "netherrack",
+					"state": {
+						"Name": "usefulresources:lapis_nether_ore"
+					}
+				}
+			},
+			"decorator": {
+				"name": "minecraft:count_range",
+				"config": {
+					"count": 10,
+					"bottom_offset": 10,
+					"top_offset": 20,
+					"maximum": 128
+				}
+			}
+		}
+	}
+}

@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:tools/shovels/emerald",
+		"#forge:tools/shovels/lapis",
 		"#forge:tools/shovels/copper",
 		"#forge:tools/shovels/tin",
 		"#forge:tools/shovels/aluminum",
