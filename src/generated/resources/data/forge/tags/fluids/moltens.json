@@ -3,6 +3,7 @@
 	"values": [
 		"#forge:moltens/iron",
 		"#forge:moltens/gold",
+		"#forge:moltens/diamond",
 		"#forge:moltens/copper",
 		"#forge:moltens/tin",
 		"#forge:moltens/aluminum",
