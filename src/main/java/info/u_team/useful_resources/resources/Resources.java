@@ -103,14 +103,19 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 3, 10, 20, 128));
 	
 	public static void register() {
+		// Vanilla
 		ResourceRegistry.register(IRON);
 		ResourceRegistry.register(GOLD);
 		ResourceRegistry.register(DIAMOND);
+		
+		// Ingots
 		ResourceRegistry.register(COPPER);
 		ResourceRegistry.register(TIN);
 		ResourceRegistry.register(ALUMINUM);
 		ResourceRegistry.register(SILVER);
 		ResourceRegistry.register(LEAD);
+		
+		// Gems
 	}
 	
 }
