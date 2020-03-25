@@ -136,6 +136,7 @@ public class Resources {
 		ResourceRegistry.register(DIAMOND);
 		ResourceRegistry.register(EMERALD);
 		ResourceRegistry.register(LAPIS);
+		ResourceRegistry.register(QUARTZ);
 		
 		// Ingots
 		ResourceRegistry.register(COPPER);
