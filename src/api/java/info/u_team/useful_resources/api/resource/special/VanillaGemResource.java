@@ -6,6 +6,7 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.Rarity;
+import net.minecraft.util.math.MathHelper;
 
 public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 	
@@ -14,7 +15,7 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 		setProperty("oreLootTable", "fortune");
 		setProperty("oreLootTableDrop", ItemResourceType.GEM);
 		
-		addFeature(createOre(hasOverworldOre ? NETHER_ORE : ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
+		addFeature(createOre(hasOverworldOre ? NETHER_ORE : ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, 2, 6)));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
