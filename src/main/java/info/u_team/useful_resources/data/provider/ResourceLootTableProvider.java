@@ -1,5 +1,6 @@
 package info.u_team.useful_resources.data.provider;
 
+import java.util.Map;
 import java.util.function.BiConsumer;
 
 import info.u_team.u_team_core.data.*;
@@ -18,11 +19,11 @@ public class ResourceLootTableProvider extends CommonLootTablesProvider {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				final LootTable lootTable;
+				final Map<String, Object> extraProperties = resource.getDataGeneratorConfigurator().getExtraProperties();
 				if (block.getLootTable().equals(LootTables.EMPTY)) {
 					lootTable = null;
-					// } else if (resource.getDataGeneratorConfigurator().getOreType() == OreType.GEM) { // TODO
-					// lootTable = addFortuneBlockLootTable(block, resource.getItems().get(ItemResourceType.BOOTS)); // SET GEM THERE WHEN
-					// WE HAVE A GEM TYPE
+				} else if (extraProperties.containsKey("oreLootTable") && extraProperties.containsKey("oreLootTableDrop") && extraProperties.get("oreLootTable").equals("fortune")) {
+					lootTable = addFortuneBlockLootTable(block, resource.getItems().get(extraProperties.get("oreLootTableDrop")));
 				} else {
 					lootTable = addBasicBlockLootTable(block);
 				}

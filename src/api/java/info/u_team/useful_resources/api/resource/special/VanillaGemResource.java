@@ -11,6 +11,9 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 	
 	public VanillaGemResource(String name, int color, int harvestLevel, float baseHardness, boolean hasOverworldOre) {
 		super(name, color, ItemResourceType.GEM, Rarity.COMMON);
+		setProperty("oreLootTable", "fortune");
+		setProperty("oreLootTableDrop", ItemResourceType.GEM);
+		
 		addFeature(createOre(hasOverworldOre ? NETHER_ORE : ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
