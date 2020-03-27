@@ -68,7 +68,7 @@ public class Resources {
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 1, 0, 0, 128));
 	
-	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 2, 3, true) //
+	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 2, 3, 3, NETHER_ORE, 3, 7) //
 			.setExisting(ORE, Blocks.EMERALD_ORE) //
 			.setExisting(BLOCK, Blocks.EMERALD_BLOCK) //
 			.setExisting(GEM, Items.EMERALD) //
