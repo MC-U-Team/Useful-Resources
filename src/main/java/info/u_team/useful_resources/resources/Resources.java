@@ -51,7 +51,7 @@ public class Resources {
 			.setExisting(SWORD, Items.GOLDEN_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
-	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 1, 3, true) //
+	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 2, 3, true) //
 			.setExisting(ORE, Blocks.DIAMOND_ORE) //
 			.setExisting(BLOCK, Blocks.DIAMOND_BLOCK) //
 			.setExisting(GEM, Items.DIAMOND) //
@@ -66,9 +66,9 @@ public class Resources {
 			.setExisting(SHOVEL, Items.DIAMOND_SHOVEL) //
 			.setExisting(SWORD, Items.DIAMOND_SWORD) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
-			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 1, 0, 0, 128));
 	
-	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 1, 3, true) //
+	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 2, 3, true) //
 			.setExisting(ORE, Blocks.EMERALD_ORE) //
 			.setExisting(BLOCK, Blocks.EMERALD_BLOCK) //
 			.setExisting(GEM, Items.EMERALD) //
@@ -76,7 +76,7 @@ public class Resources {
 			.setHorseArmor(11) //
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1561, 8, 3, 10)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
-			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 1, 0, 0, 128));
 	
 	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, true) //
 			.setExisting(ORE, Blocks.LAPIS_ORE) //
