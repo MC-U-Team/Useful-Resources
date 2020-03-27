@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/silver",
+		"#forge:nether_ores/silver"
+	]
+}

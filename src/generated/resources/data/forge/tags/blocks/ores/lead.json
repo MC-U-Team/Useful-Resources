@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/lead",
+		"#forge:nether_ores/lead"
+	]
+}
