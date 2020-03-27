@@ -8,6 +8,7 @@ import static info.u_team.useful_resources.util.MaterialUtil.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.special.*;
+import info.u_team.useful_resources.util.LootTableUtil;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 
@@ -63,6 +64,7 @@ public class Resources {
 			.setExisting(PICKAXE, Items.DIAMOND_PICKAXE) //
 			.setExisting(SHOVEL, Items.DIAMOND_SHOVEL) //
 			.setExisting(SWORD, Items.DIAMOND_SWORD) //
+			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 1, 3, true) //
