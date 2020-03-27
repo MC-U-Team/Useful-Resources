@@ -51,7 +51,7 @@ public class Resources {
 			.setExisting(SWORD, Items.GOLDEN_SWORD) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
-	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 2, 3, true) //
+	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 2, 3, 3, NETHER_ORE, 3, 7) //
 			.setExisting(ORE, Blocks.DIAMOND_ORE) //
 			.setExisting(BLOCK, Blocks.DIAMOND_BLOCK) //
 			.setExisting(GEM, Items.DIAMOND) //
