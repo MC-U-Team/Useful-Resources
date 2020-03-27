@@ -1,20 +1,19 @@
 package info.u_team.useful_resources.api.resource.special;
 
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
-import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.type.ItemResourceType;
+import info.u_team.useful_resources.api.type.*;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.math.MathHelper;
 
 public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 	
-	public VanillaGemResource(String name, int color, int harvestLevel, float baseHardness, boolean hasOverworldOre) {
+	public VanillaGemResource(String name, int color, int harvestLevel, float hardness, float resistance, BlockResourceType oreType, int minXp, int maxXp) {
 		super(name, color, ItemResourceType.GEM, Rarity.COMMON);
 		
-		addFeature(createOre(hasOverworldOre ? NETHER_ORE : ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, 2, 6)));
+		addFeature(createOre(oreType, Rarity.COMMON, harvestLevel, hardness, resistance, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
