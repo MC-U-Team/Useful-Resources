@@ -37,6 +37,9 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final ItemResourceType normalResourceType = getNormalResourceType(resource);
 			final ItemResourceType tinyResourceType = getTinyResourceType(resource);
 			
+			final String normalResourceTypeName = normalResourceType.getName();
+			final String tinyResourceTypeName = tinyResourceType.getName();
+			
 			// ORE -> INGOT / GEM
 			if (shouldAddRecipe(resource, ORE, normalResourceType)) {
 				final Tag<Item> oreTag = getItemTag(ORE, resource);
@@ -44,11 +47,11 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				
 				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
-						.build(consumer, createLocation(resource, "smelting/ingot_from_ore"));
+						.build(consumer, createLocation(resource, "smelting/" + normalResourceTypeName + "_from_ore"));
 				
 				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
-						.build(consumer, createLocation(resource, "blasting/ingot_from_ore"));
+						.build(consumer, createLocation(resource, "blasting/" + normalResourceTypeName + "_from_ore"));
 			}
 			
 			// NETHER_ORE -> INGOT / GEM
@@ -58,11 +61,11 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				
 				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
 						.addCriterion("has_nether_ore", hasItem(oreTag)) //
-						.build(consumer, createLocation(resource, "smelting/ingot_from_nether_ore"));
+						.build(consumer, createLocation(resource, "smelting/" + normalResourceTypeName + "_from_nether_ore"));
 				
 				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
 						.addCriterion("has_nether_ore", hasItem(oreTag)) //
-						.build(consumer, createLocation(resource, "blasting/ingot_from_nether_ore"));
+						.build(consumer, createLocation(resource, "blasting/" + normalResourceTypeName + "_from_nether_ore"));
 			}
 			
 			// DUST -> INGOT / GEM
@@ -72,11 +75,11 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				
 				smeltingRecipe(getIngredientOfTag(dustTag), normalItem, 0.5F, 200) //
 						.addCriterion("has_dust", hasItem(dustTag)) //
-						.build(consumer, createLocation(resource, "smelting/ingot_from_dust"));
+						.build(consumer, createLocation(resource, "smelting/" + normalResourceTypeName + "_from_dust"));
 				
 				blastingRecipe(getIngredientOfTag(dustTag), normalItem, 0.5F, 100) //
 						.addCriterion("has_dust", hasItem(dustTag)) //
-						.build(consumer, createLocation(resource, "blasting/ingot_from_dust"));
+						.build(consumer, createLocation(resource, "blasting/" + normalResourceTypeName + "_from_dust"));
 			}
 			
 			// INGOT / GEM <-> BLOCK
@@ -89,8 +92,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("###") //
 						.patternLine("###") //
 						.patternLine("###") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/block_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/block_from_" + normalResourceTypeName));
 				
 				// BLOCK -> INGOT / GEM
 				final Tag<Item> blockTag = getItemTag(BLOCK, resource);
@@ -99,7 +102,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				shapelessRecipe(normalItem, 9) //
 						.addIngredient(blockTag) //
 						.addCriterion("has_block", hasItem(blockTag)) //
-						.build(consumer, createLocation(resource, "crafting/ingot_from_block"));
+						.build(consumer, createLocation(resource, "crafting/" + normalResourceTypeName + "_from_block"));
 			}
 			
 			// NUGGET / PIECE <-> INGOT / GEM
@@ -112,8 +115,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("###") //
 						.patternLine("###") //
 						.patternLine("###") //
-						.addCriterion("has_nugget", hasItem(tinyTag)) //
-						.build(consumer, createLocation(resource, "crafting/ingot_from_nugget"));
+						.addCriterion("has_" + tinyResourceTypeName, hasItem(tinyTag)) //
+						.build(consumer, createLocation(resource, "crafting/" + normalResourceTypeName + "_from_" + tinyResourceTypeName));
 				
 				// INGOT / GEM -> NUGGET / PIECE
 				final Tag<Item> normalTag = normalResourceType.getTag(resource);
@@ -121,8 +124,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				
 				shapelessRecipe(tinyItem, 9) //
 						.addIngredient(normalTag) //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/nugget_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/" + tinyResourceTypeName + "_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT / GEM -> AXE
@@ -137,8 +140,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("##") //
 						.patternLine("#X") //
 						.patternLine(" X") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/axe_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/axe_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT / GEM -> HOE
@@ -153,8 +156,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("##") //
 						.patternLine(" X") //
 						.patternLine(" X") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/hoe_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/hoe_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT / GEM -> PICKAXE
@@ -169,8 +172,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("###") //
 						.patternLine(" X ") //
 						.patternLine(" X ") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/pickaxe_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/pickaxe_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT / GEM -> SHOVEL
@@ -185,8 +188,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("#") //
 						.patternLine("X") //
 						.patternLine("X") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/shovel_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/shovel_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT -> SWORD
@@ -201,8 +204,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("#") //
 						.patternLine("#") //
 						.patternLine("X") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/sword_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/sword_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT -> HELMET
@@ -214,8 +217,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.key('#', normalTag) //
 						.patternLine("###") //
 						.patternLine("# #") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/helmet_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/helmet_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT -> CHESTPLATE
@@ -228,8 +231,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("# #") //
 						.patternLine("###") //
 						.patternLine("###") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/chestplate_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/chestplate_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT -> LEGGINGS
@@ -242,8 +245,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("###") //
 						.patternLine("# #") //
 						.patternLine("# #") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/leggings_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/leggings_from_" + normalResourceTypeName));
 			}
 			
 			// INGOT -> BOOTS
@@ -255,8 +258,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.key('#', normalTag) //
 						.patternLine("# #") //
 						.patternLine("# #") //
-						.addCriterion("has_ingot", hasItem(normalTag)) //
-						.build(consumer, createLocation(resource, "crafting/boots_from_ingot"));
+						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
+						.build(consumer, createLocation(resource, "crafting/boots_from_" + normalResourceTypeName));
 			}
 		});
 	}
