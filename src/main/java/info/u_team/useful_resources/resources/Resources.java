@@ -95,7 +95,7 @@ public class Resources {
 			.setArmor(createArmor(20, new int[] { 2, 5, 7, 2 }, 15)) //
 			.setHorseArmor(8) //
 			.setTools(createTools(new float[] { 5, 0, 1, 1.5F, 3.5F }, new float[] { -2.8F, 0, -2.5F, -3, -2.1F }, 2, 400, 7, 2, 15)) //
-			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 10, 10, 20, 128));
 	
 	// CUSTOM
