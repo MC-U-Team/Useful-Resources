@@ -15,12 +15,14 @@ import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.world.storage.loot.LootTable;
 
 public abstract class BasicResource<T extends BasicResource<T>> extends Resource {
 	
 	private final Rarity rarity;
 	
 	private final Map<String, WorldGenFeature> worldGenFeatures;
+	private final Map<BlockResourceType, LootTable> extraLootTables;
 	private final Map<String, Object> extraProperties;
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
@@ -29,12 +31,18 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		super(name, color, repairType);
 		this.rarity = rarity;
 		worldGenFeatures = new HashMap<>();
+		extraLootTables = new HashMap<>();
 		extraProperties = new HashMap<>();
 		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
 			
 			@Override
 			public Map<String, WorldGenFeature> getWorldGeneration() {
 				return worldGenFeatures;
+			}
+			
+			@Override
+			public Map<BlockResourceType, LootTable> getExtraLootTables() {
+				return extraLootTables;
 			}
 			
 			@Override
@@ -52,6 +60,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	@Override
 	public void clearDataGeneratorConfig() {
 		worldGenFeatures.clear();
+		extraLootTables.clear();
 		extraProperties.clear();
 	}
 	
@@ -95,6 +104,11 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	private T setGeneration(String name, WorldGenFeature feature) {
 		worldGenFeatures.put(name, feature);
+		return getThis();
+	}
+	
+	public T setProperty(BlockResourceType type, LootTable lootTable) {
+		extraLootTables.put(type, lootTable);
 		return getThis();
 	}
 	
