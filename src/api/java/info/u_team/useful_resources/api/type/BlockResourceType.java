@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 public enum BlockResourceType implements CacheResourceType<Block> {
 	
-	ORE("ore"),
+	ORE("ore", "stone_ores"),
 	NETHER_ORE("nether_ore"),
 	
 	BLOCK("block", "storage_blocks"),
