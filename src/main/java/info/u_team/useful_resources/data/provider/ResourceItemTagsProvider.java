@@ -42,8 +42,16 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
 		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
 		
+		// Special tags
+		
+		// Quartz tag
 		final Tag<Item> netherQuartzOreTag = TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(Resources.QUARTZ));
 		getBuilder(netherQuartzOreTag).add(Items.NETHER_QUARTZ_ORE);
 		getBuilder(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getUnifyTag())).add(netherQuartzOreTag);
+		
+		// Coal tag
+		final Tag<Item> coalGemTag = ItemResourceType.GEM.getTag(Resources.COAL);
+		getBuilder(coalGemTag).add(Items.COAL);
+		getBuilder(ItemResourceType.GEM.getUnifyTag()).add(coalGemTag);
 	}
 }
