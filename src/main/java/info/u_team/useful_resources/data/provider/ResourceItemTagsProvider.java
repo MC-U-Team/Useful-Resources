@@ -44,12 +44,12 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Special tags
 		
-		// Quartz tag
+		// Add nether quartz ore to the nether ores tag
 		final Tag<Item> netherQuartzOreTag = TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(Resources.QUARTZ));
 		getBuilder(netherQuartzOreTag).add(Items.NETHER_QUARTZ_ORE);
 		getBuilder(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getUnifyTag())).add(netherQuartzOreTag);
 		
-		// Coal tag
+		// Add coal to the coal gem tag
 		final Tag<Item> coalGemTag = ItemResourceType.GEM.getTag(Resources.COAL);
 		getBuilder(coalGemTag).add(Items.COAL);
 		getBuilder(ItemResourceType.GEM.getUnifyTag()).add(coalGemTag);

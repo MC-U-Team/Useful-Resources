@@ -27,6 +27,9 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 			});
 		});
 		
+		// Special tags
+		
+		// Add nether quartz ore to the nether ores tag
 		final Tag<Block> netherQuartzOreTag = BlockResourceType.NETHER_ORE.getTag(Resources.QUARTZ);
 		getBuilder(netherQuartzOreTag).add(Blocks.NETHER_QUARTZ_ORE);
 		getBuilder(BlockResourceType.NETHER_ORE.getUnifyTag()).add(netherQuartzOreTag);
