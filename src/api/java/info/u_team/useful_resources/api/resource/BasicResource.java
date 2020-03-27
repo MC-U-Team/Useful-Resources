@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.api.resource.special;
+package info.u_team.useful_resources.api.resource;
 
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
 
@@ -7,7 +7,6 @@ import java.util.function.Function;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
-import info.u_team.useful_resources.api.resource.Resource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
