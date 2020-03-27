@@ -16,7 +16,7 @@
 			"feature": {
 				"name": "minecraft:ore",
 				"config": {
-					"size": 9,
+					"size": 7,
 					"target": "netherrack",
 					"state": {
 						"Name": "usefulresources:lapis_nether_ore"
@@ -24,12 +24,11 @@
 				}
 			},
 			"decorator": {
-				"name": "minecraft:count_range",
+				"name": "minecraft:count_depth_average",
 				"config": {
-					"count": 10,
-					"bottom_offset": 10,
-					"top_offset": 20,
-					"maximum": 128
+					"count": 1,
+					"baseline": 64,
+					"spread": 64
 				}
 			}
 		}
