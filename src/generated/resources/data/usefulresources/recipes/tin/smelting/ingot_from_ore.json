@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:smelting",
 	"ingredient": {
-		"tag": "forge:ores/tin"
+		"tag": "forge:stone_ores/tin"
 	},
 	"result": "usefulresources:tin_ingot",
 	"experience": 0.7,

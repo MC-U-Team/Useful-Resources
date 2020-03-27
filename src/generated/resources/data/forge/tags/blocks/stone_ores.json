@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/quartz",
+		"#forge:stone_ores/copper",
+		"#forge:stone_ores/tin",
+		"#forge:stone_ores/aluminum",
+		"#forge:stone_ores/silver",
+		"#forge:stone_ores/lead"
+	]
+}

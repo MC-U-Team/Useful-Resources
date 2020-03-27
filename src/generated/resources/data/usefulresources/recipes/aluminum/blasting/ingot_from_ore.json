@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"tag": "forge:ores/aluminum"
+		"tag": "forge:stone_ores/aluminum"
 	},
 	"result": "usefulresources:aluminum_ingot",
 	"experience": 0.7,
