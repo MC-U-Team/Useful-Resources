@@ -16,7 +16,7 @@
 			"feature": {
 				"name": "minecraft:ore",
 				"config": {
-					"size": 9,
+					"size": 8,
 					"target": "netherrack",
 					"state": {
 						"Name": "usefulresources:diamond_nether_ore"
@@ -26,9 +26,9 @@
 			"decorator": {
 				"name": "minecraft:count_range",
 				"config": {
-					"count": 10,
-					"bottom_offset": 10,
-					"top_offset": 20,
+					"count": 1,
+					"bottom_offset": 0,
+					"top_offset": 0,
 					"maximum": 128
 				}
 			}
