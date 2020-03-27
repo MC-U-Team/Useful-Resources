@@ -74,6 +74,7 @@ public class Resources {
 			.setArmor(createArmor(33, new int[] { 3, 6, 8, 3 }, 11)) //
 			.setHorseArmor(11) //
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1561, 8, 3, 10)) //
+			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, true) //
