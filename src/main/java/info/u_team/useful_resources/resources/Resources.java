@@ -4,6 +4,7 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import static info.u_team.useful_resources.util.GenerationUtil.*;
 import static info.u_team.useful_resources.util.MaterialUtil.*;
+import static info.u_team.useful_resources.util.LootTableUtil.*;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
@@ -84,6 +85,7 @@ public class Resources {
 			.setArmor(createArmor(20, new int[] { 3, 5, 7, 3 }, 20)) //
 			.setHorseArmor(9) //
 			.setTools(createTools(new float[] { 4.5F, 0, 1, 1.5F, 2.5F }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 2, 500, 7, 3, 20)) //
+			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 9)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, false) //
