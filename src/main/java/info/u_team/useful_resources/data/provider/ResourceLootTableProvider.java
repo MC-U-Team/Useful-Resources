@@ -6,8 +6,7 @@ import java.util.function.BiConsumer;
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.type.BlockResourceType;
-import net.minecraft.block.Block;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
 
 public class ResourceLootTableProvider extends CommonLootTablesProvider {
@@ -35,10 +34,4 @@ public class ResourceLootTableProvider extends CommonLootTablesProvider {
 			});
 		});
 	}
-	
-	// Make this method public for the loot table util
-	public static LootTable addFortuneBlockLootTable(Block block, IItemProvider item) {
-		return CommonLootTablesProvider.addFortuneBlockLootTable(block, item);
-	}
-	
 }
