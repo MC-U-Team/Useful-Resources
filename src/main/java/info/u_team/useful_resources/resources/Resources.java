@@ -3,8 +3,8 @@ package info.u_team.useful_resources.resources;
 import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import static info.u_team.useful_resources.util.GenerationUtil.*;
+import static info.u_team.useful_resources.util.LootTableUtil.createFortuneBlockLootTableWithCount;
 import static info.u_team.useful_resources.util.MaterialUtil.*;
-import static info.u_team.useful_resources.util.LootTableUtil.*;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;

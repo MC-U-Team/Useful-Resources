@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
+import info.u_team.u_team_core.api.registry.IUBlockRegistryType;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
@@ -14,7 +15,6 @@ import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.IItemProvider;
 import net.minecraft.world.storage.loot.LootTable;
 
 public abstract class BasicResource<T extends BasicResource<T>> extends Resource {
@@ -107,16 +107,23 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return getThis();
 	}
 	
-	public T setLootTableWithFortune(BlockResourceType type, ItemResourceType dropType, BiFunction<Block, IItemProvider, LootTable> function) {
-		return setLootTable(type, function.apply(getBlocks().get(type), getItems().get(dropType)));
+	public T setLootTableWithFortune(BlockResourceType type, ItemResourceType dropType, BiFunction<Item, Item, LootTable> function) {
+		return setLootTable(type, item -> function.apply(item, getItems().get(dropType)));
 	}
 	
-	public T setLootTable(BlockResourceType type, Function<Block, LootTable> function) {
-		return setLootTable(type, function.apply(getBlocks().get(type)));
+	public T setLootTable(BlockResourceType type, Function<Item, LootTable> function) {
+		final Block block = getBlocks().get(type);
+		final Item item;
+		if (block instanceof IUBlockRegistryType) {
+			item = ((IUBlockRegistryType) block).getBlockItem();
+		} else {
+			item = block.asItem();
+		}
+		return setLootTable(type, function.apply(item));
 	}
 	
 	public T setLootTable(BlockResourceType type, LootTable lootTable) {
-		extraLootTables.put(type, lootTable);
+		// extraLootTables.put(type, lootTable);
 		return getThis();
 	}
 	
