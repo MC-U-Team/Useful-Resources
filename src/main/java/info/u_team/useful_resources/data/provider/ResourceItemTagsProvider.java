@@ -7,6 +7,8 @@ import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.resources.Resources;
 import net.minecraft.item.*;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.Tag.Builder;
+import net.minecraftforge.common.Tags;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
@@ -25,6 +27,19 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 					copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 				}
 			});
+			final boolean hasOre = resource.getBlocks().containsKey(BlockResourceType.ORE);
+			final boolean hasNetherOre = resource.getBlocks().containsKey(BlockResourceType.NETHER_ORE);
+			if (hasOre || hasNetherOre) {
+				final Tag<Item> tag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
+				final Builder<Item> builder = getBuilder(tag);
+				if (hasOre) {
+					builder.add(TagUtil.fromBlockTag(BlockResourceType.ORE.getTag(resource)));
+				}
+				if (hasNetherOre) {
+					builder.add(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(resource)));
+				}
+				getBuilder(Tags.Items.ORES).add(tag);
+			}
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
