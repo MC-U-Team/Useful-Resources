@@ -86,7 +86,7 @@ public class Resources {
 			.setHorseArmor(9) //
 			.setTools(createTools(new float[] { 4.5F, 0, 1, 1.5F, 2.5F }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 2, 500, 7, 3, 20)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 9)) //
-			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDeathAverageNether(state, 7, 1, 64, 64));
 	
 	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, false) //
 			.setExisting(NETHER_ORE, Blocks.NETHER_QUARTZ_ORE) //
@@ -94,9 +94,9 @@ public class Resources {
 			.setExisting(GEM, Items.QUARTZ) //
 			.setArmor(createArmor(20, new int[] { 2, 5, 7, 2 }, 15)) //
 			.setHorseArmor(8) //
-			.setTools(createTools(new float[] { 5, 0, 1, 1.5F, 3.5F }, new float[] { -2.8F, 0, -2.5F, -3, -2.1F }, 2, 400, 7, 2, 15)) //
+			.setTools(createTools(new float[] { 5, 0, 1, 1.5F, 3.5F }, new float[] { -2.8F, 0, -2.5F, -3, -2.1F }, 1, 400, 7, 2, 15)) //
 			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
-			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 10, 10, 20, 128));
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 6, 4, 0, 0, 64));
 	
 	// CUSTOM
 	
