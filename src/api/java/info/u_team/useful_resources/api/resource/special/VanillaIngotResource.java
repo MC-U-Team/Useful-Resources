@@ -9,9 +9,9 @@ import net.minecraft.item.Rarity;
 
 public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 	
-	public VanillaIngotResource(String name, int color, int harvestLevel, float baseHardness) {
+	public VanillaIngotResource(String name, int color, int harvestLevel, float hardness, float resistance) {
 		super(name, color, ItemResourceType.INGOT, Rarity.COMMON);
-		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
+		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, hardness, resistance));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
