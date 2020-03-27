@@ -98,6 +98,13 @@ public class Resources {
 			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 6, 4, 0, 0, 64));
 	
+	public static final IResource COAL = new VanillaGemResource("coal", 0x121110, 0, 3, 3, NETHER_ORE, 0, 2) //
+			.setExisting(ORE, Blocks.COAL_ORE) //
+			.setExisting(BLOCK, Blocks.COAL_BLOCK) //
+			.setExisting(GEM, Items.COAL) //
+			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128));
+	
 	// CUSTOM
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
