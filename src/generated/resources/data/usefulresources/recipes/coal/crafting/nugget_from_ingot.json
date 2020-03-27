@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "forge:gems/coal"
+		}
+	],
+	"result": {
+		"item": "usefulresources:coal_piece",
+		"count": 9
+	}
+}

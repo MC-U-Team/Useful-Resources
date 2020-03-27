@@ -1,0 +1,37 @@
+{
+	"categories": {
+		"type": "whitelist",
+		"entries": [
+			"nether"
+		]
+	},
+	"biomes": {
+		"type": "blacklist",
+		"entries": []
+	},
+	"decoration": "underground_ores",
+	"feature": {
+		"name": "minecraft:decorated",
+		"config": {
+			"feature": {
+				"name": "minecraft:ore",
+				"config": {
+					"size": 17,
+					"target": "netherrack",
+					"state": {
+						"Name": "usefulresources:coal_nether_ore"
+					}
+				}
+			},
+			"decorator": {
+				"name": "minecraft:count_range",
+				"config": {
+					"count": 20,
+					"bottom_offset": 0,
+					"top_offset": 0,
+					"maximum": 128
+				}
+			}
+		}
+	}
+}

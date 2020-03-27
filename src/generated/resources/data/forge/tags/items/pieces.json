@@ -4,6 +4,7 @@
 		"#forge:pieces/diamond",
 		"#forge:pieces/emerald",
 		"#forge:pieces/lapis",
-		"#forge:pieces/quartz"
+		"#forge:pieces/quartz",
+		"#forge:pieces/coal"
 	]
 }
