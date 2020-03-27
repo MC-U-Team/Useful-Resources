@@ -78,7 +78,7 @@ public class Resources {
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 1, 0, 0, 128));
 	
-	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, true) //
+	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, 3, NETHER_ORE, 2, 5) //
 			.setExisting(ORE, Blocks.LAPIS_ORE) //
 			.setExisting(BLOCK, Blocks.LAPIS_BLOCK) //
 			.setExisting(GEM, Items.LAPIS_LAZULI) //
