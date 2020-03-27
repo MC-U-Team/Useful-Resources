@@ -107,7 +107,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return getThis();
 	}
 	
-	public T setProperty(BlockResourceType type, LootTable lootTable) {
+	public T setLootTable(BlockResourceType type, LootTable lootTable) {
 		extraLootTables.put(type, lootTable);
 		return getThis();
 	}
