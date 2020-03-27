@@ -150,6 +150,7 @@ public class Resources {
 		ResourceRegistry.register(EMERALD);
 		ResourceRegistry.register(LAPIS);
 		ResourceRegistry.register(QUARTZ);
+		ResourceRegistry.register(COAL);
 		
 		// Ingots
 		ResourceRegistry.register(COPPER);
