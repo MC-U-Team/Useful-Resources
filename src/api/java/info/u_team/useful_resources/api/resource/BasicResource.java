@@ -3,7 +3,7 @@ package info.u_team.useful_resources.api.resource;
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
 
 import java.util.*;
-import java.util.function.Function;
+import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
@@ -14,6 +14,7 @@ import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.world.storage.loot.LootTable;
 
 public abstract class BasicResource<T extends BasicResource<T>> extends Resource {
@@ -104,6 +105,14 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	private T setGeneration(String name, WorldGenFeature feature) {
 		worldGenFeatures.put(name, feature);
 		return getThis();
+	}
+	
+	public T setLootTableWithFortune(BlockResourceType type, ItemResourceType dropType, BiFunction<Block, IItemProvider, LootTable> function) {
+		return setLootTable(type, function.apply(getBlocks().get(type), getItems().get(dropType)));
+	}
+	
+	public T setLootTable(BlockResourceType type, Function<Block, LootTable> function) {
+		return setLootTable(type, function.apply(getBlocks().get(type)));
 	}
 	
 	public T setLootTable(BlockResourceType type, LootTable lootTable) {
