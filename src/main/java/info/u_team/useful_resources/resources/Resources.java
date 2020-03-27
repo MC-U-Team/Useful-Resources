@@ -88,7 +88,7 @@ public class Resources {
 			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 9)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDeathAverageNether(state, 7, 1, 64, 64));
 	
-	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, false) //
+	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, 3, ORE, 2, 5) //
 			.setExisting(NETHER_ORE, Blocks.NETHER_QUARTZ_ORE) //
 			.setExisting(BLOCK, Blocks.QUARTZ_BLOCK) //
 			.setExisting(GEM, Items.QUARTZ) //
