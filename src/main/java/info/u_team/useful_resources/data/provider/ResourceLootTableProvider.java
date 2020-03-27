@@ -5,6 +5,7 @@ import java.util.function.BiConsumer;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.api.type.BlockResourceType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.*;
 
@@ -19,11 +20,11 @@ public class ResourceLootTableProvider extends CommonLootTablesProvider {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				final LootTable lootTable;
-				final Map<String, Object> extraProperties = resource.getDataGeneratorConfigurator().getExtraProperties();
+				final Map<BlockResourceType, LootTable> extraLootTables = resource.getDataGeneratorConfigurator().getExtraLootTables();
 				if (block.getLootTable().equals(LootTables.EMPTY)) {
 					lootTable = null;
-				} else if (extraProperties.containsKey("oreLootTable") && extraProperties.containsKey("oreLootTableDrop") && extraProperties.get("oreLootTable").equals("fortune")) {
-					lootTable = addFortuneBlockLootTable(block, resource.getItems().get(extraProperties.get("oreLootTableDrop")));
+				} else if (extraLootTables.containsKey(type)) {
+					lootTable = extraLootTables.get(type);
 				} else {
 					lootTable = addBasicBlockLootTable(block);
 				}
