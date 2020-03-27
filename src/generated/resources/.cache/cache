@@ -401,6 +401,8 @@ e444355c4a3656a4837e05ec4d0ca18a51664348 data\forge\tags\items\gears\iron.json
 1dbe0eab812749c10692180fcec5a78043aa822d data\forge\tags\items\gears\quartz.json
 fd285646c2209a31a1bab56a1eae770099870e78 data\forge\tags\items\gears\silver.json
 ce56d42cf1666b43aba4331386e74441f25d16d7 data\forge\tags\items\gears\tin.json
+07875daf5314c1cbba7739ddda719c656b1e3f5a data\forge\tags\items\gems.json
+be40f6bf123b685979a64e8165d5f4fd5cf62fbe data\forge\tags\items\gems\coal.json
 6e16fdb4291e6b5309863ff3745074f3fab893e9 data\forge\tags\items\horse_armors.json
 97571bab960a4fb8b0d4efc16f213c84d74e41b3 data\forge\tags\items\horse_armors\aluminum.json
 4879946eebbdd930ae37fb081a12fba1bffaaa52 data\forge\tags\items\horse_armors\copper.json
