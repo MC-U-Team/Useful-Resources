@@ -1,8 +1,10 @@
 package info.u_team.useful_resources.data.provider;
 
+import java.util.Map;
+
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.resource.data.*;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.util.ObjectUtil;
@@ -26,23 +28,31 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	}
 	
 	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		
 		final String baseModel;
-		final ResourceType resourceType;
-		if (ObjectUtil.getBoolean(dataGeneratorConfigurator.getExtraProperties().getOrDefault("ingotModel", false))) {
-			resourceType = ResourceType.INGOT;
+		
+		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+			baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
 		} else {
-			resourceType = dataGeneratorConfigurator.getResourceType();
+			final ResourceType resourceType;
+			if (ObjectUtil.getBoolean(extraProperties.getOrDefault("ingotModel", false))) {
+				resourceType = ResourceType.INGOT;
+			} else {
+				resourceType = dataGeneratorConfigurator.getResourceType();
+			}
+			
+			if (type == BlockResourceType.ORE) {
+				baseModel = resourceType.getName() + "_stone_ore";
+			} else if (type == BlockResourceType.NETHER_ORE) {
+				baseModel = resourceType.getName() + "_netherrack_nether_ore";
+			} else if (type == BlockResourceType.BLOCK) {
+				baseModel = resourceType.getName() + "_" + type.getName();
+			} else {
+				baseModel = type.getName();
+			}
 		}
 		
-		if (type == BlockResourceType.ORE) {
-			baseModel = resourceType.getName() + "_stone_ore";
-		} else if (type == BlockResourceType.NETHER_ORE) {
-			baseModel = resourceType.getName() + "_netherrack_nether_ore";
-		} else if (type == BlockResourceType.BLOCK) {
-			baseModel = resourceType.getName() + "_" + type.getName();
-		} else {
-			baseModel = type.getName();
-		}
 		return modLoc("base/block/special/" + baseModel);
 	}
 	
