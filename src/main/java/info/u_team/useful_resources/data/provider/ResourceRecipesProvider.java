@@ -15,6 +15,7 @@ import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.util.ExtraPropertiesUtil;
 import net.minecraft.block.Block;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.Item;
@@ -47,7 +48,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				final Tag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
 				final Item normalItem = items.get(normalResourceType);
 				
-				final float xp = (float) extraProperties.getOrDefault("oreSmeltingXp", 0.7F);
+				final float xp = ExtraPropertiesUtil.getFloat(extraProperties.getOrDefault("oreSmeltingXp", 0.7F));
 				
 				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, xp, 200) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
