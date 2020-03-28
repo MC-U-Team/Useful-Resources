@@ -19,7 +19,8 @@ public interface IDataGeneratorConfigurator {
 	public enum ResourceType {
 		
 		INGOT("ingot"),
-		GEM("gem");
+		GEM("gem"),
+		DUST("dust");
 		
 		private final String name;
 		
