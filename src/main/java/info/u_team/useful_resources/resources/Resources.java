@@ -150,6 +150,22 @@ public class Resources {
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 10, 3, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 3, 10, 20, 128));
 	
+	public static final IResource PLATINUM = new BasicIngotResource("platinum", 0x6bb0ed, Rarity.RARE, 2, 3) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 14, 2, 0, 0, 32)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 1, 10, 20, 128));
+	
+	public static final IResource NICKEL = new BasicIngotResource("nickel", 0xcadbd4, Rarity.COMMON, 1, 3) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 20, 0, 0, 64)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
+	public static final IResource ZINC = new BasicIngotResource("zinc", 0x8ca7bd, Rarity.COMMON, 1, 3) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 20, 0, 0, 64)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+	
+	public static final IResource URANIUM = new BasicIngotResource("uranium", 0x17b350, Rarity.UNCOMMON, 2, 4) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 14, 8, 0, 0, 32)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 20, 10, 20, 128));
+	
 	// GEM
 	
 	public static final IResource RUBY = new CommonGemResource("ruby", 0xc41a1a);
