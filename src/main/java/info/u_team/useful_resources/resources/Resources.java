@@ -91,6 +91,7 @@ public class Resources {
 			.setTools(createTools(new float[] { 4.5F, 0, 1, 1.5F, 2.5F }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 2, 500, 7, 3, 20)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 9)) //
 			.setProperty("oreSmeltingXp", 0.2F) //
+			.setProperty("nether_oreModelOverride", "lapis_netherrack_nether_ore") //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDeathAverageNether(state, 7, 1, 64, 64));
 	
 	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, 3, ORE, true, 2, 5) //
