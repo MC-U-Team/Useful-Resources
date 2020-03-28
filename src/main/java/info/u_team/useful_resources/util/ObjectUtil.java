@@ -14,4 +14,16 @@ public class ObjectUtil {
 		}
 	}
 	
+	public static double getDouble(Object object) {
+		if (object instanceof Integer) {
+			return (int) object;
+		} else if (object instanceof Float) {
+			return (float) object;
+		} else if (object instanceof Double) {
+			return (double) object;
+		} else {
+			return 0;
+		}
+	}
+	
 }
