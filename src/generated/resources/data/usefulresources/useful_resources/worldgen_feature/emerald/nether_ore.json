@@ -26,7 +26,7 @@
 			"decorator": {
 				"name": "minecraft:count_range",
 				"config": {
-					"count": 1,
+					"count": 2,
 					"bottom_offset": 0,
 					"top_offset": 0,
 					"maximum": 128
