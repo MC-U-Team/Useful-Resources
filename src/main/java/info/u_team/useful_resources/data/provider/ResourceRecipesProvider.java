@@ -40,9 +40,9 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final String normalResourceTypeName = normalResourceType.getName();
 			final String tinyResourceTypeName = tinyResourceType.getName();
 			
-			// ORE -> INGOT / GEM
-			if (shouldAddRecipe(resource, ORE, normalResourceType)) {
-				final Tag<Item> oreTag = getItemTag(ORE, resource);
+			// ORES -> INGOT / GEM
+			if (shouldAddRecipe(resource, ORE, NETHER_ORE, normalResourceType)) {
+				final Tag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
 				final Item normalItem = items.get(normalResourceType);
 				
 				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
@@ -52,20 +52,6 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "blasting/" + normalResourceTypeName + "_from_ore"));
-			}
-			
-			// NETHER_ORE -> INGOT / GEM
-			if (shouldAddRecipe(resource, NETHER_ORE, normalResourceType)) {
-				final Tag<Item> oreTag = getItemTag(NETHER_ORE, resource);
-				final Item normalItem = items.get(normalResourceType);
-				
-				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
-						.addCriterion("has_nether_ore", hasItem(oreTag)) //
-						.build(consumer, createLocation(resource, "smelting/" + normalResourceTypeName + "_from_nether_ore"));
-				
-				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
-						.addCriterion("has_nether_ore", hasItem(oreTag)) //
-						.build(consumer, createLocation(resource, "blasting/" + normalResourceTypeName + "_from_nether_ore"));
 			}
 			
 			// DUST -> INGOT / GEM
