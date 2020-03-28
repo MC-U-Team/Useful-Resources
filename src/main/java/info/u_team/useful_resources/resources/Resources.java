@@ -161,14 +161,14 @@ public class Resources {
 		ResourceRegistry.register(QUARTZ);
 		ResourceRegistry.register(COAL);
 		
-		// Ingots
+		// INGOT
 		ResourceRegistry.register(COPPER);
 		ResourceRegistry.register(TIN);
 		ResourceRegistry.register(ALUMINUM);
 		ResourceRegistry.register(SILVER);
 		ResourceRegistry.register(LEAD);
 		
-		// Gems
+		// GEM
 	}
 	
 }
