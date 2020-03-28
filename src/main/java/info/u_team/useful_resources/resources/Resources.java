@@ -32,6 +32,7 @@ public class Resources {
 			.setExisting(PICKAXE, Items.IRON_PICKAXE) //
 			.setExisting(SHOVEL, Items.IRON_SHOVEL) //
 			.setExisting(SWORD, Items.IRON_SWORD) //
+			.setProperty("oreSmeltingXp", 0.7F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	public static final IResource GOLD = new VanillaIngotResource("gold", 0xfff373, 2, 3, 3) //
@@ -49,6 +50,7 @@ public class Resources {
 			.setExisting(PICKAXE, Items.GOLDEN_PICKAXE) //
 			.setExisting(SHOVEL, Items.GOLDEN_SHOVEL) //
 			.setExisting(SWORD, Items.GOLDEN_SWORD) //
+			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
 	
 	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 2, 3, 3, NETHER_ORE, 3, 7) //
@@ -66,6 +68,7 @@ public class Resources {
 			.setExisting(SHOVEL, Items.DIAMOND_SHOVEL) //
 			.setExisting(SWORD, Items.DIAMOND_SWORD) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 1, 0, 0, 128));
 	
 	public static final IResource EMERALD = new VanillaGemResource("emerald", 0x0ccf4a, 2, 3, 3, NETHER_ORE, 3, 7) //
@@ -76,6 +79,7 @@ public class Resources {
 			.setHorseArmor(11) //
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1561, 8, 3, 10)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 1, 0, 0, 128));
 	
 	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, 3, NETHER_ORE, 2, 5) //
@@ -86,6 +90,7 @@ public class Resources {
 			.setHorseArmor(9) //
 			.setTools(createTools(new float[] { 4.5F, 0, 1, 1.5F, 2.5F }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 2, 500, 7, 3, 20)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 9)) //
+			.setProperty("oreSmeltingXp", 0.2F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDeathAverageNether(state, 7, 1, 64, 64));
 	
 	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, 3, ORE, 2, 5) //
@@ -96,6 +101,7 @@ public class Resources {
 			.setHorseArmor(8) //
 			.setTools(createTools(new float[] { 5, 0, 1, 1.5F, 3.5F }, new float[] { -2.8F, 0, -2.5F, -3, -2.1F }, 1, 400, 7, 2, 15)) //
 			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setProperty("oreSmeltingXp", 0.2F) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 6, 4, 0, 0, 64));
 	
 	public static final IResource COAL = new VanillaGemResource("coal", 0x121110, 0, 3, 3, NETHER_ORE, 0, 2) //
@@ -103,6 +109,7 @@ public class Resources {
 			.setExisting(BLOCK, Blocks.COAL_BLOCK) //
 			.setExisting(GEM, Items.COAL) //
 			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setProperty("oreSmeltingXp", 0.1F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128));
 	
 	// CUSTOM
