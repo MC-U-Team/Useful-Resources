@@ -257,15 +257,21 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	}
 	
 	private ItemResourceType getNormalResourceType(IResource resource) {
-		if (resource.getDataGeneratorConfigurator().getResourceType() == ResourceType.INGOT) {
+		final ResourceType type = resource.getDataGeneratorConfigurator().getResourceType();
+		if (type == ResourceType.INGOT) {
 			return INGOT;
+		} else if (type == ResourceType.GEM) {
+			return GEM;
 		}
-		return GEM;
+		return DUST;
 	}
 	
 	private ItemResourceType getTinyResourceType(IResource resource) {
-		if (resource.getDataGeneratorConfigurator().getResourceType() == ResourceType.INGOT) {
+		final ResourceType type = resource.getDataGeneratorConfigurator().getResourceType();
+		if (type == ResourceType.INGOT) {
 			return NUGGET;
+		} else if (type == ResourceType.GEM) {
+			return PIECE;
 		}
 		return PIECE;
 	}
