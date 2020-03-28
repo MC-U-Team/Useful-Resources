@@ -34,6 +34,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final Map<BlockResourceType, Block> blocks = resource.getBlocks();
 			final Map<ItemResourceType, Item> items = resource.getItems();
 			
+			final Map<String, Object> extraProperties = resource.getDataGeneratorConfigurator().getExtraProperties();
+			
 			final ItemResourceType normalResourceType = getNormalResourceType(resource);
 			final ItemResourceType tinyResourceType = getTinyResourceType(resource);
 			
@@ -45,11 +47,13 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 				final Tag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
 				final Item normalItem = items.get(normalResourceType);
 				
-				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 200) //
+				final float xp = (float) extraProperties.getOrDefault("oreSmeltingXp", 0.7F);
+				
+				smeltingRecipe(getIngredientOfTag(oreTag), normalItem, xp, 200) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "smelting/" + normalResourceTypeName + "_from_ore"));
 				
-				blastingRecipe(getIngredientOfTag(oreTag), normalItem, 0.7F, 100) //
+				blastingRecipe(getIngredientOfTag(oreTag), normalItem, xp, 100) //
 						.addCriterion("has_ore", hasItem(oreTag)) //
 						.build(consumer, createLocation(resource, "blasting/" + normalResourceTypeName + "_from_ore"));
 			}
