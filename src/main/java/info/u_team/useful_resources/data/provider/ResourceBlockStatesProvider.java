@@ -107,6 +107,10 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("uncolored", "block/netherrack_gem_ore_background") //
 				.texture("colored", "block/gem_ore");
 		
+		models().withExistingParent("base/block/special/lapis_netherrack_nether_ore", modLoc("base/block/colored_overlay_block")) //
+				.texture("uncolored", "block/netherrack_lapis_ore_background") //
+				.texture("colored", "block/lapis_ore");
+		
 		// BlockResourceType.BLOCK
 		
 		// INGOT
