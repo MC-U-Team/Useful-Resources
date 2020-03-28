@@ -18,9 +18,6 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
 		
-		setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
-		setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
-		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
 		addFeature(createBasicItem(GEM, rarity));
@@ -30,5 +27,8 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		addFeature(createBasicItem(DENSE_PLATE, rarity));
 		addFeature(createBasicItem(GEAR, rarity));
 		addFeature(createBasicItem(ROD, rarity));
+		
+		setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
+		setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
 	}
 }
