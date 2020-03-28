@@ -3,6 +3,7 @@ package info.u_team.useful_resources.data.provider;
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.resources.Resources;
 import net.minecraft.item.*;
@@ -59,14 +60,27 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Special tags
 		
-		// Add nether quartz ore to the nether ores tag
-		final Tag<Item> netherQuartzOreTag = TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(Resources.QUARTZ));
-		getBuilder(netherQuartzOreTag).add(Items.NETHER_QUARTZ_ORE);
-		getBuilder(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getUnifyTag())).add(netherQuartzOreTag);
+		// Add vanilla ores to the right tags
+		copyBlockTag(BlockResourceType.ORE, Resources.IRON);
+		copyBlockTag(BlockResourceType.ORE, Resources.GOLD);
+		copyBlockTag(BlockResourceType.ORE, Resources.DIAMOND);
+		copyBlockTag(BlockResourceType.ORE, Resources.EMERALD);
+		copyBlockTag(BlockResourceType.ORE, Resources.LAPIS);
+		copyBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ);
+		copyBlockTag(BlockResourceType.ORE, Resources.COAL);
 		
 		// Add coal to the coal gem tag
-		final Tag<Item> coalGemTag = ItemResourceType.GEM.getTag(Resources.COAL);
-		getBuilder(coalGemTag).add(Items.COAL);
-		getBuilder(ItemResourceType.GEM.getUnifyTag()).add(coalGemTag);
+		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
+	}
+	
+	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
+		final Tag<Item> tag = type.getTag(resource);
+		getBuilder(tag).add(item);
+		getBuilder(type.getUnifyTag()).add(tag);
+	}
+	
+	private void copyBlockTag(BlockResourceType type, IResource resource) {
+		copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
+		copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 	}
 }

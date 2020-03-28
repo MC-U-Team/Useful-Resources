@@ -3,6 +3,7 @@ package info.u_team.useful_resources.data.provider;
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.resources.Resources;
 import net.minecraft.block.*;
@@ -44,10 +45,21 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		});
 		
 		// Special tags
+
+		// Add vanilla ores to the right tags
+		addBlockTag(BlockResourceType.ORE, Resources.IRON, Blocks.IRON_ORE);
+		addBlockTag(BlockResourceType.ORE, Resources.GOLD, Blocks.GOLD_ORE);
+		addBlockTag(BlockResourceType.ORE, Resources.DIAMOND, Blocks.DIAMOND_ORE);
+		addBlockTag(BlockResourceType.ORE, Resources.EMERALD, Blocks.EMERALD_ORE);
+		addBlockTag(BlockResourceType.ORE, Resources.LAPIS, Blocks.LAPIS_ORE);
+		addBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ, Blocks.NETHER_QUARTZ_ORE);
+		addBlockTag(BlockResourceType.ORE, Resources.COAL, Blocks.COAL_ORE);
 		
-		// Add nether quartz ore to the nether ores tag
-		final Tag<Block> netherQuartzOreTag = BlockResourceType.NETHER_ORE.getTag(Resources.QUARTZ);
-		getBuilder(netherQuartzOreTag).add(Blocks.NETHER_QUARTZ_ORE);
-		getBuilder(BlockResourceType.NETHER_ORE.getUnifyTag()).add(netherQuartzOreTag);
+	}
+	
+	private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
+		final Tag<Block> tag = type.getTag(resource);
+		getBuilder(tag).add(block);
+		getBuilder(type.getUnifyTag()).add(tag);
 	}
 }
