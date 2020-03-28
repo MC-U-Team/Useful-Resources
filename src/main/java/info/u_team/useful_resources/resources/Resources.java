@@ -153,6 +153,8 @@ public class Resources {
 	
 	public static final IResource RUBY = new CommonGemResource("ruby", 0xc41a1a);
 	
+	public static final IResource SAPPHIRE = new CommonGemResource("sapphire", 0x1023b0);
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
