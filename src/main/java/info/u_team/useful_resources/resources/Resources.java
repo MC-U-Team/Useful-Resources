@@ -7,7 +7,7 @@ import static info.u_team.useful_resources.util.LootTableUtil.createFortuneBlock
 import static info.u_team.useful_resources.util.MaterialUtil.*;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.resource.IResource;
+import info.u_team.useful_resources.api.resource.*;
 import info.u_team.useful_resources.api.resource.special.*;
 import info.u_team.useful_resources.util.LootTableUtil;
 import net.minecraft.block.Blocks;
@@ -112,6 +112,13 @@ public class Resources {
 			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 0.1F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128));
+	
+	public static final IResource REDSTONE = new VanillaDustResource("redstone", 0xc41b2c, 2, 3, 3) //
+			.setExisting(ORE, Blocks.REDSTONE_ORE) //
+			.setExisting(DUST, Items.REDSTONE) //
+			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
+			.setProperty("oreSmeltingXp", 0.7F) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 8, 0, 0, 128));
 	
 	// INGOT
 	
