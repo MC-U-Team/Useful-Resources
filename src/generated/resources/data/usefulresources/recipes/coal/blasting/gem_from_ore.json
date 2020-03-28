@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"tag": "forge:ores/lead"
+		"tag": "forge:ores/coal"
 	},
-	"result": "usefulresources:lead_ingot",
+	"result": "minecraft:coal",
 	"experience": 0.7,
 	"cookingtime": 100
 }

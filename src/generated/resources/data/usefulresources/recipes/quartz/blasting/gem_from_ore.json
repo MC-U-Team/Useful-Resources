@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"tag": "forge:stone_ores/quartz"
+		"tag": "forge:ores/quartz"
 	},
 	"result": "minecraft:quartz",
 	"experience": 0.7,

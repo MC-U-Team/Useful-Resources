@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"tag": "forge:stone_ores/silver"
+		"tag": "forge:ores/silver"
 	},
 	"result": "usefulresources:silver_ingot",
 	"experience": 0.7,

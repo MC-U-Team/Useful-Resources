@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:blasting",
 	"ingredient": {
-		"tag": "forge:ores/lead"
+		"tag": "forge:ores/lapis"
 	},
-	"result": "usefulresources:lead_ingot",
+	"result": "minecraft:lapis_lazuli",
 	"experience": 0.7,
 	"cookingtime": 100
 }

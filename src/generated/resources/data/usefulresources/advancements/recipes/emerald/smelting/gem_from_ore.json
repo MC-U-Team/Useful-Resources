@@ -2,7 +2,7 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:lead/smelting/ingot_from_ore"
+			"usefulresources:emerald/smelting/gem_from_ore"
 		]
 	},
 	"criteria": {
@@ -11,7 +11,7 @@
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:ores/lead"
+						"tag": "forge:ores/emerald"
 					}
 				]
 			}
@@ -19,7 +19,7 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:lead/smelting/ingot_from_ore"
+				"recipe": "usefulresources:emerald/smelting/gem_from_ore"
 			}
 		}
 	},

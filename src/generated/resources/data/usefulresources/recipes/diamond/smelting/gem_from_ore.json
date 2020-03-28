@@ -1,9 +1,9 @@
 {
 	"type": "minecraft:smelting",
 	"ingredient": {
-		"tag": "forge:ores/quartz"
+		"tag": "forge:ores/diamond"
 	},
-	"result": "minecraft:quartz",
+	"result": "minecraft:diamond",
 	"experience": 0.7,
 	"cookingtime": 200
 }

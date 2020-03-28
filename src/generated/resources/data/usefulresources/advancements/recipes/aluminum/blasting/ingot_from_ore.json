@@ -11,7 +11,7 @@
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:stone_ores/aluminum"
+						"tag": "forge:ores/aluminum"
 					}
 				]
 			}
