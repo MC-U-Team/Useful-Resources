@@ -174,6 +174,7 @@ public class Resources {
 		
 		// GEM
 		ResourceRegistry.register(RUBY);
+		ResourceRegistry.register(SAPPHIRE);
 	}
 	
 }
