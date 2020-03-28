@@ -75,9 +75,9 @@ public class Resources {
 			.setExisting(ORE, Blocks.EMERALD_ORE) //
 			.setExisting(BLOCK, Blocks.EMERALD_BLOCK) //
 			.setExisting(GEM, Items.EMERALD) //
-			.setArmor(createArmor(33, new int[] { 3, 6, 8, 3 }, 11)) //
+			.setArmor(createArmor(25, new int[] { 3, 6, 8, 3 }, 11)) //
 			.setHorseArmor(11) //
-			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1561, 8, 3, 10)) //
+			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1000, 8, 3, 10)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 1, 0, 0, 128));
