@@ -75,14 +75,28 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		// Special models for each type
 		
 		// BlockResourceType.ORE
+		
+		// INGOT
 		models().withExistingParent("base/block/special/ingot_stone_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/stone_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
 		
+		// GEM
+		models().withExistingParent("base/block/special/gem_stone_ore", modLoc("base/block/colored_overlay_block")) //
+				.texture("uncolored", "block/stone_gem_ore_background") //
+				.texture("colored", "block/gem_ore");
+		
 		// BlockResourceType.NETHER_ORE
+		
+		// INGOT
 		models().withExistingParent("base/block/special/ingot_netherrack_nether_ore", modLoc("base/block/colored_overlay_block")) //
 				.texture("uncolored", "block/netherrack_ingot_ore_background") //
 				.texture("colored", "block/ingot_ore");
+		
+		// GEM
+		models().withExistingParent("base/block/special/gem_netherrack_nether_ore", modLoc("base/block/colored_overlay_block")) //
+				.texture("uncolored", "block/netherrack_gem_ore_background") //
+				.texture("colored", "block/gem_ore");
 		
 		// BlockResourceType.BLOCK
 		models().withExistingParent("base/block/special/block", modLoc("base/block/colored_block")) //
