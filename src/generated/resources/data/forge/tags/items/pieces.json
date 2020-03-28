@@ -6,6 +6,7 @@
 		"#forge:pieces/lapis",
 		"#forge:pieces/quartz",
 		"#forge:pieces/coal",
+		"#forge:pieces/redstone",
 		"#forge:pieces/ruby",
 		"#forge:pieces/sapphire"
 	]
