@@ -6,6 +6,7 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
 import info.u_team.useful_resources.api.type.ItemResourceType;
+import info.u_team.useful_resources.util.LootTableUtil;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.math.MathHelper;
 
@@ -16,6 +17,9 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		addFeature(createOre(ORE, rarity, harvestLevel, baseHardness, baseHardness * 1.5F, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
+		
+		setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
+		setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
