@@ -151,7 +151,7 @@ public class Resources {
 	
 	// GEM
 	
-	public static final IResource RUBY = new CommonGemResource("ruby", 0xf20f0f);
+	public static final IResource RUBY = new CommonGemResource("ruby", 0xc41a1a);
 	
 	public static void register() {
 		// Vanilla
