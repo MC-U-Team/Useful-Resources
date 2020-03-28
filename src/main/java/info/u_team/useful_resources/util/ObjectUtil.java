@@ -34,4 +34,12 @@ public class ObjectUtil {
 		}
 	}
 	
+	public static String getString(Object object) {
+		if (object instanceof String) {
+			return (String) object;
+		} else {
+			return String.valueOf(object);
+		}
+	}
+	
 }
