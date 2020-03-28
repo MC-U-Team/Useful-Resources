@@ -5,6 +5,10 @@
 		"#forge:nuggets/tin",
 		"#forge:nuggets/aluminum",
 		"#forge:nuggets/silver",
-		"#forge:nuggets/lead"
+		"#forge:nuggets/lead",
+		"#forge:nuggets/platinum",
+		"#forge:nuggets/nickel",
+		"#forge:nuggets/zinc",
+		"#forge:nuggets/uranium"
 	]
 }

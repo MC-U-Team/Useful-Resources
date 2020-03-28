@@ -12,6 +12,10 @@
 		"#forge:nether_ores/aluminum",
 		"#forge:nether_ores/silver",
 		"#forge:nether_ores/lead",
+		"#forge:nether_ores/platinum",
+		"#forge:nether_ores/nickel",
+		"#forge:nether_ores/zinc",
+		"#forge:nether_ores/uranium",
 		"#forge:nether_ores/ruby",
 		"#forge:nether_ores/sapphire",
 		"#forge:nether_ores/quartz"

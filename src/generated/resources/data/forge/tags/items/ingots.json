@@ -5,6 +5,10 @@
 		"#forge:ingots/tin",
 		"#forge:ingots/aluminum",
 		"#forge:ingots/silver",
-		"#forge:ingots/lead"
+		"#forge:ingots/lead",
+		"#forge:ingots/platinum",
+		"#forge:ingots/nickel",
+		"#forge:ingots/zinc",
+		"#forge:ingots/uranium"
 	]
 }

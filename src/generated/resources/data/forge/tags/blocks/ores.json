@@ -13,6 +13,10 @@
 		"#forge:ores/aluminum",
 		"#forge:ores/silver",
 		"#forge:ores/lead",
+		"#forge:ores/platinum",
+		"#forge:ores/nickel",
+		"#forge:ores/zinc",
+		"#forge:ores/uranium",
 		"#forge:ores/ruby",
 		"#forge:ores/sapphire"
 	]

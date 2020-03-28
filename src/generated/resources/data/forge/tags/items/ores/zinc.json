@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/zinc",
+		"#forge:nether_ores/zinc"
+	]
+}

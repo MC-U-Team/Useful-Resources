@@ -13,6 +13,10 @@
 		"#forge:gears/aluminum",
 		"#forge:gears/silver",
 		"#forge:gears/lead",
+		"#forge:gears/platinum",
+		"#forge:gears/nickel",
+		"#forge:gears/zinc",
+		"#forge:gears/uranium",
 		"#forge:gears/ruby",
 		"#forge:gears/sapphire"
 	]

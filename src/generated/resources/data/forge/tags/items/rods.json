@@ -13,6 +13,10 @@
 		"#forge:rods/aluminum",
 		"#forge:rods/silver",
 		"#forge:rods/lead",
+		"#forge:rods/platinum",
+		"#forge:rods/nickel",
+		"#forge:rods/zinc",
+		"#forge:rods/uranium",
 		"#forge:rods/ruby",
 		"#forge:rods/sapphire"
 	]

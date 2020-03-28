@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"usefulresources:uranium_molten",
+		"usefulresources:uranium_molten_flowing"
+	]
+}
