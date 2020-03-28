@@ -17,8 +17,19 @@ public interface IDataGeneratorConfigurator {
 	Map<String, Object> getExtraProperties();
 	
 	public enum ResourceType {
-		INGOT,
-		GEM;
+		
+		INGOT("ingot"),
+		GEM("gem");
+		
+		private final String name;
+		
+		private ResourceType(String name) {
+			this.name = name;
+		}
+		
+		public String getName() {
+			return name;
+		}
 	}
 	
 }
