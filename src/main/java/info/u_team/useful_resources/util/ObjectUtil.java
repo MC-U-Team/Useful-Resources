@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.util;
 
-public class ExtraPropertiesUtil {
+public class ObjectUtil {
 	
 	public static float getFloat(Object object) {
 		if (object instanceof Integer) {
