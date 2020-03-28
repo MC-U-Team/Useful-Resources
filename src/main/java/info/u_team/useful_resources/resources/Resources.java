@@ -112,7 +112,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 0.1F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128));
 	
-	// CUSTOM
+	// INGOT
 	
 	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
 			.setArmor(createArmor(12, new int[] { 2, 5, 6, 2 }, 9)) //
@@ -148,6 +148,8 @@ public class Resources {
 			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 1, 250, 6, 2, 14)) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 10, 3, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 3, 10, 20, 128));
+	
+	// GEM
 	
 	public static void register() {
 		// Vanilla
