@@ -80,7 +80,7 @@ public class Resources {
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1000, 8, 3, 10)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 1) //
-			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 1, 0, 0, 128));
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
 	
 	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, 3, NETHER_ORE, 2, 5) //
 			.setExisting(ORE, Blocks.LAPIS_ORE) //
@@ -150,6 +150,16 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 3, 10, 20, 128));
 	
 	// GEM
+	
+	public static final IResource RUBY = new BasicGemResource("ruby", 0xf20f0f, Rarity.COMMON, 2, 3, 3, 7) //
+			.setArmor(createArmor(25, new int[] { 3, 6, 8, 3 }, 11)) //
+			.setHorseArmor(11) //
+			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1000, 8, 3, 10)) //
+			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setProperty("oreSmeltingXp", 1) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 7, 3, 0, 0, 48)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
 	
 	public static void register() {
 		// Vanilla
