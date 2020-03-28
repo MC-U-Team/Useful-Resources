@@ -14,6 +14,7 @@ import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.block.Block;
@@ -256,14 +257,14 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	}
 	
 	private ItemResourceType getNormalResourceType(IResource resource) {
-		if (resource.getItems().containsKey(INGOT)) {
+		if (resource.getDataGeneratorConfigurator().getResourceType() == ResourceType.INGOT) {
 			return INGOT;
 		}
 		return GEM;
 	}
 	
 	private ItemResourceType getTinyResourceType(IResource resource) {
-		if (resource.getItems().containsKey(NUGGET)) {
+		if (resource.getDataGeneratorConfigurator().getResourceType() == ResourceType.INGOT) {
 			return NUGGET;
 		}
 		return PIECE;
