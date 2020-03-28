@@ -26,4 +26,12 @@ public class ObjectUtil {
 		}
 	}
 	
+	public static boolean getBoolean(Object object) {
+		if (object instanceof Boolean) {
+			return (boolean) object;
+		} else {
+			return false;
+		}
+	}
+	
 }
