@@ -82,7 +82,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
 	
-	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, 3, NETHER_ORE, false, 2, 5) //
+	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, 3, NETHER_ORE, true, 2, 5) //
 			.setExisting(ORE, Blocks.LAPIS_ORE) //
 			.setExisting(BLOCK, Blocks.LAPIS_BLOCK) //
 			.setExisting(GEM, Items.LAPIS_LAZULI) //
@@ -93,7 +93,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 0.2F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDeathAverageNether(state, 7, 1, 64, 64));
 	
-	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, 3, ORE, false, 2, 5) //
+	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, 3, ORE, true, 2, 5) //
 			.setExisting(NETHER_ORE, Blocks.NETHER_QUARTZ_ORE) //
 			.setExisting(BLOCK, Blocks.QUARTZ_BLOCK) //
 			.setExisting(GEM, Items.QUARTZ) //
@@ -104,7 +104,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 0.2F) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 6, 4, 0, 0, 64));
 	
-	public static final IResource COAL = new VanillaGemResource("coal", 0x121110, 0, 3, 3, NETHER_ORE, false, 0, 2) //
+	public static final IResource COAL = new VanillaGemResource("coal", 0x121110, 0, 3, 3, NETHER_ORE, true, 0, 2) //
 			.setExisting(ORE, Blocks.COAL_ORE) //
 			.setExisting(BLOCK, Blocks.COAL_BLOCK) //
 			.setExisting(GEM, Items.COAL) //
