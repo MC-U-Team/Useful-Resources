@@ -13,6 +13,7 @@
 		"#forge:rods/aluminum",
 		"#forge:rods/silver",
 		"#forge:rods/lead",
-		"#forge:rods/ruby"
+		"#forge:rods/ruby",
+		"#forge:rods/sapphire"
 	]
 }

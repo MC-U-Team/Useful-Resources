@@ -9,6 +9,7 @@
 		"#forge:tools/hoes/aluminum",
 		"#forge:tools/hoes/silver",
 		"#forge:tools/hoes/lead",
-		"#forge:tools/hoes/ruby"
+		"#forge:tools/hoes/ruby",
+		"#forge:tools/hoes/sapphire"
 	]
 }

@@ -9,6 +9,7 @@
 		"#forge:tools/shovels/aluminum",
 		"#forge:tools/shovels/silver",
 		"#forge:tools/shovels/lead",
-		"#forge:tools/shovels/ruby"
+		"#forge:tools/shovels/ruby",
+		"#forge:tools/shovels/sapphire"
 	]
 }

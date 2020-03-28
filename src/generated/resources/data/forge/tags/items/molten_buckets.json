@@ -13,6 +13,7 @@
 		"#forge:molten_buckets/aluminum",
 		"#forge:molten_buckets/silver",
 		"#forge:molten_buckets/lead",
-		"#forge:molten_buckets/ruby"
+		"#forge:molten_buckets/ruby",
+		"#forge:molten_buckets/sapphire"
 	]
 }

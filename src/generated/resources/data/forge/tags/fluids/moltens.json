@@ -13,6 +13,7 @@
 		"#forge:moltens/aluminum",
 		"#forge:moltens/silver",
 		"#forge:moltens/lead",
-		"#forge:moltens/ruby"
+		"#forge:moltens/ruby",
+		"#forge:moltens/sapphire"
 	]
 }

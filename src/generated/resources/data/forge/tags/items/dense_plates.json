@@ -13,6 +13,7 @@
 		"#forge:dense_plates/aluminum",
 		"#forge:dense_plates/silver",
 		"#forge:dense_plates/lead",
-		"#forge:dense_plates/ruby"
+		"#forge:dense_plates/ruby",
+		"#forge:dense_plates/sapphire"
 	]
 }
