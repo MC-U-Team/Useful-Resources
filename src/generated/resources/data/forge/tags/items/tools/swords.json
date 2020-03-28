@@ -8,6 +8,7 @@
 		"#forge:tools/swords/tin",
 		"#forge:tools/swords/aluminum",
 		"#forge:tools/swords/silver",
-		"#forge:tools/swords/lead"
+		"#forge:tools/swords/lead",
+		"#forge:tools/swords/ruby"
 	]
 }

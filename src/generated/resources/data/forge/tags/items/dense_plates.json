@@ -12,6 +12,7 @@
 		"#forge:dense_plates/tin",
 		"#forge:dense_plates/aluminum",
 		"#forge:dense_plates/silver",
-		"#forge:dense_plates/lead"
+		"#forge:dense_plates/lead",
+		"#forge:dense_plates/ruby"
 	]
 }

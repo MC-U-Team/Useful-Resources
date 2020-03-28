@@ -12,6 +12,7 @@
 		"#forge:rods/tin",
 		"#forge:rods/aluminum",
 		"#forge:rods/silver",
-		"#forge:rods/lead"
+		"#forge:rods/lead",
+		"#forge:rods/ruby"
 	]
 }

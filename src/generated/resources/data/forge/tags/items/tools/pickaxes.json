@@ -8,6 +8,7 @@
 		"#forge:tools/pickaxes/tin",
 		"#forge:tools/pickaxes/aluminum",
 		"#forge:tools/pickaxes/silver",
-		"#forge:tools/pickaxes/lead"
+		"#forge:tools/pickaxes/lead",
+		"#forge:tools/pickaxes/ruby"
 	]
 }

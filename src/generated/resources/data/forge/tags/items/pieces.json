@@ -5,6 +5,7 @@
 		"#forge:pieces/emerald",
 		"#forge:pieces/lapis",
 		"#forge:pieces/quartz",
-		"#forge:pieces/coal"
+		"#forge:pieces/coal",
+		"#forge:pieces/ruby"
 	]
 }

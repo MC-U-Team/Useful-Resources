@@ -8,6 +8,7 @@
 		"#forge:tools/hoes/tin",
 		"#forge:tools/hoes/aluminum",
 		"#forge:tools/hoes/silver",
-		"#forge:tools/hoes/lead"
+		"#forge:tools/hoes/lead",
+		"#forge:tools/hoes/ruby"
 	]
 }
