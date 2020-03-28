@@ -179,6 +179,7 @@ public class Resources {
 		ResourceRegistry.register(LEAD);
 		
 		// GEM
+		ResourceRegistry.register(RUBY);
 	}
 	
 }
