@@ -12,6 +12,9 @@ public class VanillaDustResource extends BasicResource<VanillaDustResource> {
 	
 	public VanillaDustResource(String name, int color, int harvestLevel, float hardness, float resistance) {
 		super(name, color, ItemResourceType.DUST, Rarity.COMMON, ResourceType.DUST);
+		
+		setProperty("ingotModel", true);
+		
 		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, hardness, resistance));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
