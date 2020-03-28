@@ -1,0 +1,6 @@
+{
+	"parent": "usefulresources:base/block/colored_block",
+	"textures": {
+		"colored": "usefulresources:block/ingot_block"
+	}
+}
