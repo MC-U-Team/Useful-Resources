@@ -1,11 +1,14 @@
 package info.u_team.useful_resources.data.provider;
 
+import java.util.Map;
+
 import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -44,7 +47,14 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	}
 	
 	private ResourceLocation getBaseModel(ItemResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		return modLoc("base/item/special/" + type.getName());
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		final String baseModel;
+		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+			baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
+		} else {
+			baseModel = type.getName();
+		}
+		return modLoc("base/item/special/" + baseModel);
 	}
 	
 	private void generateBaseModels() {
