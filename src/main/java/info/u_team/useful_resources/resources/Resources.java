@@ -191,6 +191,7 @@ public class Resources {
 		ResourceRegistry.register(LAPIS);
 		ResourceRegistry.register(QUARTZ);
 		ResourceRegistry.register(COAL);
+		ResourceRegistry.register(REDSTONE);
 		
 		// INGOT
 		ResourceRegistry.register(COPPER);
