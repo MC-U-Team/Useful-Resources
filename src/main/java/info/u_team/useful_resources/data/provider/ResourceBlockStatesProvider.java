@@ -5,6 +5,7 @@ import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.BlockResourceType;
+import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.util.ResourceLocation;
 
 public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
@@ -26,7 +27,13 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
 	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final String baseModel;
-		final ResourceType resourceType = dataGeneratorConfigurator.getResourceType();
+		final ResourceType resourceType;
+		if (ObjectUtil.getBoolean(dataGeneratorConfigurator.getExtraProperties().getOrDefault("ingotModel", false))) {
+			resourceType = ResourceType.INGOT;
+		} else {
+			resourceType = dataGeneratorConfigurator.getResourceType();
+		}
+		
 		if (type == BlockResourceType.ORE) {
 			baseModel = resourceType.getName() + "_stone_ore";
 		} else if (type == BlockResourceType.NETHER_ORE) {
