@@ -11,8 +11,10 @@ import net.minecraft.util.math.MathHelper;
 
 public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 	
-	public VanillaGemResource(String name, int color, int harvestLevel, float hardness, float resistance, BlockResourceType oreType, int minXp, int maxXp) {
+	public VanillaGemResource(String name, int color, int harvestLevel, float hardness, float resistance, BlockResourceType oreType, boolean ingotModel, int minXp, int maxXp) {
 		super(name, color, ItemResourceType.GEM, Rarity.COMMON, ResourceType.GEM);
+		
+		setProperty("ingotModel", ingotModel);
 		
 		addFeature(createOre(oreType, Rarity.COMMON, harvestLevel, hardness, resistance, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		
