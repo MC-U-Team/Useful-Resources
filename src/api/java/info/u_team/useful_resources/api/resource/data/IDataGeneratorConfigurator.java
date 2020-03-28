@@ -8,10 +8,17 @@ import net.minecraft.world.storage.loot.LootTable;
 
 public interface IDataGeneratorConfigurator {
 	
+	ResourceType getResourceType();
+	
 	Map<String, WorldGenFeature> getWorldGeneration();
 	
 	Map<BlockResourceType, LootTable> getExtraLootTables();
 	
 	Map<String, Object> getExtraProperties();
+	
+	public enum ResourceType {
+		INGOT,
+		GEM;
+	}
 	
 }

@@ -9,6 +9,7 @@ import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.api.registry.IUBlockRegistryType;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.block.*;
@@ -27,13 +28,18 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
 	
-	public BasicResource(String name, int color, ItemResourceType repairType, Rarity rarity) {
+	public BasicResource(String name, int color, ItemResourceType repairType, Rarity rarity, ResourceType type) {
 		super(name, color, repairType);
 		this.rarity = rarity;
 		worldGenFeatures = new HashMap<>();
 		extraLootTables = new HashMap<>();
 		extraProperties = new HashMap<>();
 		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
+			
+			@Override
+			public ResourceType getResourceType() {
+				return type;
+			}
 			
 			@Override
 			public Map<String, WorldGenFeature> getWorldGeneration() {
