@@ -480,7 +480,7 @@ d0e6f89706f1a0186ebcfdaad50e1c3a058db13d data\forge\tags\blocks\ores\ruby.json
 94eb087b8f5de9520e1b78f889979196a52eb298 data\forge\tags\blocks\ores\tin.json
 980756f29f82f455ae93b78080befdc1e3e5128d data\forge\tags\blocks\ores\uranium.json
 4364a594f9b1004fbab7b27f1a93165762c6e24c data\forge\tags\blocks\ores\zinc.json
-72567a183001c0472d14232600953b3805e5ece4 data\forge\tags\blocks\stone_ores.json
+a39f2c0b585c391718d7b3bece127d1213c1cd3a data\forge\tags\blocks\stone_ores.json
 4c2def2fc1086f1c335cc8b5a04afaa990cf518b data\forge\tags\blocks\stone_ores\aluminum.json
 4e1aee4a4bdfd04eb4972fe41b981bc5a6ee08db data\forge\tags\blocks\stone_ores\coal.json
 37dce1a18a731b0c2c2746a9bca9bc83d07cf7a1 data\forge\tags\blocks\stone_ores\copper.json
@@ -493,6 +493,7 @@ b5bf218f2bf3e9514199a2b36d68fe17952780f6 data\forge\tags\blocks\stone_ores\lead.
 5af2ebb8800a8b7a0a40bcc4f461dbd3815c874a data\forge\tags\blocks\stone_ores\nickel.json
 92f2706b809a561a0fd6bf1a9c42d823a6fe02f4 data\forge\tags\blocks\stone_ores\platinum.json
 563f31f2e2cb4c77e71d372f114efcfc61822ab4 data\forge\tags\blocks\stone_ores\quartz.json
+79556fc92f1aa32970254bd48bdfb7cbc33d1c70 data\forge\tags\blocks\stone_ores\redstone.json
 d7b823ecd8a51214eeb78ef240de509927c72208 data\forge\tags\blocks\stone_ores\ruby.json
 e611e3218873fc3112a29ab40aa618d6c70c6116 data\forge\tags\blocks\stone_ores\sapphire.json
 fabea9646274b3dc71160c98e035bf732f39d737 data\forge\tags\blocks\stone_ores\silver.json
@@ -779,7 +780,7 @@ d3241174159646da87674489a12816a8b1217874 data\forge\tags\items\rods\silver.json
 d285ca34fc6f5fb54fee01a6da462b74efbf548e data\forge\tags\items\rods\tin.json
 afabf4cd455a26eabb1c315c888cba9e62f52b82 data\forge\tags\items\rods\uranium.json
 728ff0be10c6e5bc3bdd8aadc7e29ebb88e021dc data\forge\tags\items\rods\zinc.json
-72567a183001c0472d14232600953b3805e5ece4 data\forge\tags\items\stone_ores.json
+a39f2c0b585c391718d7b3bece127d1213c1cd3a data\forge\tags\items\stone_ores.json
 4c2def2fc1086f1c335cc8b5a04afaa990cf518b data\forge\tags\items\stone_ores\aluminum.json
 4e1aee4a4bdfd04eb4972fe41b981bc5a6ee08db data\forge\tags\items\stone_ores\coal.json
 37dce1a18a731b0c2c2746a9bca9bc83d07cf7a1 data\forge\tags\items\stone_ores\copper.json
@@ -792,6 +793,7 @@ b5bf218f2bf3e9514199a2b36d68fe17952780f6 data\forge\tags\items\stone_ores\lead.j
 5af2ebb8800a8b7a0a40bcc4f461dbd3815c874a data\forge\tags\items\stone_ores\nickel.json
 92f2706b809a561a0fd6bf1a9c42d823a6fe02f4 data\forge\tags\items\stone_ores\platinum.json
 563f31f2e2cb4c77e71d372f114efcfc61822ab4 data\forge\tags\items\stone_ores\quartz.json
+79556fc92f1aa32970254bd48bdfb7cbc33d1c70 data\forge\tags\items\stone_ores\redstone.json
 d7b823ecd8a51214eeb78ef240de509927c72208 data\forge\tags\items\stone_ores\ruby.json
 e611e3218873fc3112a29ab40aa618d6c70c6116 data\forge\tags\items\stone_ores\sapphire.json
 fabea9646274b3dc71160c98e035bf732f39d737 data\forge\tags\items\stone_ores\silver.json

@@ -18,6 +18,7 @@
 		"#forge:stone_ores/diamond",
 		"#forge:stone_ores/emerald",
 		"#forge:stone_ores/lapis",
-		"#forge:stone_ores/coal"
+		"#forge:stone_ores/coal",
+		"#forge:stone_ores/redstone"
 	]
 }
