@@ -119,32 +119,35 @@ function getFrameName(code) {
 	return value
 }
 
-var frames = [{
+var frames = [
+	{
 		name: "F_NEW",
 		code: -1
 	},
 	{
-		name: "F_FULL" 
+		name: "F_FULL",
 		code:  0
 	},
 	{
-		name:  "F_APPEND" 
+		name:  "F_APPEND",
 		code:  1
 	},
 	{
-		name: "F_CHOP" 
+		name: "F_CHOP",
 		code:  2
 	},
 	{
-		name: "F_SAME"  
+		name: "F_SAME",
 		code:  3
 	},
 	{
-		name: "F_SAME1" 
+		name: "F_SAME1",
 		code:  4
-}]
+	}
+]
 
-var opcodes = [{
+var opcodes = [
+	{
 		name: "NOP",
 	    code: 0
 	},
