@@ -10,7 +10,7 @@ function initializeCoreMod() {
 	InsList = Java.type("org.objectweb.asm.tree.InsnList")
 	LabelNode = Java.type("org.objectweb.asm.tree.LabelNode")
 	
-	LINE = AbstractInsnNode.LINE
+	VAR_INSN = AbstractInsnNode.VAR_INSN
 	
 	INVOKESTATIC = Opcodes.INVOKESTATIC
 	INVOKEVIRTUAL = Opcodes.INVOKEVIRTUAL
@@ -37,6 +37,24 @@ function initializeCoreMod() {
 }
 
 function injectSkipRecipeWhenJsonEmpty(methodNode, instructions) {
+	var processConditionMethodNode = ASMAPI.findFirstMethodCall(
+			methodNode, 
+			ASMAPI.MethodType.STATIC, 
+			"net/minecraftforge/common/crafting/CraftingHelper", 
+			"processConditions",
+			"(Lcom/google/gson/JsonObject;Ljava/lang/String;)Z"
+	)
+	if(processConditionMethodNode == null) {
+		throw "Could not find call to CraftingHelper.processConditions"
+	}	
+	
+	insertHookNode = findInstructionTypeBefore(instructions, VAR_INSN, ALOAD, processConditionMethodNode)
+	if(insertHookNode == null) {
+		throw "The insert hook node could not be found"
+	}
+	
+	print (insertHookNode)
+	
 	printInstructions(instructions)	// Debug
 }
 
