@@ -79,21 +79,23 @@ function printInstructions(instructions) {
 }
 
 function printNode(node) {
-	var name = getNameFromNode(node)
+	var name = getOpcodeName(node)
 	if(name.equals("ERROR")) {
 		print (node)
 	} else {
 		if(node.getType() == 5) {
-			print (name + " : " + node.owner + "." +node.name + node.desc)
+			print (name + " : " + node.owner + "." + node.name + node.desc)
 		} else if(node.getType() == 2) {
 			print (name + " " + node.var)
+		} else if(node.getType() == 14) {
+			print (name + " " + getFrameName(node.type) + " " + node.local + " " + noide.stack)
 		} else {
 			print (name)
 		}
 	}
 }
 
-function getNameFromNode(node) {
+function getOpcodeName(node) {
 	var value = "ERROR";
 	opcodes.forEach(function (opcode) {
 		if(opcode.code == node.getOpcode()) {
@@ -104,8 +106,44 @@ function getNameFromNode(node) {
 	return value
 }
 
+function getFrameName(code) {
+	var value = "ERROR";
+	frames.forEach(function (frame) {
+		if(frame.code == code) {
+			value = frame.name;
+			return;
+		}
+	})
+	return value
+}
+
+var frames = [{
+		name: "F_NEW",
+		code: -1
+	},
+	{
+		name: "F_FULL" 
+		code:  0
+	},
+	{
+		name:  "F_APPEND" 
+		code:  1
+	},
+	{
+		name: "F_CHOP" 
+		code:  2
+	},
+	{
+		name: "F_SAME"  
+		code:  3
+	},
+	{
+		name: "F_SAME1" 
+		code:  4
+}]
+
 var opcodes = [{
-	    name: "NOP",
+		name: "NOP",
 	    code: 0
 	},
 	{
