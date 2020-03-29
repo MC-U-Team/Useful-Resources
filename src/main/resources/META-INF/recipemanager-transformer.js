@@ -89,6 +89,8 @@ function printNode(node) {
 			print (name + " " + node.var)
 		} else if(node.getType() == 14) {
 			print (name + " " + getFrameName(node.type) + " " + node.local + " " + noide.stack)
+		} else if(node.getType() == 7) {
+			print (name + " " + node.label)
 		} else {
 			print (name)
 		}
