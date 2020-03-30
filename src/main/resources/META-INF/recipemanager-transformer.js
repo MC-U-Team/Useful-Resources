@@ -99,7 +99,7 @@ function injectSkipRecipeWhenJsonEmpty(methodNode, instructions) {
 	insList.add(new JumpInsnNode(IFEQ, backLabelNode))
 	insList.add(new JumpInsnNode(GOTO, forLabelNode))
 	insList.add(forLabelNode)
-	//insList.add(new FrameNode(F_SAME, 0, null, 0, null))
+	insList.add(new FrameNode(F_SAME, 0, null, 0, null))
 	
 	instructions.insertBefore(insertHookNode, insList)
 	
