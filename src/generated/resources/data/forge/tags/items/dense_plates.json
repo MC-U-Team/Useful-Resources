@@ -18,6 +18,7 @@
 		"#forge:dense_plates/zinc",
 		"#forge:dense_plates/uranium",
 		"#forge:dense_plates/ruby",
-		"#forge:dense_plates/sapphire"
+		"#forge:dense_plates/sapphire",
+		"#forge:dense_plates/brass"
 	]
 }

@@ -18,6 +18,7 @@
 		"#forge:gears/zinc",
 		"#forge:gears/uranium",
 		"#forge:gears/ruby",
-		"#forge:gears/sapphire"
+		"#forge:gears/sapphire",
+		"#forge:gears/brass"
 	]
 }

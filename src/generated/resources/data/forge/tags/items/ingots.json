@@ -9,6 +9,7 @@
 		"#forge:ingots/platinum",
 		"#forge:ingots/nickel",
 		"#forge:ingots/zinc",
-		"#forge:ingots/uranium"
+		"#forge:ingots/uranium",
+		"#forge:ingots/brass"
 	]
 }

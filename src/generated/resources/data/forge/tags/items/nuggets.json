@@ -9,6 +9,7 @@
 		"#forge:nuggets/platinum",
 		"#forge:nuggets/nickel",
 		"#forge:nuggets/zinc",
-		"#forge:nuggets/uranium"
+		"#forge:nuggets/uranium",
+		"#forge:nuggets/brass"
 	]
 }

@@ -18,6 +18,7 @@
 		"#forge:rods/zinc",
 		"#forge:rods/uranium",
 		"#forge:rods/ruby",
-		"#forge:rods/sapphire"
+		"#forge:rods/sapphire",
+		"#forge:rods/brass"
 	]
 }
