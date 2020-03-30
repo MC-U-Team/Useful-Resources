@@ -19,6 +19,7 @@
 		"#forge:plates/uranium",
 		"#forge:plates/ruby",
 		"#forge:plates/sapphire",
-		"#forge:plates/brass"
+		"#forge:plates/brass",
+		"#forge:plates/bronze"
 	]
 }

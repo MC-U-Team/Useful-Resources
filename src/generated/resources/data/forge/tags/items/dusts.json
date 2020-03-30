@@ -19,6 +19,7 @@
 		"#forge:dusts/uranium",
 		"#forge:dusts/ruby",
 		"#forge:dusts/sapphire",
-		"#forge:dusts/brass"
+		"#forge:dusts/brass",
+		"#forge:dusts/bronze"
 	]
 }

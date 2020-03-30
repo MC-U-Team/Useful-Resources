@@ -19,6 +19,7 @@
 		"#forge:gears/uranium",
 		"#forge:gears/ruby",
 		"#forge:gears/sapphire",
-		"#forge:gears/brass"
+		"#forge:gears/brass",
+		"#forge:gears/bronze"
 	]
 }

@@ -10,6 +10,7 @@
 		"#forge:ingots/nickel",
 		"#forge:ingots/zinc",
 		"#forge:ingots/uranium",
-		"#forge:ingots/brass"
+		"#forge:ingots/brass",
+		"#forge:ingots/bronze"
 	]
 }

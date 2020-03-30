@@ -20,6 +20,7 @@
 		"#forge:moltens/uranium",
 		"#forge:moltens/ruby",
 		"#forge:moltens/sapphire",
-		"#forge:moltens/brass"
+		"#forge:moltens/brass",
+		"#forge:moltens/bronze"
 	]
 }

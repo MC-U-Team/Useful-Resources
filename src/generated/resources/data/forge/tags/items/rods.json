@@ -19,6 +19,7 @@
 		"#forge:rods/uranium",
 		"#forge:rods/ruby",
 		"#forge:rods/sapphire",
-		"#forge:rods/brass"
+		"#forge:rods/brass",
+		"#forge:rods/bronze"
 	]
 }
