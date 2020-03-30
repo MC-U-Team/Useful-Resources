@@ -7,7 +7,7 @@ import static info.u_team.useful_resources.util.LootTableUtil.createFortuneBlock
 import static info.u_team.useful_resources.util.MaterialUtil.*;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.resource.*;
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.special.*;
 import info.u_team.useful_resources.util.LootTableUtil;
 import net.minecraft.block.Blocks;
@@ -184,7 +184,7 @@ public class Resources {
 	
 	// ALLOY
 	
-	public static final IResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3) //
+	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3) //
 			.addIngredient(() -> COPPER, 3) //
 			.addIngredient(() -> ZINC, 1);
 	
