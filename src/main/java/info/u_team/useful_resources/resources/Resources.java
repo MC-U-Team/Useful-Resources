@@ -188,6 +188,10 @@ public class Resources {
 			.addIngredient(() -> COPPER, 3) //
 			.addIngredient(() -> ZINC, 1);
 	
+	public static final BasicAlloyResource BRONZE = new BasicAlloyResource("bronze", 0xb56b16, Rarity.COMMON, 2, 3) //
+			.addIngredient(() -> COPPER, 3) //
+			.addIngredient(() -> TIN, 1);
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
@@ -216,6 +220,7 @@ public class Resources {
 		
 		// ALLOY
 		ResourceRegistry.register(BRASS);
+		ResourceRegistry.register(BRONZE);
 	}
 	
 }
