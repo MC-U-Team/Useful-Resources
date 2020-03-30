@@ -182,6 +182,12 @@ public class Resources {
 	
 	public static final IResource SAPPHIRE = new CommonGemResource("sapphire", 0x1023b0);
 	
+	// ALLOY
+	
+	public static final IResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3) //
+			.addIngredient(() -> COPPER, 3) //
+			.addIngredient(() -> ZINC, 1);
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
@@ -207,6 +213,9 @@ public class Resources {
 		// GEM
 		ResourceRegistry.register(RUBY);
 		ResourceRegistry.register(SAPPHIRE);
+		
+		// ALLOY
+		ResourceRegistry.register(BRASS);
 	}
 	
 }
