@@ -5,12 +5,16 @@ function initializeCoreMod() {
 	
 	AbstractInsnNode = Java.type("org.objectweb.asm.tree.AbstractInsnNode")
 	VarInsnNode = Java.type("org.objectweb.asm.tree.VarInsnNode")
+	TypeInsnNode = Java.type("org.objectweb.asm.tree.TypeInsnNode")
 	MethodInsnNode = Java.type("org.objectweb.asm.tree.MethodInsnNode")
 	InsnNode = Java.type("org.objectweb.asm.tree.InsnNode")
 	InsList = Java.type("org.objectweb.asm.tree.InsnList")
 	LabelNode = Java.type("org.objectweb.asm.tree.LabelNode")
+	JumpInsnNode = Java.type("org.objectweb.asm.tree.JumpInsnNode")
+	FrameNode = Java.type("org.objectweb.asm.tree.FrameNode")
 	
 	VAR_INSN = AbstractInsnNode.VAR_INSN
+	LABEL = AbstractInsnNode.LABEL
 	
 	INVOKESTATIC = Opcodes.INVOKESTATIC
 	INVOKEVIRTUAL = Opcodes.INVOKEVIRTUAL
@@ -18,6 +22,10 @@ function initializeCoreMod() {
 	ASTORE = Opcodes.ASTORE
 	POP = Opcodes.POP
 	DUP = Opcodes.DUP
+	CHECKCAST = Opcodes.CHECKCAST
+	IFEQ = Opcodes.IFEQ
+	GOTO = Opcodes.GOTO
+	F_SAME = Opcodes.F_SAME
 	NOOPCODE = -1
 
 	return {
@@ -37,23 +45,63 @@ function initializeCoreMod() {
 }
 
 function injectSkipRecipeWhenJsonEmpty(methodNode, instructions) {
-	var processConditionMethodNode = ASMAPI.findFirstMethodCall(
+	var insertHookNode = ASMAPI.findFirstMethodCall(
 			methodNode, 
 			ASMAPI.MethodType.STATIC, 
 			"net/minecraftforge/common/crafting/CraftingHelper", 
 			"processConditions",
 			"(Lcom/google/gson/JsonObject;Ljava/lang/String;)Z"
 	)
-	if(processConditionMethodNode == null) {
+	if(insertHookNode == null) {
 		throw "Could not find call to CraftingHelper.processConditions"
 	}	
 	
-	insertHookNode = findInstructionTypeBefore(instructions, VAR_INSN, ALOAD, processConditionMethodNode)
+	insertHookNode = findInstructionTypeBefore(instructions, VAR_INSN, ALOAD, insertHookNode)
 	if(insertHookNode == null) {
 		throw "The insert hook node could not be found"
 	}
 	
-	print (insertHookNode)
+	var backLabelNode = ASMAPI.findFirstMethodCall(
+			methodNode, 
+			ASMAPI.MethodType.INTERFACE, 
+			"java/util/Iterator", 
+			"hasNext",
+			"()Z"
+	)
+	
+	if(backLabelNode == null) {
+		throw "Could not find call to Iterator.hasNext"
+	}	
+	
+	backLabelNode = findInstructionTypeBefore(instructions, LABEL, NOOPCODE, backLabelNode)
+	if(backLabelNode == null) {
+		throw "The back label node could not be found"
+	}
+	
+	var forLabelNode = new LabelNode()
+	
+	var insList = new InsList()
+	
+	insList.add(new VarInsnNode(ALOAD, 6))
+	insList.add(ASMAPI.buildMethodCall(
+			"java/util/Map$Entry",
+			"getValue",
+			"()Ljava/lang/Object;",
+			ASMAPI.MethodType.INTERFACE
+	))
+	insList.add(new TypeInsnNode(CHECKCAST, "com/google/gson/JsonObject"))
+	insList.add(ASMAPI.buildMethodCall(
+			"com/google/gson/JsonObject",
+			"size",
+			"()I",
+			ASMAPI.MethodType.VIRTUAL
+	))
+	insList.add(new JumpInsnNode(IFEQ, backLabelNode))
+	insList.add(new JumpInsnNode(GOTO, forLabelNode))
+	insList.add(forLabelNode)
+	//insList.add(new FrameNode(F_SAME, 0, null, 0, null))
+	
+	instructions.insertBefore(insertHookNode, insList)
 	
 	printInstructions(instructions)	// Debug
 }
@@ -79,21 +127,21 @@ function printInstructions(instructions) {
 }
 
 function printNode(node) {
-	var name = getOpcodeName(node)
-	if(name.equals("ERROR")) {
+	name = getOpcodeName(node)
+	if(node.getType() == 5) {
+		print (name + " : " + node.owner + "." + node.name + node.desc)
+	} else if(node.getType() == 2) {
+		print (name + " " + node.var)
+	} else if(node.getType() == 3) {
+		print (name + " " + node.desc)
+	} else if(node.getType() == 14) {
+		print (name + " " + getFrameName(node.type) + " " + node.local + " " + node.stack)
+	} else if(node.getType() == 7) {
+		print (name + " " + node.label.getLabel())
+	} else if(name.equals("ERROR")) {
 		print (node)
 	} else {
-		if(node.getType() == 5) {
-			print (name + " : " + node.owner + "." + node.name + node.desc)
-		} else if(node.getType() == 2) {
-			print (name + " " + node.var)
-		} else if(node.getType() == 14) {
-			print (name + " " + getFrameName(node.type) + " " + node.local + " " + noide.stack)
-		} else if(node.getType() == 7) {
-			print (name + " " + node.label)
-		} else {
-			print (name)
-		}
+		print (name)
 	}
 }
 
