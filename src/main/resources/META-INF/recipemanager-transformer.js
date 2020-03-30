@@ -37,6 +37,7 @@ function initializeCoreMod() {
 				"methodDesc" : "(Ljava/util/Map;Lnet/minecraft/resources/IResourceManager;Lnet/minecraft/profiler/IProfiler;)V"
 			},
 			"transformer" : function(methodNode) {
+				print ("[Useful Resources] Patching RecipeManager#apply")
 				injectSkipRecipeWhenJsonEmpty(methodNode, methodNode.instructions);
 				return methodNode;
 			}
