@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import com.google.gson.JsonObject;
+
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
@@ -20,6 +22,7 @@ import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.block.Block;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
@@ -32,6 +35,31 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+		// Remove vanilla recipes
+		removeRecipe("iron_ingot", consumer);
+		removeRecipe("iron_ingot_from_blasting", consumer);
+		
+		removeRecipe("gold_ingot", consumer);
+		removeRecipe("gold_ingot_from_blasting", consumer);
+		
+		removeRecipe("diamond_from_smelting", consumer);
+		removeRecipe("diamond_from_blasting", consumer);
+		
+		removeRecipe("emerald_from_smelting", consumer);
+		removeRecipe("emerald_from_blasting", consumer);
+		
+		removeRecipe("lapis_from_smelting", consumer);
+		removeRecipe("lapis_from_blasting", consumer);
+		
+		removeRecipe("quartz", consumer);
+		removeRecipe("quartz_from_blasting", consumer);
+		
+		removeRecipe("coal_from_smelting", consumer);
+		removeRecipe("coal_from_blasting", consumer);
+		
+		removeRecipe("redstone_from_smelting", consumer);
+		removeRecipe("redstone_from_blasting", consumer);
+		
 		ResourceRegistry.getResources().forEach(resource -> {
 			final Map<BlockResourceType, Block> blocks = resource.getBlocks();
 			final Map<ItemResourceType, Item> items = resource.getItems();
@@ -252,6 +280,44 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.patternLine("# #") //
 						.addCriterion("has_" + normalResourceTypeName, hasItem(normalTag)) //
 						.build(consumer, createLocation(resource, "crafting/boots_from_" + normalResourceTypeName));
+			}
+		});
+	}
+	
+	private void removeRecipe(String name, Consumer<IFinishedRecipe> consumer) {
+		removeRecipe(new ResourceLocation(name), consumer);
+	}
+	
+	private void removeRecipe(ResourceLocation id, Consumer<IFinishedRecipe> consumer) {
+		consumer.accept(new IFinishedRecipe() {
+			
+			@Override
+			public JsonObject getRecipeJson() {
+				return new JsonObject();
+			}
+			
+			@Override
+			public void serialize(JsonObject json) {
+			}
+			
+			@Override
+			public IRecipeSerializer<?> getSerializer() {
+				return null;
+			}
+			
+			@Override
+			public ResourceLocation getID() {
+				return id;
+			}
+			
+			@Override
+			public JsonObject getAdvancementJson() {
+				return null;
+			}
+			
+			@Override
+			public ResourceLocation getAdvancementID() {
+				return null;
 			}
 		});
 	}
