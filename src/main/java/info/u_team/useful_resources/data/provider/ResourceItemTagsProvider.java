@@ -34,20 +34,8 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 				}
 			});
 			
+			// Add stone and nether ores to the ore tags
 			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE);
-			// final boolean hasOre = resource.getBlocks().containsKey(BlockResourceType.ORE);
-			// final boolean hasNetherOre = resource.getBlocks().containsKey(BlockResourceType.NETHER_ORE);
-			// if (hasOre || hasNetherOre) {
-			// final Tag<Item> tag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
-			// final Builder<Item> builder = getBuilder(tag);
-			// if (hasOre) {
-			// builder.add(TagUtil.fromBlockTag(BlockResourceType.ORE.getTag(resource)));
-			// }
-			// if (hasNetherOre) {
-			// builder.add(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(resource)));
-			// }
-			// getBuilder(Tags.Items.ORES).add(tag);
-			// }
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
