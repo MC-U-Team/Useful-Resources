@@ -1,9 +1,9 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.util.*;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
@@ -36,7 +36,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			});
 			
 			// Add stone and nether ores to the ore tags
-			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE);
+			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"));
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
@@ -70,16 +70,10 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
 	}
 	
-	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
-		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
-		if (hasType.containsValue(true)) {
-			final Tag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
-			final Builder<Item> builder = getBuilder(tag);
-			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
-				builder.add(TagUtil.fromBlockTag(type.getTag(resource)));
-			});
-			getBuilder(TagUtil.createItemTag(baseTag)).add(tag);
-		}
+	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag) {
+		final String specialTagName = baseTag.getPath() + "/" + resource.getName();
+		copy(TagUtil.createBlockTag(baseTag.getNamespace(), specialTagName), TagUtil.createItemTag(baseTag.getNamespace(), specialTagName));
+		copy(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, ItemResourceType... types) {
