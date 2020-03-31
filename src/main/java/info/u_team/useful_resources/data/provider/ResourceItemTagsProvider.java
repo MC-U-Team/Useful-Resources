@@ -39,7 +39,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"));
 			
 			// Add crushed stone and crushed nether ores to the crushed ore tags
-			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"));
+			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE);
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
