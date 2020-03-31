@@ -1,0 +1,24 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:crushed_stone_ore/iron",
+		"#forge:crushed_stone_ore/gold",
+		"#forge:crushed_stone_ore/diamond",
+		"#forge:crushed_stone_ore/emerald",
+		"#forge:crushed_stone_ore/lapis",
+		"#forge:crushed_stone_ore/quartz",
+		"#forge:crushed_stone_ore/coal",
+		"#forge:crushed_stone_ore/redstone",
+		"#forge:crushed_stone_ore/copper",
+		"#forge:crushed_stone_ore/tin",
+		"#forge:crushed_stone_ore/aluminum",
+		"#forge:crushed_stone_ore/silver",
+		"#forge:crushed_stone_ore/lead",
+		"#forge:crushed_stone_ore/platinum",
+		"#forge:crushed_stone_ore/nickel",
+		"#forge:crushed_stone_ore/zinc",
+		"#forge:crushed_stone_ore/uranium",
+		"#forge:crushed_stone_ore/ruby",
+		"#forge:crushed_stone_ore/sapphire"
+	]
+}
