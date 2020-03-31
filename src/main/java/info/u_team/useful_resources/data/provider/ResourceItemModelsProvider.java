@@ -85,6 +85,10 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 				.texture("colored", "item/crushed_ore") //
 				.texture("uncolored", "item/netherrack_crushed_ore_background");
 		
+		// ItemResourceType.PURE_CRUSHED_ORE
+		withExistingParent("base/item/special/pure_crushed_ore", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "item/pure_crushed_ore");
+		
 		// ItemResourceType.INGOT
 		withExistingParent("base/item/special/ingot", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/ingot");
