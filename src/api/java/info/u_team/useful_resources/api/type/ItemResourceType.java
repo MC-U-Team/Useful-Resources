@@ -9,6 +9,9 @@ import net.minecraft.util.ResourceLocation;
 
 public enum ItemResourceType implements CacheResourceType<Item> {
 	
+	CRUSHED_ORE("crushed_ore"),
+	PURE_CRUSHED_ORE("pure_crushed_ore"),
+	
 	INGOT("ingot"),
 	NUGGET("nugget"),
 	
