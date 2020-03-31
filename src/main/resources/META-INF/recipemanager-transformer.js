@@ -78,9 +78,7 @@ function injectSkipRecipeWhenJsonEmpty(methodNode, instructions) {
 	if(backLabelNode == null) {
 		throw "The back label node could not be found"
 	}
-	
-	var forLabelNode = new LabelNode()
-	
+		
 	var insList = new InsList()
 	
 	insList.add(new VarInsnNode(ALOAD, 6))
