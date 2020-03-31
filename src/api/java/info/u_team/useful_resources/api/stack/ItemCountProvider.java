@@ -22,7 +22,7 @@ public class ItemCountProvider implements IItemCountProvider {
 	
 	@Override
 	public ItemStack getItemStack() {
-		return stack;
+		return stack.copy();
 	}
 	
 }
