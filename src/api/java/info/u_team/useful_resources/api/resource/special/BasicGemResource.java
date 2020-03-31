@@ -21,6 +21,10 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
+		addFeature(createBasicItem(CRUSHED_ORE, rarity));
+		addFeature(createBasicItem(CRUSHED_NETHER_ORE, rarity));
+		addFeature(createBasicItem(PURE_CRUSHED_ORE, rarity));
+		
 		addFeature(createBasicItem(GEM, rarity));
 		addFeature(createBasicItem(PIECE, rarity));
 		addFeature(createBasicItem(DUST, rarity));
