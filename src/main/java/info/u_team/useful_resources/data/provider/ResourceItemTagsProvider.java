@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.*;
@@ -15,7 +15,6 @@ import net.minecraft.item.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.tags.Tag.Builder;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.Tags;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
@@ -34,19 +33,21 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 					copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 				}
 			});
-			final boolean hasOre = resource.getBlocks().containsKey(BlockResourceType.ORE);
-			final boolean hasNetherOre = resource.getBlocks().containsKey(BlockResourceType.NETHER_ORE);
-			if (hasOre || hasNetherOre) {
-				final Tag<Item> tag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
-				final Builder<Item> builder = getBuilder(tag);
-				if (hasOre) {
-					builder.add(TagUtil.fromBlockTag(BlockResourceType.ORE.getTag(resource)));
-				}
-				if (hasNetherOre) {
-					builder.add(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(resource)));
-				}
-				getBuilder(Tags.Items.ORES).add(tag);
-			}
+			
+			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE);
+			// final boolean hasOre = resource.getBlocks().containsKey(BlockResourceType.ORE);
+			// final boolean hasNetherOre = resource.getBlocks().containsKey(BlockResourceType.NETHER_ORE);
+			// if (hasOre || hasNetherOre) {
+			// final Tag<Item> tag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
+			// final Builder<Item> builder = getBuilder(tag);
+			// if (hasOre) {
+			// builder.add(TagUtil.fromBlockTag(BlockResourceType.ORE.getTag(resource)));
+			// }
+			// if (hasNetherOre) {
+			// builder.add(TagUtil.fromBlockTag(BlockResourceType.NETHER_ORE.getTag(resource)));
+			// }
+			// getBuilder(Tags.Items.ORES).add(tag);
+			// }
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
@@ -81,7 +82,12 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
-		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
+		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap( //
+				Function.identity(), //
+				type -> resource.getBlocks().containsKey(type), //
+				(key, value) -> {
+					throw new IllegalStateException(String.format("Duplicate key %s", key));
+				}, LinkedHashMap::new));
 		if (hasType.containsValue(true)) {
 			final Tag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
 			final Builder<Item> builder = getBuilder(tag);
