@@ -7,6 +7,8 @@ public interface IItemCountProvider extends IItemProvider {
 	
 	int getCount();
 	
-	ItemStack getItemStack();
+	default ItemStack getItemStack() {
+		return new ItemStack(asItem(), getCount());
+	}
 	
 }
