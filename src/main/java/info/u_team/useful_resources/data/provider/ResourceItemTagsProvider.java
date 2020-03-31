@@ -82,6 +82,18 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		}
 	}
 	
+	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, ItemResourceType... types) {
+		final Map<ItemResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getItems().containsKey(type)));
+		if (hasType.containsValue(true)) {
+			final Tag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
+			final Builder<Item> builder = getBuilder(tag);
+			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
+				builder.add(type.getTag(resource));
+			});
+			getBuilder(TagUtil.createItemTag(baseTag)).add(tag);
+		}
+	}
+	
 	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
 		final Tag<Item> tag = type.getTag(resource);
 		getBuilder(tag).add(item);
