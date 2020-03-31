@@ -1,6 +1,14 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:pure_crushed_ores/iron",
+		"#forge:pure_crushed_ores/gold",
+		"#forge:pure_crushed_ores/diamond",
+		"#forge:pure_crushed_ores/emerald",
+		"#forge:pure_crushed_ores/lapis",
+		"#forge:pure_crushed_ores/quartz",
+		"#forge:pure_crushed_ores/coal",
+		"#forge:pure_crushed_ores/redstone",
 		"#forge:pure_crushed_ores/copper",
 		"#forge:pure_crushed_ores/tin",
 		"#forge:pure_crushed_ores/aluminum",

@@ -1,6 +1,14 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:crushed_nether_ores/iron",
+		"#forge:crushed_nether_ores/gold",
+		"#forge:crushed_nether_ores/diamond",
+		"#forge:crushed_nether_ores/emerald",
+		"#forge:crushed_nether_ores/lapis",
+		"#forge:crushed_nether_ores/quartz",
+		"#forge:crushed_nether_ores/coal",
+		"#forge:crushed_nether_ores/redstone",
 		"#forge:crushed_nether_ores/copper",
 		"#forge:crushed_nether_ores/tin",
 		"#forge:crushed_nether_ores/aluminum",
