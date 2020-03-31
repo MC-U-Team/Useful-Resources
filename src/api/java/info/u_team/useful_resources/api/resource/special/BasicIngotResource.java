@@ -19,6 +19,10 @@ public class BasicIngotResource extends BasicResource<BasicIngotResource> {
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
+		addFeature(createBasicItem(CRUSHED_ORE, rarity));
+		addFeature(createBasicItem(CRUSHED_NETHER_ORE, rarity));
+		addFeature(createBasicItem(PURE_CRUSHED_ORE, rarity));
+		
 		addFeature(createBasicItem(INGOT, rarity));
 		addFeature(createBasicItem(NUGGET, rarity));
 		addFeature(createBasicItem(DUST, rarity));
