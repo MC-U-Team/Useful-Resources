@@ -2,7 +2,7 @@ package info.u_team.useful_resources.api.resource.special;
 
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
 import static info.u_team.useful_resources.api.type.BlockResourceType.NETHER_ORE;
-import static info.u_team.useful_resources.api.type.ItemResourceType.PIECE;
+import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
@@ -19,6 +19,10 @@ public class VanillaDustResource extends BasicResource<VanillaDustResource> {
 		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, hardness, resistance));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
+		
+		addFeature(createBasicItem(CRUSHED_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(CRUSHED_NETHER_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(PURE_CRUSHED_ORE, Rarity.COMMON));
 		
 		addFeature(createBasicItem(PIECE, Rarity.COMMON));
 	}

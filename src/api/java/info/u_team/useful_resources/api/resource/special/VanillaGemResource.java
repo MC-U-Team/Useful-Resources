@@ -20,6 +20,10 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
+		addFeature(createBasicItem(CRUSHED_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(CRUSHED_NETHER_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(PURE_CRUSHED_ORE, Rarity.COMMON));
+		
 		addFeature(createBasicItem(PIECE, Rarity.COMMON));
 		addFeature(createBasicItem(DUST, Rarity.COMMON));
 		addFeature(createBasicItem(PLATE, Rarity.COMMON));
