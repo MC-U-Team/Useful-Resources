@@ -9,8 +9,16 @@ import net.minecraft.util.IItemProvider;
 
 public class ItemCountProvider implements IItemCountProvider {
 	
+	public static IItemCountProvider of(Supplier<IResource> supplier, ItemResourceType type) {
+		return of(supplier, type, 1);
+	}
+	
 	public static IItemCountProvider of(Supplier<IResource> supplier, ItemResourceType type, int count) {
 		return of(() -> supplier.get().getItems().get(type), count);
+	}
+	
+	public static IItemCountProvider of(Supplier<IResource> supplier, BlockResourceType type) {
+		return of(supplier, type, 1);
 	}
 	
 	public static IItemCountProvider of(Supplier<IResource> supplier, BlockResourceType type, int count) {
