@@ -1,5 +1,10 @@
 package info.u_team.useful_resources.data.provider;
 
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.*;
+
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
@@ -9,6 +14,7 @@ import info.u_team.useful_resources.resources.Resources;
 import net.minecraft.item.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.tags.Tag.Builder;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
@@ -72,6 +78,18 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
+	}
+	
+	private void addSpecialOreTags(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
+		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
+		if (hasType.containsValue(true)) {
+			final Tag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
+			final Builder<Item> builder = getBuilder(tag);
+			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
+				builder.add(TagUtil.fromBlockTag(type.getTag(resource)));
+			});
+			getBuilder(TagUtil.createItemTag(baseTag)).add(tag);
+		}
 	}
 	
 	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
