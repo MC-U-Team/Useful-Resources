@@ -9,6 +9,10 @@ public class ItemStackCountProvider implements IItemCountProvider {
 	
 	private final ItemStack stack;
 	
+	public ItemStackCountProvider(IResource resource, BlockResourceType type) {
+		this(resource, type, 1);
+	}
+	
 	public ItemStackCountProvider(IResource resource, BlockResourceType type, int count) {
 		this(resource.getBlocks().get(type), count);
 	}
