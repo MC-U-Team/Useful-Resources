@@ -7,10 +7,18 @@ import net.minecraft.util.IItemProvider;
 
 public class ItemCountProvider implements IItemCountProvider {
 	
+	public static IItemCountProvider of(Supplier<IItemProvider> supplier) {
+		return of(supplier, 1);
+	}
+	
+	public static IItemCountProvider of(Supplier<IItemProvider> supplier, int count) {
+		return new ItemCountProvider(supplier, count);
+	}
+	
 	private final Supplier<IItemProvider> supplier;
 	private final int count;
 	
-	public ItemCountProvider(Supplier<IItemProvider> supplier, int count) {
+	protected ItemCountProvider(Supplier<IItemProvider> supplier, int count) {
 		this.supplier = supplier;
 		this.count = count;
 	}
