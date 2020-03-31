@@ -1,5 +1,6 @@
 package info.u_team.useful_resources.resources;
 
+import static info.u_team.useful_resources.api.stack.ItemCountProvider.of;
 import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import static info.u_team.useful_resources.util.GenerationUtil.*;
@@ -185,12 +186,12 @@ public class Resources {
 	// ALLOY
 	
 	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3) //
-			.addIngredient(() -> COPPER, 3) //
-			.addIngredient(() -> ZINC, 1);
+			.addIngredient(of(() -> COPPER, INGOT, 3)) //
+			.addIngredient(of(() -> ZINC, INGOT, 1));
 	
 	public static final BasicAlloyResource BRONZE = new BasicAlloyResource("bronze", 0xb56b16, Rarity.COMMON, 2, 3) //
-			.addIngredient(() -> COPPER, 3) //
-			.addIngredient(() -> TIN, 1);
+			.addIngredient(of(() -> COPPER, INGOT, 3)) //
+			.addIngredient(of(() -> TIN, INGOT, 1));
 	
 	public static void register() {
 		// Vanilla
