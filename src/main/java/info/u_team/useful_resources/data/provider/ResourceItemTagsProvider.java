@@ -80,7 +80,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
 	}
 	
-	private void addSpecialOreTags(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
+	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
 		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final Tag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
