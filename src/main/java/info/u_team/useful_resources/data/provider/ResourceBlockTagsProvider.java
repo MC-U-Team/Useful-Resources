@@ -1,9 +1,9 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.util.*;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
@@ -11,6 +11,7 @@ import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.resources.Resources;
+import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.tags.Tag.Builder;
@@ -54,12 +55,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
-		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap( //
-				Function.identity(), //
-				type -> resource.getBlocks().containsKey(type), //
-				(key, value) -> {
-					throw new IllegalStateException(String.format("Duplicate key %s", key));
-				}, LinkedHashMap::new));
+		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final Tag<Block> tag = TagUtil.createBlockTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
 			final Builder<Block> builder = getBuilder(tag);
