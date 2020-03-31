@@ -1,5 +1,10 @@
 package info.u_team.useful_resources.data.provider;
 
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.*;
+
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.ResourceRegistry;
@@ -9,7 +14,7 @@ import info.u_team.useful_resources.resources.Resources;
 import net.minecraft.block.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.tags.Tag.Builder;
-import net.minecraftforge.common.Tags;
+import net.minecraft.util.ResourceLocation;
 
 public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	
@@ -29,19 +34,9 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 					}
 				}
 			});
-			final boolean hasOre = resource.getBlocks().containsKey(BlockResourceType.ORE);
-			final boolean hasNetherOre = resource.getBlocks().containsKey(BlockResourceType.NETHER_ORE);
-			if (hasOre || hasNetherOre) {
-				final Tag<Block> tag = TagUtil.createBlockTag("forge", "ores/" + resource.getName());
-				final Builder<Block> builder = getBuilder(tag);
-				if (hasOre) {
-					builder.add(BlockResourceType.ORE.getTag(resource));
-				}
-				if (hasNetherOre) {
-					builder.add(BlockResourceType.NETHER_ORE.getTag(resource));
-				}
-				getBuilder(Tags.Blocks.ORES).add(tag);
-			}
+			
+			// Add stone and nether ores to the ore tags
+			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE);
 		});
 		
 		// Special tags
@@ -56,6 +51,23 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.ORE, Resources.COAL, Blocks.COAL_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
 		
+	}
+	
+	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
+		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap( //
+				Function.identity(), //
+				type -> resource.getBlocks().containsKey(type), //
+				(key, value) -> {
+					throw new IllegalStateException(String.format("Duplicate key %s", key));
+				}, LinkedHashMap::new));
+		if (hasType.containsValue(true)) {
+			final Tag<Block> tag = TagUtil.createBlockTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
+			final Builder<Block> builder = getBuilder(tag);
+			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
+				builder.add(type.getTag(resource));
+			});
+			getBuilder(TagUtil.createBlockTag(baseTag)).add(tag);
+		}
 	}
 	
 	private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
