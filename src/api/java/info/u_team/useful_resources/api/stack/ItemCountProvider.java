@@ -2,10 +2,16 @@ package info.u_team.useful_resources.api.stack;
 
 import java.util.function.Supplier;
 
+import info.u_team.useful_resources.api.resource.IResource;
+import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.*;
 import net.minecraft.util.IItemProvider;
 
 public class ItemCountProvider implements IItemCountProvider {
+	
+	public static IItemCountProvider of(Supplier<IResource> supplier, ItemResourceType type, int count) {
+		return of(() -> supplier.get().getItems().get(type), count);
+	}
 	
 	public static IItemCountProvider of(Supplier<IItemProvider> supplier) {
 		return of(supplier, 1);
