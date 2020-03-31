@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:crushed_ores/copper",
+		"#forge:crushed_ores/tin",
+		"#forge:crushed_ores/aluminum",
+		"#forge:crushed_ores/silver",
+		"#forge:crushed_ores/lead",
+		"#forge:crushed_ores/platinum",
+		"#forge:crushed_ores/nickel",
+		"#forge:crushed_ores/zinc",
+		"#forge:crushed_ores/uranium"
+	]
+}

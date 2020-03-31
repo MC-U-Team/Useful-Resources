@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:crushed_nether_ores/copper",
+		"#forge:crushed_nether_ores/tin",
+		"#forge:crushed_nether_ores/aluminum",
+		"#forge:crushed_nether_ores/silver",
+		"#forge:crushed_nether_ores/lead",
+		"#forge:crushed_nether_ores/platinum",
+		"#forge:crushed_nether_ores/nickel",
+		"#forge:crushed_nether_ores/zinc",
+		"#forge:crushed_nether_ores/uranium"
+	]
+}
