@@ -75,6 +75,11 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		
 		// Special models for each type
 		
+		// ItemResourceType.CRUSHED_ORE
+		withExistingParent("base/item/special/crushed_ore", modLoc("base/item/colored_overlay_generated_item")) //
+				.texture("colored", "item/crushed_ore") //
+				.texture("uncolored", "item/stone_crushed_ore_background");
+		
 		// ItemResourceType.INGOT
 		withExistingParent("base/item/special/ingot", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/ingot");
