@@ -9,6 +9,8 @@
 		"#forge:pure_crushed_ores/platinum",
 		"#forge:pure_crushed_ores/nickel",
 		"#forge:pure_crushed_ores/zinc",
-		"#forge:pure_crushed_ores/uranium"
+		"#forge:pure_crushed_ores/uranium",
+		"#forge:pure_crushed_ores/ruby",
+		"#forge:pure_crushed_ores/sapphire"
 	]
 }
