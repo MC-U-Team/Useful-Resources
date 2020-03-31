@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:crushed_stone_ore/nickel",
+		"#forge:crushed_nether_ores/nickel"
+	]
+}
