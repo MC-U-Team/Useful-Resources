@@ -80,6 +80,8 @@ c7d5287d20b8e77f0fed50655962bd9b5fa06ef8 assets\usefulresources\models\base\bloc
 b168d267966f9b9957e9cafd3e3a54233f5755a8 assets\usefulresources\models\base\item\special\axe.json
 84da6078df933367ded4ab4893bdd763d4651732 assets\usefulresources\models\base\item\special\boots.json
 4c1b7e2b395e0128ad406172de291520c6dce732 assets\usefulresources\models\base\item\special\chestplate.json
+aacc86a8455e0e9acbcd96d9b62f2bb6ec113212 assets\usefulresources\models\base\item\special\crushed_nether_ore.json
+24b339696c6046e9b0c228cc186c9d94ebef4aeb assets\usefulresources\models\base\item\special\crushed_ore.json
 57297a58eb906ac70cb91e25978a7d309d7d54a0 assets\usefulresources\models\base\item\special\dense_plate.json
 51c2bb8bf94c854afc8fcfeba70702d4a13b48e0 assets\usefulresources\models\base\item\special\dust.json
 179c048c0cffc3036d3978bacf561ae311754f5b assets\usefulresources\models\base\item\special\gear.json
@@ -93,6 +95,7 @@ f3f6944aa2047a1fbf4d1b3dbe4194af7a294319 assets\usefulresources\models\base\item
 647d6a20c5abdeb06472d925f10aea02d9dbb9eb assets\usefulresources\models\base\item\special\pickaxe.json
 856563ba12cd16e02f5202e0eba8a8bc8253b978 assets\usefulresources\models\base\item\special\piece.json
 4247e7a5ad918ac991352e46f38bff978a32d523 assets\usefulresources\models\base\item\special\plate.json
+60d57a74d9d6878b826ae6b5cdb9b6265d3e893a assets\usefulresources\models\base\item\special\pure_crushed_ore.json
 9b9da250dccd0917c7b12a093e75fd2d6f9a3143 assets\usefulresources\models\base\item\special\rod.json
 2e1e275df91e8f433af8fe0ec610f70948e8907a assets\usefulresources\models\base\item\special\shovel.json
 96200639b4558697487f0347021e91b40be5ba17 assets\usefulresources\models\base\item\special\sword.json
