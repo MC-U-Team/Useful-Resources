@@ -11,6 +11,7 @@ import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.resources.Resources;
+import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.item.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.tags.Tag.Builder;
@@ -70,12 +71,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
-		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(Collectors.toMap( //
-				Function.identity(), //
-				type -> resource.getBlocks().containsKey(type), //
-				(key, value) -> {
-					throw new IllegalStateException(String.format("Duplicate key %s", key));
-				}, LinkedHashMap::new));
+		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final Tag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
 			final Builder<Item> builder = getBuilder(tag);
