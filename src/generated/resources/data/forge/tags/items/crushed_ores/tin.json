@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:crushed_stone_ore/tin",
+		"#forge:crushed_stone_ores/tin",
 		"#forge:crushed_nether_ores/tin"
 	]
 }

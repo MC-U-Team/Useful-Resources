@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:crushed_stone_ore/iron",
+		"#forge:crushed_stone_ores/iron",
 		"#forge:crushed_nether_ores/iron"
 	]
 }

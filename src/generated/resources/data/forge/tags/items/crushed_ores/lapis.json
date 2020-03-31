@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:crushed_stone_ore/lapis",
+		"#forge:crushed_stone_ores/lapis",
 		"#forge:crushed_nether_ores/lapis"
 	]
 }

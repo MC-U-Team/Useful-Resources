@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:crushed_stone_ore/uranium",
+		"#forge:crushed_stone_ores/uranium",
 		"#forge:crushed_nether_ores/uranium"
 	]
 }

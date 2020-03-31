@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:crushed_stone_ore/platinum",
+		"#forge:crushed_stone_ores/platinum",
 		"#forge:crushed_nether_ores/platinum"
 	]
 }

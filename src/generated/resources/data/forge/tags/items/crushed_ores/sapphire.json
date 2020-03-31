@@ -1,7 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:crushed_stone_ore/sapphire",
+		"#forge:crushed_stone_ores/sapphire",
 		"#forge:crushed_nether_ores/sapphire"
 	]
 }
