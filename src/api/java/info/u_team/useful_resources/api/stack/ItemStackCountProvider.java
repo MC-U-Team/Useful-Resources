@@ -17,6 +17,10 @@ public class ItemStackCountProvider implements IItemCountProvider {
 		this(resource.getItems().get(type), count);
 	}
 	
+	public ItemStackCountProvider(IItemProvider item) {
+		this(item, 1);
+	}
+	
 	public ItemStackCountProvider(IItemProvider item, int count) {
 		this(new ItemStack(item, count));
 	}
