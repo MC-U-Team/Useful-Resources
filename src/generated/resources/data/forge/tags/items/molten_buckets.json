@@ -26,6 +26,7 @@
 		"#forge:molten_buckets/steel",
 		"#forge:molten_buckets/dark_steel",
 		"#forge:molten_buckets/electrum",
-		"#forge:molten_buckets/invar"
+		"#forge:molten_buckets/invar",
+		"#forge:molten_buckets/constantan"
 	]
 }

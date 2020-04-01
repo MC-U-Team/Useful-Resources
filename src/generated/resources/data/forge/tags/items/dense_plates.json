@@ -25,6 +25,7 @@
 		"#forge:dense_plates/steel",
 		"#forge:dense_plates/dark_steel",
 		"#forge:dense_plates/electrum",
-		"#forge:dense_plates/invar"
+		"#forge:dense_plates/invar",
+		"#forge:dense_plates/constantan"
 	]
 }
