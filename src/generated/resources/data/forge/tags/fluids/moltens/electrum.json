@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"usefulresources:electrum_molten",
+		"usefulresources:electrum_molten_flowing"
+	]
+}

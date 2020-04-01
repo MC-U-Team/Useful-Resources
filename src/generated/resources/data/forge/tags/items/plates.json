@@ -23,6 +23,7 @@
 		"#forge:plates/brass",
 		"#forge:plates/bronze",
 		"#forge:plates/steel",
-		"#forge:plates/dark_steel"
+		"#forge:plates/dark_steel",
+		"#forge:plates/electrum"
 	]
 }

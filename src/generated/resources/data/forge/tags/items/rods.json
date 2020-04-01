@@ -23,6 +23,7 @@
 		"#forge:rods/brass",
 		"#forge:rods/bronze",
 		"#forge:rods/steel",
-		"#forge:rods/dark_steel"
+		"#forge:rods/dark_steel",
+		"#forge:rods/electrum"
 	]
 }

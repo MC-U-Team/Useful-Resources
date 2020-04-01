@@ -14,6 +14,7 @@
 		"#forge:nuggets/brass",
 		"#forge:nuggets/bronze",
 		"#forge:nuggets/steel",
-		"#forge:nuggets/dark_steel"
+		"#forge:nuggets/dark_steel",
+		"#forge:nuggets/electrum"
 	]
 }

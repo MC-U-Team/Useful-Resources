@@ -16,6 +16,7 @@
 		"#forge:storage_blocks/brass",
 		"#forge:storage_blocks/bronze",
 		"#forge:storage_blocks/steel",
-		"#forge:storage_blocks/dark_steel"
+		"#forge:storage_blocks/dark_steel",
+		"#forge:storage_blocks/electrum"
 	]
 }
