@@ -165,6 +165,10 @@ public class Resources {
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 14, 2, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 1, 10, 20, 128));
 	
+	public static final IResource IRIDIUM = new BasicIngotResource("iridium", 0x90e5e8, Rarity.COMMON, 1, 3) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 5, 0, 0, 32)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 6, 10, 20, 128));
+	
 	public static final IResource NICKEL = new BasicIngotResource("nickel", 0xcadbd4, Rarity.COMMON, 1, 3) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 20, 0, 0, 64)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
