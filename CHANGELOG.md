@@ -13,42 +13,42 @@ All notable changes to this project will be documented in this file.
  - Added some gems
  - All types:
  	#### Vanilla
- 	- iron
- 	- gold
- 	- diamond
- 	- emerald
- 	- lapis
- 	- quartz
- 	- coal
- 	- redstone
+ 	- Iron
+ 	- Gold
+ 	- Diamond
+ 	- Emerald
+ 	- Lapis
+ 	- Quartz
+ 	- Coal
+ 	- Redstone
  	
  	#### Ingots
- 	- copper
- 	- tin
- 	- aluminum
- 	- silver
- 	- lead
- 	- platinum
- 	- iridium
- 	- nickel
- 	- zinc
- 	- uranium
+ 	- Copper
+ 	- Tin
+ 	- Aluminum
+ 	- Silver
+ 	- Lead
+ 	- Platinum
+ 	- Iridium
+ 	- Nickel
+ 	- Zinc
+ 	- Uranium
  	
  	#### Gems
- 	- ruby
- 	- sapphire
- 	- malachite
- 	- peridot
- 	- tanzanite
+ 	- Ruby
+ 	- Sapphire
+ 	- Malachite
+ 	- Peridot
+ 	- Tanzanite
  	
  	#### Alloys
- 	- brass
- 	- bronze
- 	- steel
- 	- dark steel
- 	- electrum
- 	- invar
- 	- constantan
- 	- signalum
- 	- lumium
- 	- enderium
+ 	- Brass
+ 	- Bronze
+ 	- Steel
+ 	- Dark steel
+ 	- Electrum
+ 	- Invar
+ 	- Constantan
+ 	- Signalum
+ 	- Lumium
+ 	- Enderium
