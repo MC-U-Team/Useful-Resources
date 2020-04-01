@@ -15,11 +15,12 @@ import net.minecraft.item.Rarity;
 public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 	
 	private List<IItemCountProvider> ingredients;
-	private int outputSize;
+	private final int outputSize;
 	
-	public BasicAlloyResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness) {
+	public BasicAlloyResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness, int outputSize) {
 		super(name, color, ItemResourceType.INGOT, rarity, ResourceType.INGOT);
 		ingredients = new ArrayList<>();
+		this.outputSize = outputSize;
 		
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
 		
@@ -36,11 +37,6 @@ public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 	
 	public BasicAlloyResource addIngredient(IItemCountProvider provider) {
 		ingredients.add(provider);
-		return this;
-	}
-	
-	public BasicAlloyResource setOutputSize(int outputSize) {
-		this.outputSize = outputSize;
 		return this;
 	}
 	
