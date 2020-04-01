@@ -15,6 +15,7 @@ import net.minecraft.item.Rarity;
 public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 	
 	private List<IItemCountProvider> ingredients;
+	private int outputSize;
 	
 	public BasicAlloyResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness) {
 		super(name, color, ItemResourceType.INGOT, rarity, ResourceType.INGOT);
@@ -38,7 +39,16 @@ public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 		return this;
 	}
 	
+	public BasicAlloyResource setOutputSize(int outputSize) {
+		this.outputSize = outputSize;
+		return this;
+	}
+	
 	public List<IItemCountProvider> getIngredients() {
 		return Collections.unmodifiableList(ingredients);
+	}
+	
+	public int getOutputSize() {
+		return outputSize;
 	}
 }
