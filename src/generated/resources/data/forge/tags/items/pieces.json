@@ -9,6 +9,7 @@
 		"#forge:pieces/redstone",
 		"#forge:pieces/ruby",
 		"#forge:pieces/sapphire",
-		"#forge:pieces/malachite"
+		"#forge:pieces/malachite",
+		"#forge:pieces/peridot"
 	]
 }

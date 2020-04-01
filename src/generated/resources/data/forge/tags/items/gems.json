@@ -4,6 +4,7 @@
 		"#forge:gems/ruby",
 		"#forge:gems/sapphire",
 		"#forge:gems/malachite",
+		"#forge:gems/peridot",
 		"#forge:gems/coal"
 	]
 }

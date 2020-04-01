@@ -12,6 +12,7 @@
 		"#forge:tools/axes/platinum",
 		"#forge:tools/axes/ruby",
 		"#forge:tools/axes/sapphire",
-		"#forge:tools/axes/malachite"
+		"#forge:tools/axes/malachite",
+		"#forge:tools/axes/peridot"
 	]
 }

@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/peridot",
+		"#forge:nether_ores/peridot"
+	]
+}

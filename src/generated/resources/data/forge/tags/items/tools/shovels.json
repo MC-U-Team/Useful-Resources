@@ -12,6 +12,7 @@
 		"#forge:tools/shovels/platinum",
 		"#forge:tools/shovels/ruby",
 		"#forge:tools/shovels/sapphire",
-		"#forge:tools/shovels/malachite"
+		"#forge:tools/shovels/malachite",
+		"#forge:tools/shovels/peridot"
 	]
 }
