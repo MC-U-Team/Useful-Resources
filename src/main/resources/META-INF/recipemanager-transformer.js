@@ -33,7 +33,7 @@ function initializeCoreMod() {
 			"target" : {
 				"type" : "METHOD",
 				"class" : "net.minecraft.item.crafting.RecipeManager",
-				"methodName" : "apply",
+				"methodName" : "func_212853_a_",
 				"methodDesc" : "(Ljava/util/Map;Lnet/minecraft/resources/IResourceManager;Lnet/minecraft/profiler/IProfiler;)V"
 			},
 			"transformer" : function(methodNode) {
