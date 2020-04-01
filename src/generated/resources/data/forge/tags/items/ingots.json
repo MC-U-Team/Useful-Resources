@@ -17,6 +17,7 @@
 		"#forge:ingots/dark_steel",
 		"#forge:ingots/electrum",
 		"#forge:ingots/invar",
-		"#forge:ingots/constantan"
+		"#forge:ingots/constantan",
+		"#forge:ingots/signalum"
 	]
 }

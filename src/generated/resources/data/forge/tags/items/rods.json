@@ -26,6 +26,7 @@
 		"#forge:rods/dark_steel",
 		"#forge:rods/electrum",
 		"#forge:rods/invar",
-		"#forge:rods/constantan"
+		"#forge:rods/constantan",
+		"#forge:rods/signalum"
 	]
 }

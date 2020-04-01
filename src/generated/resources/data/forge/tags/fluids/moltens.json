@@ -27,6 +27,7 @@
 		"#forge:moltens/dark_steel",
 		"#forge:moltens/electrum",
 		"#forge:moltens/invar",
-		"#forge:moltens/constantan"
+		"#forge:moltens/constantan",
+		"#forge:moltens/signalum"
 	]
 }

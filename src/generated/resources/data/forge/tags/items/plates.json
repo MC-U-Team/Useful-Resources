@@ -26,6 +26,7 @@
 		"#forge:plates/dark_steel",
 		"#forge:plates/electrum",
 		"#forge:plates/invar",
-		"#forge:plates/constantan"
+		"#forge:plates/constantan",
+		"#forge:plates/signalum"
 	]
 }

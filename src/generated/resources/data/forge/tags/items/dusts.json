@@ -26,6 +26,7 @@
 		"#forge:dusts/dark_steel",
 		"#forge:dusts/electrum",
 		"#forge:dusts/invar",
-		"#forge:dusts/constantan"
+		"#forge:dusts/constantan",
+		"#forge:dusts/signalum"
 	]
 }

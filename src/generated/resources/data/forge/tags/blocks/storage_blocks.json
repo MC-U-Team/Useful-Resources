@@ -19,6 +19,7 @@
 		"#forge:storage_blocks/dark_steel",
 		"#forge:storage_blocks/electrum",
 		"#forge:storage_blocks/invar",
-		"#forge:storage_blocks/constantan"
+		"#forge:storage_blocks/constantan",
+		"#forge:storage_blocks/signalum"
 	]
 }

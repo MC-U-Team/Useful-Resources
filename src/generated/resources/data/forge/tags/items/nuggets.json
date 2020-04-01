@@ -17,6 +17,7 @@
 		"#forge:nuggets/dark_steel",
 		"#forge:nuggets/electrum",
 		"#forge:nuggets/invar",
-		"#forge:nuggets/constantan"
+		"#forge:nuggets/constantan",
+		"#forge:nuggets/signalum"
 	]
 }
