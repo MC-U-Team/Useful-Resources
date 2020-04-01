@@ -28,6 +28,7 @@
 		"#forge:moltens/electrum",
 		"#forge:moltens/invar",
 		"#forge:moltens/constantan",
-		"#forge:moltens/signalum"
+		"#forge:moltens/signalum",
+		"#forge:moltens/lumium"
 	]
 }

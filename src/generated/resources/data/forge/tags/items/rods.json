@@ -27,6 +27,7 @@
 		"#forge:rods/electrum",
 		"#forge:rods/invar",
 		"#forge:rods/constantan",
-		"#forge:rods/signalum"
+		"#forge:rods/signalum",
+		"#forge:rods/lumium"
 	]
 }

@@ -18,6 +18,7 @@
 		"#forge:nuggets/electrum",
 		"#forge:nuggets/invar",
 		"#forge:nuggets/constantan",
-		"#forge:nuggets/signalum"
+		"#forge:nuggets/signalum",
+		"#forge:nuggets/lumium"
 	]
 }

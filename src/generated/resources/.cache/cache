@@ -38,6 +38,8 @@ a56fe0a729559469130590d10e6696ca21419fb8 assets\usefulresources\blockstates\lead
 778b51892154cdf213698bdf0c5eadf50a0e7d09 assets\usefulresources\blockstates\lead_molten_fluid.json
 4198a97423d92ff17556929a068f00ee5a477e2f assets\usefulresources\blockstates\lead_nether_ore.json
 bddd0f928a408f05c9171e6a82188323ce0e9898 assets\usefulresources\blockstates\lead_ore.json
+c0a235dbe29b1a4dad2db312c44598afcd69c059 assets\usefulresources\blockstates\lumium_block.json
+b8c292bcd1e99aa820a65f9962e2bb4fddf93381 assets\usefulresources\blockstates\lumium_molten_fluid.json
 a6f128426c9ac5ac805bad2b39f7d7a4b69222fd assets\usefulresources\blockstates\nickel_block.json
 e6f81d742c5c82e8c110ac2253696c35bab884dd assets\usefulresources\blockstates\nickel_molten_fluid.json
 609f467cb2835af42729563dfb5d1bd8edfa6861 assets\usefulresources\blockstates\nickel_nether_ore.json
@@ -78,7 +80,7 @@ b672ca03e6a9ab7e2a7d4470fd949a47ab8a9153 assets\usefulresources\blockstates\zinc
 c2744a3a3ccc5c6de97033ec0d31ea64c184d400 assets\usefulresources\blockstates\zinc_molten_fluid.json
 9ff2ce818eda0e1a7739d9ba5e34926b59916053 assets\usefulresources\blockstates\zinc_nether_ore.json
 76c9f05a768b4cfb6ed7afabd7606085ea948a8a assets\usefulresources\blockstates\zinc_ore.json
-33d38d03f71c13dcf3a79a59139f757e0e2f44af assets\usefulresources\lang\en_us.json
+dd579d2608094f0509f7384957aa6788dd36ba20 assets\usefulresources\lang\en_us.json
 913697f18c94aa1585b21fd5065499d14a96a858 assets\usefulresources\models\base\block\colored_block.json
 764eef9165f80d2e96ce8b76e5305b564b06145c assets\usefulresources\models\base\block\colored_overlay_block.json
 40c5a2cbb00dc0f1ead33e418d376434fba57553 assets\usefulresources\models\base\block\special\gem_block.json
@@ -155,6 +157,8 @@ eece47b8c8989368a07d087022c77254b36b0d26 assets\usefulresources\models\block\lap
 68e335251fe2afc2e5a153aa9eee4785c59bdbc1 assets\usefulresources\models\block\lead_molten_fluid.json
 128bc787e25e8342547cc33c055b6bf49439fb7e assets\usefulresources\models\block\lead_nether_ore.json
 caebc096016e67eda2dd869bbfa0f2732dec5c3b assets\usefulresources\models\block\lead_ore.json
+117a51d27f2b679f75ea0f917983f49c4d6a14b4 assets\usefulresources\models\block\lumium_block.json
+68e335251fe2afc2e5a153aa9eee4785c59bdbc1 assets\usefulresources\models\block\lumium_molten_fluid.json
 117a51d27f2b679f75ea0f917983f49c4d6a14b4 assets\usefulresources\models\block\nickel_block.json
 68e335251fe2afc2e5a153aa9eee4785c59bdbc1 assets\usefulresources\models\block\nickel_molten_fluid.json
 128bc787e25e8342547cc33c055b6bf49439fb7e assets\usefulresources\models\block\nickel_nether_ore.json
@@ -419,6 +423,15 @@ b53c823bf2404ff67eb957cd8dae1da4493d7a52 assets\usefulresources\models\item\lead
 796d48db5a092b0458eae5659e18f41ac4202f2c assets\usefulresources\models\item\lead_rod.json
 c7787cf753c1182751f7596d15b39223ce56f88a assets\usefulresources\models\item\lead_shovel.json
 7eee53ee23361c4ddae6f337a753299b910ac2b7 assets\usefulresources\models\item\lead_sword.json
+c1c92601cff718ddb0289df820f516147b77f947 assets\usefulresources\models\item\lumium_block.json
+38da2339b2997d3b486d33c3d16c536a21f809ce assets\usefulresources\models\item\lumium_dense_plate.json
+abeb04fe917ab74f619a0dd386c4487417f63472 assets\usefulresources\models\item\lumium_dust.json
+6a3d35e7d857928d3a534ada527e3c3a1cf4f1df assets\usefulresources\models\item\lumium_gear.json
+3b189933ade32f4f4735393ef8298bc818b4b2db assets\usefulresources\models\item\lumium_ingot.json
+8fc10fa65ac44deb6ec23a3a8ba9925dd792c579 assets\usefulresources\models\item\lumium_molten_bucket.json
+a9d1ea4d441e8ea129c1a99959ae5225b29e5c86 assets\usefulresources\models\item\lumium_nugget.json
+8332f19b6d98993ee7c2e6588fc3c8310a8977f7 assets\usefulresources\models\item\lumium_plate.json
+796d48db5a092b0458eae5659e18f41ac4202f2c assets\usefulresources\models\item\lumium_rod.json
 49a18a300724d1342002a8608eee492b15a01fb1 assets\usefulresources\models\item\nickel_block.json
 12a4440c8348f57ee9bf49d573ba172417a23b40 assets\usefulresources\models\item\nickel_crushed_nether_ore.json
 dfa0c34ba0dec905c01a0bb6b0b69d5e26800769 assets\usefulresources\models\item\nickel_crushed_ore.json
@@ -690,7 +703,7 @@ fabea9646274b3dc71160c98e035bf732f39d737 data\forge\tags\blocks\stone_ores\silve
 0ca5373b0a88ae564a54ab5c0f89cc4f026d0e49 data\forge\tags\blocks\stone_ores\tin.json
 24317398d40443fc45f79110741036f27ea32cbc data\forge\tags\blocks\stone_ores\uranium.json
 00fcdfab050c5315c5e8646762f13db929c2a762 data\forge\tags\blocks\stone_ores\zinc.json
-b812819d7b5ab5a3c96e89f54d73e1bc0508b771 data\forge\tags\blocks\storage_blocks.json
+83dc81bc4b0af833f746f916d1d5e7f6329ce21e data\forge\tags\blocks\storage_blocks.json
 092c2c37c9607b517145898f029ac8e4802d8509 data\forge\tags\blocks\storage_blocks\aluminum.json
 20a803d8d8d3ffb521f6c8eac0520f35eb49d466 data\forge\tags\blocks\storage_blocks\brass.json
 96b90e96a2f448358728f4fcfd66f82b8ad4ee01 data\forge\tags\blocks\storage_blocks\bronze.json
@@ -701,6 +714,7 @@ d5a6a24cdfb52625f363f343927f9dadafdb88ed data\forge\tags\blocks\storage_blocks\c
 700427696f1acbd3a9d4ede1800288f2e9da7b96 data\forge\tags\blocks\storage_blocks\invar.json
 35478aca4c0639648233a9430e069701bcdb032b data\forge\tags\blocks\storage_blocks\iridium.json
 89f759e5dc6538d294c3f3bb7644847ae0204ad5 data\forge\tags\blocks\storage_blocks\lead.json
+79a54731d18ec27d588f2a33d7e355416e3184a3 data\forge\tags\blocks\storage_blocks\lumium.json
 e87d5c659c1dfd6c6af5bede11b5b2d36a5ef6e5 data\forge\tags\blocks\storage_blocks\nickel.json
 28518db18557704111318445f9d23b2f74cc4e88 data\forge\tags\blocks\storage_blocks\platinum.json
 993cef6924fa588072772f0cd261ee65abf0ff44 data\forge\tags\blocks\storage_blocks\ruby.json
@@ -711,7 +725,7 @@ e87d5c659c1dfd6c6af5bede11b5b2d36a5ef6e5 data\forge\tags\blocks\storage_blocks\n
 a93d277c13ad5d65afc25134e592a16289e10572 data\forge\tags\blocks\storage_blocks\tin.json
 e99c7692be9bc2acd346141c7170bf077bfaf64f data\forge\tags\blocks\storage_blocks\uranium.json
 eb36de4d963eb4b300746761f6a87c8668b38cf1 data\forge\tags\blocks\storage_blocks\zinc.json
-5f42a8850ca086da8535457db249811d6a716208 data\forge\tags\fluids\moltens.json
+8171ab70ccf6aef2f5c86045ec6747c8d26abc2c data\forge\tags\fluids\moltens.json
 28d0d0266c686a56d37e8af40875d02b8c6a9bcf data\forge\tags\fluids\moltens\aluminum.json
 4e89a27212e4b70399a719bbb60c623e6175b057 data\forge\tags\fluids\moltens\brass.json
 f0844f8bed47a997e5651f1e20ab8c591ad10c86 data\forge\tags\fluids\moltens\bronze.json
@@ -728,6 +742,7 @@ d9444ba55ef3f242919f9b1929be30734e6e5d24 data\forge\tags\fluids\moltens\iridium.
 1cb011b65266803839911915e2f7b903d6cd0940 data\forge\tags\fluids\moltens\iron.json
 d00183b9fc6c4d27198aeefe9b8c2f68694425d3 data\forge\tags\fluids\moltens\lapis.json
 ce12810ed241796d5742dbc31e3fc06e1401e05b data\forge\tags\fluids\moltens\lead.json
+4cc45812ec11bfa1b1c29887f4198087d79a2521 data\forge\tags\fluids\moltens\lumium.json
 402f43de5ab3bcec3d0567bf225db9ee30b28887 data\forge\tags\fluids\moltens\nickel.json
 63fe094ad261c33e8459447c233d70501bb9983f data\forge\tags\fluids\moltens\platinum.json
 e05b8e24c2aa2be54502eb7ba6f87d0bb9f13b22 data\forge\tags\fluids\moltens\quartz.json
@@ -852,7 +867,7 @@ e60d66c3f12528d6aa6389b778495d98d041b128 data\forge\tags\items\crushed_stone_ore
 d3d7efd73af11b3821f934ef3880ae21ddc4feb6 data\forge\tags\items\crushed_stone_ores\tin.json
 7e03c5fb01e6c817c306943830e6f4f620aa42a5 data\forge\tags\items\crushed_stone_ores\uranium.json
 a5024cbe6a2329bf67179cf88bf7e85615496b96 data\forge\tags\items\crushed_stone_ores\zinc.json
-96b14c439dd8a333999156caba96ead030ef3ab6 data\forge\tags\items\dense_plates.json
+2492da5b1e06819374e0a3cce930a09ab46843ab data\forge\tags\items\dense_plates.json
 f9928118f52c3f9d7cd64b94d25790760139613f data\forge\tags\items\dense_plates\aluminum.json
 ffbcfc1c68d7a7b1cb508996a7180f07e796a3cb data\forge\tags\items\dense_plates\brass.json
 26358722d10c65d7057a5a9a7197a535692feca6 data\forge\tags\items\dense_plates\bronze.json
@@ -869,6 +884,7 @@ e73ad6e8c2cef823525dc009a6a2ed4db89d88b6 data\forge\tags\items\dense_plates\inva
 b6577708cba4e04eaabef9086493bda592d7c030 data\forge\tags\items\dense_plates\iron.json
 c7ab7fd6decda20e3425c1af51f192bfd8c898fe data\forge\tags\items\dense_plates\lapis.json
 d5ac58aaff611eb03fc897a3f413aefb5bbf4c35 data\forge\tags\items\dense_plates\lead.json
+a542346fa9960db0207d7609f25f589e2f3934cc data\forge\tags\items\dense_plates\lumium.json
 b84fadf24b34ca522b0416aea906eec8b28b45d5 data\forge\tags\items\dense_plates\nickel.json
 8b586de29a8cba253324f2371f51ebe83cbf764d data\forge\tags\items\dense_plates\platinum.json
 447b30472febad579257acd90a8a5c97c8dc66bc data\forge\tags\items\dense_plates\quartz.json
@@ -880,7 +896,7 @@ c5971132e549880dcc9b2313657cc0e740eed243 data\forge\tags\items\dense_plates\silv
 e41722b67e2dbcbc4e96c598e9c009090842cade data\forge\tags\items\dense_plates\tin.json
 68016d6b67d35837555a0b264bfcfd70b814fc09 data\forge\tags\items\dense_plates\uranium.json
 e2a60d98155f520e23894e713e928cd7747b98b3 data\forge\tags\items\dense_plates\zinc.json
-4402014d2ba704a6d145e2bcf6a2692772545ed1 data\forge\tags\items\dusts.json
+7a584a4ae9596b7a99ef60e4d40626fd99c04b2e data\forge\tags\items\dusts.json
 96d96daed65eb12d4b05a5d2308a1e1c29fac366 data\forge\tags\items\dusts\aluminum.json
 7abbcde13f8f23531550a39770005ff8a843b672 data\forge\tags\items\dusts\brass.json
 23975bd0748d5be6a5f6e35d68c994414d9aefdd data\forge\tags\items\dusts\bronze.json
@@ -897,6 +913,7 @@ ce796b8df9059357f8561066a48fc2e0a683ef0e data\forge\tags\items\dusts\invar.json
 55fb239f95caf8a73acd20d7ba0bccb0683976e8 data\forge\tags\items\dusts\iron.json
 56bd7ef4dc1172a4cad4261bf3679a20e2be04ac data\forge\tags\items\dusts\lapis.json
 e15721d6e4e7e0dc0bc80350965783633de1a69b data\forge\tags\items\dusts\lead.json
+6294f7b8f5023e69343bbea481da1e984a293458 data\forge\tags\items\dusts\lumium.json
 be1ce29a8c6d00910d839acbe5810bd0e527c247 data\forge\tags\items\dusts\nickel.json
 b2bc853dc84deb937619aed50408648566f420b7 data\forge\tags\items\dusts\platinum.json
 c44840aaeaa4159ceaa917cc9348df70bc6da397 data\forge\tags\items\dusts\quartz.json
@@ -908,7 +925,7 @@ ecbd15ddacf5740c3e91273a641485dbe156c977 data\forge\tags\items\dusts\silver.json
 014ca0b140e9a0645dd737f04c55c9ed6dffafc3 data\forge\tags\items\dusts\tin.json
 5a196c133c2038f98924f5b2784f7d16045b6d98 data\forge\tags\items\dusts\uranium.json
 70fd6a92b1bf6a6f8e451640da4da509ed7e341d data\forge\tags\items\dusts\zinc.json
-89348c7a926906ad356bae2eed4b7411bb520ba4 data\forge\tags\items\gears.json
+db50cc23d553055462301b570431f14cfe3949b7 data\forge\tags\items\gears.json
 592edd8101e6ec54b96d0ee19207933a0887e99b data\forge\tags\items\gears\aluminum.json
 2293c0cfae714a64580ed20f9f20d43fad7beaad data\forge\tags\items\gears\brass.json
 9e860d9691e6ede5fec18acac0680f9cdf841538 data\forge\tags\items\gears\bronze.json
@@ -925,6 +942,7 @@ bde35290dae2f18491eba81bc7c3149acca9ce89 data\forge\tags\items\gears\dark_steel.
 e444355c4a3656a4837e05ec4d0ca18a51664348 data\forge\tags\items\gears\iron.json
 4025f43a115846ad99c79a2f98e286fa6705d3c0 data\forge\tags\items\gears\lapis.json
 1e4ed1bc007f7e203048433f3cb3751ccb8bdc1f data\forge\tags\items\gears\lead.json
+7a3298f4dffcbc7931884e76f8514a3f8cfe3460 data\forge\tags\items\gears\lumium.json
 71461ae96aad6ab2e6f99601a3a6343a50b2476a data\forge\tags\items\gears\nickel.json
 733b69a41a2830620e21195b4b5c25686b9b4b69 data\forge\tags\items\gears\platinum.json
 1dbe0eab812749c10692180fcec5a78043aa822d data\forge\tags\items\gears\quartz.json
@@ -952,7 +970,7 @@ f10d427a61b641df979a8232650b6292a7df00d3 data\forge\tags\items\horse_armors\quar
 2234557f33d31b9fbea4063e1985307da263a34e data\forge\tags\items\horse_armors\sapphire.json
 2583fc22e9aa806d53fabf1d6df3bb6884438583 data\forge\tags\items\horse_armors\silver.json
 3e3b3a988be8985627e47ba4f07af64acb1632a6 data\forge\tags\items\horse_armors\tin.json
-12d96758dc0d9415ac633b36e3e8aedda24dfd31 data\forge\tags\items\ingots.json
+45fc99288b7985226ea1d8ce69d1c6ad739c63ef data\forge\tags\items\ingots.json
 0b0298ee116a8466fcc67bd714c92a71c86cb84d data\forge\tags\items\ingots\aluminum.json
 0783d9533df79b6d8322aca7e81e9c3dc2379f1a data\forge\tags\items\ingots\brass.json
 c7828076b39228b00afb76b5ecb0817ba090ebe9 data\forge\tags\items\ingots\bronze.json
@@ -963,6 +981,7 @@ b33a877d769f216df220d1d593d6c0b197800129 data\forge\tags\items\ingots\electrum.j
 130a9f4767be1aebbbe44d6760c6f4bf213c78dd data\forge\tags\items\ingots\invar.json
 8945f2fb5fce3ffd644ed3e7e7df5635a0a0c07a data\forge\tags\items\ingots\iridium.json
 635957a75d8697a4c6de9037788efac05705f554 data\forge\tags\items\ingots\lead.json
+e965dda48dd46212c9d8cee98c148221801eff07 data\forge\tags\items\ingots\lumium.json
 9fa6b4675255dcbe17e1789f7194848299ef54c6 data\forge\tags\items\ingots\nickel.json
 082d2ed2b9c7471a3a9f351b194c3e815be0e220 data\forge\tags\items\ingots\platinum.json
 e08cf1ac628244a61ee91477b6cc36e8ef25ae1b data\forge\tags\items\ingots\signalum.json
@@ -971,7 +990,7 @@ e08cf1ac628244a61ee91477b6cc36e8ef25ae1b data\forge\tags\items\ingots\signalum.j
 85e100ac78fc0f5ba66c98286307cedd7f54c88a data\forge\tags\items\ingots\tin.json
 ea68cb22ea2c1fd63f066b2875f0016ff6bca4d0 data\forge\tags\items\ingots\uranium.json
 204bab8004a2fa2c38650492ad8980c2aa45613f data\forge\tags\items\ingots\zinc.json
-e3f33c749708c5f6e611f2b1aa96a3436438ba5b data\forge\tags\items\molten_buckets.json
+47740f6455abb4c9c2c27f7fdfab2df05596b371 data\forge\tags\items\molten_buckets.json
 20893b904d53526c91601945e726a8448f6ea64f data\forge\tags\items\molten_buckets\aluminum.json
 82d41218dc1131fedd818f0c0061f6d1e2200110 data\forge\tags\items\molten_buckets\brass.json
 165831a57e3102817e4eb41b9dc00b6d45a543b7 data\forge\tags\items\molten_buckets\bronze.json
@@ -988,6 +1007,7 @@ e5f4a1954c900b186e5ccff8c5eb395d462d49e1 data\forge\tags\items\molten_buckets\in
 2ffc9228864bd6e119c754fc4f769ad1c15128a3 data\forge\tags\items\molten_buckets\iron.json
 1a14fc0d6cbcf508f458e847eef33a223839e139 data\forge\tags\items\molten_buckets\lapis.json
 2d798ca0655b0e71ef3e7c70fc148ffe96d51f6d data\forge\tags\items\molten_buckets\lead.json
+8af1a1af305d0c794f5a9b90e328ae45d7e68744 data\forge\tags\items\molten_buckets\lumium.json
 cd6043bba2477eb384de2e2e9b6098feaff70600 data\forge\tags\items\molten_buckets\nickel.json
 f80793e3fedd441cf31db5689284a9e8d7c77010 data\forge\tags\items\molten_buckets\platinum.json
 fe08ed85501a849a0130a3c87ac5309c472217c9 data\forge\tags\items\molten_buckets\quartz.json
@@ -1021,7 +1041,7 @@ b7fcc2551b9a0f8c8c81f2788b2f80ed175de92c data\forge\tags\items\nether_ores\sapph
 d70ae2d28cde3966a365e355c32257cd7d76d07d data\forge\tags\items\nether_ores\tin.json
 2145868c050620d10abbd18473edd8cbf1ad7688 data\forge\tags\items\nether_ores\uranium.json
 44ce87d9b5bb6f1c8db6e59e4e4efe20e5bbf77d data\forge\tags\items\nether_ores\zinc.json
-f6569313bfbffb6795a033c6020569257790ba70 data\forge\tags\items\nuggets.json
+8d680a822df541e2ea794926a08679c45eb1da3a data\forge\tags\items\nuggets.json
 6664c3803c4cde269fc326df228b0abb218972d2 data\forge\tags\items\nuggets\aluminum.json
 0b5c31d11bc7cd832b1f825a3d7b646de8a0951a data\forge\tags\items\nuggets\brass.json
 098962550b42596556d49871e4be477ec4dd868c data\forge\tags\items\nuggets\bronze.json
@@ -1032,6 +1052,7 @@ b35cdd2be9253ae128ebf1b7839a3fbf7a596346 data\forge\tags\items\nuggets\copper.js
 3b8a0806fb81aff54f944c5fa990fd1fff5f1e0e data\forge\tags\items\nuggets\invar.json
 97e7b459a3931231c7f435b53d5e919d746b7ba4 data\forge\tags\items\nuggets\iridium.json
 03a20339efa64f2c00e7539f915057e3b7dd9a22 data\forge\tags\items\nuggets\lead.json
+235a2feafbbd1383b7cb9c10ec471746ff780f50 data\forge\tags\items\nuggets\lumium.json
 46f8d89c808d640f8f22708125cea252f64b0789 data\forge\tags\items\nuggets\nickel.json
 d3ff2ceb2e1c4e3a1bb60683887c4c6adf8514f7 data\forge\tags\items\nuggets\platinum.json
 7c26df973890ca5a467b1c3553d6961d6df975bf data\forge\tags\items\nuggets\signalum.json
@@ -1070,7 +1091,7 @@ b470a11616923500c110eef338b30e6799deb38e data\forge\tags\items\pieces\diamond.js
 747d0986207cf9700604e0b3acbd3d043950e9a5 data\forge\tags\items\pieces\redstone.json
 ab1d127db8d25fada907028bf6f90c66b12ca557 data\forge\tags\items\pieces\ruby.json
 144e5fa881f43b497d764f7a29633ee727982248 data\forge\tags\items\pieces\sapphire.json
-7aba91797f822c325b29e50faa31541f73c0304d data\forge\tags\items\plates.json
+faf618f9b0e6c372df6efaac4c79f67dcb363241 data\forge\tags\items\plates.json
 e2835a190a9b04854390bb4fa287c44873d77c30 data\forge\tags\items\plates\aluminum.json
 7fc6fedd0b8c4cefa4a90b88d15a234d70b6714b data\forge\tags\items\plates\brass.json
 e9111d456bb1d51f59adf023418f68f44f1ae0b7 data\forge\tags\items\plates\bronze.json
@@ -1087,6 +1108,7 @@ a908f64f042152aae293807eeed7a8b3c354120c data\forge\tags\items\plates\invar.json
 bceede1811b5eb54e748fe8b9e263b248617fe0c data\forge\tags\items\plates\iron.json
 19b976f5274da9eb9ec8cf98c4d6a877862ba058 data\forge\tags\items\plates\lapis.json
 399e92d6736d46e1b7c9428f854b4316000f4ab2 data\forge\tags\items\plates\lead.json
+f5c956c2a92c79389b5dc36c055b7bc51a5887f4 data\forge\tags\items\plates\lumium.json
 62c06a2246176786ed48a9292f079c1a47292035 data\forge\tags\items\plates\nickel.json
 4900088d109100ee199abbcc949d65a56c480a76 data\forge\tags\items\plates\platinum.json
 f36796cbcbfb1e7e543e40134363a754d3ef3ca0 data\forge\tags\items\plates\quartz.json
@@ -1119,7 +1141,7 @@ bc3c89ea89d5d0b65bc55fab683ebe0622ecfaf3 data\forge\tags\items\pure_crushed_ores
 90446a80212ee55c0dd1870f71da2b05874765ec data\forge\tags\items\pure_crushed_ores\tin.json
 afe2ccf3b1bab859612e2a2bd619b05e5fb918f9 data\forge\tags\items\pure_crushed_ores\uranium.json
 0fd23f1476826b2e29a9f073fc53968572e766a3 data\forge\tags\items\pure_crushed_ores\zinc.json
-0f40ccbdafb0325f8c643b278beea01812caf53b data\forge\tags\items\rods.json
+e3468083ca5433872fd23db70a68f565f5f70c72 data\forge\tags\items\rods.json
 b06c9fea526f0193f828e2375f361682eb01698a data\forge\tags\items\rods\aluminum.json
 278ce1e372b067c9f1609414ca08e884650fc5ad data\forge\tags\items\rods\brass.json
 bdfbe1f5d79a01c5f815ed1d9f79d9ef68421a14 data\forge\tags\items\rods\bronze.json
@@ -1136,6 +1158,7 @@ f25e58359e4bea61c79214b339da4d1b9093fc8e data\forge\tags\items\rods\invar.json
 fa3ba832f084b1357e47c55ef13577d74965647d data\forge\tags\items\rods\iron.json
 223163cc44d92d748ac0cf5b8b108826ea97d5e8 data\forge\tags\items\rods\lapis.json
 7e34e1e39af806e3f612c1e4c8f66a25dde54f87 data\forge\tags\items\rods\lead.json
+934feeea031cd095c036d6b8689092023dc8b91c data\forge\tags\items\rods\lumium.json
 f1cfa2861d5331d9e8b3264f5f28116b37d6b395 data\forge\tags\items\rods\nickel.json
 db863a96238ae7999bf718c4f02dd4a8414ef7ba data\forge\tags\items\rods\platinum.json
 ad2a6936e19b8ba59d5685dcc428c14a698eaad5 data\forge\tags\items\rods\quartz.json
@@ -1168,7 +1191,7 @@ fabea9646274b3dc71160c98e035bf732f39d737 data\forge\tags\items\stone_ores\silver
 0ca5373b0a88ae564a54ab5c0f89cc4f026d0e49 data\forge\tags\items\stone_ores\tin.json
 24317398d40443fc45f79110741036f27ea32cbc data\forge\tags\items\stone_ores\uranium.json
 00fcdfab050c5315c5e8646762f13db929c2a762 data\forge\tags\items\stone_ores\zinc.json
-b812819d7b5ab5a3c96e89f54d73e1bc0508b771 data\forge\tags\items\storage_blocks.json
+83dc81bc4b0af833f746f916d1d5e7f6329ce21e data\forge\tags\items\storage_blocks.json
 092c2c37c9607b517145898f029ac8e4802d8509 data\forge\tags\items\storage_blocks\aluminum.json
 20a803d8d8d3ffb521f6c8eac0520f35eb49d466 data\forge\tags\items\storage_blocks\brass.json
 96b90e96a2f448358728f4fcfd66f82b8ad4ee01 data\forge\tags\items\storage_blocks\bronze.json
@@ -1179,6 +1202,7 @@ d5a6a24cdfb52625f363f343927f9dadafdb88ed data\forge\tags\items\storage_blocks\co
 700427696f1acbd3a9d4ede1800288f2e9da7b96 data\forge\tags\items\storage_blocks\invar.json
 35478aca4c0639648233a9430e069701bcdb032b data\forge\tags\items\storage_blocks\iridium.json
 89f759e5dc6538d294c3f3bb7644847ae0204ad5 data\forge\tags\items\storage_blocks\lead.json
+79a54731d18ec27d588f2a33d7e355416e3184a3 data\forge\tags\items\storage_blocks\lumium.json
 e87d5c659c1dfd6c6af5bede11b5b2d36a5ef6e5 data\forge\tags\items\storage_blocks\nickel.json
 28518db18557704111318445f9d23b2f74cc4e88 data\forge\tags\items\storage_blocks\platinum.json
 993cef6924fa588072772f0cd261ee65abf0ff44 data\forge\tags\items\storage_blocks\ruby.json
@@ -1411,6 +1435,12 @@ ddded2788e7d9357494c5b5e51a3c832a84898a3 data\usefulresources\advancements\recip
 236d02ddc131f67fe97de839d84f87a577140a8b data\usefulresources\advancements\recipes\lead\crafting\sword_from_ingot.json
 04551424018c34cdf0ed26ece4d66c5f9d06a593 data\usefulresources\advancements\recipes\lead\smelting\ingot_from_dust.json
 ccbcae460d461a24744737cdc4b30accf5a24c31 data\usefulresources\advancements\recipes\lead\smelting\ingot_from_ore.json
+12fb716619e312d6b8db88962e67593a9c5e2d2e data\usefulresources\advancements\recipes\lumium\blasting\ingot_from_dust.json
+0209967647f5e3b6e1a3adf781bc0691b31e4dbb data\usefulresources\advancements\recipes\lumium\crafting\block_from_ingot.json
+51cf6a01ceef74737b14f1ecc180891698e315c2 data\usefulresources\advancements\recipes\lumium\crafting\ingot_from_block.json
+7e560389e27ed0b50efb9b94d48571fa4a57d32a data\usefulresources\advancements\recipes\lumium\crafting\ingot_from_nugget.json
+2602cfc4c8106da118633846a3b5b027d7384663 data\usefulresources\advancements\recipes\lumium\crafting\nugget_from_ingot.json
+c6acff8ba204cdcb8b6d8d1971259f8aa77b6298 data\usefulresources\advancements\recipes\lumium\smelting\ingot_from_dust.json
 9057f8a1fbb3eea688217c5f4dcba158a8b098bf data\usefulresources\advancements\recipes\nickel\blasting\ingot_from_dust.json
 1c11075315d8acd003c09408faf958860ac8135f data\usefulresources\advancements\recipes\nickel\blasting\ingot_from_ore.json
 130cf542a02618847fdb9c27c5a60089bcc3094e data\usefulresources\advancements\recipes\nickel\crafting\block_from_ingot.json
@@ -1575,6 +1605,7 @@ ae6a8652b2b66d1866088b7c823e0ff9a1195df3 data\usefulresources\loot_tables\blocks
 8cbb303fc1922f1f99996486c66d8c2221cc4d4e data\usefulresources\loot_tables\blocks\lead_block.json
 7229e0dc1ece61cf695e51252ec6a615404814c4 data\usefulresources\loot_tables\blocks\lead_nether_ore.json
 a757762a23c140c4a09fa9d7209f3507706e0e52 data\usefulresources\loot_tables\blocks\lead_ore.json
+e0d48771b481cc23f18c5a2bb07944a92281a350 data\usefulresources\loot_tables\blocks\lumium_block.json
 501d3c4679c5ba4a9b2b0f61c47891c20897fe08 data\usefulresources\loot_tables\blocks\nickel_block.json
 56ed4b8a4244d693e7cbb1fd70f84123e38a1ffb data\usefulresources\loot_tables\blocks\nickel_nether_ore.json
 57e030d6fed5852a83c3a6756367417c752675b4 data\usefulresources\loot_tables\blocks\nickel_ore.json
@@ -1748,6 +1779,12 @@ cd76683d65ec713ebaaedf00699366cad8af6af0 data\usefulresources\recipes\lead\craft
 92707cadf6b1172f1c3c3dded16f4c2fffbe0a49 data\usefulresources\recipes\lead\crafting\sword_from_ingot.json
 add9ffa3ef50adc3a262e4fa6b2abd3f3d15bdfe data\usefulresources\recipes\lead\smelting\ingot_from_dust.json
 ee945851505552f783d97b27bf8a23c10f87d2b2 data\usefulresources\recipes\lead\smelting\ingot_from_ore.json
+99254c3a46d6986358cf66e3bb10bc2cba889e1c data\usefulresources\recipes\lumium\blasting\ingot_from_dust.json
+2b09ff544059f7a8dedfe4ea86a2d7b193ff9484 data\usefulresources\recipes\lumium\crafting\block_from_ingot.json
+93ed7084bf30d415afd9808b41b2921656e81069 data\usefulresources\recipes\lumium\crafting\ingot_from_block.json
+5cefdf29a5838c04686d373c5e537f9d55de518c data\usefulresources\recipes\lumium\crafting\ingot_from_nugget.json
+18a6d6c9f11bd9f92347fc81437aa6825531bf1f data\usefulresources\recipes\lumium\crafting\nugget_from_ingot.json
+4779d7f6fcdc2e8f2b1d5c264216f6c0d0516dee data\usefulresources\recipes\lumium\smelting\ingot_from_dust.json
 a85deb8d238b0c124af9f4e866da3da2772e0ba5 data\usefulresources\recipes\nickel\blasting\ingot_from_dust.json
 5ccabfa20c74139549688b71c5b502701511158d data\usefulresources\recipes\nickel\blasting\ingot_from_ore.json
 71098036f2c43cc12db162dae7b2f75f55162fe3 data\usefulresources\recipes\nickel\crafting\block_from_ingot.json

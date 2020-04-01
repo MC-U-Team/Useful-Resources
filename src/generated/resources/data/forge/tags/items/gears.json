@@ -27,6 +27,7 @@
 		"#forge:gears/electrum",
 		"#forge:gears/invar",
 		"#forge:gears/constantan",
-		"#forge:gears/signalum"
+		"#forge:gears/signalum",
+		"#forge:gears/lumium"
 	]
 }

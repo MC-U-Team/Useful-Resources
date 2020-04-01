@@ -28,6 +28,7 @@
 		"#forge:molten_buckets/electrum",
 		"#forge:molten_buckets/invar",
 		"#forge:molten_buckets/constantan",
-		"#forge:molten_buckets/signalum"
+		"#forge:molten_buckets/signalum",
+		"#forge:molten_buckets/lumium"
 	]
 }
