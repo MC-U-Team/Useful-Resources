@@ -205,6 +205,10 @@ public class Resources {
 			.addIngredient(of(() -> STEEL, INGOT, 1)) //
 			.addIngredient(of(() -> Blocks.OBSIDIAN, 1));
 	
+	public static final BasicAlloyResource ELECTRUM = new BasicAlloyResource("electrum", 0xf0e090, Rarity.COMMON, 2, 3, 2) //
+			.addIngredient(of(() -> GOLD, INGOT, 1)) //
+			.addIngredient(of(() -> SILVER, INGOT, 1));
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
