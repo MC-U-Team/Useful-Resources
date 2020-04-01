@@ -264,6 +264,7 @@ public class Resources {
 		ResourceRegistry.register(BRONZE);
 		ResourceRegistry.register(STEEL);
 		ResourceRegistry.register(DARK_STEEL);
+		ResourceRegistry.register(ELECTRUM);
 	}
 	
 }
