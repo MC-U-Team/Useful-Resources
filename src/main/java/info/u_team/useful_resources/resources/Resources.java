@@ -209,6 +209,10 @@ public class Resources {
 			.addIngredient(of(() -> GOLD, INGOT, 1)) //
 			.addIngredient(of(() -> SILVER, INGOT, 1));
 	
+	public static final BasicAlloyResource INVAR = new BasicAlloyResource("invar", 0xbec9b3, Rarity.COMMON, 2, 3, 3) //
+			.addIngredient(of(() -> NICKEL, INGOT, 1)) //
+			.addIngredient(of(() -> IRON, INGOT, 2));
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
