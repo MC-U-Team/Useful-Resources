@@ -189,19 +189,19 @@ public class Resources {
 	
 	// ALLOY
 	
-	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3) //
+	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3, 4) //
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> ZINC, INGOT, 1));
 	
-	public static final BasicAlloyResource BRONZE = new BasicAlloyResource("bronze", 0xb56b16, Rarity.COMMON, 2, 3) //
+	public static final BasicAlloyResource BRONZE = new BasicAlloyResource("bronze", 0xb56b16, Rarity.COMMON, 2, 3, 4) //
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> TIN, INGOT, 1));
 	
-	public static final BasicAlloyResource STEEL = new BasicAlloyResource("steel", 0xbfbfbf, Rarity.COMMON, 2, 5) //
+	public static final BasicAlloyResource STEEL = new BasicAlloyResource("steel", 0xbfbfbf, Rarity.COMMON, 2, 5, 1) //
 			.addIngredient(of(() -> IRON, INGOT, 1)) //
 			.addIngredient(of(() -> COAL, DUST, 4));
 	
-	public static final BasicAlloyResource DARK_STEEL = new BasicAlloyResource("dark_steel", 0x616161, Rarity.COMMON, 2, 6) //
+	public static final BasicAlloyResource DARK_STEEL = new BasicAlloyResource("dark_steel", 0x616161, Rarity.COMMON, 2, 6, 1) //
 			.addIngredient(of(() -> STEEL, INGOT, 1)) //
 			.addIngredient(of(() -> Blocks.OBSIDIAN, 1));
 	
