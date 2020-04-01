@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"tag": "forge:ores/tanzanite"
+	},
+	"result": "usefulresources:tanzanite_gem",
+	"experience": 1.0,
+	"cookingtime": 200
+}

@@ -13,6 +13,7 @@
 		"#forge:tools/swords/ruby",
 		"#forge:tools/swords/sapphire",
 		"#forge:tools/swords/malachite",
-		"#forge:tools/swords/peridot"
+		"#forge:tools/swords/peridot",
+		"#forge:tools/swords/tanzanite"
 	]
 }

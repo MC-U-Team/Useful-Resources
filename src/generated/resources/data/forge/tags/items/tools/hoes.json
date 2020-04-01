@@ -13,6 +13,7 @@
 		"#forge:tools/hoes/ruby",
 		"#forge:tools/hoes/sapphire",
 		"#forge:tools/hoes/malachite",
-		"#forge:tools/hoes/peridot"
+		"#forge:tools/hoes/peridot",
+		"#forge:tools/hoes/tanzanite"
 	]
 }

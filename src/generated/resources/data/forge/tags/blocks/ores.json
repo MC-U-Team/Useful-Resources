@@ -22,6 +22,7 @@
 		"#forge:ores/ruby",
 		"#forge:ores/sapphire",
 		"#forge:ores/malachite",
-		"#forge:ores/peridot"
+		"#forge:ores/peridot",
+		"#forge:ores/tanzanite"
 	]
 }
