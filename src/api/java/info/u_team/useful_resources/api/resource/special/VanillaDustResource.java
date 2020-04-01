@@ -8,15 +8,16 @@ import info.u_team.useful_resources.api.resource.BasicResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.Rarity;
+import net.minecraft.util.math.MathHelper;
 
 public class VanillaDustResource extends BasicResource<VanillaDustResource> {
 	
-	public VanillaDustResource(String name, int color, int harvestLevel, float hardness, float resistance) {
+	public VanillaDustResource(String name, int color, int harvestLevel, float hardness, float resistance, int minXp, int maxXp) {
 		super(name, color, ItemResourceType.DUST, Rarity.COMMON, ResourceType.DUST);
 		
 		setProperty("ingotModel", true);
 		
-		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, hardness, resistance));
+		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, hardness, resistance, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
