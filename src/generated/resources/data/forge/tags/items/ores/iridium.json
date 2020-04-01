@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/iridium",
+		"#forge:nether_ores/iridium"
+	]
+}
