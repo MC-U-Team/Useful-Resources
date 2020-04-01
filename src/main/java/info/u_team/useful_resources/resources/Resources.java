@@ -265,6 +265,7 @@ public class Resources {
 		ResourceRegistry.register(RUBY);
 		ResourceRegistry.register(SAPPHIRE);
 		ResourceRegistry.register(MALACHITE);
+		ResourceRegistry.register(PERIDOT);
 		
 		// ALLOY
 		ResourceRegistry.register(BRASS);
