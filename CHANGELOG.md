@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.15.2-1.0.0.14] - 2020-04-01
+### Changed
+ - Fix core mod transformer name
+
 ## [1.15.2-1.0.0.13] - 2020-04-01
 ### Changed
  - Check if jar is signed now
