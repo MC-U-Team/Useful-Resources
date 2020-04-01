@@ -191,7 +191,7 @@ public class Resources {
 	
 	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x2b7851);
 	
-	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x363c85);
+	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x803dba);
 	
 	// ALLOY
 	
