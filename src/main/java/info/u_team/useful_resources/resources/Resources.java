@@ -193,9 +193,13 @@ public class Resources {
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> TIN, INGOT, 1));
 	
-	public static final BasicAlloyResource STEEL = new BasicAlloyResource("steel", 0xbfbfbf, Rarity.COMMON, 2, 3) //
+	public static final BasicAlloyResource STEEL = new BasicAlloyResource("steel", 0xbfbfbf, Rarity.COMMON, 2, 5) //
 			.addIngredient(of(() -> IRON, INGOT, 1)) //
 			.addIngredient(of(() -> COAL, DUST, 4));
+	
+	public static final BasicAlloyResource DARK_STEEL = new BasicAlloyResource("dark_steel", 0x616161, Rarity.COMMON, 2, 6) //
+			.addIngredient(of(() -> STEEL, INGOT, 1)) //
+			.addIngredient(of(() -> Blocks.OBSIDIAN, 1));
 	
 	public static void register() {
 		// Vanilla
