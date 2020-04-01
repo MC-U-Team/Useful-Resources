@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.15.2-1.0.0.13] - 2020-04-01
+### Changed
+ - Check if jar is signed now
+ - Update uteamcore to 2.11.0.156
+
 ## [1.15.2-1.0.0.12] - 2020-04-01
 ### Added
  - Build to whole system from start up
