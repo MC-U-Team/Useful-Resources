@@ -189,6 +189,8 @@ public class Resources {
 	
 	public static final IResource MALACHITE = new CommonGemResource("malachite", 0x3b7a64);
 	
+	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x38703c);
+	
 	// ALLOY
 	
 	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3, 4) //
