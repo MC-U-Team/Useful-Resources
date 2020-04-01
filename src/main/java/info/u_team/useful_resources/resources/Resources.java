@@ -217,6 +217,11 @@ public class Resources {
 			.addIngredient(of(() -> NICKEL, INGOT, 1)) //
 			.addIngredient(of(() -> COPPER, INGOT, 1));
 	
+	public static final BasicAlloyResource SIGNALUM = new BasicAlloyResource("signalum", 0xc96c2e, Rarity.COMMON, 2, 3, 4) //
+			.addIngredient(of(() -> COPPER, INGOT, 3)) //
+			.addIngredient(of(() -> SILVER, INGOT, 1)) //
+			.addIngredient(of(() -> REDSTONE, DUST, 10));
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
