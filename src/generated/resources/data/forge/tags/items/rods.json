@@ -21,6 +21,7 @@
 		"#forge:rods/ruby",
 		"#forge:rods/sapphire",
 		"#forge:rods/brass",
-		"#forge:rods/bronze"
+		"#forge:rods/bronze",
+		"#forge:rods/steel"
 	]
 }

@@ -21,6 +21,7 @@
 		"#forge:gears/ruby",
 		"#forge:gears/sapphire",
 		"#forge:gears/brass",
-		"#forge:gears/bronze"
+		"#forge:gears/bronze",
+		"#forge:gears/steel"
 	]
 }

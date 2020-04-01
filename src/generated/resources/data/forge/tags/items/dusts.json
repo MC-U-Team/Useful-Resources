@@ -21,6 +21,7 @@
 		"#forge:dusts/ruby",
 		"#forge:dusts/sapphire",
 		"#forge:dusts/brass",
-		"#forge:dusts/bronze"
+		"#forge:dusts/bronze",
+		"#forge:dusts/steel"
 	]
 }

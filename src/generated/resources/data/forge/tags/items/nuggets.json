@@ -12,6 +12,7 @@
 		"#forge:nuggets/zinc",
 		"#forge:nuggets/uranium",
 		"#forge:nuggets/brass",
-		"#forge:nuggets/bronze"
+		"#forge:nuggets/bronze",
+		"#forge:nuggets/steel"
 	]
 }

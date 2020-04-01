@@ -21,6 +21,7 @@
 		"#forge:plates/ruby",
 		"#forge:plates/sapphire",
 		"#forge:plates/brass",
-		"#forge:plates/bronze"
+		"#forge:plates/bronze",
+		"#forge:plates/steel"
 	]
 }

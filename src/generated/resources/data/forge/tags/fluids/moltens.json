@@ -22,6 +22,7 @@
 		"#forge:moltens/ruby",
 		"#forge:moltens/sapphire",
 		"#forge:moltens/brass",
-		"#forge:moltens/bronze"
+		"#forge:moltens/bronze",
+		"#forge:moltens/steel"
 	]
 }

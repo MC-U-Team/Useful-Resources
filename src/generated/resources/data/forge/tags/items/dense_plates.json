@@ -21,6 +21,7 @@
 		"#forge:dense_plates/ruby",
 		"#forge:dense_plates/sapphire",
 		"#forge:dense_plates/brass",
-		"#forge:dense_plates/bronze"
+		"#forge:dense_plates/bronze",
+		"#forge:dense_plates/steel"
 	]
 }
