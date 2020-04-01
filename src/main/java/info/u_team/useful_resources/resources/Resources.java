@@ -264,6 +264,7 @@ public class Resources {
 		// GEM
 		ResourceRegistry.register(RUBY);
 		ResourceRegistry.register(SAPPHIRE);
+		ResourceRegistry.register(MALACHITE);
 		
 		// ALLOY
 		ResourceRegistry.register(BRASS);
