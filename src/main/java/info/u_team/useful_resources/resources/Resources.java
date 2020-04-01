@@ -193,6 +193,10 @@ public class Resources {
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> TIN, INGOT, 1));
 	
+	public static final BasicAlloyResource STEEL = new BasicAlloyResource("steel", 0xbfbfbf, Rarity.COMMON, 2, 3) //
+			.addIngredient(of(() -> IRON, INGOT, 1)) //
+			.addIngredient(of(() -> COAL, DUST, 4));
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
