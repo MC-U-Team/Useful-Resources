@@ -217,17 +217,17 @@ public class Resources {
 			.addIngredient(of(() -> NICKEL, INGOT, 1)) //
 			.addIngredient(of(() -> COPPER, INGOT, 1));
 	
-	public static final BasicAlloyResource SIGNALUM = new BasicAlloyResource("signalum", 0xc96c2e, Rarity.COMMON, 2, 3, 4) //
+	public static final BasicAlloyResource SIGNALUM = new BasicAlloyResource("signalum", 0xc96c2e, Rarity.UNCOMMON, 2, 3, 4) //
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> SILVER, INGOT, 1)) //
 			.addIngredient(of(() -> REDSTONE, DUST, 10));
 	
-	public static final BasicAlloyResource LUMIUM = new BasicAlloyResource("lumium", 0xedde93, Rarity.COMMON, 2, 3, 4) //
+	public static final BasicAlloyResource LUMIUM = new BasicAlloyResource("lumium", 0xedde93, Rarity.UNCOMMON, 2, 3, 4) //
 			.addIngredient(of(() -> TIN, INGOT, 3)) //
 			.addIngredient(of(() -> SILVER, INGOT, 1)) //
 			.addIngredient(of(() -> Items.GLOWSTONE_DUST, 4));
 	
-	public static final BasicAlloyResource ENDERIUM = new BasicAlloyResource("enderium", 0x0d696e, Rarity.COMMON, 2, 3, 4) //
+	public static final BasicAlloyResource ENDERIUM = new BasicAlloyResource("enderium", 0x0d696e, Rarity.RARE, 2, 3, 4) //
 			.addIngredient(of(() -> LEAD, INGOT, 3)) //
 			.addIngredient(of(() -> PLATINUM, INGOT, 1)) //
 			.addIngredient(of(() -> Items.ENDER_PEARL, 4));
