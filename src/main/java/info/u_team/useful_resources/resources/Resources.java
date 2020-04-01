@@ -213,6 +213,10 @@ public class Resources {
 			.addIngredient(of(() -> NICKEL, INGOT, 1)) //
 			.addIngredient(of(() -> IRON, INGOT, 2));
 	
+	public static final BasicAlloyResource CONSTANTAN = new BasicAlloyResource("constantan", 0xe0bd89, Rarity.COMMON, 2, 3, 2) //
+			.addIngredient(of(() -> NICKEL, INGOT, 1)) //
+			.addIngredient(of(() -> COPPER, INGOT, 1));
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
