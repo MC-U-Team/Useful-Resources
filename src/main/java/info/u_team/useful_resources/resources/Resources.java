@@ -235,6 +235,7 @@ public class Resources {
 		// ALLOY
 		ResourceRegistry.register(BRASS);
 		ResourceRegistry.register(BRONZE);
+		ResourceRegistry.register(STEEL);
 	}
 	
 }
