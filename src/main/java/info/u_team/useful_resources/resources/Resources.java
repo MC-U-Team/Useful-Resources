@@ -187,9 +187,9 @@ public class Resources {
 	
 	public static final IResource SAPPHIRE = new CommonGemResource("sapphire", 0x1023b0);
 	
-	public static final IResource MALACHITE = new CommonGemResource("malachite", 0x4f8c2b);
+	public static final IResource MALACHITE = new CommonGemResource("malachite", 0x258f7f);
 	
-	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x2b7851);
+	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x4f8c2b);
 	
 	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x803dba);
 	
