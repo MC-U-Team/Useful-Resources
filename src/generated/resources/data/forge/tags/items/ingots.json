@@ -19,6 +19,7 @@
 		"#forge:ingots/invar",
 		"#forge:ingots/constantan",
 		"#forge:ingots/signalum",
-		"#forge:ingots/lumium"
+		"#forge:ingots/lumium",
+		"#forge:ingots/enderium"
 	]
 }

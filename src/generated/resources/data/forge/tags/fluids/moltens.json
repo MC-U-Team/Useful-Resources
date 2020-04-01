@@ -29,6 +29,7 @@
 		"#forge:moltens/invar",
 		"#forge:moltens/constantan",
 		"#forge:moltens/signalum",
-		"#forge:moltens/lumium"
+		"#forge:moltens/lumium",
+		"#forge:moltens/enderium"
 	]
 }

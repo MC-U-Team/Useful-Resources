@@ -28,6 +28,7 @@
 		"#forge:rods/invar",
 		"#forge:rods/constantan",
 		"#forge:rods/signalum",
-		"#forge:rods/lumium"
+		"#forge:rods/lumium",
+		"#forge:rods/enderium"
 	]
 }

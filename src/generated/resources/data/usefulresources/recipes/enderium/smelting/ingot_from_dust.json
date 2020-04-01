@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"tag": "forge:dusts/enderium"
+	},
+	"result": "usefulresources:enderium_ingot",
+	"experience": 0.5,
+	"cookingtime": 200
+}

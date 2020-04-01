@@ -28,6 +28,7 @@
 		"#forge:plates/invar",
 		"#forge:plates/constantan",
 		"#forge:plates/signalum",
-		"#forge:plates/lumium"
+		"#forge:plates/lumium",
+		"#forge:plates/enderium"
 	]
 }

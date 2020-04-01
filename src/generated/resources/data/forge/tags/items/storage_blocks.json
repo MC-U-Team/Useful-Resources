@@ -21,6 +21,7 @@
 		"#forge:storage_blocks/invar",
 		"#forge:storage_blocks/constantan",
 		"#forge:storage_blocks/signalum",
-		"#forge:storage_blocks/lumium"
+		"#forge:storage_blocks/lumium",
+		"#forge:storage_blocks/enderium"
 	]
 }
