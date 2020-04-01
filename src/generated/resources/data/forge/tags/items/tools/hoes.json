@@ -11,6 +11,7 @@
 		"#forge:tools/hoes/lead",
 		"#forge:tools/hoes/platinum",
 		"#forge:tools/hoes/ruby",
-		"#forge:tools/hoes/sapphire"
+		"#forge:tools/hoes/sapphire",
+		"#forge:tools/hoes/malachite"
 	]
 }

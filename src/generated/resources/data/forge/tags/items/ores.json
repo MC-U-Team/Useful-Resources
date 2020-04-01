@@ -20,6 +20,7 @@
 		"#forge:ores/zinc",
 		"#forge:ores/uranium",
 		"#forge:ores/ruby",
-		"#forge:ores/sapphire"
+		"#forge:ores/sapphire",
+		"#forge:ores/malachite"
 	]
 }

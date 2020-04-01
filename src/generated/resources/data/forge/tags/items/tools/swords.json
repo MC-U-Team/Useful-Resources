@@ -11,6 +11,7 @@
 		"#forge:tools/swords/lead",
 		"#forge:tools/swords/platinum",
 		"#forge:tools/swords/ruby",
-		"#forge:tools/swords/sapphire"
+		"#forge:tools/swords/sapphire",
+		"#forge:tools/swords/malachite"
 	]
 }

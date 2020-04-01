@@ -20,6 +20,7 @@
 		"#forge:nether_ores/uranium",
 		"#forge:nether_ores/ruby",
 		"#forge:nether_ores/sapphire",
+		"#forge:nether_ores/malachite",
 		"#forge:nether_ores/quartz"
 	]
 }

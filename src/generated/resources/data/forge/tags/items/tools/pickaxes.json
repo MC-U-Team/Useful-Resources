@@ -11,6 +11,7 @@
 		"#forge:tools/pickaxes/lead",
 		"#forge:tools/pickaxes/platinum",
 		"#forge:tools/pickaxes/ruby",
-		"#forge:tools/pickaxes/sapphire"
+		"#forge:tools/pickaxes/sapphire",
+		"#forge:tools/pickaxes/malachite"
 	]
 }

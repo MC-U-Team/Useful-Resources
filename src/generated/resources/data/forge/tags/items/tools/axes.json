@@ -11,6 +11,7 @@
 		"#forge:tools/axes/lead",
 		"#forge:tools/axes/platinum",
 		"#forge:tools/axes/ruby",
-		"#forge:tools/axes/sapphire"
+		"#forge:tools/axes/sapphire",
+		"#forge:tools/axes/malachite"
 	]
 }

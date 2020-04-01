@@ -11,6 +11,7 @@
 		"#forge:tools/shovels/lead",
 		"#forge:tools/shovels/platinum",
 		"#forge:tools/shovels/ruby",
-		"#forge:tools/shovels/sapphire"
+		"#forge:tools/shovels/sapphire",
+		"#forge:tools/shovels/malachite"
 	]
 }

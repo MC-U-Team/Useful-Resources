@@ -8,6 +8,7 @@
 		"#forge:pieces/coal",
 		"#forge:pieces/redstone",
 		"#forge:pieces/ruby",
-		"#forge:pieces/sapphire"
+		"#forge:pieces/sapphire",
+		"#forge:pieces/malachite"
 	]
 }
