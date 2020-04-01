@@ -227,6 +227,11 @@ public class Resources {
 			.addIngredient(of(() -> SILVER, INGOT, 1)) //
 			.addIngredient(of(() -> Items.GLOWSTONE_DUST, 4));
 	
+	public static final BasicAlloyResource ENDERIUM = new BasicAlloyResource("enderium", 0x0d696e, Rarity.COMMON, 2, 3, 4) //
+			.addIngredient(of(() -> LEAD, INGOT, 3)) //
+			.addIngredient(of(() -> PLATINUM, INGOT, 1)) //
+			.addIngredient(of(() -> Items.ENDER_PEARL, 4));
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
