@@ -266,6 +266,7 @@ public class Resources {
 		ResourceRegistry.register(DARK_STEEL);
 		ResourceRegistry.register(ELECTRUM);
 		ResourceRegistry.register(INVAR);
+		ResourceRegistry.register(CONSTANTAN);
 	}
 	
 }
