@@ -223,6 +223,7 @@ public class Resources {
 		ResourceRegistry.register(SILVER);
 		ResourceRegistry.register(LEAD);
 		ResourceRegistry.register(PLATINUM);
+		ResourceRegistry.register(IRIDIUM);
 		ResourceRegistry.register(NICKEL);
 		ResourceRegistry.register(ZINC);
 		ResourceRegistry.register(URANIUM);
