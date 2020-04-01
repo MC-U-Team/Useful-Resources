@@ -267,6 +267,7 @@ public class Resources {
 		ResourceRegistry.register(ELECTRUM);
 		ResourceRegistry.register(INVAR);
 		ResourceRegistry.register(CONSTANTAN);
+		ResourceRegistry.register(SIGNALUM);
 	}
 	
 }
