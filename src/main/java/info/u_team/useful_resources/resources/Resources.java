@@ -269,6 +269,7 @@ public class Resources {
 		ResourceRegistry.register(CONSTANTAN);
 		ResourceRegistry.register(SIGNALUM);
 		ResourceRegistry.register(LUMIUM);
+		ResourceRegistry.register(ENDERIUM);
 	}
 	
 }
