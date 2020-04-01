@@ -266,6 +266,7 @@ public class Resources {
 		ResourceRegistry.register(SAPPHIRE);
 		ResourceRegistry.register(MALACHITE);
 		ResourceRegistry.register(PERIDOT);
+		ResourceRegistry.register(TANZANITE);
 		
 		// ALLOY
 		ResourceRegistry.register(BRASS);
