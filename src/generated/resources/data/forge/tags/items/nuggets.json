@@ -15,6 +15,7 @@
 		"#forge:nuggets/bronze",
 		"#forge:nuggets/steel",
 		"#forge:nuggets/dark_steel",
-		"#forge:nuggets/electrum"
+		"#forge:nuggets/electrum",
+		"#forge:nuggets/invar"
 	]
 }

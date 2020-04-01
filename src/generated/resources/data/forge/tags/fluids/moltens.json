@@ -25,6 +25,7 @@
 		"#forge:moltens/bronze",
 		"#forge:moltens/steel",
 		"#forge:moltens/dark_steel",
-		"#forge:moltens/electrum"
+		"#forge:moltens/electrum",
+		"#forge:moltens/invar"
 	]
 }

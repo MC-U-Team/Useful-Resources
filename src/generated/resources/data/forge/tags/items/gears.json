@@ -24,6 +24,7 @@
 		"#forge:gears/bronze",
 		"#forge:gears/steel",
 		"#forge:gears/dark_steel",
-		"#forge:gears/electrum"
+		"#forge:gears/electrum",
+		"#forge:gears/invar"
 	]
 }

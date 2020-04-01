@@ -24,6 +24,7 @@
 		"#forge:plates/bronze",
 		"#forge:plates/steel",
 		"#forge:plates/dark_steel",
-		"#forge:plates/electrum"
+		"#forge:plates/electrum",
+		"#forge:plates/invar"
 	]
 }

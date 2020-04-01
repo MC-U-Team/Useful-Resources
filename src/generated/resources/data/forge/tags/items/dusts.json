@@ -24,6 +24,7 @@
 		"#forge:dusts/bronze",
 		"#forge:dusts/steel",
 		"#forge:dusts/dark_steel",
-		"#forge:dusts/electrum"
+		"#forge:dusts/electrum",
+		"#forge:dusts/invar"
 	]
 }

@@ -15,6 +15,7 @@
 		"#forge:ingots/bronze",
 		"#forge:ingots/steel",
 		"#forge:ingots/dark_steel",
-		"#forge:ingots/electrum"
+		"#forge:ingots/electrum",
+		"#forge:ingots/invar"
 	]
 }

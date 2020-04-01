@@ -24,6 +24,7 @@
 		"#forge:rods/bronze",
 		"#forge:rods/steel",
 		"#forge:rods/dark_steel",
-		"#forge:rods/electrum"
+		"#forge:rods/electrum",
+		"#forge:rods/invar"
 	]
 }
