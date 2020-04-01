@@ -236,6 +236,7 @@ public class Resources {
 		ResourceRegistry.register(BRASS);
 		ResourceRegistry.register(BRONZE);
 		ResourceRegistry.register(STEEL);
+		ResourceRegistry.register(DARK_STEEL);
 	}
 	
 }
