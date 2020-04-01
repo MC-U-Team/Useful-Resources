@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
  - Added many alloys
  - Added some gems
  - All types:
- 	# Vanilla
+ 	#### Vanilla
  	- iron
  	- gold
  	- diamond
@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
  	- coal
  	- redstone
  	
- 	# Ingots
+ 	#### Ingots
  	- copper
  	- tin
  	- aluminum
@@ -34,14 +34,14 @@ All notable changes to this project will be documented in this file.
  	- zinc
  	- uranium
  	
- 	# Gems
+ 	#### Gems
  	- ruby
  	- sapphire
  	- malachite
  	- peridot
  	- tanzanite
  	
- 	# Alloys
+ 	#### Alloys
  	- brass
  	- bronze
  	- steel
