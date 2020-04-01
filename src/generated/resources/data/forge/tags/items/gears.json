@@ -22,6 +22,7 @@
 		"#forge:gears/sapphire",
 		"#forge:gears/brass",
 		"#forge:gears/bronze",
-		"#forge:gears/steel"
+		"#forge:gears/steel",
+		"#forge:gears/dark_steel"
 	]
 }

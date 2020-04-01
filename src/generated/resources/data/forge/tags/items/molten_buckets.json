@@ -23,6 +23,7 @@
 		"#forge:molten_buckets/sapphire",
 		"#forge:molten_buckets/brass",
 		"#forge:molten_buckets/bronze",
-		"#forge:molten_buckets/steel"
+		"#forge:molten_buckets/steel",
+		"#forge:molten_buckets/dark_steel"
 	]
 }

@@ -23,6 +23,7 @@
 		"#forge:moltens/sapphire",
 		"#forge:moltens/brass",
 		"#forge:moltens/bronze",
-		"#forge:moltens/steel"
+		"#forge:moltens/steel",
+		"#forge:moltens/dark_steel"
 	]
 }

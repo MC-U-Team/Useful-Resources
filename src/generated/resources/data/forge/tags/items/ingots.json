@@ -13,6 +13,7 @@
 		"#forge:ingots/uranium",
 		"#forge:ingots/brass",
 		"#forge:ingots/bronze",
-		"#forge:ingots/steel"
+		"#forge:ingots/steel",
+		"#forge:ingots/dark_steel"
 	]
 }

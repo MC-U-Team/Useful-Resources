@@ -22,6 +22,7 @@
 		"#forge:plates/sapphire",
 		"#forge:plates/brass",
 		"#forge:plates/bronze",
-		"#forge:plates/steel"
+		"#forge:plates/steel",
+		"#forge:plates/dark_steel"
 	]
 }
