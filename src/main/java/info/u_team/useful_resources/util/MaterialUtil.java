@@ -1,5 +1,7 @@
 package info.u_team.useful_resources.util;
 
+import java.util.function.Supplier;
+
 import info.u_team.u_team_core.item.armor.*;
 import info.u_team.u_team_core.item.tool.UToolMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -12,10 +14,10 @@ public class MaterialUtil {
 	}
 	
 	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, float toughness) {
-		return createArmor(durability, armorPoints, enchantability, SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness);
+		return createArmor(durability, armorPoints, enchantability, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness);
 	}
 	
-	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, SoundEvent soundevent, float toughness) {
+	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, Supplier<SoundEvent> soundevent, float toughness) {
 		return new UArmorMaterial(durability, armorPoints, enchantability, soundevent, toughness, () -> Ingredient.EMPTY);
 	}
 	
@@ -24,10 +26,10 @@ public class MaterialUtil {
 	}
 	
 	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, float toughness) {
-		return createArmor(durabilityFactor, armorPoints, enchantability, SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness);
+		return createArmor(durabilityFactor, armorPoints, enchantability, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness);
 	}
 	
-	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, SoundEvent soundevent, float toughness) {
+	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, Supplier<SoundEvent> soundevent, float toughness) {
 		return new UArmorMaterialVanilla(durabilityFactor, armorPoints, enchantability, soundevent, toughness, () -> Ingredient.EMPTY);
 	}
 	
