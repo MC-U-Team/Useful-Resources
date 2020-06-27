@@ -14,7 +14,7 @@ public class ItemCountProvider implements IItemCountProvider {
 	}
 	
 	public static IItemCountProvider of(Supplier<IResource> supplier, ItemResourceType type, int count) {
-		return of(() -> supplier.get().getItems().get(type), count);
+		return of(() -> supplier.get().getItems().get(type).get(), count);
 	}
 	
 	public static IItemCountProvider of(Supplier<IResource> supplier, BlockResourceType type) {
@@ -22,7 +22,7 @@ public class ItemCountProvider implements IItemCountProvider {
 	}
 	
 	public static IItemCountProvider of(Supplier<IResource> supplier, BlockResourceType type, int count) {
-		return of(() -> supplier.get().getBlocks().get(type), count);
+		return of(() -> supplier.get().getBlocks().get(type).get(), count);
 	}
 	
 	public static IItemCountProvider of(Supplier<IItemProvider> supplier) {
