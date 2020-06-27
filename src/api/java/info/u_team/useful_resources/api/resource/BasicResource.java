@@ -6,7 +6,6 @@ import java.util.*;
 import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
-import info.u_team.u_team_core.api.registry.IUBlockRegistryType;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
@@ -71,12 +70,12 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	}
 	
 	public T setTools(IToolMaterial toolMaterial) {
-		addFeature(createTools(rarity, new WrappedToolMaterial(toolMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
+		addFeature(createTools(rarity, new WrappedToolMaterial(toolMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType()).get()))));
 		return getThis();
 	}
 	
 	public T setArmor(IArmorMaterial armorMaterial) {
-		addFeature(createArmor(rarity, new WrappedArmorMaterial(armorMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType())))));
+		addFeature(createArmor(rarity, new WrappedArmorMaterial(armorMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType()).get()))));
 		return getThis();
 	}
 	
