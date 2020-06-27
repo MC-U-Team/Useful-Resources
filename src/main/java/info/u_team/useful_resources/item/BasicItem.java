@@ -6,8 +6,8 @@ import net.minecraft.item.Rarity;
 
 public class BasicItem extends UItem {
 	
-	public BasicItem(String name, Rarity rarity) {
-		super(name, UsefulResourcesItemGroups.GROUP, new Properties().rarity(rarity));
+	public BasicItem(Rarity rarity) {
+		super(UsefulResourcesItemGroups.GROUP, new Properties().rarity(rarity));
 	}
 	
 }

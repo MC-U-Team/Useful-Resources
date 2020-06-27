@@ -16,8 +16,8 @@ import net.minecraftforge.api.distmarker.*;
 
 public abstract class ParticleBlock extends UBlock {
 	
-	public ParticleBlock(String name, ItemGroup group, Properties properties, net.minecraft.item.Item.Properties blockItemProperties) {
-		super(name, group, properties, blockItemProperties);
+	public ParticleBlock(ItemGroup group, Properties properties, net.minecraft.item.Item.Properties blockItemProperties) {
+		super(group, properties, blockItemProperties);
 	}
 	
 	@Override
