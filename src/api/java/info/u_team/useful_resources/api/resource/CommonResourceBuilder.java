@@ -12,6 +12,7 @@ import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
+import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.block.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
@@ -126,13 +127,13 @@ public class CommonResourceBuilder {
 	
 	private static class ResourceFeature implements IResourceFeature {
 		
-		private final Map<BlockResourceType, Block> blocks;
-		private final Map<FluidResourceType, Fluid> fluids;
-		private final Map<ItemResourceType, Item> items;
+		private final Map<BlockResourceType, RegistryEntry<Block>> blocks;
+		private final Map<FluidResourceType, RegistryEntry<Fluid>> fluids;
+		private final Map<ItemResourceType, RegistryEntry<Item>> items;
 		
-		private final List<Block> registryBlocks;
-		private final List<Fluid> registryFluids;
-		private final List<Item> registryItems;
+		private final List<RegistryEntry<Block>> registryBlocks;
+		private final List<RegistryEntry<Fluid>> registryFluids;
+		private final List<RegistryEntry<Item>> registryItems;
 		
 		private ResourceFeature() {
 			blocks = new EnumMap<>(BlockResourceType.class);
@@ -143,66 +144,66 @@ public class CommonResourceBuilder {
 			registryItems = new ArrayList<>();
 		}
 		
-		private <T extends Block> T add(BlockResourceType type, T block) {
+		private <T extends RegistryEntry<Block>> T add(BlockResourceType type, T block) {
 			blocks.put(type, block);
 			registryBlocks.add(block);
 			return block;
 		}
 		
-		private <T extends Fluid> T add(FluidResourceType type, T fluid) {
+		private <T extends RegistryEntry<Fluid>> T add(FluidResourceType type, T fluid) {
 			fluids.put(type, fluid);
 			registryFluids.add(fluid);
 			return fluid;
 		}
 		
-		private <T extends Item> T add(ItemResourceType type, T item) {
+		private <T extends RegistryEntry<Item>> T add(ItemResourceType type, T item) {
 			items.put(type, item);
 			registryItems.add(item);
 			return item;
 		}
 		
-		private <T extends Block> T addExisting(BlockResourceType type, T block) {
+		private <T extends RegistryEntry<Block>> T addExisting(BlockResourceType type, T block) {
 			blocks.put(type, block);
 			return block;
 		}
 		
-		private <T extends Fluid> T addExisting(FluidResourceType type, T fluid) {
+		private <T extends RegistryEntry<Fluid>> T addExisting(FluidResourceType type, T fluid) {
 			fluids.put(type, fluid);
 			return fluid;
 		}
 		
-		private <T extends Item> T addExisting(ItemResourceType type, T item) {
+		private <T extends RegistryEntry<Item>> T addExisting(ItemResourceType type, T item) {
 			items.put(type, item);
 			return item;
 		}
 		
 		@Override
-		public Map<BlockResourceType, Block> getBlocks() {
+		public Map<BlockResourceType, RegistryEntry<Block>> getBlocks() {
 			return blocks;
 		}
 		
 		@Override
-		public Map<FluidResourceType, Fluid> getFluids() {
+		public Map<FluidResourceType, RegistryEntry<Fluid>> getFluids() {
 			return fluids;
 		}
 		
 		@Override
-		public Map<ItemResourceType, Item> getItems() {
+		public Map<ItemResourceType, RegistryEntry<Item>> getItems() {
 			return items;
 		}
 		
 		@Override
-		public List<Block> getRegistryBlocks() {
+		public List<RegistryEntry<Block>> getRegistryBlocks() {
 			return registryBlocks;
 		}
 		
 		@Override
-		public List<Fluid> getRegistryFluids() {
+		public List<RegistryEntry<Fluid>> getRegistryFluids() {
 			return registryFluids;
 		}
 		
 		@Override
-		public List<Item> getRegistryItems() {
+		public List<RegistryEntry<Item>> getRegistryItems() {
 			return registryItems;
 		}
 	}
