@@ -3,6 +3,7 @@ package info.u_team.useful_resources.api.resource;
 import java.util.*;
 
 import info.u_team.useful_resources.api.feature.*;
+import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
@@ -14,13 +15,13 @@ public abstract class Resource implements IResource {
 	private final int color;
 	private final ItemResourceType repairType;
 	
-	private final Map<BlockResourceType, Block> blocks;
-	private final Map<FluidResourceType, Fluid> fluids;
-	private final Map<ItemResourceType, Item> items;
+	private final Map<BlockResourceType, RegistryEntry<Block>> blocks;
+	private final Map<FluidResourceType, RegistryEntry<Fluid>> fluids;
+	private final Map<ItemResourceType, RegistryEntry<Item>> items;
 	
-	private final List<Block> registryBlocks;
-	private final List<Fluid> registryFluids;
-	private final List<Item> registryItems;
+	private final List<RegistryEntry<Block>> registryBlocks;
+	private final List<RegistryEntry<Fluid>> registryFluids;
+	private final List<RegistryEntry<Item>> registryItems;
 	
 	public Resource(String name, int color, ItemResourceType repairType) {
 		this.name = name;
@@ -50,32 +51,32 @@ public abstract class Resource implements IResource {
 	}
 	
 	@Override
-	public Map<BlockResourceType, Block> getBlocks() {
+	public Map<BlockResourceType, RegistryEntry<Block>> getBlocks() {
 		return Collections.unmodifiableMap(blocks);
 	}
 	
 	@Override
-	public Map<FluidResourceType, Fluid> getFluids() {
+	public Map<FluidResourceType, RegistryEntry<Fluid>> getFluids() {
 		return Collections.unmodifiableMap(fluids);
 	}
 	
 	@Override
-	public Map<ItemResourceType, Item> getItems() {
+	public Map<ItemResourceType, RegistryEntry<Item>> getItems() {
 		return Collections.unmodifiableMap(items);
 	}
 	
 	@Override
-	public List<Block> getRegistryBlocks() {
+	public List<RegistryEntry<Block>> getRegistryBlocks() {
 		return registryBlocks;
 	}
 	
 	@Override
-	public List<Fluid> getRegistryFluids() {
+	public List<RegistryEntry<Fluid>> getRegistryFluids() {
 		return registryFluids;
 	}
 	
 	@Override
-	public List<Item> getRegistryItems() {
+	public List<RegistryEntry<Item>> getRegistryItems() {
 		return registryItems;
 	}
 	
