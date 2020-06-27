@@ -11,7 +11,7 @@ public interface IColoredArmor extends IDyeableArmorItem {
 	
 	@Override
 	default int getColor(ItemStack stack) {
-		return MoreObjects.firstNonNull(DistExecutor.callWhenOn(Dist.CLIENT, () -> () -> Minecraft.getInstance().getItemColors().getColor(stack, 1)), 0);
+		return MoreObjects.firstNonNull(DistExecutor.unsafeCallWhenOn(Dist.CLIENT, () -> () -> Minecraft.getInstance().getItemColors().getColor(stack, 1)), 0);
 	}
 	
 	// Remove methods for nbt
