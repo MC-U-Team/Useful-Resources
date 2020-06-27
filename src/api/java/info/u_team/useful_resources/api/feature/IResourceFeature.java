@@ -2,7 +2,7 @@ package info.u_team.useful_resources.api.feature;
 
 import java.util.*;
 
-import info.u_team.u_team_core.api.registry.IURegistryType;
+import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
@@ -16,36 +16,30 @@ import net.minecraft.item.Item;
 public interface IResourceFeature {
 	
 	/**
-	 * Returns a list of all blocks that are added with this feature. Can return an empty list. Cannot return null. The
-	 * blocks must be named with {@link IURegistryType} or have a
-	 * {@link Block#setRegistryName(net.minecraft.util.ResourceLocation)} set.
+	 * Returns a list of all blocks that are added with this feature. Can return an empty list. Cannot return null.
 	 * 
 	 * @return The collection of blocks
 	 */
-	Map<BlockResourceType, Block> getBlocks();
+	Map<BlockResourceType, RegistryEntry<Block>> getBlocks();
 	
 	/**
-	 * Returns a list of all fluids that are added with this feature. Can return an empty list. Cannot return null. The
-	 * blocks must be named with {@link IURegistryType} or have a
-	 * {@link Block#setRegistryName(net.minecraft.util.ResourceLocation)} set.
+	 * Returns a list of all fluids that are added with this feature. Can return an empty list. Cannot return null.
 	 * 
-	 * @return The collection of blocks
+	 * @return The collection of fluids
 	 */
-	Map<FluidResourceType, Fluid> getFluids();
+	Map<FluidResourceType, RegistryEntry<Fluid>> getFluids();
 	
 	/**
-	 * Returns a list of all items that are added with this feature. Can return an empty list. Cannot return null. The items
-	 * must be named with {@link IURegistryType} or have a {@link Item#setRegistryName(net.minecraft.util.ResourceLocation)}
-	 * set.
+	 * Returns a list of all items that are added with this feature. Can return an empty list. Cannot return null.
 	 * 
-	 * @return The collection of blocks
+	 * @return The collection of items
 	 */
-	Map<ItemResourceType, Item> getItems();
+	Map<ItemResourceType, RegistryEntry<Item>> getItems();
 	
-	List<Block> getRegistryBlocks();
+	List<RegistryEntry<Block>> getRegistryBlocks();
 	
-	List<Fluid> getRegistryFluids();
+	List<RegistryEntry<Fluid>> getRegistryFluids();
 	
-	List<Item> getRegistryItems();
+	List<RegistryEntry<Item>> getRegistryItems();
 	
 }

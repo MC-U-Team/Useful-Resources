@@ -5,6 +5,7 @@ import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 
 import info.u_team.useful_resources.api.feature.IResourceFeatureBuilder;
+import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
@@ -20,31 +21,31 @@ public interface IResource {
 	
 	ItemResourceType getRepairType();
 	
-	Map<BlockResourceType, Block> getBlocks();
+	Map<BlockResourceType, RegistryEntry<Block>> getBlocks();
 	
-	Map<FluidResourceType, Fluid> getFluids();
+	Map<FluidResourceType, RegistryEntry<Fluid>> getFluids();
 	
-	Map<ItemResourceType, Item> getItems();
+	Map<ItemResourceType, RegistryEntry<Item>> getItems();
 	
-	List<Block> getRegistryBlocks();
+	List<RegistryEntry<Block>> getRegistryBlocks();
 	
-	List<Fluid> getRegistryFluids();
+	List<RegistryEntry<Fluid>> getRegistryFluids();
 	
-	List<Item> getRegistryItems();
+	List<RegistryEntry<Item>> getRegistryItems();
 	
-	default void iterateRegistryBlocks(BiConsumer<BlockResourceType, Block> consumer) {
+	default void iterateRegistryBlocks(BiConsumer<BlockResourceType, RegistryEntry<Block>> consumer) {
 		iterateRegistry(getRegistryBlocks(), getBlocks(), consumer);
 	}
 	
-	default void iterateRegistryFluids(BiConsumer<FluidResourceType, Fluid> consumer) {
+	default void iterateRegistryFluids(BiConsumer<FluidResourceType, RegistryEntry<Fluid>> consumer) {
 		iterateRegistry(getRegistryFluids(), getFluids(), consumer);
 	}
 	
-	default void iterateRegistryItems(BiConsumer<ItemResourceType, Item> consumer) {
+	default void iterateRegistryItems(BiConsumer<ItemResourceType, RegistryEntry<Item>> consumer) {
 		iterateRegistry(getRegistryItems(), getItems(), consumer);
 	}
 	
-	default <E extends IResourceType<?>, T extends IForgeRegistryEntry<T>> void iterateRegistry(List<T> registryList, Map<E, T> map, BiConsumer<E, T> consumer) {
+	default <E extends IResourceType<?>, T extends IForgeRegistryEntry<T>> void iterateRegistry(List<RegistryEntry<T>> registryList, Map<E, RegistryEntry<T>> map, BiConsumer<E, RegistryEntry<T>> consumer) {
 		registryList.stream().forEach(block -> {
 			consumer.accept( //
 					map //
