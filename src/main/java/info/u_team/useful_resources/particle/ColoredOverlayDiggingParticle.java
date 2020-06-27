@@ -155,9 +155,9 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	}
 	
 	@Override
-	public Particle multipleParticleScaleBy(float scale) {
+	public Particle multiplyParticleScaleBy(float scale) {
 		this.particleScale *= scale;
-		return super.multipleParticleScaleBy(scale);
+		return super.multiplyParticleScaleBy(scale);
 	}
 	
 	@SuppressWarnings("deprecation")
