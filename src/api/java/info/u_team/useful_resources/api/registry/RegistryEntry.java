@@ -1,5 +1,6 @@
 package info.u_team.useful_resources.api.registry;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 import net.minecraft.util.ResourceLocation;
@@ -31,6 +32,21 @@ public class RegistryEntry<T extends IForgeRegistryEntry<? super T>> implements 
 	@Override
 	public T get() {
 		return entry.get();
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		if (this == object)
+			return true;
+		if (object instanceof RegistryEntry) {
+			return Objects.equals(((RegistryEntry<?>) object).name, name);
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(name);
 	}
 	
 }
