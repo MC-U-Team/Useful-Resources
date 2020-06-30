@@ -118,7 +118,7 @@ public class CommonResourceBuilder {
 	}
 	
 	private static IResourceFeatureBuilder basicBuilder(BiConsumer<String, ResourceFeature> consumer) {
-		return name -> {
+		return (provider, name) -> {
 			final ResourceFeature feature = new ResourceFeature();
 			consumer.accept(name, feature);
 			return feature;
