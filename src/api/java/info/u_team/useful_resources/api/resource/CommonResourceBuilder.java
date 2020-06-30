@@ -2,11 +2,10 @@ package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.*;
+import java.util.function.Function;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.block.UFluidBlock;
-import info.u_team.u_team_core.fluid.*;
 import info.u_team.u_team_core.item.UBucketItem;
 import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
@@ -14,6 +13,7 @@ import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.api.util.TriConsumer;
 import info.u_team.useful_resources.block.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
@@ -117,10 +117,10 @@ public class CommonResourceBuilder {
 		return name + "_" + type.getName();
 	}
 	
-	private static IResourceFeatureBuilder basicBuilder(BiConsumer<String, ResourceFeature> consumer) {
-		return (provider, name) -> {
+	private static IResourceFeatureBuilder basicBuilder(TriConsumer<String, IDeferredRegisterProvider, ResourceFeature> consumer) {
+		return (name, provider) -> {
 			final ResourceFeature feature = new ResourceFeature();
-			consumer.accept(name, feature);
+			consumer.accept(name, provider, feature);
 			return feature;
 		};
 	}
