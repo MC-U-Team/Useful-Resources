@@ -25,18 +25,18 @@ public class ItemCountProvider implements IItemCountProvider {
 		return of(() -> supplier.get().getBlocks().get(type).get(), count);
 	}
 	
-	public static IItemCountProvider of(Supplier<IItemProvider> supplier) {
+	public static IItemCountProvider of(Supplier<? extends IItemProvider> supplier) {
 		return of(supplier, 1);
 	}
 	
-	public static IItemCountProvider of(Supplier<IItemProvider> supplier, int count) {
+	public static IItemCountProvider of(Supplier<? extends IItemProvider> supplier, int count) {
 		return new ItemCountProvider(supplier, count);
 	}
 	
-	private final Supplier<IItemProvider> supplier;
+	private final Supplier<? extends IItemProvider> supplier;
 	private final int count;
 	
-	protected ItemCountProvider(Supplier<IItemProvider> supplier, int count) {
+	protected ItemCountProvider(Supplier<? extends IItemProvider> supplier, int count) {
 		this.supplier = supplier;
 		this.count = count;
 	}
