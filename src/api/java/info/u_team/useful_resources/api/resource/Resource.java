@@ -2,6 +2,7 @@ package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
 
+import info.u_team.u_team_core.util.registry.*;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
@@ -84,7 +85,7 @@ public abstract class Resource implements IResource {
 	
 	@Override
 	public void addFeature(IResourceFeatureBuilder builder) {
-		final IResourceFeature feature = builder.build(name);
+		final IResourceFeature feature = builder.build(name, DEFERRED_PROVIDER);
 		
 		addEntriesToMap(blocks, feature.getBlocks(), registryBlocks, feature.getRegistryBlocks());
 		addEntriesToMap(fluids, feature.getFluids(), registryFluids, feature.getRegistryFluids());
