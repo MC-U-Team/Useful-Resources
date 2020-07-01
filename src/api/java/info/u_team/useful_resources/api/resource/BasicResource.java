@@ -84,10 +84,10 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	}
 	
 	public T setGeneration(BlockResourceType type, Function<Block, WorldGenFeature> function) {
-		return setGeneration(type.getName(), function.apply(getBlocks().get(type)));
+		return setGeneration(type.getName(), () -> function.apply(getBlocks().get(type).get()));
 	}
 	
-	private T setGeneration(String name, WorldGenFeature feature) {
+	private T setGeneration(String name, Supplier<WorldGenFeature> feature) {
 		worldGenFeatures.put(name, feature);
 		return getThis();
 	}
