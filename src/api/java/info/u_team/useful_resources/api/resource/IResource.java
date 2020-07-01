@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.BiConsumer;
 
+import info.u_team.u_team_core.util.registry.*;
+import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.feature.IResourceFeatureBuilder;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
@@ -11,9 +13,13 @@ import info.u_team.useful_resources.api.type.*;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
-import net.minecraftforge.registries.IForgeRegistryEntry;
+import net.minecraftforge.registries.*;
 
 public interface IResource {
+	
+	static final BlockDeferredRegister BLOCKS = BlockDeferredRegister.create(UsefulResourcesMod.MODID);
+	static final CommonDeferredRegister<Fluid> FLUIDS = CommonDeferredRegister.create(ForgeRegistries.FLUIDS, UsefulResourcesMod.MODID);
+	static final CommonDeferredRegister<Item> ITEMS = CommonDeferredRegister.create(ForgeRegistries.ITEMS, UsefulResourcesMod.MODID);
 	
 	String getName();
 	
