@@ -1,13 +1,10 @@
 package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.api.registry.IBlockItemProvider;
-import info.u_team.u_team_core.block.UFluidBlock;
-import info.u_team.u_team_core.item.UBucketItem;
 import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
 import info.u_team.u_team_core.util.registry.BlockRegistryObject;
@@ -16,15 +13,17 @@ import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.util.TriConsumer;
-import info.u_team.useful_resources.block.*;
+import info.u_team.useful_resources.block.BasicBlock;
+import info.u_team.useful_resources.block.OreBlock;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.*;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.ForgeFlowingFluid.*;
 import net.minecraftforge.fml.RegistryObject;
 
 public class CommonResourceBuilder {
@@ -51,17 +50,25 @@ public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createMoltenFluid(FluidAttributes.Builder builder) {
 		return basicBuilder((name, provider, feature) -> {
-			final AtomicReference<USourceFluid> sourceFluidReference = new AtomicReference<>();
-			final AtomicReference<UFlowingFluid> flowingFluidReference = new AtomicReference<>();
-			final AtomicReference<UFluidBlock> fluidBlockReference = new AtomicReference<>();
-			final AtomicReference<UBucketItem> bucketItemReference = new AtomicReference<>();
+//			final AtomicReference<Source> sourceFluidReference = new AtomicReference<>();
+//			final AtomicReference<Flowing> flowingFluidReference = new AtomicReference<>();
+//			final AtomicReference<FlowingFluidBlock> fluidBlockReference = new AtomicReference<>();
+//			final AtomicReference<UBucketItem> bucketItemReference = new AtomicReference<>();
+//			
+//			final ForgeFlowingFluid.Properties properties = new ForgeFlowingFluid.Properties(sourceFluidReference::get, flowingFluidReference::get, builder).block(fluidBlockReference::get).bucket(bucketItemReference::get);
+//			
+//			sourceFluidReference.set(feature.add(FluidResourceType.MOLTEN, new Source(basicName(name, FluidResourceType.MOLTEN), properties)));
+//			flowingFluidReference.set(feature.add(FluidResourceType.MOLTEN_FLOWING, new Flowing(basicName(name, FluidResourceType.MOLTEN_FLOWING), properties)));
+//			fluidBlockReference.set(feature.add(BlockResourceType.MOLTEN_FLUID, new FlowingFluidBlock(basicName(name, BlockResourceType.MOLTEN_FLUID), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops(), sourceFluidReference::get)));
+//			bucketItemReference.set(feature.add(ItemResourceType.MOLTEN_BUCKET, new UBucketItem(basicName(name, ItemResourceType.MOLTEN_BUCKET), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(UsefulResourcesItemGroups.GROUP), sourceFluidReference::get)));
+		
+			final RegistryEntry<? extends Source> source = feature.register(FluidResourceType.MOLTEN, () -> new Source(null));
+			final RegistryEntry<? extends Flowing> flowing = feature.register(FluidResourceType.MOLTEN_FLOWING, () -> new Flowing(null));
 			
-			final ForgeFlowingFluid.Properties properties = new ForgeFlowingFluid.Properties(sourceFluidReference::get, flowingFluidReference::get, builder).block(fluidBlockReference::get).bucket(bucketItemReference::get);
 			
-			sourceFluidReference.set(feature.add(FluidResourceType.MOLTEN, new USourceFluid(basicName(name, FluidResourceType.MOLTEN), properties)));
-			flowingFluidReference.set(feature.add(FluidResourceType.MOLTEN_FLOWING, new UFlowingFluid(basicName(name, FluidResourceType.MOLTEN_FLOWING), properties)));
-			fluidBlockReference.set(feature.add(BlockResourceType.MOLTEN_FLUID, new UFluidBlock(basicName(name, BlockResourceType.MOLTEN_FLUID), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops(), sourceFluidReference::get)));
-			bucketItemReference.set(feature.add(ItemResourceType.MOLTEN_BUCKET, new UBucketItem(basicName(name, ItemResourceType.MOLTEN_BUCKET), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(UsefulResourcesItemGroups.GROUP), sourceFluidReference::get)));
+			new FlowingFluidBlock(source, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops());
+			feature.register(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(source, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops()));
+		
 		});
 	}
 	
@@ -154,6 +161,14 @@ public class CommonResourceBuilder {
 		
 		private <T extends Block & IBlockItemProvider> RegistryEntry<? extends T> register(BlockResourceType type, Supplier<? extends T> supplier) {
 			final BlockRegistryObject<? extends T, BlockItem> registryObject = provider.getBlockRegister().register(basicName(name, type), supplier);
+			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
+			blocks.put(type, entry);
+			registryBlocks.add(entry);
+			return entry;
+		}
+		
+		private <T extends Block> RegistryEntry<? extends T> registerBlock(BlockResourceType type, Supplier<? extends T> supplier) {
+			final RegistryObject<? extends T> registryObject = provider.getBlockRegister().registerBlock(basicName(name, type), supplier);
 			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
 			blocks.put(type, entry);
 			registryBlocks.add(entry);
