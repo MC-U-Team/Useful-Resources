@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.util.ObjectUtil;
@@ -23,7 +24,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	protected void registerModels() {
 		generateBaseModels();
 		
-		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getRegistryBlocks().stream()).filter(block -> !block.asItem().equals(Items.AIR)).forEach(this::simpleBlock);
+		ResourceRegistry.getResources().stream().flatMap(resource -> resource.getRegistryBlocks().stream().map(RegistryEntry::get)).filter(block -> !block.asItem().equals(Items.AIR)).forEach(this::simpleBlock);
 		
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.iterateRegistryItems((type, item) -> {
@@ -35,7 +36,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 							final JsonObject root = new JsonObject();
 							root.addProperty("parent", "forge:item/bucket_drip");
 							root.addProperty("loader", "forge:bucket");
-							root.addProperty("fluid", resource.getFluids().get(FluidResourceType.MOLTEN).getRegistryName().toString());
+							root.addProperty("fluid", resource.getFluids().get(FluidResourceType.MOLTEN).get().getRegistryName().toString());
 							return root;
 						}
 					});
