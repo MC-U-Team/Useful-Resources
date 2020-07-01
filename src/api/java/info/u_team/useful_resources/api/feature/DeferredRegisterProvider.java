@@ -1,8 +1,11 @@
 package info.u_team.useful_resources.api.feature;
 
 import info.u_team.u_team_core.util.registry.*;
+import info.u_team.useful_resources.UsefulResourcesMod;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DeferredRegisterProvider implements IDeferredRegisterProvider {
 	
@@ -10,10 +13,10 @@ public class DeferredRegisterProvider implements IDeferredRegisterProvider {
 	private final CommonDeferredRegister<Fluid> fluids;
 	private final CommonDeferredRegister<Item> items;
 	
-	public DeferredRegisterProvider(BlockDeferredRegister blocks, CommonDeferredRegister<Fluid> fluids, CommonDeferredRegister<Item> items) {
-		this.blocks = blocks;
-		this.fluids = fluids;
-		this.items = items;
+	public DeferredRegisterProvider() {
+		blocks = BlockDeferredRegister.create(UsefulResourcesMod.MODID);
+		fluids = CommonDeferredRegister.create(ForgeRegistries.FLUIDS, UsefulResourcesMod.MODID);
+		items = CommonDeferredRegister.create(ForgeRegistries.ITEMS, UsefulResourcesMod.MODID);
 	}
 	
 	@Override
@@ -30,5 +33,6 @@ public class DeferredRegisterProvider implements IDeferredRegisterProvider {
 	public CommonDeferredRegister<Item> getItemRegister() {
 		return items;
 	}
+	
 	
 }
