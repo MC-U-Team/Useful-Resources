@@ -17,7 +17,7 @@ public class UsefulResourcesParticles {
 	public static void register(ParticleFactoryRegisterEvent event) {
 		final ParticleManager manager = Minecraft.getInstance().particles;
 		
-		manager.registerFactory(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK, new ColoredOverlayDiggingParticle.Factory());
+		manager.registerFactory(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK.get(), new ColoredOverlayDiggingParticle.Factory());
 	}
 	
 }
