@@ -3,6 +3,9 @@ package info.u_team.useful_resources.api.registry;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import info.u_team.u_team_core.util.registry.BlockRegistryObject;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -10,6 +13,10 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 public class RegistryEntry<T extends IForgeRegistryEntry<? super T>> implements Supplier<T> {
 	
 	public static <E extends IForgeRegistryEntry<? super E>> RegistryEntry<E> create(RegistryObject<E> object) {
+		return new RegistryEntry<E>(object.getId(), object);
+	}
+	
+	public static <E extends Block> RegistryEntry<E> create(BlockRegistryObject<E, BlockItem> object) {
 		return new RegistryEntry<E>(object.getId(), object);
 	}
 	
