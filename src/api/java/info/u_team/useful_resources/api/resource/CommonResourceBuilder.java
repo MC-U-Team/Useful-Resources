@@ -65,9 +65,7 @@ public class CommonResourceBuilder {
 			final RegistryEntry<? extends Source> source = feature.register(FluidResourceType.MOLTEN, () -> new Source(null));
 			final RegistryEntry<? extends Flowing> flowing = feature.register(FluidResourceType.MOLTEN_FLOWING, () -> new Flowing(null));
 			
-			
-			new FlowingFluidBlock(source, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops());
-			feature.register(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(source, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops()));
+			feature.registerBlock(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(source, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops()));
 		
 		});
 	}
