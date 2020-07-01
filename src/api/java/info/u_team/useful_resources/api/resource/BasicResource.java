@@ -7,7 +7,7 @@ import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.useful_resources.api.material.*;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
+import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
@@ -21,8 +21,8 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	private final Rarity rarity;
 	
-	private final Map<String, WorldGenFeature> worldGenFeatures;
-	private final Map<BlockResourceType, LootTable> extraLootTables;
+	private final Map<String, Supplier<WorldGenFeature>> worldGenFeatures;
+	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
 	private final Map<String, Object> extraProperties;
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
@@ -33,28 +33,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		worldGenFeatures = new HashMap<>();
 		extraLootTables = new HashMap<>();
 		extraProperties = new HashMap<>();
-		dataGeneratorConfigurator = new IDataGeneratorConfigurator() {
-			
-			@Override
-			public ResourceType getResourceType() {
-				return type;
-			}
-			
-			@Override
-			public Map<String, WorldGenFeature> getWorldGeneration() {
-				return worldGenFeatures;
-			}
-			
-			@Override
-			public Map<BlockResourceType, LootTable> getExtraLootTables() {
-				return extraLootTables;
-			}
-			
-			@Override
-			public Map<String, Object> getExtraProperties() {
-				return extraProperties;
-			}
-		};
+		dataGeneratorConfigurator = new DataGeneratorConfigurator(type, worldGenFeatures, extraLootTables, extraProperties);
 	}
 	
 	@Override
