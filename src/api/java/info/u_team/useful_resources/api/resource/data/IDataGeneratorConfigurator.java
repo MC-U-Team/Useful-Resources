@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.api.resource.data;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
@@ -10,9 +11,9 @@ public interface IDataGeneratorConfigurator {
 	
 	ResourceType getResourceType();
 	
-	Map<String, WorldGenFeature> getWorldGeneration();
+	Map<String, Supplier<WorldGenFeature>> getWorldGeneration();
 	
-	Map<BlockResourceType, LootTable> getExtraLootTables();
+	Map<BlockResourceType, Supplier<LootTable>> getExtraLootTables();
 	
 	Map<String, Object> getExtraProperties();
 	
