@@ -10,6 +10,7 @@ import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.api.util.Cast;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
@@ -116,9 +117,8 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return getThis();
 	}
 	
-	@SuppressWarnings("unchecked")
 	private T getThis() {
-		return (T) this;
+		return Cast.uncheckedCast(this);
 	}
 	
 }
