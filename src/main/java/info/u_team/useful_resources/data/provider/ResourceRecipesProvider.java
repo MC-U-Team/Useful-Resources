@@ -7,8 +7,9 @@ import static net.minecraft.data.ShapedRecipeBuilder.shapedRecipe;
 import static net.minecraft.data.ShapelessRecipeBuilder.shapelessRecipe;
 
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 import com.google.gson.JsonObject;
 
@@ -61,8 +62,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		removeRecipe("redstone_from_blasting", consumer);
 		
 		ResourceRegistry.getResources().forEach(resource -> {
-			final Map<BlockResourceType, Block> blocks = resource.getBlocks();
-			final Map<ItemResourceType, Item> items = resource.getItems();
+			final Map<BlockResourceType, Block> blocks = resource.getBlocks().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
+			final Map<ItemResourceType, Item> items = resource.getItems().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			
 			final Map<String, Object> extraProperties = resource.getDataGeneratorConfigurator().getExtraProperties();
 			
