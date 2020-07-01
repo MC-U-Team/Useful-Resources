@@ -35,16 +35,16 @@ public interface IResource {
 	
 	List<RegistryEntry<Item>> getRegistryItems();
 	
-	default void iterateRegistryBlocks(BiConsumer<BlockResourceType, RegistryEntry<Block>> consumer) {
-		iterateRegistry(getRegistryBlocks(), getBlocks(), consumer);
+	default void iterateRegistryBlocks(BiConsumer<BlockResourceType, Block> consumer) {
+		iterateRegistry(getRegistryBlocks(), getBlocks(), (type, entry) -> consumer.accept(type, entry.get()));
 	}
 	
-	default void iterateRegistryFluids(BiConsumer<FluidResourceType, RegistryEntry<Fluid>> consumer) {
-		iterateRegistry(getRegistryFluids(), getFluids(), consumer);
+	default void iterateRegistryFluids(BiConsumer<FluidResourceType, Fluid> consumer) {
+		iterateRegistry(getRegistryFluids(), getFluids(), (type, entry) -> consumer.accept(type, entry.get()));
 	}
 	
-	default void iterateRegistryItems(BiConsumer<ItemResourceType, RegistryEntry<Item>> consumer) {
-		iterateRegistry(getRegistryItems(), getItems(), consumer);
+	default void iterateRegistryItems(BiConsumer<ItemResourceType, Item> consumer) {
+		iterateRegistry(getRegistryItems(), getItems(), (type, entry) -> consumer.accept(type, entry.get()));
 	}
 	
 	default <E extends IResourceType<?>, T extends IForgeRegistryEntry<T>> void iterateRegistry(List<RegistryEntry<T>> registryList, Map<E, RegistryEntry<T>> map, BiConsumer<E, RegistryEntry<T>> consumer) {
