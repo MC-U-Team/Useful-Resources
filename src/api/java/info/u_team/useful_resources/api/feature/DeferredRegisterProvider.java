@@ -34,5 +34,9 @@ public class DeferredRegisterProvider implements IDeferredRegisterProvider {
 		return items;
 	}
 	
-	
+	public void register(IEventBus bus) {
+		blocks.register(bus);
+		fluids.register(bus);
+		items.register(bus);
+	}
 }
