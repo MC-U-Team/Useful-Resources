@@ -27,7 +27,7 @@ public class RegistryEntry<T extends IForgeRegistryEntry<? super T>> implements 
 	private final ResourceLocation name;
 	private final Supplier<T> entry;
 	
-	public RegistryEntry(ResourceLocation name, Supplier<T> entry) {
+	protected RegistryEntry(ResourceLocation name, Supplier<T> entry) {
 		this.name = name;
 		this.entry = entry;
 	}
