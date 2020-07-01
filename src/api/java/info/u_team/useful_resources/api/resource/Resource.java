@@ -5,9 +5,11 @@ import java.util.*;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.api.util.Cast;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public abstract class Resource implements IResource {
 	
@@ -89,12 +91,12 @@ public abstract class Resource implements IResource {
 		addEntriesToMap(items, feature.getItems(), registryItems, feature.getRegistryItems());
 	}
 	
-	private <K, V> void addEntriesToMap(Map<K, V> baseMap, Map<K, V> map, List<V> baseRegistryList, Collection<V> registryCollection) {
+	private <K, V extends IForgeRegistryEntry<? super V>> void addEntriesToMap(Map<K, RegistryEntry<V>> baseMap, Map<K, RegistryEntry<? extends V>> map, List<RegistryEntry<V>> baseRegistryList, Collection<RegistryEntry<? extends V>> registryCollection) {
 		map.entrySet().stream().peek(entry -> {
 			if (baseMap.containsKey(entry.getKey())) {
 				throw new IllegalStateException("Cannot add a feature with entries that already exist in the resource");
 			}
-		}).forEach(entry -> baseMap.put(entry.getKey(), entry.getValue()));
+		}).forEach(entry -> baseMap.put(entry.getKey(), Cast.uncheckedCast(entry.getValue())));
 		registryCollection.stream().peek(value -> {
 			if (!map.containsValue(value)) {
 				throw new IllegalStateException("Cannot add a feature with registry entries that are not in the normal feature entry map");
@@ -102,7 +104,6 @@ public abstract class Resource implements IResource {
 			if (baseRegistryList.contains(value)) {
 				throw new IllegalStateException("Cannot add a feature with registry entries that already exist in the resource");
 			}
-		}).forEach(baseRegistryList::add);
+		}).forEach(value -> baseRegistryList.add(Cast.uncheckedCast(value)));
 	}
-	
 }
