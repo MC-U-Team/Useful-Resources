@@ -74,45 +74,45 @@ public class CommonResourceBuilder {
 	public static IResourceFeatureBuilder createTools(Rarity rarity, IToolMaterial material) {
 		return basicBuilder((name, provider, feature) -> {
 			final ToolSet toolSet = ToolSetCreator.create(provider.getItemRegister(), name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
-			// feature.add(ItemResourceType.AXE, toolSet.getAxe());
-			// feature.add(ItemResourceType.HOE, toolSet.getHoe());
-			// feature.add(ItemResourceType.PICKAXE, toolSet.getPickaxe());
-			// feature.add(ItemResourceType.SHOVEL, toolSet.getShovel());
-			// feature.add(ItemResourceType.SWORD, toolSet.getSword());
+			feature.add(ItemResourceType.AXE, RegistryEntry.create(toolSet.getAxe()));
+			feature.add(ItemResourceType.HOE, RegistryEntry.create(toolSet.getHoe()));
+			feature.add(ItemResourceType.PICKAXE, RegistryEntry.create(toolSet.getPickaxe()));
+			feature.add(ItemResourceType.SHOVEL, RegistryEntry.create(toolSet.getShovel()));
+			feature.add(ItemResourceType.SWORD, RegistryEntry.create(toolSet.getSword()));
 		});
 	}
 	
 	public static IResourceFeatureBuilder createArmor(Rarity rarity, IArmorMaterial material) {
-		return basicBuilder((name, feature) -> {
-			final ArmorSet armorSet = ColoredArmorSetCreator.create(name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
-			feature.add(ItemResourceType.HELMET, armorSet.getHelmet());
-			feature.add(ItemResourceType.CHESTPLATE, armorSet.getChestplate());
-			feature.add(ItemResourceType.LEGGINGS, armorSet.getLeggings());
-			feature.add(ItemResourceType.BOOTS, armorSet.getBoots());
+		return basicBuilder((name, provider, feature) -> {
+			final ArmorSet armorSet = ColoredArmorSetCreator.create(provider.getItemRegister(), name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
+			feature.add(ItemResourceType.HELMET, RegistryEntry.create(armorSet.getHelmet()));
+			feature.add(ItemResourceType.CHESTPLATE, RegistryEntry.create(armorSet.getChestplate()));
+			feature.add(ItemResourceType.LEGGINGS, RegistryEntry.create(armorSet.getLeggings()));
+			feature.add(ItemResourceType.BOOTS, RegistryEntry.create(armorSet.getBoots()));
 		});
 	}
 	
 	public static IResourceFeatureBuilder createHorseArmor(Rarity rarity, int armorPoints) {
-		return basicBuilder((name, feature) -> {
-			feature.add(ItemResourceType.HORSE_ARMOR, new BasicHorseArmorItem(name, rarity, armorPoints));
+		return basicBuilder((name, provider, feature) -> {
+			feature.register(ItemResourceType.HORSE_ARMOR, () -> new BasicHorseArmorItem(rarity, armorPoints));
 		});
 	}
 	
 	public static IResourceFeatureBuilder addExistingBlock(BlockResourceType type, Block block) {
-		return basicBuilder((name, feature) -> {
-			feature.addExisting(type, block);
+		return basicBuilder((name, provider, feature) -> {
+			feature.addExisting(type, RegistryEntry.create(block));
 		});
 	}
 	
 	public static IResourceFeatureBuilder addExistingFluid(FluidResourceType type, Fluid fluid) {
-		return basicBuilder((name, feature) -> {
-			feature.addExisting(type, fluid);
+		return basicBuilder((name, provider, feature) -> {
+			feature.addExisting(type, RegistryEntry.create(fluid));
 		});
 	}
 	
 	public static IResourceFeatureBuilder addExistingItem(ItemResourceType type, Item item) {
-		return basicBuilder((name, feature) -> {
-			feature.addExisting(type, item);
+		return basicBuilder((name, provider, feature) -> {
+			feature.addExisting(type, RegistryEntry.create(item));
 		});
 	}
 	
@@ -176,35 +176,35 @@ public class CommonResourceBuilder {
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Block>> T add(BlockResourceType type, T entry) {
+		private <T extends Block> RegistryEntry<T> add(BlockResourceType type, RegistryEntry<T> entry) {
 			blocks.put(type, entry);
 			registryBlocks.add(entry);
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Fluid>> T add(FluidResourceType type, T entry) {
+		private <T extends Fluid> RegistryEntry<T> add(FluidResourceType type, RegistryEntry<T> entry) {
 			fluids.put(type, entry);
 			registryFluids.add(entry);
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Item>> T add(ItemResourceType type, T entry) {
+		private <T extends Item> RegistryEntry<T> add(ItemResourceType type, RegistryEntry<T> entry) {
 			items.put(type, entry);
 			registryItems.add(entry);
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Block>> T addExisting(BlockResourceType type, T entry) {
+		private <T extends Block> RegistryEntry<T> addExisting(BlockResourceType type, RegistryEntry<T> entry) {
 			blocks.put(type, entry);
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Fluid>> T addExisting(FluidResourceType type, T entry) {
+		private <T extends Fluid> RegistryEntry<T> addExisting(FluidResourceType type, RegistryEntry<T> entry) {
 			fluids.put(type, entry);
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Item>> T addExisting(ItemResourceType type, T entry) {
+		private <T extends Item> RegistryEntry<T> addExisting(ItemResourceType type, RegistryEntry<T> entry) {
 			items.put(type, entry);
 			return entry;
 		}
