@@ -1,10 +1,12 @@
 package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.api.registry.IBlockItemProvider;
+import info.u_team.u_team_core.item.UBucketItem;
 import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
 import info.u_team.u_team_core.util.registry.BlockRegistryObject;
@@ -24,6 +26,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid.*;
+import net.minecraftforge.fluids.ForgeFlowingFluid.Properties;
 import net.minecraftforge.fml.RegistryObject;
 
 public class CommonResourceBuilder {
@@ -50,23 +53,17 @@ public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createMoltenFluid(FluidAttributes.Builder builder) {
 		return basicBuilder((name, provider, feature) -> {
-//			final AtomicReference<Source> sourceFluidReference = new AtomicReference<>();
-//			final AtomicReference<Flowing> flowingFluidReference = new AtomicReference<>();
-//			final AtomicReference<FlowingFluidBlock> fluidBlockReference = new AtomicReference<>();
-//			final AtomicReference<UBucketItem> bucketItemReference = new AtomicReference<>();
-//			
-//			final ForgeFlowingFluid.Properties properties = new ForgeFlowingFluid.Properties(sourceFluidReference::get, flowingFluidReference::get, builder).block(fluidBlockReference::get).bucket(bucketItemReference::get);
-//			
-//			sourceFluidReference.set(feature.add(FluidResourceType.MOLTEN, new Source(basicName(name, FluidResourceType.MOLTEN), properties)));
-//			flowingFluidReference.set(feature.add(FluidResourceType.MOLTEN_FLOWING, new Flowing(basicName(name, FluidResourceType.MOLTEN_FLOWING), properties)));
-//			fluidBlockReference.set(feature.add(BlockResourceType.MOLTEN_FLUID, new FlowingFluidBlock(basicName(name, BlockResourceType.MOLTEN_FLUID), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops(), sourceFluidReference::get)));
-//			bucketItemReference.set(feature.add(ItemResourceType.MOLTEN_BUCKET, new UBucketItem(basicName(name, ItemResourceType.MOLTEN_BUCKET), new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(UsefulResourcesItemGroups.GROUP), sourceFluidReference::get)));
-		
-			final RegistryEntry<? extends Source> source = feature.register(FluidResourceType.MOLTEN, () -> new Source(null));
-			final RegistryEntry<? extends Flowing> flowing = feature.register(FluidResourceType.MOLTEN_FLOWING, () -> new Flowing(null));
+			final AtomicReference<RegistryEntry<? extends Source>> sourceFluidReference = new AtomicReference<>();
+			final AtomicReference<RegistryEntry<? extends Flowing>> flowingFluidReference = new AtomicReference<>();
+			final AtomicReference<RegistryEntry<? extends FlowingFluidBlock>> fluidBlockReference = new AtomicReference<>();
+			final AtomicReference<RegistryEntry<? extends UBucketItem>> bucketItemReference = new AtomicReference<>();
 			
-			feature.registerBlock(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(source, Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops()));
-		
+			final Properties properties = new Properties(sourceFluidReference.get(), flowingFluidReference.get(), builder).block(fluidBlockReference.get()).bucket(bucketItemReference.get());
+			
+			sourceFluidReference.set(feature.register(FluidResourceType.MOLTEN, () -> new Source(properties)));
+			flowingFluidReference.set(feature.register(FluidResourceType.MOLTEN_FLOWING, () -> new Flowing(properties)));
+			fluidBlockReference.set(feature.registerBlock(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(sourceFluidReference.get(), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops())));
+			bucketItemReference.set(feature.register(ItemResourceType.MOLTEN_BUCKET, () -> new UBucketItem(UsefulResourcesItemGroups.GROUP, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1), sourceFluidReference.get())));
 		});
 	}
 	
