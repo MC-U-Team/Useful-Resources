@@ -130,7 +130,7 @@ public class CommonResourceBuilder {
 		};
 	}
 	
-	private static class ResourceFeature implements IResourceFeature {
+	protected static class ResourceFeature implements IResourceFeature {
 		
 		private final String name;
 		private final IDeferredRegisterProvider provider;
@@ -143,7 +143,7 @@ public class CommonResourceBuilder {
 		private final List<RegistryEntry<? extends Fluid>> registryFluids;
 		private final List<RegistryEntry<? extends Item>> registryItems;
 		
-		private ResourceFeature(String name, IDeferredRegisterProvider provider) {
+		protected ResourceFeature(String name, IDeferredRegisterProvider provider) {
 			this.name = name;
 			this.provider = provider;
 			blocks = new EnumMap<>(BlockResourceType.class);
@@ -154,7 +154,7 @@ public class CommonResourceBuilder {
 			registryItems = new ArrayList<>();
 		}
 		
-		private <T extends Block & IBlockItemProvider> RegistryEntry<? extends T> register(BlockResourceType type, Supplier<? extends T> supplier) {
+		protected <T extends Block & IBlockItemProvider> RegistryEntry<? extends T> register(BlockResourceType type, Supplier<? extends T> supplier) {
 			final BlockRegistryObject<? extends T, BlockItem> registryObject = provider.getBlockRegister().register(basicName(name, type), supplier);
 			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
 			blocks.put(type, entry);
@@ -162,7 +162,7 @@ public class CommonResourceBuilder {
 			return entry;
 		}
 		
-		private <T extends Block> RegistryEntry<? extends T> registerBlock(BlockResourceType type, Supplier<? extends T> supplier) {
+		protected <T extends Block> RegistryEntry<? extends T> registerBlock(BlockResourceType type, Supplier<? extends T> supplier) {
 			final RegistryObject<? extends T> registryObject = provider.getBlockRegister().registerBlock(basicName(name, type), supplier);
 			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
 			blocks.put(type, entry);
@@ -170,7 +170,7 @@ public class CommonResourceBuilder {
 			return entry;
 		}
 		
-		private <T extends Fluid> RegistryEntry<? extends T> register(FluidResourceType type, Supplier<? extends T> supplier) {
+		protected <T extends Fluid> RegistryEntry<? extends T> register(FluidResourceType type, Supplier<? extends T> supplier) {
 			final RegistryObject<? extends T> registryObject = provider.getFluidRegister().register(basicName(name, type), supplier);
 			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
 			fluids.put(type, entry);
@@ -178,7 +178,7 @@ public class CommonResourceBuilder {
 			return entry;
 		}
 		
-		private <T extends Item> RegistryEntry<? extends T> register(ItemResourceType type, Supplier<? extends T> supplier) {
+		protected <T extends Item> RegistryEntry<? extends T> register(ItemResourceType type, Supplier<? extends T> supplier) {
 			final RegistryObject<? extends T> registryObject = provider.getItemRegister().register(basicName(name, type), supplier);
 			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
 			items.put(type, entry);
@@ -186,35 +186,35 @@ public class CommonResourceBuilder {
 			return entry;
 		}
 		
-		private <T extends Block> RegistryEntry<T> add(BlockResourceType type, RegistryEntry<T> entry) {
+		protected <T extends Block> RegistryEntry<T> add(BlockResourceType type, RegistryEntry<T> entry) {
 			blocks.put(type, entry);
 			registryBlocks.add(entry);
 			return entry;
 		}
 		
-		private <T extends Fluid> RegistryEntry<T> add(FluidResourceType type, RegistryEntry<T> entry) {
+		protected <T extends Fluid> RegistryEntry<T> add(FluidResourceType type, RegistryEntry<T> entry) {
 			fluids.put(type, entry);
 			registryFluids.add(entry);
 			return entry;
 		}
 		
-		private <T extends Item> RegistryEntry<T> add(ItemResourceType type, RegistryEntry<T> entry) {
+		protected <T extends Item> RegistryEntry<T> add(ItemResourceType type, RegistryEntry<T> entry) {
 			items.put(type, entry);
 			registryItems.add(entry);
 			return entry;
 		}
 		
-		private <T extends Block> RegistryEntry<T> addExisting(BlockResourceType type, RegistryEntry<T> entry) {
+		protected <T extends Block> RegistryEntry<T> addExisting(BlockResourceType type, RegistryEntry<T> entry) {
 			blocks.put(type, entry);
 			return entry;
 		}
 		
-		private <T extends Fluid> RegistryEntry<T> addExisting(FluidResourceType type, RegistryEntry<T> entry) {
+		protected <T extends Fluid> RegistryEntry<T> addExisting(FluidResourceType type, RegistryEntry<T> entry) {
 			fluids.put(type, entry);
 			return entry;
 		}
 		
-		private <T extends Item> RegistryEntry<T> addExisting(ItemResourceType type, RegistryEntry<T> entry) {
+		protected <T extends Item> RegistryEntry<T> addExisting(ItemResourceType type, RegistryEntry<T> entry) {
 			items.put(type, entry);
 			return entry;
 		}
