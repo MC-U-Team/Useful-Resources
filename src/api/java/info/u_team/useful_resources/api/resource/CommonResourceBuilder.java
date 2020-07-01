@@ -31,7 +31,7 @@ public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createBasicBlock(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			feature.add(type, provider.getBlockRegister().register(basicName(name, type), () -> new BasicBlock(rarity, harvestLevel, hardness, resistance)));
+			feature.register(type, () -> new BasicBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
@@ -40,8 +40,8 @@ public class CommonResourceBuilder {
 	}
 	
 	public static IResourceFeatureBuilder createOre(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance, Function<Random, Integer> experienceDrop) {
-		return basicBuilder((name, feature) -> {
-			feature.add(type, new OreBlock(basicName(name, type), rarity, harvestLevel, hardness, resistance, experienceDrop));
+		return basicBuilder((name, provider, feature) -> {
+			feature.register(type, () -> new OreBlock(rarity, harvestLevel, hardness, resistance, experienceDrop));
 		});
 	}
 	
@@ -50,7 +50,7 @@ public class CommonResourceBuilder {
 	}
 	
 	public static IResourceFeatureBuilder createMoltenFluid(FluidAttributes.Builder builder) {
-		return basicBuilder((name, feature) -> {
+		return basicBuilder((name, provider, feature) -> {
 			final AtomicReference<USourceFluid> sourceFluidReference = new AtomicReference<>();
 			final AtomicReference<UFlowingFluid> flowingFluidReference = new AtomicReference<>();
 			final AtomicReference<UFluidBlock> fluidBlockReference = new AtomicReference<>();
@@ -66,19 +66,19 @@ public class CommonResourceBuilder {
 	}
 	
 	public static IResourceFeatureBuilder createBasicItem(ItemResourceType type, Rarity rarity) {
-		return basicBuilder((name, feature) -> {
-			feature.add(type, new BasicItem(basicName(name, type), rarity));
+		return basicBuilder((name, provider, feature) -> {
+			feature.register(type, () -> new BasicItem(rarity));
 		});
 	}
 	
 	public static IResourceFeatureBuilder createTools(Rarity rarity, IToolMaterial material) {
-		return basicBuilder((name, feature) -> {
-			final ToolSet toolSet = ToolSetCreator.create(name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
-			feature.add(ItemResourceType.AXE, toolSet.getAxe());
-			feature.add(ItemResourceType.HOE, toolSet.getHoe());
-			feature.add(ItemResourceType.PICKAXE, toolSet.getPickaxe());
-			feature.add(ItemResourceType.SHOVEL, toolSet.getShovel());
-			feature.add(ItemResourceType.SWORD, toolSet.getSword());
+		return basicBuilder((name, provider, feature) -> {
+			final ToolSet toolSet = ToolSetCreator.create(provider.getItemRegister(), name, UsefulResourcesItemGroups.GROUP, new Item.Properties().rarity(rarity), material);
+			// feature.add(ItemResourceType.AXE, toolSet.getAxe());
+			// feature.add(ItemResourceType.HOE, toolSet.getHoe());
+			// feature.add(ItemResourceType.PICKAXE, toolSet.getPickaxe());
+			// feature.add(ItemResourceType.SHOVEL, toolSet.getShovel());
+			// feature.add(ItemResourceType.SWORD, toolSet.getSword());
 		});
 	}
 	
@@ -176,19 +176,37 @@ public class CommonResourceBuilder {
 			return entry;
 		}
 		
-		private <T extends RegistryEntry<Block>> T addExisting(BlockResourceType type, T block) {
-			blocks.put(type, block);
-			return block;
+		private <T extends RegistryEntry<Block>> T add(BlockResourceType type, T entry) {
+			blocks.put(type, entry);
+			registryBlocks.add(entry);
+			return entry;
 		}
 		
-		private <T extends RegistryEntry<Fluid>> T addExisting(FluidResourceType type, T fluid) {
-			fluids.put(type, fluid);
-			return fluid;
+		private <T extends RegistryEntry<Fluid>> T add(FluidResourceType type, T entry) {
+			fluids.put(type, entry);
+			registryFluids.add(entry);
+			return entry;
 		}
 		
-		private <T extends RegistryEntry<Item>> T addExisting(ItemResourceType type, T item) {
-			items.put(type, item);
-			return item;
+		private <T extends RegistryEntry<Item>> T add(ItemResourceType type, T entry) {
+			items.put(type, entry);
+			registryItems.add(entry);
+			return entry;
+		}
+		
+		private <T extends RegistryEntry<Block>> T addExisting(BlockResourceType type, T entry) {
+			blocks.put(type, entry);
+			return entry;
+		}
+		
+		private <T extends RegistryEntry<Fluid>> T addExisting(FluidResourceType type, T entry) {
+			fluids.put(type, entry);
+			return entry;
+		}
+		
+		private <T extends RegistryEntry<Item>> T addExisting(ItemResourceType type, T entry) {
+			items.put(type, entry);
+			return entry;
 		}
 		
 		@Override
