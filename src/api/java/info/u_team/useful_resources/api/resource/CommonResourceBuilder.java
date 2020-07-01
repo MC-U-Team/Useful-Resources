@@ -2,13 +2,15 @@ package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Function;
+import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
+import info.u_team.u_team_core.api.registry.IBlockItemProvider;
 import info.u_team.u_team_core.block.UFluidBlock;
 import info.u_team.u_team_core.item.UBucketItem;
 import info.u_team.u_team_core.item.armor.ArmorSet;
 import info.u_team.u_team_core.item.tool.*;
+import info.u_team.u_team_core.util.registry.BlockRegistryObject;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
@@ -23,12 +25,13 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.*;
+import net.minecraftforge.fml.RegistryObject;
 
 public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createBasicBlock(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance) {
-		return basicBuilder((name, feature) -> {
-			feature.add(type, new BasicBlock(basicName(name, type), rarity, harvestLevel, hardness, resistance));
+		return basicBuilder((name, provider, feature) -> {
+			feature.add(type, provider.getBlockRegister().register(basicName(name, type), () -> new BasicBlock(rarity, harvestLevel, hardness, resistance)));
 		});
 	}
 	
@@ -119,7 +122,7 @@ public class CommonResourceBuilder {
 	
 	private static IResourceFeatureBuilder basicBuilder(TriConsumer<String, IDeferredRegisterProvider, ResourceFeature> consumer) {
 		return (name, provider) -> {
-			final ResourceFeature feature = new ResourceFeature();
+			final ResourceFeature feature = new ResourceFeature(name, provider);
 			consumer.accept(name, provider, feature);
 			return feature;
 		};
@@ -127,15 +130,20 @@ public class CommonResourceBuilder {
 	
 	private static class ResourceFeature implements IResourceFeature {
 		
-		private final Map<BlockResourceType, RegistryEntry<Block>> blocks;
-		private final Map<FluidResourceType, RegistryEntry<Fluid>> fluids;
-		private final Map<ItemResourceType, RegistryEntry<Item>> items;
+		private final String name;
+		private final IDeferredRegisterProvider provider;
 		
-		private final List<RegistryEntry<Block>> registryBlocks;
-		private final List<RegistryEntry<Fluid>> registryFluids;
-		private final List<RegistryEntry<Item>> registryItems;
+		private final Map<BlockResourceType, RegistryEntry<? extends Block>> blocks;
+		private final Map<FluidResourceType, RegistryEntry<? extends Fluid>> fluids;
+		private final Map<ItemResourceType, RegistryEntry<? extends Item>> items;
 		
-		private ResourceFeature() {
+		private final List<RegistryEntry<? extends Block>> registryBlocks;
+		private final List<RegistryEntry<? extends Fluid>> registryFluids;
+		private final List<RegistryEntry<? extends Item>> registryItems;
+		
+		private ResourceFeature(String name, IDeferredRegisterProvider provider) {
+			this.name = name;
+			this.provider = provider;
 			blocks = new EnumMap<>(BlockResourceType.class);
 			fluids = new EnumMap<>(FluidResourceType.class);
 			items = new EnumMap<>(ItemResourceType.class);
@@ -144,22 +152,28 @@ public class CommonResourceBuilder {
 			registryItems = new ArrayList<>();
 		}
 		
-		private <T extends RegistryEntry<Block>> T add(BlockResourceType type, T block) {
-			blocks.put(type, block);
-			registryBlocks.add(block);
-			return block;
+		private <T extends Block & IBlockItemProvider> RegistryEntry<? extends T> register(BlockResourceType type, Supplier<? extends T> supplier) {
+			final BlockRegistryObject<? extends T, BlockItem> registryObject = provider.getBlockRegister().register(basicName(name, type), supplier);
+			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
+			blocks.put(type, entry);
+			registryBlocks.add(entry);
+			return entry;
 		}
 		
-		private <T extends RegistryEntry<Fluid>> T add(FluidResourceType type, T fluid) {
-			fluids.put(type, fluid);
-			registryFluids.add(fluid);
-			return fluid;
+		private <T extends Fluid> RegistryEntry<? extends T> register(FluidResourceType type, Supplier<? extends T> supplier) {
+			final RegistryObject<? extends T> registryObject = provider.getFluidRegister().register(basicName(name, type), supplier);
+			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
+			fluids.put(type, entry);
+			registryFluids.add(entry);
+			return entry;
 		}
 		
-		private <T extends RegistryEntry<Item>> T add(ItemResourceType type, T item) {
-			items.put(type, item);
-			registryItems.add(item);
-			return item;
+		private <T extends Item> RegistryEntry<? extends T> register(ItemResourceType type, Supplier<? extends T> supplier) {
+			final RegistryObject<? extends T> registryObject = provider.getItemRegister().register(basicName(name, type), supplier);
+			final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
+			items.put(type, entry);
+			registryItems.add(entry);
+			return entry;
 		}
 		
 		private <T extends RegistryEntry<Block>> T addExisting(BlockResourceType type, T block) {
@@ -178,32 +192,32 @@ public class CommonResourceBuilder {
 		}
 		
 		@Override
-		public Map<BlockResourceType, RegistryEntry<Block>> getBlocks() {
+		public Map<BlockResourceType, RegistryEntry<? extends Block>> getBlocks() {
 			return blocks;
 		}
 		
 		@Override
-		public Map<FluidResourceType, RegistryEntry<Fluid>> getFluids() {
+		public Map<FluidResourceType, RegistryEntry<? extends Fluid>> getFluids() {
 			return fluids;
 		}
 		
 		@Override
-		public Map<ItemResourceType, RegistryEntry<Item>> getItems() {
+		public Map<ItemResourceType, RegistryEntry<? extends Item>> getItems() {
 			return items;
 		}
 		
 		@Override
-		public List<RegistryEntry<Block>> getRegistryBlocks() {
+		public List<RegistryEntry<? extends Block>> getRegistryBlocks() {
 			return registryBlocks;
 		}
 		
 		@Override
-		public List<RegistryEntry<Fluid>> getRegistryFluids() {
+		public List<RegistryEntry<? extends Fluid>> getRegistryFluids() {
 			return registryFluids;
 		}
 		
 		@Override
-		public List<RegistryEntry<Item>> getRegistryItems() {
+		public List<RegistryEntry<? extends Item>> getRegistryItems() {
 			return registryItems;
 		}
 	}

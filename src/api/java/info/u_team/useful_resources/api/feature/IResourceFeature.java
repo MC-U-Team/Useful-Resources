@@ -20,26 +20,26 @@ public interface IResourceFeature {
 	 * 
 	 * @return The collection of blocks
 	 */
-	Map<BlockResourceType, RegistryEntry<Block>> getBlocks();
+	Map<BlockResourceType, RegistryEntry<? extends Block>> getBlocks();
 	
 	/**
 	 * Returns a list of all fluids that are added with this feature. Can return an empty list. Cannot return null.
 	 * 
 	 * @return The collection of fluids
 	 */
-	Map<FluidResourceType, RegistryEntry<Fluid>> getFluids();
+	Map<FluidResourceType, RegistryEntry<? extends Fluid>> getFluids();
 	
 	/**
 	 * Returns a list of all items that are added with this feature. Can return an empty list. Cannot return null.
 	 * 
 	 * @return The collection of items
 	 */
-	Map<ItemResourceType, RegistryEntry<Item>> getItems();
+	Map<ItemResourceType, RegistryEntry<? extends Item>> getItems();
 	
-	List<RegistryEntry<Block>> getRegistryBlocks();
+	List<RegistryEntry<? extends Block>> getRegistryBlocks();
 	
-	List<RegistryEntry<Fluid>> getRegistryFluids();
+	List<RegistryEntry<? extends Fluid>> getRegistryFluids();
 	
-	List<RegistryEntry<Item>> getRegistryItems();
+	List<RegistryEntry<? extends Item>> getRegistryItems();
 	
 }
