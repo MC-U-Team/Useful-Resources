@@ -21,9 +21,11 @@ import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
+import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid.*;
 import net.minecraftforge.fluids.ForgeFlowingFluid.Properties;
@@ -58,12 +60,19 @@ public class CommonResourceBuilder {
 			final AtomicReference<RegistryEntry<? extends FlowingFluidBlock>> fluidBlockReference = new AtomicReference<>();
 			final AtomicReference<RegistryEntry<? extends UBucketItem>> bucketItemReference = new AtomicReference<>();
 			
-			final Properties properties = new Properties(sourceFluidReference.get(), flowingFluidReference.get(), builder).block(fluidBlockReference.get()).bucket(bucketItemReference.get());
+			final Properties properties = new Properties(() -> sourceFluidReference.get().get(), () -> flowingFluidReference.get().get(), builder).block(() -> fluidBlockReference.get().get()).bucket(() -> bucketItemReference.get().get());
 			
 			sourceFluidReference.set(feature.register(FluidResourceType.MOLTEN, () -> new Source(properties)));
 			flowingFluidReference.set(feature.register(FluidResourceType.MOLTEN_FLOWING, () -> new Flowing(properties)));
-			fluidBlockReference.set(feature.registerBlock(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(sourceFluidReference.get(), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops())));
-			bucketItemReference.set(feature.register(ItemResourceType.MOLTEN_BUCKET, () -> new UBucketItem(UsefulResourcesItemGroups.GROUP, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1), sourceFluidReference.get())));
+			fluidBlockReference.set(feature.registerBlock(BlockResourceType.MOLTEN_FLUID, () -> new FlowingFluidBlock(() -> sourceFluidReference.get().get(), Block.Properties.create(Material.WATER).doesNotBlockMovement().hardnessAndResistance(100.0F).noDrops())));
+			bucketItemReference.set(feature.register(ItemResourceType.MOLTEN_BUCKET, () -> new UBucketItem(UsefulResourcesItemGroups.GROUP, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1), () -> sourceFluidReference.get().get()) {
+				
+				@Override
+				public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
+					System.out.println(getFluid().getRegistryName());
+					return super.onItemRightClick(world, player, hand);
+				}
+			}));
 		});
 	}
 	
