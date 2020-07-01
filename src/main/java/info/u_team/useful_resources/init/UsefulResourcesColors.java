@@ -4,6 +4,7 @@ import com.google.common.collect.Streams;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.api.registry.RegistryEntry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,7 +25,7 @@ public class UsefulResourcesColors {
 				} else {
 					return -1;
 				}
-			}, resource.getRegistryBlocks().stream().toArray(Block[]::new));
+			}, resource.getRegistryBlocks().stream().map(RegistryEntry::get).toArray(Block[]::new));
 		});
 		
 		ResourceRegistry.getResources().forEach(resource -> {
@@ -34,7 +35,7 @@ public class UsefulResourcesColors {
 				} else {
 					return -1;
 				}
-			}, Streams.concat(resource.getRegistryBlocks().stream().map(Block::asItem), resource.getRegistryItems().stream()).toArray(Item[]::new));
+			}, Streams.concat(resource.getRegistryBlocks().stream().map(RegistryEntry::get).map(Block::asItem), resource.getRegistryItems().stream().map(RegistryEntry::get)).toArray(Item[]::new));
 		});
 	}
 	
