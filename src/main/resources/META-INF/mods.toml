@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[31,)"
+loaderVersion="[33,)"
 issueTrackerURL="https://github.com/MC-U-Team/Useful-Resources/issues"
 displayURL="https://u-team.info/mods/usefulresources"
 logoFile="logo.png"
@@ -16,20 +16,20 @@ authors="HyCraftHD"
 	[[dependencies.usefulresources]]
 	    modId="forge"
 	    mandatory=true
-	    versionRange="[31.2.30,)"
+	    versionRange="[33.0.19,)"
 	    ordering="NONE"
 	    side="BOTH"
 	
 	[[dependencies.usefulresources]]
 	    modId="minecraft"
 	    mandatory=true
-	    versionRange="[1.15.2]"
+	    versionRange="[1.16.2]"
 	    ordering="NONE"
 	    side="BOTH"
 	    
 	[[dependencies.usefulresources]]
 	    modId="uteamcore"
 	    mandatory=true
-	    versionRange="[3.0.0.160,)"
+	    versionRange="[3.1.4.173,)"
 	    ordering="NONE"
 	    side="BOTH"
