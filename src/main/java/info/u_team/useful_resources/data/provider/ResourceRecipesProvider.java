@@ -24,7 +24,7 @@ import net.minecraft.block.Block;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 
@@ -75,7 +75,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// ORES -> INGOT / GEM
 			if (shouldAddRecipe(resource, ORE, NETHER_ORE, normalResourceType)) {
-				final Tag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
+				final INamedTag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
 				final Item normalItem = items.get(normalResourceType);
 				
 				final float xp = ObjectUtil.getFloat(extraProperties.getOrDefault("oreSmeltingXp", 0.7F));
@@ -91,7 +91,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// DUST -> INGOT / GEM
 			if (shouldAddRecipe(resource, DUST, normalResourceType)) {
-				final Tag<Item> dustTag = DUST.getTag(resource);
+				final INamedTag<Item> dustTag = DUST.getTag(resource);
 				final Item normalItem = items.get(normalResourceType);
 				
 				smeltingRecipe(getIngredientOfTag(dustTag), normalItem, 0.5F, 200) //
@@ -106,7 +106,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			// INGOT / GEM <-> BLOCK
 			if (shouldAddRecipe(resource, normalResourceType, BLOCK)) {
 				// INGOT / GEM -> BLOCK
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
 				final Block blockBlock = blocks.get(BLOCK);
 				shapedRecipe(blockBlock) //
 						.key('#', normalTag) //
@@ -117,7 +117,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.build(consumer, createLocation(resource, "crafting/block_from_" + normalResourceTypeName));
 				
 				// BLOCK -> INGOT / GEM
-				final Tag<Item> blockTag = getItemTag(BLOCK, resource);
+				final INamedTag<Item> blockTag = getItemTag(BLOCK, resource);
 				final Item normalItem = items.get(normalResourceType);
 				
 				shapelessRecipe(normalItem, 9) //
@@ -129,7 +129,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			// NUGGET / PIECE <-> INGOT / GEM
 			if (shouldAddRecipe(resource, tinyResourceType, normalResourceType)) {
 				// NUGGET / PIECE -> INGOT / GEM
-				final Tag<Item> tinyTag = tinyResourceType.getTag(resource);
+				final INamedTag<Item> tinyTag = tinyResourceType.getTag(resource);
 				final Item normalItem = items.get(normalResourceType);
 				shapedRecipe(normalItem) //
 						.key('#', tinyTag) //
@@ -140,7 +140,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 						.build(consumer, createLocation(resource, "crafting/" + normalResourceTypeName + "_from_" + tinyResourceTypeName));
 				
 				// INGOT / GEM -> NUGGET / PIECE
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item tinyItem = items.get(tinyResourceType);
 				
 				shapelessRecipe(tinyItem, 9) //
@@ -151,8 +151,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT / GEM -> AXE
 			if (shouldAddRecipe(resource, normalResourceType, AXE)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
-				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item axeItem = items.get(AXE);
 				
 				shapedRecipe(axeItem) //
@@ -167,8 +167,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT / GEM -> HOE
 			if (shouldAddRecipe(resource, normalResourceType, HOE)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
-				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item hoeItem = items.get(HOE);
 				
 				shapedRecipe(hoeItem) //
@@ -183,8 +183,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT / GEM -> PICKAXE
 			if (shouldAddRecipe(resource, normalResourceType, PICKAXE)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
-				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item pickaxeItem = items.get(PICKAXE);
 				
 				shapedRecipe(pickaxeItem) //
@@ -199,8 +199,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT / GEM -> SHOVEL
 			if (shouldAddRecipe(resource, normalResourceType, SHOVEL)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
-				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item shovelItem = items.get(SHOVEL);
 				
 				shapedRecipe(shovelItem) //
@@ -215,8 +215,8 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT -> SWORD
 			if (shouldAddRecipe(resource, normalResourceType, SWORD)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
-				final Tag<Item> stickTag = Tags.Items.RODS_WOODEN;
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> stickTag = Tags.Items.RODS_WOODEN;
 				final Item swordItem = items.get(SWORD);
 				
 				shapedRecipe(swordItem) //
@@ -231,7 +231,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT -> HELMET
 			if (shouldAddRecipe(resource, normalResourceType, HELMET)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item helmetItem = items.get(HELMET);
 				
 				shapedRecipe(helmetItem) //
@@ -244,7 +244,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT -> CHESTPLATE
 			if (shouldAddRecipe(resource, normalResourceType, CHESTPLATE)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item chestplateItem = items.get(CHESTPLATE);
 				
 				shapedRecipe(chestplateItem) //
@@ -258,7 +258,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT -> LEGGINGS
 			if (shouldAddRecipe(resource, normalResourceType, LEGGINGS)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item leggingsItem = items.get(LEGGINGS);
 				
 				shapedRecipe(leggingsItem) //
@@ -272,7 +272,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			// INGOT -> BOOTS
 			if (shouldAddRecipe(resource, normalResourceType, BOOTS)) {
-				final Tag<Item> normalTag = normalResourceType.getTag(resource);
+				final INamedTag<Item> normalTag = normalResourceType.getTag(resource);
 				final Item bootsItem = items.get(BOOTS);
 				
 				shapedRecipe(bootsItem) //
@@ -367,7 +367,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		return allTypes && anyRegistered;
 	}
 	
-	private final Tag<Item> getItemTag(BlockResourceType type, IResource resource) {
+	private final INamedTag<Item> getItemTag(BlockResourceType type, IResource resource) {
 		return TagUtil.fromBlockTag(type.getTag(resource));
 	}
 	

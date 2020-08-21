@@ -1,5 +1,5 @@
 package info.u_team.useful_resources.util;
-
+/* TODO
 import java.util.Arrays;
 
 import info.u_team.useful_resources.api.list.ListType;
@@ -10,6 +10,7 @@ import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType;
+import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.*;
 
 public class GenerationUtil {
@@ -18,30 +19,30 @@ public class GenerationUtil {
 	private final static Category[] NETHER_WHITELIST = new Category[] { Category.NETHER }; // Whitelist
 	
 	public static WorldGenFeature createOreFeatureRangeOverworld(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
-		return createOreFeatureRange(ListType.BLACKLIST, OVERWORLD_BLACKLIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.NATURAL_STONE, state, size, count, bottomOffset, topOffset, maximum);
+		return createOreFeatureRange(ListType.BLACKLIST, OVERWORLD_BLACKLIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.field_241882_a, state, size, count, bottomOffset, topOffset, maximum);
 	}
 	
 	public static WorldGenFeature createOreFeatureRangeNether(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
-		return createOreFeatureRange(ListType.WHITELIST, NETHER_WHITELIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.NETHERRACK, state, size, count, bottomOffset, topOffset, maximum);
+		return createOreFeatureRange(ListType.WHITELIST, NETHER_WHITELIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.field_241883_b, state, size, count, bottomOffset, topOffset, maximum);
 	}
 	
-	public static WorldGenFeature createOreFeatureRange(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, FillerBlockType fillerBlockType, BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
-		return createOreFeature(categoriesType, categories, biomesType, biomes, fillerBlockType, state, size, Placement.COUNT_RANGE.configure(new CountRangeConfig(count, bottomOffset, topOffset, maximum)));
+	public static WorldGenFeature createOreFeatureRange(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, RuleTest fillerBlockType, BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
+		return createOreFeature(categoriesType, categories, biomesType, biomes, fillerBlockType, state, size, Placement.field_242907_l.configure(new TopSolidRangeConfig(bottomOffset, topOffset, maximum)));
 	}
 	
 	public static WorldGenFeature createOreFeatureDeathAverageOverworld(BlockState state, int size, int count, int baseline, int spread) {
-		return createOreFeatureDeathAverage(ListType.BLACKLIST, OVERWORLD_BLACKLIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.NATURAL_STONE, state, size, count, baseline, spread);
+		return createOreFeatureDeathAverage(ListType.BLACKLIST, OVERWORLD_BLACKLIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.field_241882_a, state, size, count, baseline, spread);
 	}
 	
 	public static WorldGenFeature createOreFeatureDeathAverageNether(BlockState state, int size, int count, int baseline, int spread) {
-		return createOreFeatureDeathAverage(ListType.WHITELIST, NETHER_WHITELIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.NETHERRACK, state, size, count, baseline, spread);
+		return createOreFeatureDeathAverage(ListType.WHITELIST, NETHER_WHITELIST, ListType.BLACKLIST, new Biome[0], FillerBlockType.field_241883_b, state, size, count, baseline, spread);
 	}
 	
-	public static WorldGenFeature createOreFeatureDeathAverage(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, FillerBlockType fillerBlockType, BlockState state, int size, int count, int baseline, int spread) {
-		return createOreFeature(categoriesType, categories, biomesType, biomes, fillerBlockType, state, size, Placement.COUNT_DEPTH_AVERAGE.configure(new DepthAverageConfig(count, baseline, spread)));
+	public static WorldGenFeature createOreFeatureDeathAverage(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, RuleTest fillerBlockType, BlockState state, int size, int count, int baseline, int spread) {
+		return createOreFeature(categoriesType, categories, biomesType, biomes, fillerBlockType, state, size, Placement.field_242910_o.configure(new DepthAverageConfig(baseline, spread)));
 	}
 	
-	public static WorldGenFeature createOreFeature(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, FillerBlockType fillerBlockType, BlockState state, int size, ConfiguredPlacement<?> placement) {
+	public static WorldGenFeature createOreFeature(ListType categoriesType, Category[] categories, ListType biomesType, Biome[] biomes, RuleTest fillerBlockType, BlockState state, int size, ConfiguredPlacement<?> placement) {
 		return createFeature(categoriesType, categories, biomesType, biomes, Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(fillerBlockType, state, size)).withPlacement(placement));
 	}
 	
@@ -49,4 +50,4 @@ public class GenerationUtil {
 		return new WorldGenFeature(new CategoryTypeList(categoriesType, Arrays.asList(categories)), new BiomeTypeList(biomesType, Arrays.asList(biomes)), decoration, configuredFeature);
 	}
 	
-}
+}*/

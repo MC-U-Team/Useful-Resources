@@ -2,10 +2,10 @@ package info.u_team.useful_resources.util;
 
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.loot.*;
+import net.minecraft.loot.conditions.MatchTool;
+import net.minecraft.loot.functions.*;
 import net.minecraft.util.IItemProvider;
-import net.minecraft.world.storage.loot.*;
-import net.minecraft.world.storage.loot.conditions.MatchTool;
-import net.minecraft.world.storage.loot.functions.*;
 
 public class LootTableUtil {
 	

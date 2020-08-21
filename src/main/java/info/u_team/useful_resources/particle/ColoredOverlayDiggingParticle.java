@@ -12,10 +12,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particles.BlockParticleData;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.*;
-import net.minecraft.world.World;
+import net.minecraft.util.math.vector.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.client.model.data.EmptyModelData;
 
@@ -33,7 +34,7 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	private final List<Pair<TextureAtlasSprite, Integer>> sprites;
 	private final HashMap<Integer, Triple<Float, Float, Float>> colors;
 	
-	public ColoredOverlayDiggingParticle(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, BlockState state) {
+	public ColoredOverlayDiggingParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, BlockState state) {
 		super(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed);
 		this.sourceState = state;
 		particleScale = 0.1F * (rand.nextFloat() * 0.5F + 0.5F) * 2.0F;
@@ -80,7 +81,7 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	
 	@Override
 	public void renderParticle(IVertexBuilder buffer, ActiveRenderInfo renderInfo, float partialTicks) {
-		final Vec3d projectedView = renderInfo.getProjectedView();
+		final Vector3d projectedView = renderInfo.getProjectedView();
 		
 		final float renderX = (float) (MathHelper.lerp(partialTicks, prevPosX, posX) - projectedView.getX());
 		final float renderY = (float) (MathHelper.lerp(partialTicks, prevPosY, posY) - projectedView.getY());
@@ -179,7 +180,7 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	@OnlyIn(Dist.CLIENT)
 	public static class Factory implements IParticleFactory<BlockParticleData> {
 		
-		public Particle makeParticle(BlockParticleData data, World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+		public Particle makeParticle(BlockParticleData data, ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			return new ColoredOverlayDiggingParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, data.getBlockState()).init();
 		}
 	}

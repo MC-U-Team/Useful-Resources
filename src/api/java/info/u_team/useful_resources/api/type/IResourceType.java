@@ -1,7 +1,7 @@
 package info.u_team.useful_resources.api.type;
 
 import info.u_team.useful_resources.api.resource.IResource;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public interface IResourceType<T extends IForgeRegistryEntry<T>> {
@@ -10,10 +10,10 @@ public interface IResourceType<T extends IForgeRegistryEntry<T>> {
 	
 	boolean hasUnifyTag();
 	
-	Tag<T> getUnifyTag();
+	INamedTag<T> getUnifyTag();
 	
 	boolean hasTag();
 	
-	Tag<T> getTag(IResource resource);
+	INamedTag<T> getTag(IResource resource);
 	
 }

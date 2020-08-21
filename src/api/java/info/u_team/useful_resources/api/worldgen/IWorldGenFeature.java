@@ -1,5 +1,5 @@
 package info.u_team.useful_resources.api.worldgen;
-
+/*
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
@@ -13,4 +13,4 @@ public interface IWorldGenFeature {
 	
 	ConfiguredFeature<?, ?> getFeature();
 	
-}
+}*/

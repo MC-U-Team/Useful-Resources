@@ -1,10 +1,9 @@
 package info.u_team.useful_resources.api.worldgen;
-
+/*
 import java.util.Objects;
 
 import com.google.common.collect.ImmutableMap;
-import com.mojang.datafixers.Dynamic;
-import com.mojang.datafixers.types.DynamicOps;
+import com.mojang.serialization.*;
 
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -57,4 +56,4 @@ public class WorldGenFeature implements IWorldGenFeature {
 		return new WorldGenFeature(categories, biomes, decoration, feature);
 	}
 	
-}
+}*/

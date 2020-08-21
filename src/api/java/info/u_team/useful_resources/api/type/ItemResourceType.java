@@ -4,7 +4,7 @@ import java.util.*;
 
 import info.u_team.u_team_core.util.TagUtil;
 import net.minecraft.item.Item;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public enum ItemResourceType implements CacheResourceType<Item> {
@@ -40,7 +40,7 @@ public enum ItemResourceType implements CacheResourceType<Item> {
 	
 	MOLTEN_BUCKET("molten_bucket");
 	
-	private static final Map<ResourceLocation, Tag<Item>> CACHE = new HashMap<>();
+	private static final Map<ResourceLocation, INamedTag<Item>> CACHE = new HashMap<>();
 	
 	private final String name;
 	
@@ -65,12 +65,12 @@ public enum ItemResourceType implements CacheResourceType<Item> {
 	}
 	
 	@Override
-	public Tag<Item> createTag(ResourceLocation location) {
-		return TagUtil.createItemTag(location.getNamespace(), location.getPath());
+	public INamedTag<Item> createTag(ResourceLocation location) {
+		return TagUtil.createItemTag(location);
 	}
 	
 	@Override
-	public Map<ResourceLocation, Tag<Item>> getCache() {
+	public Map<ResourceLocation, INamedTag<Item>> getCache() {
 		return CACHE;
 	}
 	

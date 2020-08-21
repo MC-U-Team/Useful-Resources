@@ -4,7 +4,7 @@ import java.util.*;
 
 import info.u_team.u_team_core.util.TagUtil;
 import net.minecraft.block.Block;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public enum BlockResourceType implements CacheResourceType<Block> {
@@ -16,7 +16,7 @@ public enum BlockResourceType implements CacheResourceType<Block> {
 	
 	MOLTEN_FLUID("molten_fluid", null);
 	
-	private static final Map<ResourceLocation, Tag<Block>> CACHE = new HashMap<>();
+	private static final Map<ResourceLocation, INamedTag<Block>> CACHE = new HashMap<>();
 	
 	private final String name;
 	
@@ -41,12 +41,12 @@ public enum BlockResourceType implements CacheResourceType<Block> {
 	}
 	
 	@Override
-	public Tag<Block> createTag(ResourceLocation location) {
-		return TagUtil.createBlockTag(location.getNamespace(), location.getPath());
+	public INamedTag<Block> createTag(ResourceLocation location) {
+		return TagUtil.createBlockTag(location);
 	}
 	
 	@Override
-	public Map<ResourceLocation, Tag<Block>> getCache() {
+	public Map<ResourceLocation, INamedTag<Block>> getCache() {
 		return CACHE;
 	}
 }

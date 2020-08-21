@@ -5,11 +5,13 @@ import info.u_team.useful_resources.init.UsefulResourcesParticleTypes;
 import info.u_team.useful_resources.particle.ColoredOverlayDiggingParticle;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.particle.ParticleManager;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.*;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.particles.BlockParticleData;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.*;
@@ -28,7 +30,7 @@ public abstract class ParticleBlock extends UBlock {
 	
 	@Override
 	public boolean addRunningEffects(BlockState state, World world, BlockPos pos, Entity entity) {
-		final Vec3d motion = entity.getMotion();
+		final Vector3d motion = entity.getMotion();
 		world.addParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK.get(), state), entity.getPosX() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), entity.getPosY() + 0.1, entity.getPosZ() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), motion.x * -4, 1.5, motion.z * -4);
 		return true;
 	}
@@ -77,7 +79,9 @@ public abstract class ParticleBlock extends UBlock {
 			xCoord = x + aabb.maxX + 0.1;
 		}
 		
-		manager.addEffect((new ColoredOverlayDiggingParticle(world, xCoord, yCoord, zCoord, 0, 0, 0, state)).setBlockPos(pos).multiplyVelocity(0.2F).multiplyParticleScaleBy(0.6F));
+		if (world instanceof ClientWorld) {
+			manager.addEffect((new ColoredOverlayDiggingParticle((ClientWorld) world, xCoord, yCoord, zCoord, 0, 0, 0, state)).setBlockPos(pos).multiplyVelocity(0.2F).multiplyParticleScaleBy(0.6F));
+		}
 		return true;
 	}
 	
@@ -101,7 +105,9 @@ public abstract class ParticleBlock extends UBlock {
 						final double offsetX = centerX * x + shapeMinX;
 						final double offsetY = centerY * y + shapeMinY;
 						final double offsetZ = centerZ * z + shapeMinZ;
-						manager.addEffect((new ColoredOverlayDiggingParticle(world, pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ, centerX - 0.5, centerY - 0.5, centerZ - 0.5, state)).setBlockPos(pos));
+						if (world instanceof ClientWorld) {
+							manager.addEffect((new ColoredOverlayDiggingParticle((ClientWorld) world, pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ, centerX - 0.5, centerY - 0.5, centerZ - 0.5, state)).setBlockPos(pos));
+						}
 					}
 				}
 			}

@@ -1,5 +1,5 @@
 package info.u_team.useful_resources.worldgenloader;
-
+/*
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -7,8 +7,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.*;
 
 import com.google.gson.*;
-import com.mojang.datafixers.Dynamic;
-import com.mojang.datafixers.types.JsonOps;
+import com.mojang.serialization.*;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
@@ -85,4 +84,4 @@ public class WorldGenFeatureLoader extends JsonReloadListener {
 		LOGGER.info("Loaded {} world gen features", counter.intValue());
 	}
 	
-}
+}*/

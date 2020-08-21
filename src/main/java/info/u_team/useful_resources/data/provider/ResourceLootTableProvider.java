@@ -6,8 +6,8 @@ import java.util.function.*;
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.type.BlockResourceType;
+import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.*;
 
 public class ResourceLootTableProvider extends CommonLootTablesProvider {
 	

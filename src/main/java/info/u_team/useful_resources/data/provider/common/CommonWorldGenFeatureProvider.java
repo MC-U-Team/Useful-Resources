@@ -1,9 +1,9 @@
 package info.u_team.useful_resources.data.provider.common;
-
+/* TODO
 import java.io.IOException;
 import java.util.*;
 
-import com.mojang.datafixers.types.JsonOps;
+import com.mojang.serialization.JsonOps;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
@@ -41,4 +41,4 @@ public abstract class CommonWorldGenFeatureProvider extends CommonProvider {
 		data.put(path, feature);
 	}
 	
-}
+}*/

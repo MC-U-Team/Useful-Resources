@@ -1,5 +1,5 @@
 package info.u_team.useful_resources.data.provider;
-
+/* TODO
 import info.u_team.u_team_core.data.GenerationData;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.data.provider.common.CommonWorldGenFeatureProvider;
@@ -19,4 +19,4 @@ public class ResourceWorldGenFeatureProvider extends CommonWorldGenFeatureProvid
 		});
 	}
 	
-}
+} */

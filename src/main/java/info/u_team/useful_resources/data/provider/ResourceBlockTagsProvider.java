@@ -13,8 +13,8 @@ import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.Tag.Builder;
+import net.minecraft.data.TagsProvider.Builder;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
@@ -28,10 +28,10 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type.hasTag()) {
-					final Tag<Block> tag = type.getTag(resource);
+					final INamedTag<Block> tag = type.getTag(resource);
 					getBuilder(tag).add(block);
 					if (type.hasUnifyTag()) {
-						getBuilder(type.getUnifyTag()).add(tag);
+						getBuilder(type.getUnifyTag()).addTag(tag);
 					}
 				}
 			});
@@ -57,18 +57,18 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
 		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
 		if (hasType.containsValue(true)) {
-			final Tag<Block> tag = TagUtil.createBlockTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
+			final INamedTag<Block> tag = TagUtil.createBlockTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
 			final Builder<Block> builder = getBuilder(tag);
 			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
-				builder.add(type.getTag(resource));
+				builder.addTag(type.getTag(resource));
 			});
-			getBuilder(TagUtil.createBlockTag(baseTag)).add(tag);
+			getBuilder(TagUtil.createBlockTag(baseTag)).addTag(tag);
 		}
 	}
 	
 	private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
-		final Tag<Block> tag = type.getTag(resource);
+		final INamedTag<Block> tag = type.getTag(resource);
 		getBuilder(tag).add(block);
-		getBuilder(type.getUnifyTag()).add(tag);
+		getBuilder(type.getUnifyTag()).addTag(tag);
 	}
 }

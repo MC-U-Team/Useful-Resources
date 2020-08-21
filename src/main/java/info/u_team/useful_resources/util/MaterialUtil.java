@@ -10,27 +10,35 @@ import net.minecraft.util.*;
 public class MaterialUtil {
 	
 	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability) {
-		return createArmor(durability, armorPoints, enchantability, 0);
+		return createArmor(durability, armorPoints, enchantability, 0, 0);
 	}
 	
-	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, float toughness) {
-		return createArmor(durability, armorPoints, enchantability, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness);
+	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, float knockbackResistance) {
+		return createArmor(durability, armorPoints, enchantability, 0, knockbackResistance);
 	}
 	
-	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, Supplier<SoundEvent> soundevent, float toughness) {
-		return new UArmorMaterial(durability, armorPoints, enchantability, soundevent, toughness, () -> Ingredient.EMPTY);
+	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, float toughness, float knockbackResistance) {
+		return createArmor(durability, armorPoints, enchantability, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness, knockbackResistance);
+	}
+	
+	public static UArmorMaterial createArmor(int[] durability, int[] armorPoints, int enchantability, Supplier<SoundEvent> soundevent, float toughness, float knockbackResistance) {
+		return new UArmorMaterial(durability, armorPoints, enchantability, soundevent, toughness, knockbackResistance, () -> Ingredient.EMPTY);
 	}
 	
 	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability) {
-		return createArmor(durabilityFactor, armorPoints, enchantability, 0);
+		return createArmor(durabilityFactor, armorPoints, enchantability, 0, 0);
 	}
 	
-	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, float toughness) {
-		return createArmor(durabilityFactor, armorPoints, enchantability, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness);
+	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, float knockbackResistance) {
+		return createArmor(durabilityFactor, armorPoints, enchantability, 0, knockbackResistance);
 	}
 	
-	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, Supplier<SoundEvent> soundevent, float toughness) {
-		return new UArmorMaterialVanilla(durabilityFactor, armorPoints, enchantability, soundevent, toughness, () -> Ingredient.EMPTY);
+	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, float toughness, float knockbackResistance) {
+		return createArmor(durabilityFactor, armorPoints, enchantability, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, toughness, knockbackResistance);
+	}
+	
+	public static UArmorMaterial createArmor(int durabilityFactor, int[] armorPoints, int enchantability, Supplier<SoundEvent> soundevent, float toughness, float knockbackResistance) {
+		return new UArmorMaterialVanilla(durabilityFactor, armorPoints, enchantability, soundevent, toughness, knockbackResistance, () -> Ingredient.EMPTY);
 	}
 	
 	public static UToolMaterial createTools(float[] additionalDamage, float[] speed, int harvestlevel, int durability, float efficiency, float baseDamage, int enchantability) {

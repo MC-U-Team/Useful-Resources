@@ -2,8 +2,9 @@ package info.u_team.useful_resources.api.type;
 
 import java.util.*;
 
+import info.u_team.u_team_core.util.TagUtil;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.tags.*;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public enum FluidResourceType implements CacheResourceType<Fluid> {
@@ -11,7 +12,7 @@ public enum FluidResourceType implements CacheResourceType<Fluid> {
 	MOLTEN("molten"),
 	MOLTEN_FLOWING("molten_flowing", "moltens");
 	
-	private static final Map<ResourceLocation, Tag<Fluid>> CACHE = new HashMap<>();
+	private static final Map<ResourceLocation, INamedTag<Fluid>> CACHE = new HashMap<>();
 	
 	private final String name;
 	
@@ -36,12 +37,12 @@ public enum FluidResourceType implements CacheResourceType<Fluid> {
 	}
 	
 	@Override
-	public Tag<Fluid> createTag(ResourceLocation location) {
-		return new FluidTags.Wrapper(location);
+	public INamedTag<Fluid> createTag(ResourceLocation location) {
+		return TagUtil.createFluidTag(location);
 	}
 	
 	@Override
-	public Map<ResourceLocation, Tag<Fluid>> getCache() {
+	public Map<ResourceLocation, INamedTag<Fluid>> getCache() {
 		return CACHE;
 	}
 	

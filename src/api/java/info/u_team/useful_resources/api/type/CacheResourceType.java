@@ -3,7 +3,7 @@ package info.u_team.useful_resources.api.type;
 import java.util.Map;
 
 import info.u_team.useful_resources.api.resource.IResource;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
@@ -15,7 +15,7 @@ interface CacheResourceType<T extends IForgeRegistryEntry<T>> extends IResourceT
 	}
 	
 	@Override
-	public default Tag<T> getUnifyTag() {
+	public default INamedTag<T> getUnifyTag() {
 		return getTag(new ResourceLocation("forge", getTagName()));
 	}
 	
@@ -25,11 +25,11 @@ interface CacheResourceType<T extends IForgeRegistryEntry<T>> extends IResourceT
 	}
 	
 	@Override
-	public default Tag<T> getTag(IResource resource) {
+	public default INamedTag<T> getTag(IResource resource) {
 		return getTag(new ResourceLocation("forge", getTagName() + "/" + resource.getName()));
 	}
 	
-	default Tag<T> getTag(ResourceLocation location) {
+	default INamedTag<T> getTag(ResourceLocation location) {
 		if (location == null) {
 			return null;
 		}
@@ -38,8 +38,8 @@ interface CacheResourceType<T extends IForgeRegistryEntry<T>> extends IResourceT
 	
 	public String getTagName();
 	
-	public Tag<T> createTag(ResourceLocation location);
+	public INamedTag<T> createTag(ResourceLocation location);
 	
-	public Map<ResourceLocation, Tag<T>> getCache();
+	public Map<ResourceLocation, INamedTag<T>> getCache();
 	
 }

@@ -12,18 +12,17 @@ import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.util.Cast;
-import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.world.storage.loot.LootTable;
+import net.minecraft.loot.LootTable;
 
 public abstract class BasicResource<T extends BasicResource<T>> extends Resource {
 	
 	private final Rarity rarity;
 	
-	private final Map<String, Supplier<WorldGenFeature>> worldGenFeatures;
+	//private final Map<String, Supplier<WorldGenFeature>> worldGenFeatures; TODO
 	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
 	private final Map<String, Object> extraProperties;
 	
@@ -32,10 +31,10 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	public BasicResource(String name, int color, ItemResourceType repairType, Rarity rarity, ResourceType type) {
 		super(name, color, repairType);
 		this.rarity = rarity;
-		worldGenFeatures = new HashMap<>();
+		//worldGenFeatures = new HashMap<>();
 		extraLootTables = new HashMap<>();
 		extraProperties = new HashMap<>();
-		dataGeneratorConfigurator = new DataGeneratorConfigurator(type, worldGenFeatures, extraLootTables, extraProperties);
+		dataGeneratorConfigurator = new DataGeneratorConfigurator(type,/* worldGenFeatures,*/ extraLootTables, extraProperties);
 	}
 	
 	@Override
@@ -45,7 +44,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	@Override
 	public void clearDataGeneratorConfig() {
-		worldGenFeatures.clear();
+		//worldGenFeatures.clear();
 		extraLootTables.clear();
 		extraProperties.clear();
 	}
@@ -80,7 +79,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return getThis();
 	}
 	
-	public T setGenerationDefault(BlockResourceType type, Function<BlockState, WorldGenFeature> function) {
+	/*public T setGenerationDefault(BlockResourceType type, Function<BlockState, WorldGenFeature> function) {
 		return setGeneration(type, block -> function.apply(block.getDefaultState()));
 	}
 	
@@ -91,7 +90,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	private T setGeneration(String name, Supplier<WorldGenFeature> feature) {
 		worldGenFeatures.put(name, feature);
 		return getThis();
-	}
+	}*/
 	
 	public T setLootTableWithFortune(BlockResourceType type, ItemResourceType dropType, BiFunction<Item, Item, LootTable> function) {
 		return setLootTable(type, item -> function.apply(item, getItems().get(dropType).get()));
