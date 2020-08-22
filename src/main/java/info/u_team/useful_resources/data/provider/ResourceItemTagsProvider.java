@@ -12,10 +12,13 @@ import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
+import net.minecraft.block.Block;
 import net.minecraft.data.TagsProvider.Builder;
 import net.minecraft.item.*;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
@@ -101,5 +104,16 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	private void copyBlockTag(BlockResourceType type, IResource resource) {
 		copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
 		copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
+	}
+	
+	@Override
+	protected void copy(INamedTag<Block> blockTag, INamedTag<Item> itemTag) {
+		final ITag.Builder itemTagBuilder = getTagBuilder(itemTag);
+		
+		final Function<ITag.INamedTag<Block>, ITag.Builder> blockTagBuilderFunction = ObfuscationReflectionHelper.getPrivateValue(CommonItemTagsProvider.class, this, "blockTagBuilderFunction");
+		
+		final ITag.Builder blockTagBuilder = blockTagBuilderFunction.apply(blockTag);
+		
+		blockTagBuilder.getProxyStream().filter(proxyBlockTag -> itemTagBuilder.getProxyStream().allMatch(proxyItemTag -> proxyItemTag != proxyBlockTag)).forEach(itemTagBuilder::addProxyTag);
 	}
 }
