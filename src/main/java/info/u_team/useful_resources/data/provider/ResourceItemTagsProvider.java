@@ -19,8 +19,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
-	public ResourceItemTagsProvider(GenerationData data) {
-		super(data);
+	public ResourceItemTagsProvider(GenerationData data, ResourceBlockTagsProvider blockProvider) {
+		super(data, blockProvider);
 	}
 	
 	@SuppressWarnings("unchecked") // TODO not nice :/
