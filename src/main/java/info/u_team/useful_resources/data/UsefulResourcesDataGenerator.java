@@ -21,12 +21,13 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceSpecialProvider::new);
 		}
 		if (event.includeServer()) {
-			data.addProvider(ResourceBlockTagsProvider::new);
+			final ResourceBlockTagsProvider blockProvider = new ResourceBlockTagsProvider(data);
+			data.addProvider($ -> blockProvider);
 			data.addProvider(ResourceFluidTagsProvider::new);
-			data.addProvider(ResourceItemTagsProvider::new);
+			data.addProvider($ -> new ResourceItemTagsProvider(data, blockProvider));
 			data.addProvider(ResourceLootTableProvider::new);
 			data.addProvider(ResourceRecipesProvider::new);
-			//data.addProvider(ResourceWorldGenFeatureProvider::new); TODO
+			// data.addProvider(ResourceWorldGenFeatureProvider::new); TODO
 		}
 	}
 }
