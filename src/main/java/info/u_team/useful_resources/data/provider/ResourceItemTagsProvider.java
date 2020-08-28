@@ -12,13 +12,9 @@ import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
-import net.minecraft.block.Block;
-import net.minecraft.data.TagsProvider.Builder;
 import net.minecraft.item.*;
-import net.minecraft.tags.ITag;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
@@ -26,7 +22,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		super(data, blockProvider);
 	}
 	
-	@SuppressWarnings("unchecked") // TODO not nice :/
 	@Override
 	protected void registerTags() {
 		ResourceRegistry.getResources().forEach(resource -> {
@@ -52,14 +47,14 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 					final INamedTag<Item> tag = type.getTag(resource);
 					getBuilder(tag).add(item);
 					if (type.hasUnifyTag()) {
-						getBuilder(type.getUnifyTag()).addTag(tag);
+						getBuilder(type.getUnifyTag()).add(tag);
 					}
 				}
 			});
 		});
 		
-		getBuilder(TagUtil.createItemTag("forge", "tools")).addTags(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
-		getBuilder(TagUtil.createItemTag("forge", "armors")).addTags(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
+		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
+		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
 		
 		// Special tags
 		
@@ -87,18 +82,18 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		final Map<ItemResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getItems().containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final INamedTag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
-			final Builder<Item> builder = getBuilder(tag);
+			final BetterBuilder<Item> builder = getBuilder(tag);
 			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
-				builder.addTag(type.getTag(resource));
+				builder.add(type.getTag(resource));
 			});
-			getBuilder(TagUtil.createItemTag(baseTag)).addTag(tag);
+			getBuilder(TagUtil.createItemTag(baseTag)).add(tag);
 		}
 	}
 	
 	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
 		final INamedTag<Item> tag = type.getTag(resource);
 		getBuilder(tag).add(item);
-		getBuilder(type.getUnifyTag()).addTag(tag);
+		getBuilder(type.getUnifyTag()).add(tag);
 	}
 	
 	private void copyBlockTag(BlockResourceType type, IResource resource) {
@@ -106,14 +101,4 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 	}
 	
-	@Override
-	protected void copy(INamedTag<Block> blockTag, INamedTag<Item> itemTag) {
-		final ITag.Builder itemTagBuilder = getTagBuilder(itemTag);
-		
-		final Function<ITag.INamedTag<Block>, ITag.Builder> blockTagBuilderFunction = ObfuscationReflectionHelper.getPrivateValue(CommonItemTagsProvider.class, this, "blockTagBuilderFunction");
-		
-		final ITag.Builder blockTagBuilder = blockTagBuilderFunction.apply(blockTag);
-		
-		blockTagBuilder.getProxyStream().filter(proxyBlockTag -> itemTagBuilder.getProxyStream().allMatch(proxyItemTag -> proxyItemTag != proxyBlockTag)).forEach(itemTagBuilder::addProxyTag);
-	}
 }
