@@ -13,7 +13,6 @@ import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
-import net.minecraft.data.TagsProvider.Builder;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
@@ -31,7 +30,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 					final INamedTag<Block> tag = type.getTag(resource);
 					getBuilder(tag).add(block);
 					if (type.hasUnifyTag()) {
-						getBuilder(type.getUnifyTag()).addTag(tag);
+						getBuilder(type.getUnifyTag()).add(tag);
 					}
 				}
 			});
@@ -58,17 +57,17 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final INamedTag<Block> tag = TagUtil.createBlockTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
-			final Builder<Block> builder = getBuilder(tag);
+			final BetterBuilder<Block> builder = getBuilder(tag);
 			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
-				builder.addTag(type.getTag(resource));
+				builder.add(type.getTag(resource));
 			});
-			getBuilder(TagUtil.createBlockTag(baseTag)).addTag(tag);
+			getBuilder(TagUtil.createBlockTag(baseTag)).add(tag);
 		}
 	}
 	
 	private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
 		final INamedTag<Block> tag = type.getTag(resource);
 		getBuilder(tag).add(block);
-		getBuilder(type.getUnifyTag()).addTag(tag);
+		getBuilder(type.getUnifyTag()).add(tag);
 	}
 }
