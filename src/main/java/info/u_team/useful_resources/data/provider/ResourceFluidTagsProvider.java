@@ -19,7 +19,7 @@ public class ResourceFluidTagsProvider extends CommonFluidTagsProvider {
 					final INamedTag<Fluid> tag = type.getTag(resource);
 					getBuilder(tag).add(fluid);
 					if (type.hasUnifyTag()) {
-						getBuilder(type.getUnifyTag()).addTag(tag);
+						getBuilder(type.getUnifyTag()).add(tag);
 					}
 				}
 			});
