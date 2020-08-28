@@ -35,7 +35,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			});
 			
 			// Add stone and nether ores to the ore tags
-			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"));
+			addMoreCommonTagCopy(resource, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
 			
 			// Add crushed stone and crushed nether ores to the crushed ore tags
 			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE);
@@ -72,9 +72,11 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
 	}
 	
-	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag) {
+	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {
 		final String specialTagName = baseTag.getPath() + "/" + resource.getName();
-		copy(TagUtil.createBlockTag(baseTag.getNamespace(), specialTagName), TagUtil.createItemTag(baseTag.getNamespace(), specialTagName));
+		if (resource.getBlocks().containsKey(type)) {
+			copy(TagUtil.createBlockTag(baseTag.getNamespace(), specialTagName), TagUtil.createItemTag(baseTag.getNamespace(), specialTagName));
+		}
 		copy(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 	}
 	
