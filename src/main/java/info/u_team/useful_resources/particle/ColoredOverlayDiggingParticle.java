@@ -48,7 +48,7 @@ public class ColoredOverlayDiggingParticle extends Particle {
 		sprites = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(state) //
 				.getQuads(state, Direction.UP, rand, EmptyModelData.INSTANCE) //
 				.stream() //
-				.map(bakedQuad -> Pair.of(bakedQuad.func_187508_a(), bakedQuad.getTintIndex())) //
+				.map(bakedQuad -> Pair.of(bakedQuad.getSprite(), bakedQuad.getTintIndex())) //
 				.collect(Collectors.toList());
 		colors = new HashMap<>();
 		
