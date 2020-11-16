@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class UsefulResourcesParticleTypes {
 	
-	private static final CommonDeferredRegister<ParticleType<?>> PARTICLE_TYPES = CommonDeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, UsefulResourcesMod.MODID);
+	public static final CommonDeferredRegister<ParticleType<?>> PARTICLE_TYPES = CommonDeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, UsefulResourcesMod.MODID);
 	
 	public static final RegistryObject<ParticleType<BlockParticleData>> COLORED_OVERLAY_BLOCK = PARTICLE_TYPES.register("colored_overlay_block", () -> new ParticleType<BlockParticleData>(false, BlockParticleData.DESERIALIZER) {
 		
