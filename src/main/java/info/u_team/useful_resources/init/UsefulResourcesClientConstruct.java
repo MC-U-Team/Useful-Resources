@@ -10,6 +10,7 @@ public class UsefulResourcesClientConstruct implements IModConstruct {
 	@Override
 	public void construct() {
 		BusRegister.registerMod(UsefulResourcesColors::registerMod);
+		BusRegister.registerMod(UsefulResourcesParticles::registerMod);
 	}
 	
 }
