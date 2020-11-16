@@ -5,7 +5,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 public class UsefulResourcesResources {
 	
-	public static void register(IEventBus bus) {
+	public static void registerMod(IEventBus bus) {
 		IResource.DEFERRED_PROVIDER.register(bus);
 	}
 	

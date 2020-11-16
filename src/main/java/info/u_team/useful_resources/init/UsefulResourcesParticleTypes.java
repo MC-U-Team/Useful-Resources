@@ -24,7 +24,7 @@ public class UsefulResourcesParticleTypes {
 		}
 	});
 	
-	public static void register(IEventBus bus) {
+	public static void registerMod(IEventBus bus) {
 		PARTICLE_TYPES.register(bus);
 	}
 	
