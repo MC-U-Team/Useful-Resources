@@ -11,6 +11,7 @@ public class UsefulResourcesClientConstruct implements IModConstruct {
 	public void construct() {
 		BusRegister.registerMod(UsefulResourcesColors::registerMod);
 		BusRegister.registerMod(UsefulResourcesParticles::registerMod);
+		BusRegister.registerMod(UsefulResourcesRenderTypes::registerMod);
 	}
 	
 }
