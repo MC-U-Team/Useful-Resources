@@ -19,7 +19,7 @@ public class UsefulResourcesColors {
 	@SubscribeEvent
 	public static void register(ColorHandlerEvent.Item event) {
 		ResourceRegistry.getResources().forEach(resource -> {
-			event.getBlockColors().register((state, lightReader, pos, tintIndex) -> {
+			event.getBlockColors().register((state, world, pos, tintIndex) -> {
 				if (tintIndex == 1) {
 					return resource.getColor();
 				} else {
