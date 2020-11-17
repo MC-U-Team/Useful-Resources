@@ -11,7 +11,7 @@ import java.util.Map.Entry;
 import java.util.function.Consumer;
 import java.util.stream.*;
 
-import com.google.gson.JsonObject;
+import com.google.gson.*;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
@@ -27,6 +27,8 @@ import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.*;
 
 public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
@@ -294,7 +296,11 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			
 			@Override
 			public JsonObject getRecipeJson() {
-				return new JsonObject();
+				final JsonObject json = new JsonObject();
+				final JsonArray conditions = new JsonArray();
+				conditions.add(CraftingHelper.serialize(FalseCondition.INSTANCE));
+				json.add("conditions", conditions);
+				return json;
 			}
 			
 			@Override
