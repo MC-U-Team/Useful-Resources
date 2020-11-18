@@ -109,6 +109,7 @@ signAllJars()
 sourceSets {
 	main {
 		java {
+			srcDirs += "src/data/java"
 			srcDirs += "src/api/java"
 		}
 		resources {
