@@ -1,9 +1,15 @@
 package info.u_team.useful_resources.api.list;
 
-public enum ListType {
+import com.mojang.serialization.Codec;
+
+import net.minecraft.util.IStringSerializable;
+
+public enum ListType implements IStringSerializable {
 	
 	BLACKLIST("blacklist"),
 	WHITELIST("whitelist");
+	
+	public static final Codec<ListType> CODEC = IStringSerializable.createEnumCodec(ListType::values, ListType::byName);
 	
 	private final String name;
 	
@@ -15,8 +21,13 @@ public enum ListType {
 		return name;
 	}
 	
+	@Override
+	public String getString() {
+		return name;
+	}
+	
 	public static ListType byName(String name) {
-		if ("whitelist".equals(name)) {
+		if (WHITELIST.getName().equals(name)) {
 			return WHITELIST;
 		}
 		return BLACKLIST;
