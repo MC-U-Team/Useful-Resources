@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-public interface IWorldGenFeature {
+public interface IWorldGenFeatures {
 	
 	CategoryTypeList getCategories();
 	

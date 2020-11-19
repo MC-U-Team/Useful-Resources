@@ -8,14 +8,14 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-public class WorldGenFeature implements IWorldGenFeature {
+public class WorldGenFeatures implements IWorldGenFeatures {
 	
-	public static final Codec<WorldGenFeature> CODEC = RecordCodecBuilder.create(instance -> {
+	public static final Codec<WorldGenFeatures> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance.group( //
-				CategoryTypeList.CODEC.fieldOf("categories").forGetter(IWorldGenFeature::getCategories), //
-				BiomeTypeList.CODEC.fieldOf("biomes").forGetter(IWorldGenFeature::getBiomes), //
-				ConfiguredFeature.field_242764_c.listOf().fieldOf("features").forGetter(IWorldGenFeature::getFeatures) //
-		).apply(instance, WorldGenFeature::new);
+				CategoryTypeList.CODEC.fieldOf("categories").forGetter(IWorldGenFeatures::getCategories), //
+				BiomeTypeList.CODEC.fieldOf("biomes").forGetter(IWorldGenFeatures::getBiomes), //
+				ConfiguredFeature.field_242764_c.listOf().fieldOf("features").forGetter(IWorldGenFeatures::getFeatures) //
+		).apply(instance, WorldGenFeatures::new);
 	});
 	
 	private final CategoryTypeList categories;
@@ -23,7 +23,7 @@ public class WorldGenFeature implements IWorldGenFeature {
 	
 	private final List<List<Supplier<ConfiguredFeature<?, ?>>>> features;
 	
-	public WorldGenFeature(CategoryTypeList categories, BiomeTypeList biomes, List<List<Supplier<ConfiguredFeature<?, ?>>>> features) {
+	public WorldGenFeatures(CategoryTypeList categories, BiomeTypeList biomes, List<List<Supplier<ConfiguredFeature<?, ?>>>> features) {
 		this.categories = Objects.requireNonNull(categories);
 		this.biomes = Objects.requireNonNull(biomes);
 		this.features = Objects.requireNonNull(features);
