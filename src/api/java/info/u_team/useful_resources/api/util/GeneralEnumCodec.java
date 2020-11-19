@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.api.util;
 
 import java.util.Optional;
+import java.util.function.UnaryOperator;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.*;
@@ -8,6 +9,10 @@ import com.mojang.serialization.*;
 public class GeneralEnumCodec {
 	
 	public static <E extends Enum<E>> Codec<E> createCodec(Class<E> enumClass) {
+		return createCodec(enumClass, UnaryOperator.identity(), UnaryOperator.identity());
+	}
+	
+	public static <E extends Enum<E>> Codec<E> createCodec(Class<E> enumClass, UnaryOperator<String> encodeNameMapper, UnaryOperator<String> decodeNameMapper) {
 		return new Codec<E>() {
 			
 			@Override
@@ -15,7 +20,7 @@ public class GeneralEnumCodec {
 				if (ops.compressMaps()) {
 					return ops.mergeToPrimitive(prefix, ops.createInt(input.ordinal()));
 				} else {
-					return ops.mergeToPrimitive(prefix, ops.createString(input.name()));
+					return ops.mergeToPrimitive(prefix, ops.createString(encodeNameMapper.apply(input.name())));
 				}
 			}
 			
@@ -30,9 +35,9 @@ public class GeneralEnumCodec {
 						return Pair.of(serializable, ops.empty());
 					});
 				} else {
-					return ops.getStringValue(input).flatMap(id -> {
-						return Optional.ofNullable(Enum.valueOf(enumClass, id)).map(DataResult::success).orElseGet(() -> {
-							return DataResult.error("Unknown enum element name: " + id);
+					return ops.getStringValue(input).flatMap(name -> {
+						return Optional.ofNullable(Enum.valueOf(enumClass, decodeNameMapper.apply(name))).map(DataResult::success).orElseGet(() -> {
+							return DataResult.error("Unknown enum element name: " + name);
 						});
 					}).map(serializable -> {
 						return Pair.of(serializable, ops.empty());
