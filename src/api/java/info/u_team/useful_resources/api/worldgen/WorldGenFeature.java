@@ -16,7 +16,7 @@ public class WorldGenFeature implements IWorldGenFeature {
 		return instance.group( //
 				CategoryTypeList.CODEC.fieldOf("categories").forGetter(IWorldGenFeature::getCategories), //
 				BiomeTypeList.CODEC.fieldOf("biomes").forGetter(IWorldGenFeature::getBiomes), //
-				GeneralEnumCodec.createCodec(Decoration.class).fieldOf("decoration").forGetter(IWorldGenFeature::getDecoration), //
+				GeneralEnumCodec.createCodec(Decoration.class, String::toLowerCase, String::toUpperCase).fieldOf("decoration").forGetter(IWorldGenFeature::getDecoration), //
 				ConfiguredFeature.field_242764_c.fieldOf("feature").forGetter(IWorldGenFeature::getFeatures) //
 		).apply(instance, WorldGenFeature::new);
 	});
