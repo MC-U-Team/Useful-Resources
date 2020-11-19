@@ -45,6 +45,7 @@ public class GeneralEnumCodec {
 				}
 			}
 			
+			@Override
 			public String toString() {
 				return "StringRepresentable[" + enumClass + "]";
 			}
