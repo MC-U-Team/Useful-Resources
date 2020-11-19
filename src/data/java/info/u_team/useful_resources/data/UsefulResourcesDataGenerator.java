@@ -21,10 +21,9 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceSpecialProvider::new);
 		}
 		if (event.includeServer()) {
-			final ResourceBlockTagsProvider blockProvider = new ResourceBlockTagsProvider(data);
-			data.addProvider($ -> blockProvider);
+			data.addProvider(ResourceBlockTagsProvider::new);
 			data.addProvider(ResourceFluidTagsProvider::new);
-			data.addProvider($ -> new ResourceItemTagsProvider(data, blockProvider));
+			data.addProvider(ResourceItemTagsProvider::new);
 			data.addProvider(ResourceLootTableProvider::new);
 			data.addProvider(ResourceRecipesProvider::new);
 			// data.addProvider(ResourceWorldGenFeatureProvider::new); TODO

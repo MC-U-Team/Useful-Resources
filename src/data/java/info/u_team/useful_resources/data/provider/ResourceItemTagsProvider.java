@@ -18,7 +18,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
-	public ResourceItemTagsProvider(GenerationData data, ResourceBlockTagsProvider blockProvider) {
+	public ResourceItemTagsProvider(GenerationData data, CommonBlockTagsProvider blockProvider) {
 		super(data, blockProvider);
 	}
 	
