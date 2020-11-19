@@ -13,7 +13,7 @@ public class BiomeTypeList extends TypeList<ResourceLocation> {
 	public static final Codec<BiomeTypeList> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance.group( //
 				ListType.CODEC.fieldOf("type").forGetter(TypeList::getType), //
-				Codec.list(ResourceLocation.CODEC).fieldOf("biomes").forGetter(TypeList::getList) //
+				Codec.list(ResourceLocation.CODEC).fieldOf("entries").forGetter(TypeList::getList) //
 		).apply(instance, BiomeTypeList::new);
 	});
 	

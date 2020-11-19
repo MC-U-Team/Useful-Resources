@@ -13,7 +13,7 @@ public class CategoryTypeList extends TypeList<Category> {
 	public static final Codec<CategoryTypeList> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance.group( //
 				ListType.CODEC.fieldOf("type").forGetter(TypeList::getType), //
-				Codec.list(Category.CODEC).fieldOf("categories").forGetter(TypeList::getList) //
+				Codec.list(Category.CODEC).fieldOf("entries").forGetter(TypeList::getList) //
 		).apply(instance, CategoryTypeList::new);
 	});
 	
