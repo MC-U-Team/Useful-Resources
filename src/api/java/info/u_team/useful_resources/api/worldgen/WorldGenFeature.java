@@ -54,21 +54,4 @@ public class WorldGenFeature implements IWorldGenFeature {
 	public List<Supplier<ConfiguredFeature<?, ?>>> getFeatures() {
 		return features;
 	}
-	
-	// public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
-	// return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("categories"),
-	// categories.serialize(ops).getValue(), ops.createString("biomes"), biomes.serialize(ops).getValue(),
-	// ops.createString("decoration"), ops.createString(decoration.getName()), ops.createString("feature"),
-	// feature.serialize(ops).getValue())));
-	// }
-	//
-	// public static <T> WorldGenFeature deserialize(Dynamic<T> ops) {
-	// final CategoryTypeList categories = CategoryTypeList.deserialize(ops.get("categories").orElseEmptyMap());
-	// final BiomeTypeList biomes = BiomeTypeList.deserialize(ops.get("biomes").orElseEmptyMap());
-	// final Decoration decoration = Decoration.BY_NAME.getOrDefault(ops.get("decoration").asString(""),
-	// Decoration.RAW_GENERATION);
-	// final ConfiguredFeature<?, ?> feature = ConfiguredFeature.deserialize(ops.get("feature").orElseEmptyMap());
-	// return new WorldGenFeature(categories, biomes, decoration, feature);
-	// }
-	
 }
