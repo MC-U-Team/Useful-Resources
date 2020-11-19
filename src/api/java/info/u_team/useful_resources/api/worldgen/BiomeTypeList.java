@@ -1,29 +1,23 @@
 package info.u_team.useful_resources.api.worldgen;
-/*
-import java.util.List;
-import java.util.stream.Collectors;
 
-import com.google.common.collect.ImmutableMap;
-import com.mojang.serialization.*;
+import java.util.List;
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import info.u_team.useful_resources.api.list.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.*;
-import net.minecraft.world.biome.*;
-import net.minecraftforge.registries.ForgeRegistries;
 
-public class BiomeTypeList extends TypeList<Biome> {
+public class BiomeTypeList extends TypeList<ResourceLocation> {
 	
-	public BiomeTypeList(ListType type, List<Biome> list) {
-		super(type, list);
+	public static final Codec<BiomeTypeList> CODEC = RecordCodecBuilder.create(instance -> {
+		return instance.group( //
+				ListType.CODEC.fieldOf("type").forGetter(TypeList::getType), //
+				Codec.list(ResourceLocation.CODEC).fieldOf("biomes").forGetter(TypeList::getList) //
+		).apply(instance, BiomeTypeList::new);
+	});
+	
+	public BiomeTypeList(ListType type, List<ResourceLocation> biomes) {
+		super(type, biomes);
 	}
-	
-	public <T> Dynamic<T> serialize(DynamicOps<T> ops) {
-		return new Dynamic<>(ops, ops.createMap(ImmutableMap.of(ops.createString("type"), ops.createString(getType().getName()), ops.createString("entries"), ops.createList(getList().stream().map(entry -> ops.createString(entry.getRegistryName().toString()))))));
-	}
-	
-	public static <T> BiomeTypeList deserialize(Dynamic<T> ops) {
-		return new BiomeTypeList(ListType.byName(ops.get("type").asString("")), ops.get("entries").asStream().map(entry -> ResourceLocation.tryCreate(entry.asString(""))).filter(ForgeRegistries.BIOMES::containsKey).map(ForgeRegistries.BIOMES::getValue).collect(Collectors.toList()));
-	}
-	
-}*/
+}
