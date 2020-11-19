@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.api.list;
 
-import java.util.List;
+import java.util.*;
 
 public class TypeList<E> {
 	
@@ -8,8 +8,8 @@ public class TypeList<E> {
 	private final List<E> list;
 	
 	public TypeList(ListType type, List<E> list) {
-		this.type = type;
-		this.list = list;
+		this.type = Objects.requireNonNull(type);
+		this.list = Objects.requireNonNull(list);
 	}
 	
 	public ListType getType() {
