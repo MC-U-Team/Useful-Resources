@@ -21,7 +21,7 @@ public class WorldGenFeatures implements IWorldGenFeatures {
 	
 	public static WorldGenFeatures create(CategoryTypeList categories, BiomeTypeList biomes) {
 		final List<List<Supplier<ConfiguredFeature<?, ?>>>> list = new ArrayList<>();
-		while (list.size() <= Decoration.values().length) {
+		while (list.size() < Decoration.values().length) {
 			list.add(new ArrayList<>());
 		}
 		return new WorldGenFeatures(categories, biomes, list);
