@@ -4,13 +4,14 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import info.u_team.useful_resources.api.type.BlockResourceType;
+import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
 import net.minecraft.loot.LootTable;
 
 public interface IDataGeneratorConfigurator {
 	
 	ResourceType getResourceType();
 	
-	//Map<String, Supplier<WorldGenFeature>> getWorldGeneration(); TODO
+	Map<String, Supplier<WorldGenFeatures>> getWorldGeneration();
 	
 	Map<BlockResourceType, Supplier<LootTable>> getExtraLootTables();
 	
