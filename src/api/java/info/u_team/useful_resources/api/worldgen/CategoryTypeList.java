@@ -8,7 +8,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import info.u_team.useful_resources.api.list.*;
 import net.minecraft.world.biome.Biome.Category;
 
-public class CategoryTypeList extends TypeList<Category> {
+public class CategoryTypeList extends TypeList<Category, CategoryTypeList> {
 	
 	public static final Codec<CategoryTypeList> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance.group( //
@@ -24,10 +24,4 @@ public class CategoryTypeList extends TypeList<Category> {
 	private CategoryTypeList(ListType type, List<Category> list) {
 		super(type, list);
 	}
-	
-	public CategoryTypeList add(Category category) {
-		list.add(category);
-		return this;
-	}
-	
 }
