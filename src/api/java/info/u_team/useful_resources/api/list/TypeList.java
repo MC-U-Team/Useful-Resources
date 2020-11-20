@@ -2,7 +2,9 @@ package info.u_team.useful_resources.api.list;
 
 import java.util.*;
 
-public class TypeList<E> {
+import info.u_team.u_team_core.util.CastUtil;
+
+public class TypeList<E, S> {
 	
 	protected final ListType type;
 	protected final List<E> list;
@@ -30,17 +32,17 @@ public class TypeList<E> {
 		return !(type == ListType.BLACKLIST && list.contains(element) || type == ListType.WHITELIST && !list.contains(element));
 	}
 	
-	public final TypeList<E> add(E element) {
+	public final S add(E element) {
 		list.add(element);
-		return this;
+		return CastUtil.uncheckedCast(this);
 	}
 	
 	@SafeVarargs
-	public final TypeList<E> add(E... elements) {
+	public final S add(E... elements) {
 		for (E element : elements) {
 			list.add(element);
 		}
-		return this;
+		return CastUtil.uncheckedCast(this);
 	}
 	
 }
