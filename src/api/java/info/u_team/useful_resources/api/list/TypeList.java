@@ -32,7 +32,7 @@ public class TypeList<E, S> {
 		return !(type == ListType.BLACKLIST && list.contains(element) || type == ListType.WHITELIST && !list.contains(element));
 	}
 	
-	public final S add(E element) {
+	public S add(E element) {
 		list.add(element);
 		return CastUtil.uncheckedCast(this);
 	}
@@ -40,7 +40,7 @@ public class TypeList<E, S> {
 	@SafeVarargs
 	public final S add(E... elements) {
 		for (E element : elements) {
-			list.add(element);
+			add(element);
 		}
 		return CastUtil.uncheckedCast(this);
 	}
