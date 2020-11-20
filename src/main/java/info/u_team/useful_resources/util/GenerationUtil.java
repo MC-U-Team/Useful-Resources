@@ -3,6 +3,7 @@ package info.u_team.useful_resources.util;
 import java.util.*;
 import java.util.function.UnaryOperator;
 
+import info.u_team.useful_resources.api.list.ListType;
 import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome.Category;
@@ -13,8 +14,8 @@ import net.minecraft.world.gen.placement.ConfiguredPlacement;
 
 public class GenerationUtil {
 	
-	private final static Category[] OVERWORLD_BLACKLIST = new Category[] { Category.NETHER, Category.THEEND, Category.NONE }; // Blacklist
-	private final static Category[] NETHER_WHITELIST = new Category[] { Category.NETHER }; // Whitelist
+	private static final CategoryTypeList OVERWORLD_BLACKLIST = CategoryTypeList.create(ListType.BLACKLIST).add(Category.NETHER, Category.THEEND, Category.NONE);
+	private static final CategoryTypeList NETHER_WHITELIST = CategoryTypeList.create(ListType.WHITELIST).add(Category.NETHER);
 	
 	/*
 	 * public static WorldGenFeatures createOreFeatureRangeOverworld(BlockState state, int size, int count, int
