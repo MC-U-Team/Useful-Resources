@@ -14,8 +14,8 @@ import net.minecraft.world.gen.placement.ConfiguredPlacement;
 
 public class GenerationUtil {
 	
-	private static final CategoryTypeList OVERWORLD_BLACKLIST = CategoryTypeList.create(ListType.BLACKLIST).add(Category.NETHER, Category.THEEND, Category.NONE);
-	private static final CategoryTypeList NETHER_WHITELIST = CategoryTypeList.create(ListType.WHITELIST).add(Category.NETHER);
+	private static final TypeLists OVERWORLD_BLACKLIST = new TypeLists(CategoryTypeList.create(ListType.BLACKLIST).add(Category.NETHER, Category.THEEND, Category.NONE), BiomeTypeList.create(ListType.BLACKLIST));
+	private static final TypeLists NETHER_WHITELIST = new TypeLists(CategoryTypeList.create(ListType.WHITELIST).add(Category.NETHER), BiomeTypeList.create(ListType.BLACKLIST));
 	
 	/*
 	 * public static WorldGenFeatures createOreFeatureRangeOverworld(BlockState state, int size, int count, int
@@ -45,16 +45,39 @@ public class GenerationUtil {
 	 * spread) { return createOreFeature(categoriesType, categories, biomesType, biomes, fillerBlockType, state, size,
 	 * Placement.field_242910_o.configure(new DepthAverageConfig(baseline, spread))); }
 	 */
-	public static WorldGenFeatures createOreFeature(CategoryTypeList categories, BiomeTypeList biomes, RuleTest fillerBlockType, BlockState state, int size, UnaryOperator<ConfiguredFeature<?, ?>> decoratable, Optional<List<ConfiguredPlacement<?>>> extraPlacements) {
+	
+	// public static WorldGenFeatures createOreFeature(TypeLists typeLists, RuleTest fillerBlockType, BlockState state, int
+	// size, UnaryOperator<ConfiguredFeature<?, ?>> decoratable, Optional<List<ConfiguredPlacement<?>>> extraPlacements) {
+	// }
+	
+	public static WorldGenFeatures createOreFeature(TypeLists typeLists, RuleTest fillerBlockType, BlockState state, int size, UnaryOperator<ConfiguredFeature<?, ?>> decoratable, Optional<List<ConfiguredPlacement<?>>> extraPlacements) {
 		final ConfiguredFeature<?, ?> feature = decoratable.apply(Feature.ORE.withConfiguration(new OreFeatureConfig(fillerBlockType, state, size)));
 		if (extraPlacements.isPresent()) {
 			extraPlacements.get().forEach(feature::withPlacement);
 		}
-		return createFeature(categories, biomes, Decoration.UNDERGROUND_ORES, feature);
+		return createFeature(typeLists, Decoration.UNDERGROUND_ORES, feature);
 	}
 	
-	public static WorldGenFeatures createFeature(CategoryTypeList categories, BiomeTypeList biomes, Decoration decoration, ConfiguredFeature<?, ?> feature) {
-		return WorldGenFeatures.create(categories, biomes).addFeature(decoration, () -> feature);
+	public static WorldGenFeatures createFeature(TypeLists typeLists, Decoration decoration, ConfiguredFeature<?, ?> feature) {
+		return WorldGenFeatures.create(typeLists.getCategories(), typeLists.getBiomes()).addFeature(decoration, () -> feature);
 	}
 	
+	public static class TypeLists {
+		
+		private final CategoryTypeList categories;
+		private final BiomeTypeList biomes;
+		
+		public TypeLists(CategoryTypeList categories, BiomeTypeList biomes) {
+			this.categories = categories;
+			this.biomes = biomes;
+		}
+		
+		public CategoryTypeList getCategories() {
+			return categories;
+		}
+		
+		public BiomeTypeList getBiomes() {
+			return biomes;
+		}
+	}
 }
