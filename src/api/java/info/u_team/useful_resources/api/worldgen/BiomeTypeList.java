@@ -9,7 +9,7 @@ import info.u_team.useful_resources.api.list.*;
 import net.minecraft.util.*;
 import net.minecraft.world.biome.Biome;
 
-public class BiomeTypeList extends TypeList<ResourceLocation> {
+public class BiomeTypeList extends TypeList<ResourceLocation, BiomeTypeList> {
 	
 	public static final Codec<BiomeTypeList> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance.group( //
@@ -24,11 +24,6 @@ public class BiomeTypeList extends TypeList<ResourceLocation> {
 	
 	private BiomeTypeList(ListType type, List<ResourceLocation> biomes) {
 		super(type, biomes);
-	}
-	
-	public BiomeTypeList add(ResourceLocation location) {
-		list.add(location);
-		return this;
 	}
 	
 	public BiomeTypeList add(RegistryKey<Biome> biome) {
