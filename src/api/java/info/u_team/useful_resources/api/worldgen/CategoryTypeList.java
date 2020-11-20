@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.api.worldgen;
 
-import java.util.List;
+import java.util.*;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -17,8 +17,17 @@ public class CategoryTypeList extends TypeList<Category> {
 		).apply(instance, CategoryTypeList::new);
 	});
 	
-	public CategoryTypeList(ListType type, List<Category> list) {
+	public static CategoryTypeList create(ListType type) {
+		return new CategoryTypeList(type, new ArrayList<>());
+	}
+	
+	private CategoryTypeList(ListType type, List<Category> list) {
 		super(type, list);
+	}
+	
+	public CategoryTypeList add(Category category) {
+		list.add(category);
+		return this;
 	}
 	
 }
