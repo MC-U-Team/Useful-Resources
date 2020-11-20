@@ -4,8 +4,8 @@ import java.util.*;
 
 public class TypeList<E> {
 	
-	private final ListType type;
-	private final List<E> list;
+	protected final ListType type;
+	protected final List<E> list;
 	
 	public TypeList(ListType type, List<E> list) {
 		this.type = Objects.requireNonNull(type);
