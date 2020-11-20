@@ -1,12 +1,13 @@
 package info.u_team.useful_resources.api.worldgen;
 
-import java.util.List;
+import java.util.*;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import info.u_team.useful_resources.api.list.*;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
+import net.minecraft.world.biome.Biome;
 
 public class BiomeTypeList extends TypeList<ResourceLocation> {
 	
@@ -17,7 +18,20 @@ public class BiomeTypeList extends TypeList<ResourceLocation> {
 		).apply(instance, BiomeTypeList::new);
 	});
 	
-	public BiomeTypeList(ListType type, List<ResourceLocation> biomes) {
+	public static BiomeTypeList create(ListType type) {
+		return new BiomeTypeList(type, new ArrayList<>());
+	}
+	
+	private BiomeTypeList(ListType type, List<ResourceLocation> biomes) {
 		super(type, biomes);
+	}
+	
+	public BiomeTypeList add(ResourceLocation location) {
+		list.add(location);
+		return this;
+	}
+	
+	public BiomeTypeList add(RegistryKey<Biome> biome) {
+		return add(biome.getLocation());
 	}
 }
