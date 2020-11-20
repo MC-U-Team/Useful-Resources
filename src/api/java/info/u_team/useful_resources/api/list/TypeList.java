@@ -30,4 +30,17 @@ public class TypeList<E> {
 		return !(type == ListType.BLACKLIST && list.contains(element) || type == ListType.WHITELIST && !list.contains(element));
 	}
 	
+	public final TypeList<E> add(E element) {
+		list.add(element);
+		return this;
+	}
+	
+	@SafeVarargs
+	public final TypeList<E> add(E... elements) {
+		for (E element : elements) {
+			list.add(element);
+		}
+		return this;
+	}
+	
 }
