@@ -63,6 +63,7 @@ public interface IResource {
 	
 	IDataGeneratorConfigurator getDataGeneratorConfigurator();
 	
+	@Deprecated
 	void clearDataGeneratorConfig();
 	
 	void addFeature(IResourceFeatureBuilder builder);
