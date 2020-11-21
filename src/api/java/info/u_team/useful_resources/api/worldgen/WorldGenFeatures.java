@@ -30,7 +30,7 @@ public class WorldGenFeatures implements IWorldGenFeatures {
 	
 	private final List<List<Supplier<ConfiguredFeature<?, ?>>>> features;
 	
-	private WorldGenFeatures(FilterTypeLists filters, List<List<Supplier<ConfiguredFeature<?, ?>>>> features) {
+	protected WorldGenFeatures(FilterTypeLists filters, List<List<Supplier<ConfiguredFeature<?, ?>>>> features) {
 		this.filters = Objects.requireNonNull(filters);
 		this.features = Objects.requireNonNull(features);
 	}
