@@ -27,6 +27,7 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceLootTablesProvider::new);
 			data.addProvider(ResourceRecipesProvider::new);
 			data.addProvider(ResourceWorldGenFeaturesProvider::new);
+			data.addProvider(ResourceServerSpecialsProvider::new);
 		}
 	}
 }
