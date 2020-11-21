@@ -3,6 +3,7 @@ package info.u_team.useful_resources.data.provider.common;
 import java.io.IOException;
 import java.util.*;
 
+import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 
 import info.u_team.u_team_core.data.*;
@@ -21,9 +22,10 @@ public abstract class CommonWorldGenFeaturesProvider extends CommonProvider {
 	@Override
 	public void act(DirectoryCache cache) throws IOException {
 		addFeatures();
-		data.forEach((path, feature) -> {
+		data.forEach((name, feature) -> {
 			try {
-				write(cache, feature.serialize(JsonOps.INSTANCE).getValue(), resolveModData().resolve("useful_resources").resolve("worldgen_feature").resolve(path + ".json"));
+				final JsonElement element = JsonOps.INSTANCE.withEncoder(WorldGenFeatures.CODEC).apply(feature).result().orElseThrow(IllegalStateException::new);
+				write(cache, element, path.resolve("world_generation").resolve(name + ".json"));
 			} catch (final IOException ex) {
 				LOGGER.error(marker, "Could not write data.", ex);
 			}
