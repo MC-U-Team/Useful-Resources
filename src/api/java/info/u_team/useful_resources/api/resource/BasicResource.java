@@ -13,7 +13,7 @@ import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.util.Cast;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
-import net.minecraft.block.Block;
+import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.item.crafting.Ingredient;
@@ -82,16 +82,18 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return getThis();
 	}
 	
-	/*
-	 * public T setGenerationDefault(BlockResourceType type, Function<BlockState, WorldGenFeature> function) { return
-	 * setGeneration(type, block -> function.apply(block.getDefaultState())); }
-	 * 
-	 * public T setGeneration(BlockResourceType type, Function<Block, WorldGenFeature> function) { return
-	 * setGeneration(type.getName(), () -> function.apply(getBlocks().get(type).get())); }
-	 * 
-	 * private T setGeneration(String name, Supplier<WorldGenFeature> feature) { worldGenFeatures.put(name, feature); return
-	 * getThis(); }
-	 */
+	public T setGenerationDefault(BlockResourceType type, Function<BlockState, WorldGenFeatures> function) {
+		return setGeneration(type, block -> function.apply(block.getDefaultState()));
+	}
+	
+	public T setGeneration(BlockResourceType type, Function<Block, WorldGenFeatures> function) {
+		return setGeneration(type.getName(), () -> function.apply(getBlocks().get(type).get()));
+	}
+	
+	private T setGeneration(String name, Supplier<WorldGenFeatures> feature) {
+		worldGenFeatures.put(name, feature);
+		return getThis();
+	}
 	
 	public T setLootTableWithFortune(BlockResourceType type, ItemResourceType dropType, BiFunction<Item, Item, LootTable> function) {
 		return setLootTable(type, item -> function.apply(item, getItems().get(dropType).get()));
