@@ -7,9 +7,9 @@ import com.google.gson.JsonObject;
 import info.u_team.u_team_core.data.*;
 import net.minecraft.data.DirectoryCache;
 
-public class ResourceSpecialsProvider extends CommonProvider {
+public class ResourceClientSpecialsProvider extends CommonProvider {
 	
-	public ResourceSpecialsProvider(GenerationData data) {
+	public ResourceClientSpecialsProvider(GenerationData data) {
 		super(data);
 	}
 	
