@@ -13,6 +13,7 @@ public class UsefulResourcesClearDataGeneratorConfig {
 	
 	@SubscribeEvent
 	public static void setup(FMLCommonSetupEvent event) {
+		System.out.println("THIS SHOULD ONLY BE EXECUTED ON CLIENT AND SERVER; NOT ON DATA! IS THIS TRUE???"); // TODO remove
 		ResourceRegistry.getResources().forEach(IResource::clearDataGeneratorConfig);
 	}
 	
