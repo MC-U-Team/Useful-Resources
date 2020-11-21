@@ -35,7 +35,7 @@ public class GenerationUtil {
 	public static WorldGenFeatures createOreFeatureDepthAverageOverworld(BlockState state, int size, int count, int baseline, int spread) {
 		return createOreFeatureDepthAverage(OVERWORLD_FILTER, FillerBlockType.BASE_STONE_OVERWORLD, state, size, count, baseline, spread);
 	}
-	
+
 	public static WorldGenFeatures createOreFeatureDepthAverageNether(BlockState state, int size, int count, int baseline, int spread) {
 		return createOreFeatureDepthAverage(NETHER_FILTER, FillerBlockType.NETHERRACK, state, size, count, baseline, spread);
 	}
