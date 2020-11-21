@@ -9,9 +9,9 @@ import info.u_team.useful_resources.api.type.BlockResourceType;
 import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
 
-public class ResourceLootTableProvider extends CommonLootTablesProvider {
+public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 	
-	public ResourceLootTableProvider(GenerationData data) {
+	public ResourceLootTablesProvider(GenerationData data) {
 		super(data);
 	}
 	
