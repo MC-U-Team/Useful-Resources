@@ -1,11 +1,9 @@
 package info.u_team.useful_resources.api.worldgen;
 
-import java.util.*;
+import java.util.Objects;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
-import info.u_team.useful_resources.api.list.ListType;
 
 public class FilterTypeLists {
 	
@@ -16,8 +14,8 @@ public class FilterTypeLists {
 		).apply(instance, FilterTypeLists::new);
 	});
 	
-	public static FilterTypeLists create(ListType categoriesListType, ListType biomesListType) {
-		return new FilterTypeLists(CategoryTypeList.create(categoriesListType), BiomeTypeList.create(biomesListType));
+	public static FilterTypeLists create(CategoryTypeList categories, BiomeTypeList biomes) {
+		return new FilterTypeLists(categories, biomes);
 	}
 	
 	private final CategoryTypeList categories;
