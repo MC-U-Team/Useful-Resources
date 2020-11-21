@@ -7,9 +7,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public interface IWorldGenFeatures {
 	
-	CategoryTypeList getCategories();
-	
-	BiomeTypeList getBiomes();
+	FilterTypeLists getFilters();
 	
 	List<List<Supplier<ConfiguredFeature<?, ?>>>> getFeatures();
 	
