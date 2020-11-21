@@ -22,7 +22,7 @@ public class BiomeTypeList extends TypeList<ResourceLocation, BiomeTypeList> {
 		return new BiomeTypeList(type, new ArrayList<>());
 	}
 	
-	private BiomeTypeList(ListType type, List<ResourceLocation> biomes) {
+	protected BiomeTypeList(ListType type, List<ResourceLocation> biomes) {
 		super(type, biomes);
 	}
 	

@@ -23,7 +23,7 @@ public class FilterTypeLists {
 	private final CategoryTypeList categories;
 	private final BiomeTypeList biomes;
 	
-	private FilterTypeLists(CategoryTypeList categories, BiomeTypeList biomes) {
+	protected FilterTypeLists(CategoryTypeList categories, BiomeTypeList biomes) {
 		this.categories = Objects.requireNonNull(categories);
 		this.biomes = Objects.requireNonNull(biomes);
 	}

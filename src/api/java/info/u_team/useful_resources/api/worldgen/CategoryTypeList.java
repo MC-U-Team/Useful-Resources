@@ -21,7 +21,7 @@ public class CategoryTypeList extends TypeList<Category, CategoryTypeList> {
 		return new CategoryTypeList(type, new ArrayList<>());
 	}
 	
-	private CategoryTypeList(ListType type, List<Category> list) {
+	protected CategoryTypeList(ListType type, List<Category> list) {
 		super(type, list);
 	}
 }
