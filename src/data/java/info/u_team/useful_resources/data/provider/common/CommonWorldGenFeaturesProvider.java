@@ -1,19 +1,19 @@
 package info.u_team.useful_resources.data.provider.common;
-/* TODO
+
 import java.io.IOException;
 import java.util.*;
 
 import com.mojang.serialization.JsonOps;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.worldgen.WorldGenFeature;
+import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
 import net.minecraft.data.DirectoryCache;
 
-public abstract class CommonWorldGenFeatureProvider extends CommonProvider {
+public abstract class CommonWorldGenFeaturesProvider extends CommonProvider {
 	
-	private final Map<String, WorldGenFeature> data;
+	private final Map<String, WorldGenFeatures> data;
 	
-	public CommonWorldGenFeatureProvider(GenerationData data) {
+	public CommonWorldGenFeaturesProvider(GenerationData data) {
 		super(data);
 		this.data = new HashMap<>();
 	}
@@ -34,11 +34,11 @@ public abstract class CommonWorldGenFeatureProvider extends CommonProvider {
 	
 	@Override
 	public String getName() {
-		return "Worldgen-Feature";
+		return "Worldgen-Features";
 	}
 	
-	protected void addFeature(String path, WorldGenFeature feature) {
+	protected void addFeature(String path, WorldGenFeatures feature) {
 		data.put(path, feature);
 	}
 	
-}*/
+}
