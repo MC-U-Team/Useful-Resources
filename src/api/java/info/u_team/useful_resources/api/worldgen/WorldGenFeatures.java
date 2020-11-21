@@ -13,39 +13,31 @@ public class WorldGenFeatures implements IWorldGenFeatures {
 	
 	public static final Codec<WorldGenFeatures> CODEC = RecordCodecBuilder.create(instance -> {
 		return instance.group( //
-				CategoryTypeList.CODEC.fieldOf("categories").forGetter(IWorldGenFeatures::getCategories), //
-				BiomeTypeList.CODEC.fieldOf("biomes").forGetter(IWorldGenFeatures::getBiomes), //
+				FilterTypeLists.CODEC.fieldOf("filters").forGetter(IWorldGenFeatures::getFilters), //
 				ConfiguredFeature.field_242764_c.listOf().fieldOf("features").forGetter(IWorldGenFeatures::getFeatures) //
 		).apply(instance, WorldGenFeatures::new);
 	});
 	
-	public static WorldGenFeatures create(CategoryTypeList categories, BiomeTypeList biomes) {
+	public static WorldGenFeatures create(FilterTypeLists filters) {
 		final List<List<Supplier<ConfiguredFeature<?, ?>>>> list = new ArrayList<>();
 		while (list.size() < Decoration.values().length) {
 			list.add(new ArrayList<>());
 		}
-		return new WorldGenFeatures(categories, biomes, list);
+		return new WorldGenFeatures(filters, list);
 	}
 	
-	private final CategoryTypeList categories;
-	private final BiomeTypeList biomes;
+	private final FilterTypeLists filters;
 	
 	private final List<List<Supplier<ConfiguredFeature<?, ?>>>> features;
 	
-	private WorldGenFeatures(CategoryTypeList categories, BiomeTypeList biomes, List<List<Supplier<ConfiguredFeature<?, ?>>>> features) {
-		this.categories = Objects.requireNonNull(categories);
-		this.biomes = Objects.requireNonNull(biomes);
+	private WorldGenFeatures(FilterTypeLists filters, List<List<Supplier<ConfiguredFeature<?, ?>>>> features) {
+		this.filters = Objects.requireNonNull(filters);
 		this.features = Objects.requireNonNull(features);
 	}
 	
 	@Override
-	public CategoryTypeList getCategories() {
-		return categories;
-	}
-	
-	@Override
-	public BiomeTypeList getBiomes() {
-		return biomes;
+	public FilterTypeLists getFilters() {
+		return filters;
 	}
 	
 	@Override
