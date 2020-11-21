@@ -1,5 +1,7 @@
 package info.u_team.useful_resources.api.resource.special;
 
+import static info.u_team.useful_resources.api.type.BlockResourceType.*;
+import static info.u_team.useful_resources.util.GenerationUtil.*;
 import static info.u_team.useful_resources.util.MaterialUtil.*;
 
 import net.minecraft.item.Rarity;
@@ -12,9 +14,8 @@ public class CommonGemResource extends BasicGemResource {
 		setHorseArmor(11);
 		setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1000, 8, 3, 10));
 		setProperty("oreSmeltingXp", 1);
-		//setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 7, 3, 0, 0, 48));
-		//setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
-		// TODO
+		setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 7, 3, 0, 0, 48));
+		setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
 	}
 	
 }
