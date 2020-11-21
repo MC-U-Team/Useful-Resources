@@ -20,7 +20,7 @@ public class ResourceClientSpecialsProvider extends CommonProvider {
 	
 	@Override
 	public String getName() {
-		return "Special-Provider";
+		return "Client-Special-Provider";
 	}
 	
 }
