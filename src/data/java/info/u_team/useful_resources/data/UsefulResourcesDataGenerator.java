@@ -18,13 +18,13 @@ public class UsefulResourcesDataGenerator {
 			data.addProvider(ResourceBlockStatesProvider::new);
 			data.addProvider(ResourceItemModelsProvider::new);
 			data.addProvider(ResourceLanguagesProvider::new);
-			data.addProvider(ResourceSpecialProvider::new);
+			data.addProvider(ResourceSpecialsProvider::new);
 		}
 		if (event.includeServer()) {
 			data.addProvider(ResourceBlockTagsProvider::new);
 			data.addProvider(ResourceFluidTagsProvider::new);
 			data.addProvider(ResourceItemTagsProvider::new);
-			data.addProvider(ResourceLootTableProvider::new);
+			data.addProvider(ResourceLootTablesProvider::new);
 			data.addProvider(ResourceRecipesProvider::new);
 			// data.addProvider(ResourceWorldGenFeatureProvider::new); TODO
 		}
