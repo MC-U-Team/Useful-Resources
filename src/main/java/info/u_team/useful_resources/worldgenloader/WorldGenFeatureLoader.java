@@ -1,4 +1,47 @@
 package info.u_team.useful_resources.worldgenloader;
+
+import java.util.Map;
+
+import com.google.gson.*;
+
+import info.u_team.useful_resources.UsefulResourcesMod;
+import net.minecraft.client.resources.JsonReloadListener;
+import net.minecraft.profiler.IProfiler;
+import net.minecraft.resources.IResourceManager;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.AddReloadListenerEvent;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+
+@EventBusSubscriber(modid = UsefulResourcesMod.MODID, bus = Bus.FORGE)
+public class WorldGenFeatureLoader extends JsonReloadListener {
+	
+	
+	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+	
+	public WorldGenFeatureLoader() {
+		super(GSON, "useful_resources/worldgen_feature");
+	}
+
+	@SubscribeEvent
+	public static void serverStart(AddReloadListenerEvent event) {
+		event.addListener(new WorldGenFeatureLoader());
+	}
+
+	@Override
+	protected void apply(Map<ResourceLocation, JsonElement> objectIn, IResourceManager resourceManagerIn, IProfiler profilerIn) {
+		System.out.println("RELOAD DATAPACK __________________________________________________________________________________________________________________________");
+	}
+	
+	@SubscribeEvent
+	public static void serverStart(BiomeLoadingEvent event) {
+		System.out.println(event.getName() + " -> LOAD BIOME _____________ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+	}
+	
+}
+
 /*
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;

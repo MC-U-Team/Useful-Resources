@@ -1,0 +1,53 @@
+{
+	"filters": {
+		"categories": {
+			"type": "whitelist",
+			"entries": [
+				"nether"
+			]
+		},
+		"biomes": {
+			"type": "blacklist",
+			"entries": []
+		}
+	},
+	"features": [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[
+			{
+				"config": {
+					"feature": {
+						"config": {
+							"target": {
+								"block": "minecraft:netherrack",
+								"predicate_type": "minecraft:block_match"
+							},
+							"state": {
+								"Name": "usefulresources:aluminum_nether_ore"
+							},
+							"size": 9
+						},
+						"type": "minecraft:ore"
+					},
+					"decorator": {
+						"config": {
+							"bottom_offset": 10,
+							"top_offset": 20,
+							"maximum": 128
+						},
+						"type": "minecraft:range"
+					}
+				},
+				"type": "minecraft:decorated"
+			}
+		],
+		[],
+		[],
+		[]
+	]
+}
