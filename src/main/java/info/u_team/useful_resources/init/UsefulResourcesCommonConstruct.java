@@ -19,6 +19,7 @@ public class UsefulResourcesCommonConstruct implements IModConstruct {
 		
 		BusRegister.registerMod(UsefulResourcesParticleTypes::registerMod);
 		BusRegister.registerMod(UsefulResourcesResources::registerMod);
+		BusRegister.registerMod(UsefulResourcesWorldGenerationLoader::registerMod);
 	}
 	
 }
