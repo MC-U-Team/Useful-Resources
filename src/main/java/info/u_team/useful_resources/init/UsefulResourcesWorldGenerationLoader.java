@@ -14,7 +14,7 @@ import com.mojang.serialization.JsonOps;
 
 import cpw.mods.modlauncher.api.LamdbaExceptionUtils;
 import info.u_team.useful_resources.UsefulResourcesMod;
-import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
+import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -34,12 +34,12 @@ public class UsefulResourcesWorldGenerationLoader {
 	
 	private static final String ACCEPTED_FILE_ENDING = ".json";
 	
-	private static final Map<String, WorldGenFeatures> FEATURES = new HashMap<>();
+	private static final Map<String, IWorldGenFeatures> FEATURES = new HashMap<>();
 	
 	private static void setup(FMLCommonSetupEvent event) {
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::setupWorldGenerationFolder);
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::loadWorldGenerationFolder);
-		registerWorldGenerationDefinitions();
+		event.enqueueWork(UsefulResourcesWorldGenerationLoader::registerWorldGenerationDefinitions);
 	}
 	
 	private static void setupWorldGenerationFolder() throws IOException {
@@ -93,29 +93,24 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void registerWorldGenerationDefinitions() {
-		FEATURES.forEach((path, worldGenFeatures) -> {
+		FEATURES.replaceAll((path, worldGenFeatures) -> {
+			final RegisteredWorldGenFeatures registeredWorldGenFeatures = new RegisteredWorldGenFeatures(worldGenFeatures);
 			
 			final List<List<Supplier<ConfiguredFeature<?, ?>>>> featuresDecoration = worldGenFeatures.getFeatures();
 			for (int decorationStageIndex = 0; decorationStageIndex < featuresDecoration.size(); decorationStageIndex++) {
+				
+				registeredWorldGenFeatures.addList(decorationStageIndex);
+				
 				final List<Supplier<ConfiguredFeature<?, ?>>> features = featuresDecoration.get(decorationStageIndex);
-				for (int index = 0; index < features.size(); index++) {
+				for (int featureListIndex = 0; featureListIndex < features.size(); featureListIndex++) {
 					
-					System.out.println("REGSITER FEATURE: " + path + "." + decorationStageIndex + "." + index);
+					final ResourceLocation registryName = new ResourceLocation(UsefulResourcesMod.MODID, path + "." + decorationStageIndex + "." + featureListIndex);
+					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(featureListIndex).get());
 					
-					final ResourceLocation registryName = new ResourceLocation(UsefulResourcesMod.MODID, path + "." + decorationStageIndex + "." + index);
-					
-					System.out.println("Registry name: " + registryName);
-					
-					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(index).get());
-					
-					// Replace the dummy loaded element with a registered one and always return this one from now on
-					features.set(index, () -> registeredFeature);
-					
-					if (features.get(index).get() != registeredFeature) {
-						System.out.println("___________ ERRORR _ _SD FJLÖSDHFLÖ JHSDHFJ");
-					}
+					registeredWorldGenFeatures.addFeature(decorationStageIndex, featureListIndex, registeredFeature);
 				}
 			}
+			return registeredWorldGenFeatures;
 		});
 	}
 	
