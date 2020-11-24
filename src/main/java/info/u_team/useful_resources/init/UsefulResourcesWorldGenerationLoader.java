@@ -86,7 +86,7 @@ public class UsefulResourcesWorldGenerationLoader {
 				final String id = WORLDGENERATION_PATH.relativize(path).toString().replace(".json", "").replace('\\', '/').replaceAll("[^a-z0-9/._-]", "");
 				
 				FEATURES.put(id, features);
-			} catch (IOException | IllegalStateException | NoSuchElementException ex) {
+			} catch (IOException | JsonParseException | IllegalStateException | NoSuchElementException ex) {
 				LOGGER.error("Could not read json file {} definition for world generation.", path, ex);
 			}
 		});
