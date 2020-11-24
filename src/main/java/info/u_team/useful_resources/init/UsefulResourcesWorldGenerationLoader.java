@@ -81,7 +81,7 @@ public class UsefulResourcesWorldGenerationLoader {
 					throw new IllegalStateException("WorldGenFeatures: " + error);
 				}).get().getFirst();
 				
-				final String id = WORLDGENERATION_PATH.relativize(path).toString().replace('\\', '/').replaceAll("[^a-z0-9/._-]", "");
+				final String id = WORLDGENERATION_PATH.relativize(path).toString().replace(".json", "").replace('\\', '/').replaceAll("[^a-z0-9/._-]", "");
 				
 				FEATURES.put(id, features);
 			} catch (IOException | IllegalStateException | NoSuchElementException ex) {
@@ -100,12 +100,20 @@ public class UsefulResourcesWorldGenerationLoader {
 				final List<Supplier<ConfiguredFeature<?, ?>>> features = featuresDecoration.get(decorationStageIndex);
 				for (int index = 0; index < features.size(); index++) {
 					
+					System.out.println("REGSITER FEATURE: " + path + "." + decorationStageIndex + "." + index);
+					
 					final ResourceLocation registryName = new ResourceLocation(UsefulResourcesMod.MODID, path + "." + decorationStageIndex + "." + index);
+					
+					System.out.println("Registry name: " + registryName);
 					
 					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(index).get());
 					
 					// Replace the dummy loaded element with a registered one and always return this one from now on
 					features.set(index, () -> registeredFeature);
+					
+					if (features.get(index).get() != registeredFeature) {
+						System.out.println("___________ ERRORR _ _SD FJLÖSDHFLÖ JHSDHFJ");
+					}
 				}
 			}
 		});
