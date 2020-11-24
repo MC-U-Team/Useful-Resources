@@ -14,7 +14,7 @@ public class ResourceServerSpecialsProvider extends CommonProvider {
 	@Override
 	public void act(DirectoryCache cache) throws IOException {
 		try {
-			write(cache, "", path.resolve("world_generation").resolve(".usefulresources_world_generation_root"));
+			write(cache, "", path.resolve("world_generation").resolve("world_generation_marker"));
 		} catch (final IOException ex) {
 			LOGGER.error(marker, "Could not write data.", ex);
 		}
