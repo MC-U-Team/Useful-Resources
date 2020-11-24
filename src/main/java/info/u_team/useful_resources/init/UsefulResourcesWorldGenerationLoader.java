@@ -53,7 +53,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void extractWorldGenerationFiles() throws IOException {
-		final Path rootPath = ModList.get().getModFileById(UsefulResourcesMod.MODID).getFile().findResource("world_generation").toAbsolutePath();
+		final Path rootPath = ModList.get().getModFileById(UsefulResourcesMod.MODID).getFile().findResource("world_generation.").toAbsolutePath();
 		
 		LOGGER.info("Extract default world generation definition files from {} to {}", rootPath, WORLDGENERATION_PATH);
 		
