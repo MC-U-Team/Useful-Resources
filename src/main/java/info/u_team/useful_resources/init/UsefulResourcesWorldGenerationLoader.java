@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 import java.util.stream.*;
 
@@ -94,6 +95,8 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void registerWorldGenerationDefinitions() {
+		final AtomicInteger registryCounter = new AtomicInteger();
+		
 		FEATURES.replaceAll((path, worldGenFeatures) -> {
 			final RegisteredWorldGenFeatures registeredWorldGenFeatures = new RegisteredWorldGenFeatures(worldGenFeatures);
 			
@@ -109,10 +112,14 @@ public class UsefulResourcesWorldGenerationLoader {
 					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(featureListIndex).get());
 					
 					registeredWorldGenFeatures.addFeature(decorationStageIndex, featureListIndex, registeredFeature);
+					
+					registryCounter.getAndIncrement();
 				}
 			}
 			return registeredWorldGenFeatures;
 		});
+		
+		LOGGER.info("Registered {} configured features", registryCounter.get());
 	}
 	
 	private static void biomeLoad(BiomeLoadingEvent event) {
