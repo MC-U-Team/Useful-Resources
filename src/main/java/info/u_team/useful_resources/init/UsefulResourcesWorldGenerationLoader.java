@@ -2,8 +2,7 @@ package info.u_team.useful_resources.init;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.List;
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 import cpw.mods.modlauncher.api.LamdbaExceptionUtils;
 import info.u_team.useful_resources.UsefulResourcesMod;
@@ -14,15 +13,19 @@ import net.minecraftforge.fml.loading.FMLPaths;
 
 public class UsefulResourcesWorldGenerationLoader {
 	
-	private static final Path WORLDGENERATION_PATH = FMLPaths.CONFIGDIR.get().resolve("usefulresources/worldgeneration");
+	private static final Path WORLDGENERATION_PATH = FMLPaths.CONFIGDIR.get().resolve("usefulresources").resolve("worldgeneration");
+	private static final Path MARKER_PATH = WORLDGENERATION_PATH.resolve("world_generation_marker");
 	
 	private static void setup(FMLCommonSetupEvent event) {
-		try {
-			Files.createDirectories(WORLDGENERATION_PATH);
-		} catch (IOException e) {
-			e.printStackTrace();
+		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::setupWorldGenerationFolder);
+	}
+	
+	private static void setupWorldGenerationFolder() throws IOException {
+		Files.createDirectories(WORLDGENERATION_PATH);
+		
+		if (!Files.exists(MARKER_PATH)) {
+			extractWorldGenerationFiles();
 		}
-		extractWorldGenerationFiles();
 	}
 	
 	private static void extractWorldGenerationFiles() throws IOException {
