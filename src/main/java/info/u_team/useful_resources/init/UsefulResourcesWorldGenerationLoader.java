@@ -18,6 +18,7 @@ import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -114,8 +115,17 @@ public class UsefulResourcesWorldGenerationLoader {
 		});
 	}
 	
+	private static void biomeLoad(BiomeLoadingEvent event) {
+		
+	}
+	
 	public static void registerMod(IEventBus bus) {
 		bus.addListener(UsefulResourcesWorldGenerationLoader::setup);
+		bus.addListener(UsefulResourcesWorldGenerationLoader::setup);
+	}
+	
+	public static void registerForge(IEventBus bus) {
+		bus.addListener(UsefulResourcesWorldGenerationLoader::biomeLoad);
 	}
 	
 }
