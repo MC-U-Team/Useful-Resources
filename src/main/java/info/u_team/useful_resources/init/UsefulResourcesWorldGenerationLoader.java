@@ -17,6 +17,7 @@ import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -93,10 +94,20 @@ public class UsefulResourcesWorldGenerationLoader {
 	
 	private static void registerWorldGenerationDefinitions() {
 		FEATURES.forEach((path, worldGenFeatures) -> {
-			worldGenFeatures.getFeatures().stream().flatMap(List::stream).map(Supplier::get).forEach(feature -> {
-				System.out.println("REGISTER FEATURE: WITH NAME: " + path + " AND FEATURE " + feature);
-				Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(UsefulResourcesMod.MODID, path), feature);
-			});
+			
+			final List<List<Supplier<ConfiguredFeature<?, ?>>>> featuresDecoration = worldGenFeatures.getFeatures();
+			for (int decorationStageIndex = 0; decorationStageIndex < featuresDecoration.size(); decorationStageIndex++) {
+				final List<Supplier<ConfiguredFeature<?, ?>>> features = featuresDecoration.get(decorationStageIndex);
+				for (int index = 0; index < features.size(); index++) {
+					
+					final ResourceLocation registryName = new ResourceLocation(UsefulResourcesMod.MODID, path + "." + decorationStageIndex + "." + index);
+					
+					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(index).get());
+					
+					// Replace the dummy loaded element with a registered one and always return this one from now on
+					features.set(index, () -> registeredFeature);
+				}
+			}
 		});
 	}
 	
