@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.*;
 
 import org.apache.logging.log4j.*;
@@ -14,7 +15,8 @@ import com.mojang.serialization.JsonOps;
 import cpw.mods.modlauncher.api.LamdbaExceptionUtils;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
-import net.minecraft.util.JSONUtils;
+import net.minecraft.util.*;
+import net.minecraft.util.registry.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -24,7 +26,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	
 	private static final Logger LOGGER = LogManager.getLogger("Useful-Resources World Generation");
 	
-	private static final Path WORLDGENERATION_PATH = FMLPaths.CONFIGDIR.get().resolve("usefulresources").resolve("worldgeneration");
+	private static final Path WORLDGENERATION_PATH = FMLPaths.CONFIGDIR.get().resolve("usefulresources").resolve("worldgeneration").toAbsolutePath();
 	private static final Path MARKER_PATH = WORLDGENERATION_PATH.resolve("world_generation_marker");
 	
 	private static final Gson GSON = new GsonBuilder().create();
@@ -36,6 +38,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	private static void setup(FMLCommonSetupEvent event) {
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::setupWorldGenerationFolder);
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::loadWorldGenerationFolder);
+		registerWorldGenerationDefinitions();
 	}
 	
 	private static void setupWorldGenerationFolder() throws IOException {
@@ -64,10 +67,10 @@ public class UsefulResourcesWorldGenerationLoader {
 		final List<Path> paths;
 		
 		try (final Stream<Path> stream = Files.walk(WORLDGENERATION_PATH)) {
-			paths = stream.filter(Files::isRegularFile).filter(path -> path.endsWith(ACCEPTED_FILE_ENDING)).collect(Collectors.toList());
+			paths = stream.filter(Files::isRegularFile).filter(path -> path.toString().endsWith(ACCEPTED_FILE_ENDING)).collect(Collectors.toList());
 		}
 		
-		LOGGER.info("Try to load world generation definitions.");
+		LOGGER.info("Try to load {} world generation definitions.", paths.size());
 		
 		paths.forEach(path -> {
 			try (final BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
@@ -76,13 +79,25 @@ public class UsefulResourcesWorldGenerationLoader {
 				final WorldGenFeatures features = JsonOps.INSTANCE.withDecoder(WorldGenFeatures.CODEC).apply(json).resultOrPartial(error -> {
 					throw new IllegalStateException("WorldGenFeatures: " + error);
 				}).get().getFirst();
-				FEATURES.put(path.relativize(WORLDGENERATION_PATH).toString(), features);
+				
+				final String id = WORLDGENERATION_PATH.relativize(path).toString().replace('\\', '/').replaceAll("[^a-z0-9/._-]", "");
+				
+				FEATURES.put(id, features);
 			} catch (IOException | IllegalStateException | NoSuchElementException ex) {
 				LOGGER.error("Could not read json file {} definition for world generation.", path, ex);
 			}
 		});
 		
 		LOGGER.info("Loaded {} world generation definitions.", paths.size());
+	}
+	
+	private static void registerWorldGenerationDefinitions() {
+		FEATURES.forEach((path, worldGenFeatures) -> {
+			worldGenFeatures.getFeatures().stream().flatMap(List::stream).map(Supplier::get).forEach(feature -> {
+				System.out.println("REGISTER FEATURE: WITH NAME: " + path + " AND FEATURE " + feature);
+				Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation(UsefulResourcesMod.MODID, path), feature);
+			});
+		});
 	}
 	
 	public static void registerMod(IEventBus bus) {
