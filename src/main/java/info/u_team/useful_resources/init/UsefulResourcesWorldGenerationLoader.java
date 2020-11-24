@@ -116,20 +116,25 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void biomeLoad(BiomeLoadingEvent event) {
-		FEATURES.values().stream().filter(features -> {
+		FEATURES.values().stream().filter(worldGenFeatures -> {
 			if (event.getName() == null) {
 				LOGGER.info("Biome skipped as registry name was null!, Some information: {}, {}, {}", event.getCategory(), event.getEffects(), event.getGeneration());
 				return false;
 			}
 			
-			final FilterTypeLists filters = features.getFilters();
+			final FilterTypeLists filters = worldGenFeatures.getFilters();
 			
 			final boolean category = filters.getCategories().testWithType(event.getCategory());
 			final boolean biome = filters.getBiomes().testWithType(event.getName());
 			
 			return category && biome;
-		}).forEach(features -> {
-			
+		}).forEach(worldGenFeatures -> {
+			final List<List<Supplier<ConfiguredFeature<?, ?>>>> featuresDecoration = worldGenFeatures.getFeatures();
+			for (int decorationStageIndex = 0; decorationStageIndex < featuresDecoration.size(); decorationStageIndex++) {
+				for (Supplier<ConfiguredFeature<?, ?>> feature : featuresDecoration.get(decorationStageIndex)) {
+					event.getGeneration().withFeature(decorationStageIndex, feature);
+				}
+			}
 		});
 	}
 	
