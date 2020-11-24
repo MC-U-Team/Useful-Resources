@@ -133,7 +133,6 @@ public class UsefulResourcesWorldGenerationLoader {
 			for (int decorationStageIndex = 0; decorationStageIndex < featuresDecoration.size(); decorationStageIndex++) {
 				for (Supplier<ConfiguredFeature<?, ?>> feature : featuresDecoration.get(decorationStageIndex)) {
 					event.getGeneration().withFeature(decorationStageIndex, feature);
-					System.out.println("ADDED " + feature + " to the biome " + event.getName() + " at stage " + decorationStageIndex);
 				}
 			}
 		});
