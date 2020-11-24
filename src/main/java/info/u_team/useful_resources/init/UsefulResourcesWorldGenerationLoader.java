@@ -35,6 +35,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	
 	private static void setup(FMLCommonSetupEvent event) {
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::setupWorldGenerationFolder);
+		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::loadWorldGenerationFolder);
 	}
 	
 	private static void setupWorldGenerationFolder() throws IOException {
