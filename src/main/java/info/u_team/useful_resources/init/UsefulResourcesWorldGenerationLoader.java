@@ -116,7 +116,17 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void biomeLoad(BiomeLoadingEvent event) {
-		
+		FEATURES.values().stream().filter(feature -> {
+			if (event.getName() == null) {
+				LOGGER.info("Biome skipped as registry name was null!, Some information: {}, {}, {}", event.getCategory(), event.getEffects(), event.getGeneration());
+				return false;
+			}
+			
+			final boolean category = feature.getFilters().getCategories().testWithType(event.getCategory());
+			final boolean biome = feature.getFilters().getBiomes().testWithType(event.getName());
+			
+			return category && biome;
+		});
 	}
 	
 	public static void registerMod(IEventBus bus) {
