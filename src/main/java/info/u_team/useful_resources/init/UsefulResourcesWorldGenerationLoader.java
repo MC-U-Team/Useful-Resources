@@ -94,6 +94,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void registerWorldGenerationDefinitions() {
+		System.out.println("CALL REGISTER HJKSDFJKLSHDF");
 		FEATURES.replaceAll((path, worldGenFeatures) -> {
 			final RegisteredWorldGenFeatures registeredWorldGenFeatures = new RegisteredWorldGenFeatures(worldGenFeatures);
 			
@@ -107,6 +108,8 @@ public class UsefulResourcesWorldGenerationLoader {
 					
 					final ResourceLocation registryName = new ResourceLocation(UsefulResourcesMod.MODID, path + "." + decorationStageIndex + "." + featureListIndex);
 					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(featureListIndex).get());
+					
+					// System.out.println("REGISTERED feature under name " + registryName + " for feature: " + registeredFeature);
 					
 					registeredWorldGenFeatures.addFeature(decorationStageIndex, featureListIndex, registeredFeature);
 				}
@@ -133,13 +136,13 @@ public class UsefulResourcesWorldGenerationLoader {
 			for (int decorationStageIndex = 0; decorationStageIndex < featuresDecoration.size(); decorationStageIndex++) {
 				for (Supplier<ConfiguredFeature<?, ?>> feature : featuresDecoration.get(decorationStageIndex)) {
 					event.getGeneration().withFeature(decorationStageIndex, feature);
+					System.out.println("ADDED " + feature + " to the biome " + event.getName() + " at stage " + decorationStageIndex);
 				}
 			}
 		});
 	}
 	
 	public static void registerMod(IEventBus bus) {
-		bus.addListener(UsefulResourcesWorldGenerationLoader::setup);
 		bus.addListener(UsefulResourcesWorldGenerationLoader::setup);
 	}
 	
