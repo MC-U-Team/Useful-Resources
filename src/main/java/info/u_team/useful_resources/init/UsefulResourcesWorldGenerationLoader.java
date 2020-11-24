@@ -94,7 +94,6 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void registerWorldGenerationDefinitions() {
-		System.out.println("CALL REGISTER HJKSDFJKLSHDF");
 		FEATURES.replaceAll((path, worldGenFeatures) -> {
 			final RegisteredWorldGenFeatures registeredWorldGenFeatures = new RegisteredWorldGenFeatures(worldGenFeatures);
 			
@@ -108,8 +107,6 @@ public class UsefulResourcesWorldGenerationLoader {
 					
 					final ResourceLocation registryName = new ResourceLocation(UsefulResourcesMod.MODID, path + "." + decorationStageIndex + "." + featureListIndex);
 					final ConfiguredFeature<?, ?> registeredFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, registryName, features.get(featureListIndex).get());
-					
-					// System.out.println("REGISTERED feature under name " + registryName + " for feature: " + registeredFeature);
 					
 					registeredWorldGenFeatures.addFeature(decorationStageIndex, featureListIndex, registeredFeature);
 				}
