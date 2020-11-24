@@ -125,7 +125,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	private static void biomeLoad(BiomeLoadingEvent event) {
 		FEATURES.values().stream().filter(worldGenFeatures -> {
 			if (event.getName() == null) {
-				LOGGER.info("Biome skipped as registry name was null!, Some information: {}, {}, {}", event.getCategory(), event.getEffects(), event.getGeneration());
+				LOGGER.warn("Biome skipped as registry name was null!, Some information: {}, {}, {}", event.getCategory(), event.getEffects(), event.getGeneration());
 				return false;
 			}
 			
