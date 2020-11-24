@@ -53,7 +53,7 @@ public class UsefulResourcesWorldGenerationLoader {
 	}
 	
 	private static void extractWorldGenerationFiles() throws IOException {
-		final Path rootPath = ModList.get().getModFileById(UsefulResourcesMod.MODID).getFile().findResource("world_generation.").toAbsolutePath();
+		final Path rootPath = ModList.get().getModFileById(UsefulResourcesMod.MODID).getFile().findResource("world_generation").toAbsolutePath();
 		
 		LOGGER.info("Extract default world generation definition files from {} to {}", rootPath, WORLDGENERATION_PATH);
 		
@@ -119,7 +119,7 @@ public class UsefulResourcesWorldGenerationLoader {
 			return registeredWorldGenFeatures;
 		});
 		
-		LOGGER.info("Registered {} configured features", registryCounter.get());
+		LOGGER.info("Registered {} configured features.", registryCounter.get());
 	}
 	
 	private static void biomeLoad(BiomeLoadingEvent event) {
