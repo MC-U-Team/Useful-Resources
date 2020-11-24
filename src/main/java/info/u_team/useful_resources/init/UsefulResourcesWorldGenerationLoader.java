@@ -91,7 +91,7 @@ public class UsefulResourcesWorldGenerationLoader {
 			}
 		});
 		
-		LOGGER.info("Loaded {} world generation definitions.", paths.size());
+		LOGGER.info("Loaded {} world generation definitions.", FEATURES.size());
 	}
 	
 	private static void registerWorldGenerationDefinitions() {
