@@ -101,7 +101,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 0.2F) //
 			.setProperty("nether_oreModelOverride", "lapis_netherrack_nether_ore") //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDepthAverageNether(state, 7, 1, 64, 64)) //
-			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEnd(state, 4, 2, 0, 0, 48));
+			.setGenerationDefault(END_ORE, state -> createOreFeatureDepthAverageEnd(state, 7, 2, 35, 20));
 	
 	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, true, 2, 5, NETHER_ORE) //
 			.setExisting(NETHER_ORE, Blocks.NETHER_QUARTZ_ORE) //
