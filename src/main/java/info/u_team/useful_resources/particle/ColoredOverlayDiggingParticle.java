@@ -20,7 +20,6 @@ import net.minecraft.util.math.vector.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.client.model.data.EmptyModelData;
 
-@OnlyIn(Dist.CLIENT)
 public class ColoredOverlayDiggingParticle extends Particle {
 	
 	private final BlockState sourceState;
