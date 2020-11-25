@@ -28,8 +28,8 @@
 									"feature": {
 										"config": {
 											"target": {
-												"block": "minecraft:netherrack",
-												"predicate_type": "minecraft:block_match"
+												"tag": "forge:netherrack",
+												"predicate_type": "minecraft:tag_match"
 											},
 											"state": {
 												"Name": "usefulresources:tin_nether_ore"

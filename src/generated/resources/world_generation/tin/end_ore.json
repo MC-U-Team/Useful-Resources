@@ -32,9 +32,9 @@
 												"predicate_type": "minecraft:tag_match"
 											},
 											"state": {
-												"Name": "usefulresources:sapphire_nether_ore"
+												"Name": "usefulresources:tin_end_ore"
 											},
-											"size": 4
+											"size": 9
 										},
 										"type": "minecraft:ore"
 									},
@@ -58,7 +58,7 @@
 					},
 					"decorator": {
 						"config": {
-							"count": 4
+							"count": 15
 						},
 						"type": "minecraft:count"
 					}

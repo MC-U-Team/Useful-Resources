@@ -32,19 +32,18 @@
 												"predicate_type": "minecraft:tag_match"
 											},
 											"state": {
-												"Name": "usefulresources:sapphire_nether_ore"
+												"Name": "usefulresources:lapis_end_ore"
 											},
-											"size": 4
+											"size": 7
 										},
 										"type": "minecraft:ore"
 									},
 									"decorator": {
 										"config": {
-											"bottom_offset": 0,
-											"top_offset": 0,
-											"maximum": 64
+											"baseline": 35,
+											"spread": 20
 										},
-										"type": "minecraft:range"
+										"type": "minecraft:depth_average"
 									}
 								},
 								"type": "minecraft:decorated"
@@ -58,7 +57,7 @@
 					},
 					"decorator": {
 						"config": {
-							"count": 4
+							"count": 2
 						},
 						"type": "minecraft:count"
 					}
