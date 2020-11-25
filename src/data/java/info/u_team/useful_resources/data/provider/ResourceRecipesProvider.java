@@ -28,7 +28,7 @@ import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.crafting.conditions.*;
+import net.minecraftforge.common.crafting.conditions.FalseCondition;
 
 public class ResourceRecipesProvider extends CommonRecipesProvider {
 	
@@ -350,7 +350,13 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	}
 	
 	public static boolean shouldAddRecipe(IResource resource, IResourceType<?>... types) {
-		final boolean allTypes = Stream.of(types).allMatch(type -> {
+		final boolean allTypes = shouldAddRecipeAllTypes(resource, types);
+		final boolean anyRegistered = shouldAddRecipeAnyRegistered(resource, types);
+		return allTypes && anyRegistered;
+	}
+	
+	public static boolean shouldAddRecipeAllTypes(IResource resource, IResourceType<?>... types) {
+		return Stream.of(types).allMatch(type -> {
 			if (type instanceof BlockResourceType) {
 				return resource.getBlocks().containsKey(type);
 			} else if (type instanceof FluidResourceType) {
@@ -360,7 +366,10 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			return false;
 		});
-		final boolean anyRegistered = Stream.of(types).anyMatch(type -> {
+	}
+	
+	public static boolean shouldAddRecipeAnyRegistered(IResource resource, IResourceType<?>... types) {
+		return Stream.of(types).anyMatch(type -> {
 			if (type instanceof BlockResourceType) {
 				return resource.getRegistryBlocks().contains(resource.getBlocks().get(type));
 			} else if (type instanceof FluidResourceType) {
@@ -370,7 +379,6 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			}
 			return false;
 		});
-		return allTypes && anyRegistered;
 	}
 	
 	private final INamedTag<Item> getItemTag(BlockResourceType type, IResource resource) {
