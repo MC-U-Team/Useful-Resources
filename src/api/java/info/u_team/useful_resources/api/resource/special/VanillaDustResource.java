@@ -1,7 +1,7 @@
 package info.u_team.useful_resources.api.resource.special;
 
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
-import static info.u_team.useful_resources.api.type.BlockResourceType.NETHER_ORE;
+import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
@@ -18,6 +18,7 @@ public class VanillaDustResource extends BasicResource<VanillaDustResource> {
 		setProperty("ingotModel", true);
 		
 		addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, hardness, resistance, random -> MathHelper.nextInt(random, minXp, maxXp)));
+		addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, hardness * 1.5F, resistance * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
