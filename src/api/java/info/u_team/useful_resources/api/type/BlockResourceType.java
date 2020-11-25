@@ -11,6 +11,7 @@ public enum BlockResourceType implements CacheResourceType<Block> {
 	
 	ORE("ore", "stone_ores"),
 	NETHER_ORE("nether_ore"),
+	END_ORE("end_ore"),
 	
 	BLOCK("block", "storage_blocks"),
 	
