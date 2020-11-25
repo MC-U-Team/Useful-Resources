@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/lead",
-		"#forge:nether_ores/lead"
+		"#forge:nether_ores/lead",
+		"#forge:end_ores/lead"
 	]
 }

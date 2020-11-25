@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/ruby",
-		"#forge:nether_ores/ruby"
+		"#forge:nether_ores/ruby",
+		"#forge:end_ores/ruby"
 	]
 }

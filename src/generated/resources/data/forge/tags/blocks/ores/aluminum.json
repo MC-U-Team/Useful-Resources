@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/aluminum",
-		"#forge:nether_ores/aluminum"
+		"#forge:nether_ores/aluminum",
+		"#forge:end_ores/aluminum"
 	]
 }

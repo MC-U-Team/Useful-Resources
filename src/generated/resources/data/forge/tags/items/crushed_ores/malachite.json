@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:crushed_stone_ores/malachite",
-		"#forge:crushed_nether_ores/malachite"
+		"#forge:crushed_nether_ores/malachite",
+		"#forge:crushed_end_ores/malachite"
 	]
 }

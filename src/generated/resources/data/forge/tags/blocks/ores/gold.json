@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/gold",
-		"#forge:nether_ores/gold"
+		"#forge:nether_ores/gold",
+		"#forge:end_ores/gold"
 	]
 }

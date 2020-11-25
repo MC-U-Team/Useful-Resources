@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/platinum",
-		"#forge:nether_ores/platinum"
+		"#forge:nether_ores/platinum",
+		"#forge:end_ores/platinum"
 	]
 }

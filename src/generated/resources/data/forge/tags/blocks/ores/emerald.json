@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/emerald",
-		"#forge:nether_ores/emerald"
+		"#forge:nether_ores/emerald",
+		"#forge:end_ores/emerald"
 	]
 }

@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/coal",
-		"#forge:nether_ores/coal"
+		"#forge:nether_ores/coal",
+		"#forge:end_ores/coal"
 	]
 }

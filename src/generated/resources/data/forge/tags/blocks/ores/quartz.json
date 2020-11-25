@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/quartz",
-		"#forge:nether_ores/quartz"
+		"#forge:nether_ores/quartz",
+		"#forge:end_ores/quartz"
 	]
 }

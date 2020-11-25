@@ -2,6 +2,7 @@
 	"replace": false,
 	"values": [
 		"#forge:stone_ores/nickel",
-		"#forge:nether_ores/nickel"
+		"#forge:nether_ores/nickel",
+		"#forge:end_ores/nickel"
 	]
 }
