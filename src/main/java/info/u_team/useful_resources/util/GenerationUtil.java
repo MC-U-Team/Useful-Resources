@@ -17,6 +17,7 @@ public class GenerationUtil {
 	
 	private static final FilterTypeLists OVERWORLD_FILTER = FilterTypeLists.create(CategoryTypeList.create(ListType.BLACKLIST).add(Category.NETHER, Category.THEEND, Category.NONE), BiomeTypeList.create(ListType.BLACKLIST));
 	private static final FilterTypeLists NETHER_FILTER = FilterTypeLists.create(CategoryTypeList.create(ListType.WHITELIST).add(Category.NETHER), BiomeTypeList.create(ListType.BLACKLIST));
+	private static final FilterTypeLists END_FILTER = FilterTypeLists.create(CategoryTypeList.create(ListType.WHITELIST).add(Category.THEEND), BiomeTypeList.create(ListType.BLACKLIST));
 	
 	// ----------------------- Generation methods for basic stuff ------------------------------- //
 	
