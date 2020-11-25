@@ -76,7 +76,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final String tinyResourceTypeName = tinyResourceType.getName();
 			
 			// ORES -> INGOT / GEM
-			if (shouldAddRecipe(resource, ORE, NETHER_ORE, normalResourceType)) {
+			if (shouldAddRecipeAllTypes(resource, ORE, NETHER_ORE, normalResourceType)) {
 				final INamedTag<Item> oreTag = TagUtil.createItemTag("forge", "ores/" + resource.getName());
 				final Item normalItem = items.get(normalResourceType);
 				
