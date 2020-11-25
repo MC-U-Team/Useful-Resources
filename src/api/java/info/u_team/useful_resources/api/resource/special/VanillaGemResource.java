@@ -2,6 +2,9 @@ package info.u_team.useful_resources.api.resource.special;
 
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
+import static info.u_team.useful_resources.api.type.BlockResourceType.*;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
@@ -11,12 +14,20 @@ import net.minecraft.util.math.MathHelper;
 
 public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 	
-	public VanillaGemResource(String name, int color, int harvestLevel, float hardness, float resistance, BlockResourceType oreType, boolean ingotModel, int minXp, int maxXp) {
+	public VanillaGemResource(String name, int color, int harvestLevel, float baseHardness, boolean ingotModel, int minXp, int maxXp, BlockResourceType... existingOres) {
 		super(name, color, ItemResourceType.GEM, Rarity.COMMON, ResourceType.GEM);
 		
 		setProperty("ingotModel", ingotModel);
 		
-		addFeature(createOre(oreType, Rarity.COMMON, harvestLevel, hardness, resistance, random -> MathHelper.nextInt(random, minXp, maxXp)));
+		if (!ArrayUtils.contains(existingOres, ORE)) {
+			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness * 1.5F, random -> MathHelper.nextInt(random, minXp, maxXp)));
+		}
+		if (!ArrayUtils.contains(existingOres, NETHER_ORE)) {
+			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
+		}
+		if (!ArrayUtils.contains(existingOres, END_ORE)) {
+			addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, baseHardness * 1.5F, baseHardness * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));
+		}
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
 		
