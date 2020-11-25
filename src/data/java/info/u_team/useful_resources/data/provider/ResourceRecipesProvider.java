@@ -329,7 +329,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		});
 	}
 	
-	private ItemResourceType getNormalResourceType(IResource resource) {
+	public static ItemResourceType getNormalResourceType(IResource resource) {
 		final ResourceType type = resource.getDataGeneratorConfigurator().getResourceType();
 		if (type == ResourceType.INGOT) {
 			return INGOT;
@@ -339,7 +339,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		return DUST;
 	}
 	
-	private ItemResourceType getTinyResourceType(IResource resource) {
+	public static ItemResourceType getTinyResourceType(IResource resource) {
 		final ResourceType type = resource.getDataGeneratorConfigurator().getResourceType();
 		if (type == ResourceType.INGOT) {
 			return NUGGET;
@@ -349,7 +349,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		return PIECE;
 	}
 	
-	private boolean shouldAddRecipe(IResource resource, IResourceType<?>... types) {
+	public static boolean shouldAddRecipe(IResource resource, IResourceType<?>... types) {
 		final boolean allTypes = Stream.of(types).allMatch(type -> {
 			if (type instanceof BlockResourceType) {
 				return resource.getBlocks().containsKey(type);
