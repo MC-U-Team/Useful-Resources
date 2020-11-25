@@ -17,6 +17,7 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		super(name, color, ItemResourceType.GEM, rarity, ResourceType.GEM);
 		addFeature(createOre(ORE, rarity, harvestLevel, baseHardness, baseHardness * 1.5F, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
+		addFeature(createOre(END_ORE, rarity, harvestLevel, baseHardness * 1.5F, baseHardness * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
 		
 		addFeature(createMoltenFluid(0xFF000000 + color));
