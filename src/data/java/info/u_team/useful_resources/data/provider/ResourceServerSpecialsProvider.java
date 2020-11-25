@@ -22,7 +22,10 @@ public class ResourceServerSpecialsProvider extends CommonProvider {
 					+ "Each file targets a specific set of biomes. If a feature can generate is determined with\n" //
 					+ "a category and a biome white/black list. If both conditions are true the feature is added.\n" //
 					+ "\n" //
-					+ "To get a fresh installation (aften an update) please delete the world_generation_marker file.\n";
+					+ "To get the updated definitions (aften an update) please delete the world_generation_marker file.\n" //
+					+ "This will extract all the default custom world generation definitions and will override any\n" //
+					+ "changes to these files. New files will not be deleted. If you want to have a completely clean\n" //
+					+ "installation please delete the parent folder (worldgeneration) if this file and rerun the game\n";
 			
 			write(cache, readmeText, path.resolve("world_generation").resolve("README.txt"));
 		} catch (final IOException ex) {
