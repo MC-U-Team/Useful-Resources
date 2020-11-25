@@ -37,5 +37,6 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		
 		setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
 		setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
+		setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable);
 	}
 }
