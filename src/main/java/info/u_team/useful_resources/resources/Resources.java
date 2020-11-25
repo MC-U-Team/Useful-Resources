@@ -52,8 +52,7 @@ public class Resources {
 			.setExisting(PICKAXE, Items.GOLDEN_PICKAXE) //
 			.setExisting(SHOVEL, Items.GOLDEN_SHOVEL) //
 			.setExisting(SWORD, Items.GOLDEN_SWORD) //
-			.setProperty("oreSmeltingXp", 1) //
-			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128));
+			.setProperty("oreSmeltingXp", 1); //
 	
 	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 2, 3, 3, NETHER_ORE, true, 3, 7) //
 			.setExisting(ORE, Blocks.DIAMOND_ORE) //
