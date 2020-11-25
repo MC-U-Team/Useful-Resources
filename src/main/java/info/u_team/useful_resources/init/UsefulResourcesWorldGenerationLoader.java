@@ -16,6 +16,7 @@ import com.mojang.serialization.JsonOps;
 import cpw.mods.modlauncher.api.LamdbaExceptionUtils;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.worldgen.*;
+import info.u_team.useful_resources.worldgen.RegisteredWorldGenFeatures;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.gen.feature.ConfiguredFeature;

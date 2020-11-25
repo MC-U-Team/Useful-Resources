@@ -1,8 +1,9 @@
-package info.u_team.useful_resources.api.worldgen;
+package info.u_team.useful_resources.worldgen;
 
 import java.util.*;
 import java.util.function.Supplier;
 
+import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public class RegisteredWorldGenFeatures implements IWorldGenFeatures {
