@@ -43,15 +43,6 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return dataGeneratorConfigurator;
 	}
 	
-	// TODO Move to IDataGeneratorConfigurator
-	@Deprecated
-	@Override
-	public void clearDataGeneratorConfig() {
-		worldGenFeatures.clear();
-		extraLootTables.clear();
-		extraProperties.clear();
-	}
-	
 	public T setTools(IToolMaterial toolMaterial) {
 		addFeature(createTools(rarity, new WrappedToolMaterial(toolMaterial, () -> Ingredient.fromItems(getItems().get(getRepairType()).get()))));
 		return getThis();
