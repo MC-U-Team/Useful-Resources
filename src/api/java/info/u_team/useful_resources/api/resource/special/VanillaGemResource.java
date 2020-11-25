@@ -20,7 +20,7 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 		setProperty("ingotModel", ingotModel);
 		
 		if (!ArrayUtils.contains(existingOres, ORE)) {
-			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness * 1.5F, random -> MathHelper.nextInt(random, minXp, maxXp)));
+			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		}
 		if (!ArrayUtils.contains(existingOres, NETHER_ORE)) {
 			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
