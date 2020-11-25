@@ -23,23 +23,43 @@
 				"config": {
 					"feature": {
 						"config": {
-							"target": {
-								"block": "minecraft:netherrack",
-								"predicate_type": "minecraft:block_match"
+							"feature": {
+								"config": {
+									"feature": {
+										"config": {
+											"target": {
+												"block": "minecraft:netherrack",
+												"predicate_type": "minecraft:block_match"
+											},
+											"state": {
+												"Name": "usefulresources:lapis_nether_ore"
+											},
+											"size": 7
+										},
+										"type": "minecraft:ore"
+									},
+									"decorator": {
+										"config": {
+											"baseline": 64,
+											"spread": 64
+										},
+										"type": "minecraft:depth_average"
+									}
+								},
+								"type": "minecraft:decorated"
 							},
-							"state": {
-								"Name": "usefulresources:lapis_nether_ore"
-							},
-							"size": 7
+							"decorator": {
+								"config": {},
+								"type": "minecraft:square"
+							}
 						},
-						"type": "minecraft:ore"
+						"type": "minecraft:decorated"
 					},
 					"decorator": {
 						"config": {
-							"baseline": 64,
-							"spread": 64
+							"count": 1
 						},
-						"type": "minecraft:depth_average"
+						"type": "minecraft:count"
 					}
 				},
 				"type": "minecraft:decorated"

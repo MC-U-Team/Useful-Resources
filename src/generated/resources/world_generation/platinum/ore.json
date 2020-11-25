@@ -25,24 +25,44 @@
 				"config": {
 					"feature": {
 						"config": {
-							"target": {
-								"tag": "minecraft:base_stone_overworld",
-								"predicate_type": "minecraft:tag_match"
+							"feature": {
+								"config": {
+									"feature": {
+										"config": {
+											"target": {
+												"tag": "minecraft:base_stone_overworld",
+												"predicate_type": "minecraft:tag_match"
+											},
+											"state": {
+												"Name": "usefulresources:platinum_ore"
+											},
+											"size": 14
+										},
+										"type": "minecraft:ore"
+									},
+									"decorator": {
+										"config": {
+											"bottom_offset": 0,
+											"top_offset": 0,
+											"maximum": 32
+										},
+										"type": "minecraft:range"
+									}
+								},
+								"type": "minecraft:decorated"
 							},
-							"state": {
-								"Name": "usefulresources:platinum_ore"
-							},
-							"size": 14
+							"decorator": {
+								"config": {},
+								"type": "minecraft:square"
+							}
 						},
-						"type": "minecraft:ore"
+						"type": "minecraft:decorated"
 					},
 					"decorator": {
 						"config": {
-							"bottom_offset": 0,
-							"top_offset": 0,
-							"maximum": 32
+							"count": 2
 						},
-						"type": "minecraft:range"
+						"type": "minecraft:count"
 					}
 				},
 				"type": "minecraft:decorated"

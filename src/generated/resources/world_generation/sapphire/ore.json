@@ -25,24 +25,44 @@
 				"config": {
 					"feature": {
 						"config": {
-							"target": {
-								"tag": "minecraft:base_stone_overworld",
-								"predicate_type": "minecraft:tag_match"
+							"feature": {
+								"config": {
+									"feature": {
+										"config": {
+											"target": {
+												"tag": "minecraft:base_stone_overworld",
+												"predicate_type": "minecraft:tag_match"
+											},
+											"state": {
+												"Name": "usefulresources:sapphire_ore"
+											},
+											"size": 7
+										},
+										"type": "minecraft:ore"
+									},
+									"decorator": {
+										"config": {
+											"bottom_offset": 0,
+											"top_offset": 0,
+											"maximum": 48
+										},
+										"type": "minecraft:range"
+									}
+								},
+								"type": "minecraft:decorated"
 							},
-							"state": {
-								"Name": "usefulresources:sapphire_ore"
-							},
-							"size": 7
+							"decorator": {
+								"config": {},
+								"type": "minecraft:square"
+							}
 						},
-						"type": "minecraft:ore"
+						"type": "minecraft:decorated"
 					},
 					"decorator": {
 						"config": {
-							"bottom_offset": 0,
-							"top_offset": 0,
-							"maximum": 48
+							"count": 3
 						},
-						"type": "minecraft:range"
+						"type": "minecraft:count"
 					}
 				},
 				"type": "minecraft:decorated"
