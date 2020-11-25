@@ -61,6 +61,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		// Add vanilla ores to the right tags
 		copyBlockTag(BlockResourceType.ORE, Resources.IRON);
 		copyBlockTag(BlockResourceType.ORE, Resources.GOLD);
+		copyBlockTag(BlockResourceType.NETHER_ORE, Resources.GOLD);
 		copyBlockTag(BlockResourceType.ORE, Resources.DIAMOND);
 		copyBlockTag(BlockResourceType.ORE, Resources.EMERALD);
 		copyBlockTag(BlockResourceType.ORE, Resources.LAPIS);

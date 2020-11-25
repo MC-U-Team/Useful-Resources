@@ -44,6 +44,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		// Add vanilla ores to the right tags
 		addBlockTag(BlockResourceType.ORE, Resources.IRON, Blocks.IRON_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.GOLD, Blocks.GOLD_ORE);
+		addBlockTag(BlockResourceType.NETHER_ORE, Resources.GOLD, Blocks.NETHER_GOLD_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.DIAMOND, Blocks.DIAMOND_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.EMERALD, Blocks.EMERALD_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.LAPIS, Blocks.LAPIS_ORE);
