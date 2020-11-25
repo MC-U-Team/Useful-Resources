@@ -114,7 +114,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 0.1F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128));
 	
-	public static final IResource REDSTONE = new VanillaDustResource("redstone", 0xc41b2c, 2, 3, 3, 1, 5) //
+	public static final IResource REDSTONE = new VanillaDustResource("redstone", 0xc41b2c, 2, 3, 1, 5, ORE) //
 			.setExisting(ORE, Blocks.REDSTONE_ORE) //
 			.setExisting(DUST, Items.REDSTONE) //
 			.setLootTableWithFortune(NETHER_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
