@@ -2,10 +2,10 @@ package info.u_team.useful_resources.api.resource;
 
 import java.util.*;
 
+import info.u_team.u_team_core.util.CastUtil;
 import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
-import info.u_team.useful_resources.api.util.Cast;
 import net.minecraft.block.Block;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.Item;
@@ -96,7 +96,7 @@ public abstract class Resource implements IResource {
 			if (baseMap.containsKey(entry.getKey())) {
 				throw new IllegalStateException("Cannot add a feature with entries that already exist in the resource");
 			}
-		}).forEach(entry -> baseMap.put(entry.getKey(), Cast.uncheckedCast(entry.getValue())));
+		}).forEach(entry -> baseMap.put(entry.getKey(), CastUtil.uncheckedCast(entry.getValue())));
 		registryCollection.stream().peek(value -> {
 			if (!map.containsValue(value)) {
 				throw new IllegalStateException("Cannot add a feature with registry entries that are not in the normal feature entry map");
@@ -104,6 +104,6 @@ public abstract class Resource implements IResource {
 			if (baseRegistryList.contains(value)) {
 				throw new IllegalStateException("Cannot add a feature with registry entries that already exist in the resource");
 			}
-		}).forEach(value -> baseRegistryList.add(Cast.uncheckedCast(value)));
+		}).forEach(value -> baseRegistryList.add(CastUtil.uncheckedCast(value)));
 	}
 }

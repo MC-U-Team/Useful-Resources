@@ -7,11 +7,11 @@ import java.util.function.*;
 
 import info.u_team.u_team_core.api.IToolMaterial;
 import info.u_team.u_team_core.api.registry.IBlockItemProvider;
+import info.u_team.u_team_core.util.CastUtil;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
-import info.u_team.useful_resources.api.util.Cast;
 import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
@@ -114,7 +114,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	}
 	
 	private T getThis() {
-		return Cast.uncheckedCast(this);
+		return CastUtil.uncheckedCast(this);
 	}
 	
 }
