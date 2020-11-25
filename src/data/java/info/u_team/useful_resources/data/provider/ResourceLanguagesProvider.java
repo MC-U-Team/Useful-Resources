@@ -20,6 +20,8 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 		ResourceRegistry.getResources().forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type == BlockResourceType.BLOCK) {
+					add(block, "Nether " + capitalize(resource.getName() + " Ore"));
+				} else if (type == BlockResourceType.BLOCK) {
 					add(block, "Block of " + capitalize(resource.getName()));
 				} else if (type == BlockResourceType.MOLTEN_FLUID) {
 					add(block, "Molten " + capitalize(resource.getName()));
