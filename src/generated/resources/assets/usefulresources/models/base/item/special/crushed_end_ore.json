@@ -1,0 +1,7 @@
+{
+	"parent": "usefulresources:base/item/colored_overlay_generated_item",
+	"textures": {
+		"colored": "usefulresources:item/crushed_ore",
+		"uncolored": "usefulresources:item/endstone_crushed_ore_background"
+	}
+}
