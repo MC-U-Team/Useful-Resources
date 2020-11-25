@@ -17,6 +17,8 @@ public interface IDataGeneratorConfigurator {
 	
 	Map<String, Object> getExtraProperties();
 	
+	void clearDataGeneratorConfig();
+	
 	public enum ResourceType {
 		
 		INGOT("ingot"),
