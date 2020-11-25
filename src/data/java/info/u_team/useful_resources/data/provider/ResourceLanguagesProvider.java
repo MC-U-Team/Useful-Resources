@@ -43,6 +43,8 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 					add(item, "Crushed " + capitalize(resource.getName() + " Ore"));
 				} else if (type == ItemResourceType.CRUSHED_NETHER_ORE) {
 					add(item, "Crushed Nether " + capitalize(resource.getName() + " Ore"));
+				} else if (type == ItemResourceType.CRUSHED_END_ORE) {
+					add(item, "Crushed End " + capitalize(resource.getName() + " Ore"));
 				} else if (type == ItemResourceType.PURE_CRUSHED_ORE) {
 					add(item, "Pure Crushed " + capitalize(resource.getName() + " Ore"));
 				} else if (type == ItemResourceType.MOLTEN_BUCKET) {
