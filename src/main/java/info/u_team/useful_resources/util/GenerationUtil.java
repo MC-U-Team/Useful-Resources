@@ -44,6 +44,10 @@ public class GenerationUtil {
 		return createOreFeature(filterTypeLists, fillerBlockType, state, size, feature -> feature.withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(baseline, spread))), Optional.empty());
 	}
 	
+	public static WorldGenFeatures createOreFeature(FilterTypeLists filterTypeLists, RuleTest fillerBlockType, BlockState state, int size, int count, UnaryOperator<ConfiguredFeature<?, ?>> decoratable) {
+		return createOreFeature(filterTypeLists, fillerBlockType, state, size, feature -> decoratable.apply(feature).square().func_242731_b(count), Optional.empty());
+	}
+	
 	// ----------------------- ---------------------- ------------------------------- //
 	
 	public static WorldGenFeatures createOreFeature(FilterTypeLists filterTypeLists, RuleTest fillerBlockType, BlockState state, int size, UnaryOperator<ConfiguredFeature<?, ?>> decoratable, Optional<List<ConfiguredPlacement<?>>> extraPlacements) {
