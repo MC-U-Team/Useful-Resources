@@ -37,7 +37,13 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 				}
 			});
 			resource.iterateRegistryItems((type, item) -> {
-				if (type == ItemResourceType.MOLTEN_BUCKET) {
+				if (type == ItemResourceType.CRUSHED_ORE) {
+					add(item, "Crushed " + capitalize(resource.getName() + " Ore"));
+				} else if (type == ItemResourceType.CRUSHED_NETHER_ORE) {
+					add(item, "Crushed Nether " + capitalize(resource.getName() + " Ore"));
+				} else if (type == ItemResourceType.PURE_CRUSHED_ORE) {
+					add(item, "Pure Crushed " + capitalize(resource.getName() + " Ore"));
+				} else if (type == ItemResourceType.MOLTEN_BUCKET) {
 					add(item, "Molten " + capitalize(resource.getName() + " Bucket"));
 				} else {
 					add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
