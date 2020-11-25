@@ -2,7 +2,6 @@
 	"replace": false,
 	"values": [
 		"#forge:nether_ores/iron",
-		"#forge:nether_ores/gold",
 		"#forge:nether_ores/diamond",
 		"#forge:nether_ores/emerald",
 		"#forge:nether_ores/lapis",
@@ -23,6 +22,7 @@
 		"#forge:nether_ores/malachite",
 		"#forge:nether_ores/peridot",
 		"#forge:nether_ores/tanzanite",
+		"#forge:nether_ores/gold",
 		"#forge:nether_ores/quartz"
 	]
 }
