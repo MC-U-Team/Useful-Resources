@@ -21,6 +21,7 @@ public class GenerationUtil {
 	private static final FilterTypeLists END_FILTER = FilterTypeLists.create(CategoryTypeList.create(ListType.WHITELIST).add(Category.THEEND), BiomeTypeList.create(ListType.BLACKLIST));
 	
 	private final static RuleTest END_RULE = new TagMatchRuleTest(Tags.Blocks.END_STONES);
+	private final static RuleTest NETHER_RULE = new TagMatchRuleTest(Tags.Blocks.NETHERRACK);
 	
 	// ----------------------- Generation methods for basic stuff ------------------------------- //
 	
@@ -29,7 +30,7 @@ public class GenerationUtil {
 	}
 	
 	public static WorldGenFeatures createOreFeatureRangeNether(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
-		return createOreFeatureRange(NETHER_FILTER, FillerBlockType.NETHERRACK, state, size, count, bottomOffset, topOffset, maximum);
+		return createOreFeatureRange(NETHER_FILTER, NETHER_RULE, state, size, count, bottomOffset, topOffset, maximum);
 	}
 	
 	public static WorldGenFeatures createOreFeatureRangeEnd(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
@@ -45,7 +46,7 @@ public class GenerationUtil {
 	}
 	
 	public static WorldGenFeatures createOreFeatureDepthAverageNether(BlockState state, int size, int count, int baseline, int spread) {
-		return createOreFeatureDepthAverage(NETHER_FILTER, FillerBlockType.NETHERRACK, state, size, count, baseline, spread);
+		return createOreFeatureDepthAverage(NETHER_FILTER, NETHER_RULE, state, size, count, baseline, spread);
 	}
 	
 	public static WorldGenFeatures createOreFeatureDepthAverageEnd(BlockState state, int size, int count, int baseline, int spread) {
