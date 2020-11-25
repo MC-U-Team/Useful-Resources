@@ -23,7 +23,7 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		}
 		if (!ArrayUtils.contains(existingOres, NETHER_ORE)) {
-			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
+			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		}
 		if (!ArrayUtils.contains(existingOres, END_ORE)) {
 			addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, baseHardness * 1.5F, baseHardness * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));
