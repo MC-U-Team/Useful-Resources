@@ -69,6 +69,7 @@ public class Resources {
 			.setExisting(SHOVEL, Items.DIAMOND_SHOVEL) //
 			.setExisting(SWORD, Items.DIAMOND_SWORD) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 1, 0, 0, 128));
 	
@@ -80,6 +81,7 @@ public class Resources {
 			.setHorseArmor(11) //
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 1000, 8, 3, 10)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
 	
@@ -91,6 +93,7 @@ public class Resources {
 			.setHorseArmor(9) //
 			.setTools(createTools(new float[] { 4.5F, 0, 1, 1.5F, 2.5F }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 2, 500, 7, 3, 20)) //
 			.setLootTableWithFortune(NETHER_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 9)) //
+			.setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 0.2F) //
 			.setProperty("nether_oreModelOverride", "lapis_netherrack_nether_ore") //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDepthAverageNether(state, 7, 1, 64, 64));
@@ -103,6 +106,7 @@ public class Resources {
 			.setHorseArmor(8) //
 			.setTools(createTools(new float[] { 5, 0, 1, 1.5F, 3.5F }, new float[] { -2.8F, 0, -2.5F, -3, -2.1F }, 1, 400, 7, 2, 15)) //
 			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 0.2F) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 6, 4, 0, 0, 64));
 	
@@ -110,7 +114,8 @@ public class Resources {
 			.setExisting(ORE, Blocks.COAL_ORE) //
 			.setExisting(BLOCK, Blocks.COAL_BLOCK) //
 			.setExisting(GEM, Items.COAL) //
-			.setLootTableWithFortune(ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(NETHER_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
+			.setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 0.1F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128));
 	
@@ -118,6 +123,7 @@ public class Resources {
 			.setExisting(ORE, Blocks.REDSTONE_ORE) //
 			.setExisting(DUST, Items.REDSTONE) //
 			.setLootTableWithFortune(NETHER_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
+			.setLootTableWithFortune(END_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
 			.setProperty("oreSmeltingXp", 0.7F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 8, 0, 0, 128));
 	
