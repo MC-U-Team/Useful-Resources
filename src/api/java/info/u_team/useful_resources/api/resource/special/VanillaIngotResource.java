@@ -17,10 +17,10 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 		super(name, color, ItemResourceType.INGOT, Rarity.COMMON, ResourceType.INGOT);
 		
 		if (!ArrayUtils.contains(existingOres, ORE)) {
-			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
+			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness));
 		}
 		if (!ArrayUtils.contains(existingOres, NETHER_ORE)) {
-			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
+			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness));
 		}
 		if (!ArrayUtils.contains(existingOres, END_ORE)) {
 			addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, baseHardness * 1.5F, baseHardness * 2));
