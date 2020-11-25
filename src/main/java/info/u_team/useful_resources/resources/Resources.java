@@ -123,7 +123,7 @@ public class Resources {
 			.setExisting(ORE, Blocks.REDSTONE_ORE) //
 			.setExisting(DUST, Items.REDSTONE) //
 			.setLootTableWithFortune(NETHER_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
-			.setLootTableWithFortune(END_ORE, GEM, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
+			.setLootTableWithFortune(END_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
 			.setProperty("oreSmeltingXp", 0.7F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 8, 0, 0, 128));
 	
