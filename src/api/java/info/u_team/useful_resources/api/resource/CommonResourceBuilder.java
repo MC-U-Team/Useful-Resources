@@ -20,7 +20,7 @@ import info.u_team.useful_resources.block.OreBlock;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.material.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
@@ -43,7 +43,9 @@ public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createOre(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance, Function<Random, Integer> experienceDrop) {
 		return basicBuilder((name, provider, feature) -> {
-			feature.register(type, () -> new OreBlock(rarity, harvestLevel, hardness, resistance, experienceDrop));
+			final MaterialColor materialColor = type == BlockResourceType.NETHER_ORE ? MaterialColor.NETHERRACK : Material.ROCK.getColor();
+			final SoundType soundType = type == BlockResourceType.NETHER_ORE ? SoundType.NETHER_ORE : SoundType.STONE;
+			feature.register(type, () -> new OreBlock(materialColor, soundType, rarity, harvestLevel, hardness, resistance, experienceDrop));
 		});
 	}
 	
