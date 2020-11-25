@@ -24,6 +24,7 @@ public class BasicGemResource extends BasicResource<BasicGemResource> {
 		
 		addFeature(createBasicItem(CRUSHED_ORE, rarity));
 		addFeature(createBasicItem(CRUSHED_NETHER_ORE, rarity));
+		addFeature(createBasicItem(CRUSHED_END_ORE, rarity));
 		addFeature(createBasicItem(PURE_CRUSHED_ORE, rarity));
 		
 		addFeature(createBasicItem(GEM, rarity));

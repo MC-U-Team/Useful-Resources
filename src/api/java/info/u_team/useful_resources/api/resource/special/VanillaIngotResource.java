@@ -30,6 +30,7 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 		
 		addFeature(createBasicItem(CRUSHED_ORE, Rarity.COMMON));
 		addFeature(createBasicItem(CRUSHED_NETHER_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(CRUSHED_END_ORE, Rarity.COMMON));
 		addFeature(createBasicItem(PURE_CRUSHED_ORE, Rarity.COMMON));
 		
 		addFeature(createBasicItem(DUST, Rarity.COMMON));

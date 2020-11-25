@@ -33,6 +33,7 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 		
 		addFeature(createBasicItem(CRUSHED_ORE, Rarity.COMMON));
 		addFeature(createBasicItem(CRUSHED_NETHER_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(CRUSHED_END_ORE, Rarity.COMMON));
 		addFeature(createBasicItem(PURE_CRUSHED_ORE, Rarity.COMMON));
 		
 		addFeature(createBasicItem(PIECE, Rarity.COMMON));
