@@ -11,6 +11,7 @@ public enum ItemResourceType implements CacheResourceType<Item> {
 	
 	CRUSHED_ORE("crushed_ore", "crushed_stone_ores"),
 	CRUSHED_NETHER_ORE("crushed_nether_ore"),
+	CRUSHED_END_ORE("crushed_end_ore"),
 	PURE_CRUSHED_ORE("pure_crushed_ore"),
 	
 	INGOT("ingot"),
