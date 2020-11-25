@@ -122,6 +122,18 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("uncolored", "block/netherrack_lapis_ore_background") //
 				.texture("colored", "block/lapis_ore");
 		
+		// BlockResourceType.END_ORE
+		
+		// INGOT
+		models().withExistingParent("base/block/special/ingot_endstone_end_ore", modLoc("base/block/colored_overlay_block")) //
+				.texture("uncolored", "block/endstone_ingot_ore_background") //
+				.texture("colored", "block/ingot_ore");
+		
+		// GEM
+		models().withExistingParent("base/block/special/gem_endstone_end_ore", modLoc("base/block/colored_overlay_block")) //
+				.texture("uncolored", "block/endstone_gem_ore_background") //
+				.texture("colored", "block/gem_ore");
+		
 		// BlockResourceType.BLOCK
 		
 		// INGOT
