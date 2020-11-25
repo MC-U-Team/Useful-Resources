@@ -42,4 +42,11 @@ public class DataGeneratorConfigurator implements IDataGeneratorConfigurator {
 		return extraProperties;
 	}
 	
+	@Override
+	public void clearDataGeneratorConfig() {
+		worldGenFeatures.clear();
+		extraLootTables.clear();
+		extraProperties.clear();
+	}
+	
 }
