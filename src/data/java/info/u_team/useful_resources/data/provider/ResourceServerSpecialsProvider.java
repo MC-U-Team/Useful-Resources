@@ -25,7 +25,7 @@ public class ResourceServerSpecialsProvider extends CommonProvider {
 					+ "To get the updated definitions (aften an update) please delete the world_generation_marker file.\n" //
 					+ "This will extract all the default custom world generation definitions and will override any\n" //
 					+ "changes to these files. New files will not be deleted. If you want to have a completely clean\n" //
-					+ "installation please delete the parent folder (worldgeneration) if this file and rerun the game\n";
+					+ "installation please delete the parent folder (worldgeneration) of this file and rerun the game\n";
 			
 			write(cache, readmeText, path.resolve("world_generation").resolve("README.txt"));
 		} catch (final IOException ex) {
