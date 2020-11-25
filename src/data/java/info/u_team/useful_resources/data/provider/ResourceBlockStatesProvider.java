@@ -136,6 +136,11 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("uncolored", "block/endstone_gem_ore_background") //
 				.texture("colored", "block/gem_ore");
 		
+		// LAPIS (special)
+		models().withExistingParent("base/block/special/lapis_endstone_end_ore", modLoc("base/block/colored_overlay_block")) //
+				.texture("uncolored", "block/endstone_lapis_ore_background") //
+				.texture("colored", "block/lapis_ore");
+		
 		// BlockResourceType.BLOCK
 		
 		// INGOT
