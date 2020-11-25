@@ -3,7 +3,7 @@ package info.u_team.useful_resources.util;
 import java.util.*;
 import java.util.function.UnaryOperator;
 
-import info.u_team.useful_resources.api.list.*;
+import info.u_team.useful_resources.api.list.ListType;
 import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome.Category;
@@ -18,7 +18,7 @@ public class GenerationUtil {
 	private static final FilterTypeLists OVERWORLD_FILTER = FilterTypeLists.create(CategoryTypeList.create(ListType.BLACKLIST).add(Category.NETHER, Category.THEEND, Category.NONE), BiomeTypeList.create(ListType.BLACKLIST));
 	private static final FilterTypeLists NETHER_FILTER = FilterTypeLists.create(CategoryTypeList.create(ListType.WHITELIST).add(Category.NETHER), BiomeTypeList.create(ListType.BLACKLIST));
 	
-	// ----------------------- TODO see of that works ------------------------------- //
+	// ----------------------- Generation methods for basic stuff ------------------------------- //
 	
 	public static WorldGenFeatures createOreFeatureRangeOverworld(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
 		return createOreFeatureRange(OVERWORLD_FILTER, FillerBlockType.BASE_STONE_OVERWORLD, state, size, count, bottomOffset, topOffset, maximum);
@@ -29,7 +29,7 @@ public class GenerationUtil {
 	}
 	
 	public static WorldGenFeatures createOreFeatureRange(FilterTypeLists filterTypeLists, RuleTest fillerBlockType, BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
-		return createOreFeature(filterTypeLists, fillerBlockType, state, size, feature -> feature.withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(bottomOffset, topOffset, maximum))), Optional.empty());
+		return createOreFeature(filterTypeLists, fillerBlockType, state, size, count, feature -> feature.withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(bottomOffset, topOffset, maximum))));
 	}
 	
 	public static WorldGenFeatures createOreFeatureDepthAverageOverworld(BlockState state, int size, int count, int baseline, int spread) {
@@ -41,10 +41,10 @@ public class GenerationUtil {
 	}
 	
 	public static WorldGenFeatures createOreFeatureDepthAverage(FilterTypeLists filterTypeLists, RuleTest fillerBlockType, BlockState state, int size, int count, int baseline, int spread) {
-		return createOreFeature(filterTypeLists, fillerBlockType, state, size, feature -> feature.withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(baseline, spread))), Optional.empty());
+		return createOreFeature(filterTypeLists, fillerBlockType, state, size, count, feature -> feature.withPlacement(Placement.DEPTH_AVERAGE.configure(new DepthAverageConfig(baseline, spread))));
 	}
 	
-	// ----------------------- ---------------------- ------------------------------- //
+	// ----------------------- ---------------------------------- ------------------------------- //
 	
 	public static WorldGenFeatures createOreFeature(FilterTypeLists filterTypeLists, RuleTest fillerBlockType, BlockState state, int size, int count, UnaryOperator<ConfiguredFeature<?, ?>> decoratable) {
 		return createOreFeature(filterTypeLists, fillerBlockType, state, size, feature -> decoratable.apply(feature).square().func_242731_b(count), Optional.empty());
