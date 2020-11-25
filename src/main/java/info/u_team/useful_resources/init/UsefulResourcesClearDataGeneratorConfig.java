@@ -3,6 +3,7 @@ package info.u_team.useful_resources.init;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -13,8 +14,7 @@ public class UsefulResourcesClearDataGeneratorConfig {
 	
 	@SubscribeEvent
 	public static void setup(FMLCommonSetupEvent event) {
-		System.out.println("THIS SHOULD ONLY BE EXECUTED ON CLIENT AND SERVER; NOT ON DATA! IS THIS TRUE???"); // TODO remove
-		ResourceRegistry.getResources().forEach(IResource::clearDataGeneratorConfig);
+		ResourceRegistry.getResources().stream().map(IResource::getDataGeneratorConfigurator).forEach(IDataGeneratorConfigurator::clearDataGeneratorConfig);
 	}
 	
 }
