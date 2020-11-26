@@ -100,6 +100,7 @@ public class Resources {
 			.setLootTableWithFortune(END_ORE, GEM, LootTableUtil::createFortuneBlockLootTable) //
 			.setProperty("oreSmeltingXp", 0.2F) //
 			.setProperty("nether_oreModelOverride", "lapis_netherrack_nether_ore") //
+			.setProperty("end_oreModelOverride", "lapis_endstone_end_ore") //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDepthAverageNether(state, 7, 1, 64, 64)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureDepthAverageEndIslands(state, 7, 2, 35, 20));
 	
