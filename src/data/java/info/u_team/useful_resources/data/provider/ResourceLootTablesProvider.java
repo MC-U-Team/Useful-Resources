@@ -17,7 +17,7 @@ public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 	
 	@Override
 	protected void registerLootTables(BiConsumer<ResourceLocation, LootTable> consumer) {
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				final LootTable lootTable;
 				final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = resource.getDataGeneratorConfigurator().getExtraLootTables();

@@ -12,7 +12,7 @@ public class ResourceWorldGenFeaturesProvider extends CommonWorldGenFeaturesProv
 	
 	@Override
 	protected void addFeatures() {
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			resource.getDataGeneratorConfigurator().getWorldGeneration().forEach((name, worldGenFeature) -> {
 				addFeature(resource.getName() + "/" + name, worldGenFeature.get());
 			});

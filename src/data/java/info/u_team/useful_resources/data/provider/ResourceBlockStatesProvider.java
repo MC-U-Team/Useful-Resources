@@ -20,7 +20,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	protected void registerStatesAndModels() {
 		generateBaseModels();
 		
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator())));
 			});

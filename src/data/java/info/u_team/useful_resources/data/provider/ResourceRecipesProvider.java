@@ -63,7 +63,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		removeRecipe("redstone_from_smelting", consumer);
 		removeRecipe("redstone_from_blasting", consumer);
 		
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			final Map<BlockResourceType, Block> blocks = resource.getBlocks().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			final Map<ItemResourceType, Item> items = resource.getItems().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			

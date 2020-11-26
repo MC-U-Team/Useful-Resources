@@ -17,7 +17,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 	public void addTranslations() {
 		add(UsefulResourcesItemGroups.GROUP, "Useful Resources");
 		
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type == BlockResourceType.NETHER_ORE) {
 					add(block, "Nether " + capitalize(resource.getName() + " Ore"));
