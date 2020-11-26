@@ -33,6 +33,7 @@
 		"#forge:moltens/constantan",
 		"#forge:moltens/signalum",
 		"#forge:moltens/lumium",
-		"#forge:moltens/enderium"
+		"#forge:moltens/enderium",
+		"#forge:moltens/aluminium"
 	]
 }

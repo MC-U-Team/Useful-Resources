@@ -968,7 +968,8 @@ e87d5c659c1dfd6c6af5bede11b5b2d36a5ef6e5 data/forge/tags/blocks/storage_blocks/n
 a93d277c13ad5d65afc25134e592a16289e10572 data/forge/tags/blocks/storage_blocks/tin.json
 e99c7692be9bc2acd346141c7170bf077bfaf64f data/forge/tags/blocks/storage_blocks/uranium.json
 eb36de4d963eb4b300746761f6a87c8668b38cf1 data/forge/tags/blocks/storage_blocks/zinc.json
-501821f227175a89889b632fe55f4fd62120f805 data/forge/tags/fluids/moltens.json
+cd788c8c3ab963b0cd553ac1c328afda8ac32bb3 data/forge/tags/fluids/moltens.json
+28d0d0266c686a56d37e8af40875d02b8c6a9bcf data/forge/tags/fluids/moltens/aluminium.json
 28d0d0266c686a56d37e8af40875d02b8c6a9bcf data/forge/tags/fluids/moltens/aluminum.json
 4e89a27212e4b70399a719bbb60c623e6175b057 data/forge/tags/fluids/moltens/brass.json
 f0844f8bed47a997e5651f1e20ab8c591ad10c86 data/forge/tags/fluids/moltens/bronze.json
