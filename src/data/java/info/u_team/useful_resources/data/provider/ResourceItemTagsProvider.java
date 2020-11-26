@@ -34,10 +34,10 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 				}
 			});
 			
-			// Add stone and nether ores to the ore tags
+			// Add stone, nether and end ores to the ore tags
 			addMoreCommonTagCopy(resource, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
 			
-			// Add crushed stone and crushed nether ores to the crushed ore tags
+			// Add crushed stone, nether and end ores to the crushed ore tags
 			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
 		
