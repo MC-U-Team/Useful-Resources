@@ -24,7 +24,7 @@ public class ResourceRegistry {
 	}
 	
 	public static void forEach(Consumer<? super IResource> action) {
-		RESOURCES.forEach(action);
+		getResources().forEach(action);
 	}
 	
 	public static IResource get(String name) {
