@@ -11,7 +11,7 @@ import net.minecraft.util.Util;
 
 public class TagGenerationResources {
 	
-	public static final List<IResource> RESOURCES = Util.make(new ArrayList<>(), list -> ResourceRegistry.getResources().forEach(list::add));
+	private static final List<IResource> RESOURCES = Util.make(new ArrayList<>(), list -> ResourceRegistry.getResources().forEach(list::add));
 	
 	public static void addAdditionalResources() {
 		RESOURCES.add(new FakeNameResource("aluminium", Resources.ALUMINUM));
