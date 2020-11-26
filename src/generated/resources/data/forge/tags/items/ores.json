@@ -23,6 +23,7 @@
 		"#forge:ores/sapphire",
 		"#forge:ores/malachite",
 		"#forge:ores/peridot",
-		"#forge:ores/tanzanite"
+		"#forge:ores/tanzanite",
+		"#forge:ores/aluminium"
 	]
 }

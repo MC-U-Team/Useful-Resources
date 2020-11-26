@@ -892,7 +892,8 @@ b7fcc2551b9a0f8c8c81f2788b2f80ed175de92c data/forge/tags/blocks/nether_ores/sapp
 d70ae2d28cde3966a365e355c32257cd7d76d07d data/forge/tags/blocks/nether_ores/tin.json
 2145868c050620d10abbd18473edd8cbf1ad7688 data/forge/tags/blocks/nether_ores/uranium.json
 44ce87d9b5bb6f1c8db6e59e4e4efe20e5bbf77d data/forge/tags/blocks/nether_ores/zinc.json
-264f5db5fefca07319c14b549e3f2a42be5e9f59 data/forge/tags/blocks/ores.json
+0d56852d7849964a98d98539a0b7505a324b6dbb data/forge/tags/blocks/ores.json
+302539e7e0d8207fb423a90b318b3e98b7a57720 data/forge/tags/blocks/ores/aluminium.json
 971db9e62f9d4ffe452710501f92074bf33c5ca8 data/forge/tags/blocks/ores/aluminum.json
 51614a9c2cf83ead8d00e84a972a6c84f1805d16 data/forge/tags/blocks/ores/coal.json
 0ce5863af224f5124485fc885fba1c6fd70bfbf8 data/forge/tags/blocks/ores/copper.json
@@ -1118,7 +1119,8 @@ e04ff2152db715de46ae04c5e88935ce52e555ba data/forge/tags/items/crushed_nether_or
 72b3aa92d4b65580020352bcbe531b6fd13985e3 data/forge/tags/items/crushed_nether_ores/tin.json
 590710a05e84a4a14b43ed85572bb2de49750dd2 data/forge/tags/items/crushed_nether_ores/uranium.json
 593124777f3bb14b6d9bdc881fbdce8973ace208 data/forge/tags/items/crushed_nether_ores/zinc.json
-2341197b16474583372ff84622cdc09323614c9c data/forge/tags/items/crushed_ores.json
+38915948b5cf97cd354b121f7cfc5fc5262d4657 data/forge/tags/items/crushed_ores.json
+5ca80510b386a9b6d2af09e932fe57f9df8a57a6 data/forge/tags/items/crushed_ores/aluminium.json
 d3472991c01b898150550477eaf7a97be7792b25 data/forge/tags/items/crushed_ores/aluminum.json
 00e9dc51925a89e3f561c7ecd281531d36c627a6 data/forge/tags/items/crushed_ores/coal.json
 6c54830525c7b9c536c43171c377eebd9802b3bb data/forge/tags/items/crushed_ores/copper.json
@@ -1421,7 +1423,8 @@ e5f860f149422e1b4672722c69d5f3ae3dd3c1b6 data/forge/tags/items/nuggets/silver.js
 226fd4b1c04620d2d616185753ca177352219af0 data/forge/tags/items/nuggets/tin.json
 3aee92b38c297df700db8b4ea25f35c59cd59230 data/forge/tags/items/nuggets/uranium.json
 036f2f3b88277279ad4011a60b34d547ecfea6e6 data/forge/tags/items/nuggets/zinc.json
-264f5db5fefca07319c14b549e3f2a42be5e9f59 data/forge/tags/items/ores.json
+0d56852d7849964a98d98539a0b7505a324b6dbb data/forge/tags/items/ores.json
+302539e7e0d8207fb423a90b318b3e98b7a57720 data/forge/tags/items/ores/aluminium.json
 971db9e62f9d4ffe452710501f92074bf33c5ca8 data/forge/tags/items/ores/aluminum.json
 51614a9c2cf83ead8d00e84a972a6c84f1805d16 data/forge/tags/items/ores/coal.json
 0ce5863af224f5124485fc885fba1c6fd70bfbf8 data/forge/tags/items/ores/copper.json
