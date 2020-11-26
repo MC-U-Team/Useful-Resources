@@ -842,7 +842,8 @@ a9d1ea4d441e8ea129c1a99959ae5225b29e5c86 assets/usefulresources/models/item/zinc
 1763bd2c8b3e319334c7eb369ace45ebefbb96d6 assets/usefulresources/models/item/zinc_pure_crushed_ore.json
 796d48db5a092b0458eae5659e18f41ac4202f2c assets/usefulresources/models/item/zinc_rod.json
 9ed931619e39f59a8520c1e3b03fea2e9a56fb60 assets/usefulresources/particles/colored_overlay_block.json
-55f03fe66051b2adf9c8e94718603daaeffe17ab data/forge/tags/blocks/end_ores.json
+480d53c581755d85e643df88e342e88a0fbddc15 data/forge/tags/blocks/end_ores.json
+e84061d155c46e04ec53c4e1ef09896a95744864 data/forge/tags/blocks/end_ores/aluminium.json
 e84061d155c46e04ec53c4e1ef09896a95744864 data/forge/tags/blocks/end_ores/aluminum.json
 b4431d73ae7bbf6e53dc6debbd6cf4b42a6e3eca data/forge/tags/blocks/end_ores/coal.json
 31e2eeb1b357565fc0e99c4391847604ddb14079 data/forge/tags/blocks/end_ores/copper.json
@@ -866,7 +867,8 @@ d726bd98145e82aeb957e957873e9580bbb839a3 data/forge/tags/blocks/end_ores/tanzani
 5e9d903daf2b3482c31cc04829b6f6aaa443851c data/forge/tags/blocks/end_ores/tin.json
 8a53f40a88b203b22bcbd94f21ae87b6207e418a data/forge/tags/blocks/end_ores/uranium.json
 f3e006133ab8155c442853390ed88bae50ffa108 data/forge/tags/blocks/end_ores/zinc.json
-26b624855d5e0daa2aca920f47b96e8c086fb87e data/forge/tags/blocks/nether_ores.json
+956ae0d5eb52352fb709aed8050ce05463bb7681 data/forge/tags/blocks/nether_ores.json
+fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data/forge/tags/blocks/nether_ores/aluminium.json
 fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data/forge/tags/blocks/nether_ores/aluminum.json
 603161cd257966d0a771f8597bd3571d497767e8 data/forge/tags/blocks/nether_ores/coal.json
 58f69b549cf2b0d4ed78b20da687b20e0b6d2c6f data/forge/tags/blocks/nether_ores/copper.json
@@ -914,7 +916,8 @@ fa6d02f19e7a3eb1c7efbb3cbb15f3bc64eb7889 data/forge/tags/blocks/ores/tanzanite.j
 adb9a4f60bc67ac49faaffc1be2f903ec5045310 data/forge/tags/blocks/ores/tin.json
 8f46a6d7f84c57cc9b2b1b50a4045672f323495e data/forge/tags/blocks/ores/uranium.json
 0856b38f79e264222c9773a70945124076ed7da2 data/forge/tags/blocks/ores/zinc.json
-d43abc8b5a44733375b9b987fd737111c64eb701 data/forge/tags/blocks/stone_ores.json
+1324c78219e38fee709cedd61fdc5a380b0187ab data/forge/tags/blocks/stone_ores.json
+4c2def2fc1086f1c335cc8b5a04afaa990cf518b data/forge/tags/blocks/stone_ores/aluminium.json
 4c2def2fc1086f1c335cc8b5a04afaa990cf518b data/forge/tags/blocks/stone_ores/aluminum.json
 4e1aee4a4bdfd04eb4972fe41b981bc5a6ee08db data/forge/tags/blocks/stone_ores/coal.json
 37dce1a18a731b0c2c2746a9bca9bc83d07cf7a1 data/forge/tags/blocks/stone_ores/copper.json
@@ -938,7 +941,8 @@ aa31db5aa7d41a3ccb1710e7e0a201d66791a735 data/forge/tags/blocks/stone_ores/tanza
 0ca5373b0a88ae564a54ab5c0f89cc4f026d0e49 data/forge/tags/blocks/stone_ores/tin.json
 24317398d40443fc45f79110741036f27ea32cbc data/forge/tags/blocks/stone_ores/uranium.json
 00fcdfab050c5315c5e8646762f13db929c2a762 data/forge/tags/blocks/stone_ores/zinc.json
-8091ec9a7b6fc009f5991a9e052115d1d1066326 data/forge/tags/blocks/storage_blocks.json
+faf1aab91ac6e9d0a902e3e3130592a93f880eba data/forge/tags/blocks/storage_blocks.json
+092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/blocks/storage_blocks/aluminium.json
 092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/blocks/storage_blocks/aluminum.json
 20a803d8d8d3ffb521f6c8eac0520f35eb49d466 data/forge/tags/blocks/storage_blocks/brass.json
 96b90e96a2f448358728f4fcfd66f82b8ad4ee01 data/forge/tags/blocks/storage_blocks/bronze.json
@@ -1221,7 +1225,8 @@ ecbd15ddacf5740c3e91273a641485dbe156c977 data/forge/tags/items/dusts/silver.json
 014ca0b140e9a0645dd737f04c55c9ed6dffafc3 data/forge/tags/items/dusts/tin.json
 5a196c133c2038f98924f5b2784f7d16045b6d98 data/forge/tags/items/dusts/uranium.json
 70fd6a92b1bf6a6f8e451640da4da509ed7e341d data/forge/tags/items/dusts/zinc.json
-55f03fe66051b2adf9c8e94718603daaeffe17ab data/forge/tags/items/end_ores.json
+480d53c581755d85e643df88e342e88a0fbddc15 data/forge/tags/items/end_ores.json
+e84061d155c46e04ec53c4e1ef09896a95744864 data/forge/tags/items/end_ores/aluminium.json
 e84061d155c46e04ec53c4e1ef09896a95744864 data/forge/tags/items/end_ores/aluminum.json
 b4431d73ae7bbf6e53dc6debbd6cf4b42a6e3eca data/forge/tags/items/end_ores/coal.json
 31e2eeb1b357565fc0e99c4391847604ddb14079 data/forge/tags/items/end_ores/copper.json
@@ -1355,7 +1360,8 @@ fe08ed85501a849a0130a3c87ac5309c472217c9 data/forge/tags/items/molten_buckets/qu
 2b55f8987f8383b1969408384d96390041198941 data/forge/tags/items/molten_buckets/tin.json
 0e09816631503fd590fd21759e6fbc9b09863771 data/forge/tags/items/molten_buckets/uranium.json
 068c167a62e0668224b0a7a2afa1e4ab21a8b6ab data/forge/tags/items/molten_buckets/zinc.json
-26b624855d5e0daa2aca920f47b96e8c086fb87e data/forge/tags/items/nether_ores.json
+956ae0d5eb52352fb709aed8050ce05463bb7681 data/forge/tags/items/nether_ores.json
+fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data/forge/tags/items/nether_ores/aluminium.json
 fba7833f8bc41ee17f64334fa86dba7e5ca0e794 data/forge/tags/items/nether_ores/aluminum.json
 603161cd257966d0a771f8597bd3571d497767e8 data/forge/tags/items/nether_ores/coal.json
 58f69b549cf2b0d4ed78b20da687b20e0b6d2c6f data/forge/tags/items/nether_ores/copper.json
@@ -1526,7 +1532,8 @@ e132bd054c22cedebfeff9d2152a2d83dc6e66ff data/forge/tags/items/rods/tanzanite.js
 d285ca34fc6f5fb54fee01a6da462b74efbf548e data/forge/tags/items/rods/tin.json
 afabf4cd455a26eabb1c315c888cba9e62f52b82 data/forge/tags/items/rods/uranium.json
 728ff0be10c6e5bc3bdd8aadc7e29ebb88e021dc data/forge/tags/items/rods/zinc.json
-d43abc8b5a44733375b9b987fd737111c64eb701 data/forge/tags/items/stone_ores.json
+1324c78219e38fee709cedd61fdc5a380b0187ab data/forge/tags/items/stone_ores.json
+4c2def2fc1086f1c335cc8b5a04afaa990cf518b data/forge/tags/items/stone_ores/aluminium.json
 4c2def2fc1086f1c335cc8b5a04afaa990cf518b data/forge/tags/items/stone_ores/aluminum.json
 4e1aee4a4bdfd04eb4972fe41b981bc5a6ee08db data/forge/tags/items/stone_ores/coal.json
 37dce1a18a731b0c2c2746a9bca9bc83d07cf7a1 data/forge/tags/items/stone_ores/copper.json
@@ -1550,7 +1557,8 @@ aa31db5aa7d41a3ccb1710e7e0a201d66791a735 data/forge/tags/items/stone_ores/tanzan
 0ca5373b0a88ae564a54ab5c0f89cc4f026d0e49 data/forge/tags/items/stone_ores/tin.json
 24317398d40443fc45f79110741036f27ea32cbc data/forge/tags/items/stone_ores/uranium.json
 00fcdfab050c5315c5e8646762f13db929c2a762 data/forge/tags/items/stone_ores/zinc.json
-8091ec9a7b6fc009f5991a9e052115d1d1066326 data/forge/tags/items/storage_blocks.json
+faf1aab91ac6e9d0a902e3e3130592a93f880eba data/forge/tags/items/storage_blocks.json
+092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/items/storage_blocks/aluminium.json
 092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/items/storage_blocks/aluminum.json
 20a803d8d8d3ffb521f6c8eac0520f35eb49d466 data/forge/tags/items/storage_blocks/brass.json
 96b90e96a2f448358728f4fcfd66f82b8ad4ee01 data/forge/tags/items/storage_blocks/bronze.json

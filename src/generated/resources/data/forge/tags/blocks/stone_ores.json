@@ -23,6 +23,7 @@
 		"#forge:stone_ores/emerald",
 		"#forge:stone_ores/lapis",
 		"#forge:stone_ores/coal",
-		"#forge:stone_ores/redstone"
+		"#forge:stone_ores/redstone",
+		"#forge:stone_ores/aluminium"
 	]
 }
