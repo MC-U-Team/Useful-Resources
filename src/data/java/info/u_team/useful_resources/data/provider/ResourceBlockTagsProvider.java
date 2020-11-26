@@ -35,7 +35,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 				}
 			});
 			
-			// Add stone and nether ores to the ore tags
+			// Add stone, nether and end ores to the ore tags
 			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 		});
 		
