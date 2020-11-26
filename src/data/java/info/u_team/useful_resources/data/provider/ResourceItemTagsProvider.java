@@ -11,7 +11,7 @@ import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.resources.Resources;
-import info.u_team.useful_resources.util.MoreCollectors;
+import info.u_team.useful_resources.util.*;
 import net.minecraft.item.*;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
@@ -71,6 +71,17 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
+		
+		// Add aluminum to the aluminium tag
+		final FakeNameResource aluminium = new FakeNameResource("aluminium", Resources.ALUMINUM);
+		aluminium.iterateRegistryBlocks((type, block) -> {
+			if (type.hasTag()) {
+				copy(type.getTag(aluminium), TagUtil.fromBlockTag(type.getTag(aluminium)));
+			}
+			if (type.hasUnifyTag()) {
+				copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
+			}
+		});
 	}
 	
 	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {

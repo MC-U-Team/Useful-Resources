@@ -11,7 +11,7 @@ import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.resources.Resources;
-import info.u_team.useful_resources.util.MoreCollectors;
+import info.u_team.useful_resources.util.*;
 import net.minecraft.block.*;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
@@ -51,6 +51,18 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ, Blocks.NETHER_QUARTZ_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.COAL, Blocks.COAL_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
+		
+		// Add aluminum to the aluminium tag
+		final FakeNameResource aluminium = new FakeNameResource("aluminium", Resources.ALUMINUM);
+		aluminium.iterateRegistryBlocks((type, block) -> {
+			if (type.hasTag()) {
+				final INamedTag<Block> tag = type.getTag(aluminium);
+				getBuilder(tag).add(block);
+				if (type.hasUnifyTag()) {
+					getBuilder(type.getUnifyTag()).add(tag);
+				}
+			}
+		});
 		
 	}
 	
