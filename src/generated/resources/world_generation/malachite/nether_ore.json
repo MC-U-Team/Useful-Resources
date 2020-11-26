@@ -3,7 +3,7 @@
 		"categories": {
 			"type": "whitelist",
 			"entries": [
-				"the_end"
+				"nether"
 			]
 		},
 		"biomes": {
@@ -28,13 +28,13 @@
 									"feature": {
 										"config": {
 											"target": {
-												"tag": "forge:end_stones",
+												"tag": "forge:netherrack",
 												"predicate_type": "minecraft:tag_match"
 											},
 											"state": {
 												"Name": "usefulresources:malachite_nether_ore"
 											},
-											"size": 4
+											"size": 6
 										},
 										"type": "minecraft:ore"
 									},
@@ -42,7 +42,7 @@
 										"config": {
 											"bottom_offset": 0,
 											"top_offset": 0,
-											"maximum": 64
+											"maximum": 128
 										},
 										"type": "minecraft:range"
 									}
@@ -58,7 +58,7 @@
 					},
 					"decorator": {
 						"config": {
-							"count": 4
+							"count": 2
 						},
 						"type": "minecraft:count"
 					}

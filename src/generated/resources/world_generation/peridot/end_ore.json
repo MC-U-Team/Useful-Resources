@@ -3,7 +3,7 @@
 		"categories": {
 			"type": "whitelist",
 			"entries": [
-				"nether"
+				"the_end"
 			]
 		},
 		"biomes": {
@@ -28,13 +28,13 @@
 									"feature": {
 										"config": {
 											"target": {
-												"tag": "forge:netherrack",
+												"tag": "forge:end_stones",
 												"predicate_type": "minecraft:tag_match"
 											},
 											"state": {
-												"Name": "usefulresources:sapphire_nether_ore"
+												"Name": "usefulresources:peridot_end_ore"
 											},
-											"size": 6
+											"size": 4
 										},
 										"type": "minecraft:ore"
 									},
@@ -42,7 +42,7 @@
 										"config": {
 											"bottom_offset": 0,
 											"top_offset": 0,
-											"maximum": 128
+											"maximum": 64
 										},
 										"type": "minecraft:range"
 									}
@@ -58,7 +58,7 @@
 					},
 					"decorator": {
 						"config": {
-							"count": 2
+							"count": 4
 						},
 						"type": "minecraft:count"
 					}

@@ -16,7 +16,7 @@ public class CommonGemResource extends BasicGemResource {
 		setProperty("oreSmeltingXp", 1);
 		setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 7, 3, 0, 0, 48));
 		setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128));
-		setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeEnd(state, 4, 4, 0, 0, 64));
+		setGenerationDefault(END_ORE, state -> createOreFeatureRangeEnd(state, 4, 4, 0, 0, 64));
 	}
 	
 }
