@@ -73,9 +73,12 @@ public class GenerationUtil {
 	}
 	
 	public static WorldGenFeatures createOreFeature(FilterTypeLists filterTypeLists, RuleTest fillerBlockType, BlockState state, int size, UnaryOperator<ConfiguredFeature<?, ?>> decoratable, Optional<List<ConfiguredPlacement<?>>> extraPlacements) {
-		final ConfiguredFeature<?, ?> feature = decoratable.apply(Feature.ORE.withConfiguration(new OreFeatureConfig(fillerBlockType, state, size)));
+		ConfiguredFeature<?, ?> feature = decoratable.apply(Feature.ORE.withConfiguration(new OreFeatureConfig(fillerBlockType, state, size)));
 		if (extraPlacements.isPresent()) {
-			extraPlacements.get().forEach(feature::withPlacement);
+			final List<ConfiguredPlacement<?>> placements = extraPlacements.get();
+			for (ConfiguredPlacement<?> placement : placements) {
+				feature = feature.withPlacement(placement);
+			}
 		}
 		return createFeature(filterTypeLists, Decoration.UNDERGROUND_ORES, feature);
 	}
