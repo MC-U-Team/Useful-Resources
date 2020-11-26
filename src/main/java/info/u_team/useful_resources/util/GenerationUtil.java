@@ -5,6 +5,7 @@ import java.util.function.UnaryOperator;
 
 import info.u_team.useful_resources.api.list.ListType;
 import info.u_team.useful_resources.api.worldgen.*;
+import info.u_team.useful_resources.init.UsefulResourcesPlacements;
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome.Category;
 import net.minecraft.world.gen.GenerationStage.Decoration;
@@ -33,6 +34,10 @@ public class GenerationUtil {
 		return createOreFeatureRange(NETHER_FILTER, NETHER_RULE, state, size, count, bottomOffset, topOffset, maximum, Optional.empty());
 	}
 	
+	public static WorldGenFeatures createOreFeatureRangeEndIslands(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
+		return createOreFeatureRange(END_FILTER, END_RULE, state, size, count, bottomOffset, topOffset, maximum, Optional.of(Arrays.asList(UsefulResourcesPlacements.ONLY_END_ISLANDS.get().configure(NoPlacementConfig.INSTANCE))));
+	}
+	
 	public static WorldGenFeatures createOreFeatureRangeEnd(BlockState state, int size, int count, int bottomOffset, int topOffset, int maximum) {
 		return createOreFeatureRange(END_FILTER, END_RULE, state, size, count, bottomOffset, topOffset, maximum, Optional.empty());
 	}
@@ -47,6 +52,10 @@ public class GenerationUtil {
 	
 	public static WorldGenFeatures createOreFeatureDepthAverageNether(BlockState state, int size, int count, int baseline, int spread) {
 		return createOreFeatureDepthAverage(NETHER_FILTER, NETHER_RULE, state, size, count, baseline, spread, Optional.empty());
+	}
+	
+	public static WorldGenFeatures createOreFeatureDepthAverageEndIslands(BlockState state, int size, int count, int baseline, int spread) {
+		return createOreFeatureDepthAverage(END_FILTER, END_RULE, state, size, count, baseline, spread, Optional.of(Arrays.asList(UsefulResourcesPlacements.ONLY_END_ISLANDS.get().configure(NoPlacementConfig.INSTANCE))));
 	}
 	
 	public static WorldGenFeatures createOreFeatureDepthAverageEnd(BlockState state, int size, int count, int baseline, int spread) {
