@@ -118,11 +118,18 @@ sourceSets {
 	}
 }
 
+repositories {
+	maven {
+		url "https://www.cursemaven.com"
+	}
+}
+
 dependencies {
 	minecraft getForgeDependency()
 	compile getUTeamCoreDependency()
 	compile fg.deobf(getJeiApiDependency())
 	runtime fg.deobf(getJeiDependency())
+	runtime fg.deobf("curse.maven:jei-integration:3122292")
 }
 
 curseforge {
