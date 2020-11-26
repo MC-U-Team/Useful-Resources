@@ -20,6 +20,7 @@
 		"#forge:nuggets/constantan",
 		"#forge:nuggets/signalum",
 		"#forge:nuggets/lumium",
-		"#forge:nuggets/enderium"
+		"#forge:nuggets/enderium",
+		"#forge:nuggets/aluminium"
 	]
 }

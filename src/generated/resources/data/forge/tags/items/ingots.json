@@ -20,6 +20,7 @@
 		"#forge:ingots/constantan",
 		"#forge:ingots/signalum",
 		"#forge:ingots/lumium",
-		"#forge:ingots/enderium"
+		"#forge:ingots/enderium",
+		"#forge:ingots/aluminium"
 	]
 }

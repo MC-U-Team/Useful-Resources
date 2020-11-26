@@ -32,6 +32,7 @@
 		"#forge:gears/constantan",
 		"#forge:gears/signalum",
 		"#forge:gears/lumium",
-		"#forge:gears/enderium"
+		"#forge:gears/enderium",
+		"#forge:gears/aluminium"
 	]
 }

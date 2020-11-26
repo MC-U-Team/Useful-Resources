@@ -32,6 +32,7 @@
 		"#forge:dusts/constantan",
 		"#forge:dusts/signalum",
 		"#forge:dusts/lumium",
-		"#forge:dusts/enderium"
+		"#forge:dusts/enderium",
+		"#forge:dusts/aluminium"
 	]
 }

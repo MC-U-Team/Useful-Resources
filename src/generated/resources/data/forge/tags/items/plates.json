@@ -32,6 +32,7 @@
 		"#forge:plates/constantan",
 		"#forge:plates/signalum",
 		"#forge:plates/lumium",
-		"#forge:plates/enderium"
+		"#forge:plates/enderium",
+		"#forge:plates/aluminium"
 	]
 }

@@ -32,6 +32,7 @@
 		"#forge:rods/constantan",
 		"#forge:rods/signalum",
 		"#forge:rods/lumium",
-		"#forge:rods/enderium"
+		"#forge:rods/enderium",
+		"#forge:rods/aluminium"
 	]
 }

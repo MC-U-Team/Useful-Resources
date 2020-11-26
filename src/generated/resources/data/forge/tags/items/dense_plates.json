@@ -32,6 +32,7 @@
 		"#forge:dense_plates/constantan",
 		"#forge:dense_plates/signalum",
 		"#forge:dense_plates/lumium",
-		"#forge:dense_plates/enderium"
+		"#forge:dense_plates/enderium",
+		"#forge:dense_plates/aluminium"
 	]
 }
