@@ -83,6 +83,12 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			}
 		});
 		
+		// Add stone, nether and end ores to the ore tags
+		addMoreCommonTagCopy(aluminium, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
+		
+		// Add crushed stone, nether and end ores to the crushed ore tags
+		addMoreCommonTag(aluminium, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
+		
 		aluminium.iterateRegistryItems((type, item) -> {
 			if (type.hasTag()) {
 				final INamedTag<Item> tag = type.getTag(aluminium);
