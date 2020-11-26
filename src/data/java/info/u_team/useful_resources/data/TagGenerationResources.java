@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.data;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
@@ -14,5 +15,9 @@ public class TagGenerationResources {
 	
 	public static void addAdditionalResources() {
 		RESOURCES.add(new FakeNameResource("aluminium", Resources.ALUMINUM));
+	}
+	
+	public static void forEach(Consumer<? super IResource> action) {
+		RESOURCES.forEach(action);
 	}
 }
