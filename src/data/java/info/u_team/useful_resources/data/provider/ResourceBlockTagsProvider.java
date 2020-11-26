@@ -7,9 +7,9 @@ import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
+import info.u_team.useful_resources.data.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.*;
 import net.minecraft.block.*;
@@ -24,7 +24,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	
 	@Override
 	protected void registerTags() {
-		ResourceRegistry.getResources().forEach(resource -> {
+		TagGenerationResources.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type.hasTag()) {
 					final INamedTag<Block> tag = type.getTag(resource);
@@ -51,20 +51,6 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ, Blocks.NETHER_QUARTZ_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.COAL, Blocks.COAL_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
-		
-		// Add aluminum to the aluminium tag
-		final FakeNameResource aluminium = new FakeNameResource("aluminium", Resources.ALUMINUM);
-		aluminium.iterateRegistryBlocks((type, block) -> {
-			if (type.hasTag()) {
-				final INamedTag<Block> tag = type.getTag(aluminium);
-				getBuilder(tag).add(block);
-				if (type.hasUnifyTag()) {
-					getBuilder(type.getUnifyTag()).add(tag);
-				}
-			}
-		});
-		// Add stone, nether and end ores to the ore tags
-		addMoreCommonTag(aluminium, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {

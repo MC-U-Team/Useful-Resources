@@ -7,11 +7,11 @@ import java.util.stream.Stream;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.data.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
-import info.u_team.useful_resources.util.*;
+import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.item.*;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
@@ -24,7 +24,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
 	@Override
 	protected void registerTags() {
-		ResourceRegistry.getResources().forEach(resource -> {
+		TagGenerationResources.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type.hasTag()) {
 					copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
@@ -41,7 +41,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
 		
-		ResourceRegistry.getResources().forEach(resource -> {
+		TagGenerationResources.forEach(resource -> {
 			resource.iterateRegistryItems((type, item) -> {
 				if (type.hasTag()) {
 					final INamedTag<Item> tag = type.getTag(resource);
@@ -71,33 +71,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
-		
-		// Add aluminum to the aluminium tag
-		final FakeNameResource aluminium = new FakeNameResource("aluminium", Resources.ALUMINUM);
-		aluminium.iterateRegistryBlocks((type, block) -> {
-			if (type.hasTag()) {
-				copy(type.getTag(aluminium), TagUtil.fromBlockTag(type.getTag(aluminium)));
-			}
-			if (type.hasUnifyTag()) {
-				copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
-			}
-		});
-		
-		// Add stone, nether and end ores to the ore tags
-		addMoreCommonTagCopy(aluminium, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
-		
-		// Add crushed stone, nether and end ores to the crushed ore tags
-		addMoreCommonTag(aluminium, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
-		
-		aluminium.iterateRegistryItems((type, item) -> {
-			if (type.hasTag()) {
-				final INamedTag<Item> tag = type.getTag(aluminium);
-				getBuilder(tag).add(item);
-				if (type.hasUnifyTag()) {
-					getBuilder(type.getUnifyTag()).add(tag);
-				}
-			}
-		});
 	}
 	
 	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {
