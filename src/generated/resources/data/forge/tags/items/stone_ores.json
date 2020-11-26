@@ -17,13 +17,13 @@
 		"#forge:stone_ores/malachite",
 		"#forge:stone_ores/peridot",
 		"#forge:stone_ores/tanzanite",
+		"#forge:stone_ores/aluminium",
 		"#forge:stone_ores/iron",
 		"#forge:stone_ores/gold",
 		"#forge:stone_ores/diamond",
 		"#forge:stone_ores/emerald",
 		"#forge:stone_ores/lapis",
 		"#forge:stone_ores/coal",
-		"#forge:stone_ores/redstone",
-		"#forge:stone_ores/aluminium"
+		"#forge:stone_ores/redstone"
 	]
 }

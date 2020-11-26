@@ -22,8 +22,8 @@
 		"#forge:nether_ores/malachite",
 		"#forge:nether_ores/peridot",
 		"#forge:nether_ores/tanzanite",
+		"#forge:nether_ores/aluminium",
 		"#forge:nether_ores/gold",
-		"#forge:nether_ores/quartz",
-		"#forge:nether_ores/aluminium"
+		"#forge:nether_ores/quartz"
 	]
 }
