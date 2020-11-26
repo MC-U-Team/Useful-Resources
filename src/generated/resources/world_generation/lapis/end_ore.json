@@ -27,39 +27,48 @@
 								"config": {
 									"feature": {
 										"config": {
-											"target": {
-												"tag": "forge:end_stones",
-												"predicate_type": "minecraft:tag_match"
+											"feature": {
+												"config": {
+													"target": {
+														"tag": "forge:end_stones",
+														"predicate_type": "minecraft:tag_match"
+													},
+													"state": {
+														"Name": "usefulresources:lapis_end_ore"
+													},
+													"size": 7
+												},
+												"type": "minecraft:ore"
 											},
-											"state": {
-												"Name": "usefulresources:lapis_end_ore"
-											},
-											"size": 7
+											"decorator": {
+												"config": {
+													"baseline": 35,
+													"spread": 20
+												},
+												"type": "minecraft:depth_average"
+											}
 										},
-										"type": "minecraft:ore"
+										"type": "minecraft:decorated"
 									},
 									"decorator": {
-										"config": {
-											"baseline": 35,
-											"spread": 20
-										},
-										"type": "minecraft:depth_average"
+										"config": {},
+										"type": "minecraft:square"
 									}
 								},
 								"type": "minecraft:decorated"
 							},
 							"decorator": {
-								"config": {},
-								"type": "minecraft:square"
+								"config": {
+									"count": 2
+								},
+								"type": "minecraft:count"
 							}
 						},
 						"type": "minecraft:decorated"
 					},
 					"decorator": {
-						"config": {
-							"count": 2
-						},
-						"type": "minecraft:count"
+						"config": {},
+						"type": "usefulresources:only_end_islands"
 					}
 				},
 				"type": "minecraft:decorated"

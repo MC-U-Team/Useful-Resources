@@ -27,40 +27,49 @@
 								"config": {
 									"feature": {
 										"config": {
-											"target": {
-												"tag": "forge:end_stones",
-												"predicate_type": "minecraft:tag_match"
+											"feature": {
+												"config": {
+													"target": {
+														"tag": "forge:end_stones",
+														"predicate_type": "minecraft:tag_match"
+													},
+													"state": {
+														"Name": "usefulresources:copper_end_ore"
+													},
+													"size": 9
+												},
+												"type": "minecraft:ore"
 											},
-											"state": {
-												"Name": "usefulresources:copper_end_ore"
-											},
-											"size": 9
+											"decorator": {
+												"config": {
+													"bottom_offset": 0,
+													"top_offset": 0,
+													"maximum": 64
+												},
+												"type": "minecraft:range"
+											}
 										},
-										"type": "minecraft:ore"
+										"type": "minecraft:decorated"
 									},
 									"decorator": {
-										"config": {
-											"bottom_offset": 0,
-											"top_offset": 0,
-											"maximum": 64
-										},
-										"type": "minecraft:range"
+										"config": {},
+										"type": "minecraft:square"
 									}
 								},
 								"type": "minecraft:decorated"
 							},
 							"decorator": {
-								"config": {},
-								"type": "minecraft:square"
+								"config": {
+									"count": 15
+								},
+								"type": "minecraft:count"
 							}
 						},
 						"type": "minecraft:decorated"
 					},
 					"decorator": {
-						"config": {
-							"count": 15
-						},
-						"type": "minecraft:count"
+						"config": {},
+						"type": "usefulresources:only_end_islands"
 					}
 				},
 				"type": "minecraft:decorated"
