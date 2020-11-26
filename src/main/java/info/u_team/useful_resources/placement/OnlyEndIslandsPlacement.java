@@ -6,9 +6,9 @@ import java.util.stream.Stream;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.placement.*;
 
-public class EndIslandsPlacement extends SimplePlacement<NoPlacementConfig> {
+public class OnlyEndIslandsPlacement extends SimplePlacement<NoPlacementConfig> {
 	
-	public EndIslandsPlacement() {
+	public OnlyEndIslandsPlacement() {
 		super(NoPlacementConfig.CODEC);
 	}
 	
