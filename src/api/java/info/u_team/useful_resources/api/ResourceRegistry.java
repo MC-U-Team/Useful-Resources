@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.api;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 import com.google.common.collect.Iterables;
 
@@ -20,6 +21,10 @@ public class ResourceRegistry {
 	
 	public static List<IResource> getResources() {
 		return Collections.unmodifiableList(RESOURCES);
+	}
+	
+	public static void forEach(Consumer<? super IResource> action) {
+		RESOURCES.forEach(action);
 	}
 	
 	public static IResource get(String name) {
