@@ -1,10 +1,10 @@
 {
 	"replace": false,
 	"values": [
-		"#forge:gems/ruby",
-		"#forge:gems/sapphire",
 		"#forge:gems/malachite",
 		"#forge:gems/peridot",
+		"#forge:gems/ruby",
+		"#forge:gems/sapphire",
 		"#forge:gems/tanzanite",
 		"#forge:gems/coal"
 	]

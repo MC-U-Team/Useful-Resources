@@ -1,16 +1,16 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:pieces/coal",
 		"#forge:pieces/diamond",
 		"#forge:pieces/emerald",
 		"#forge:pieces/lapis",
+		"#forge:pieces/malachite",
+		"#forge:pieces/peridot",
 		"#forge:pieces/quartz",
-		"#forge:pieces/coal",
 		"#forge:pieces/redstone",
 		"#forge:pieces/ruby",
 		"#forge:pieces/sapphire",
-		"#forge:pieces/malachite",
-		"#forge:pieces/peridot",
 		"#forge:pieces/tanzanite"
 	]
 }

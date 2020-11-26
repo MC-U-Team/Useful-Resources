@@ -1,20 +1,20 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:armors/boots/aluminium",
+		"#forge:armors/boots/aluminum",
+		"#forge:armors/boots/copper",
 		"#forge:armors/boots/emerald",
 		"#forge:armors/boots/lapis",
-		"#forge:armors/boots/quartz",
-		"#forge:armors/boots/copper",
-		"#forge:armors/boots/tin",
-		"#forge:armors/boots/aluminum",
-		"#forge:armors/boots/silver",
 		"#forge:armors/boots/lead",
-		"#forge:armors/boots/platinum",
-		"#forge:armors/boots/ruby",
-		"#forge:armors/boots/sapphire",
 		"#forge:armors/boots/malachite",
 		"#forge:armors/boots/peridot",
+		"#forge:armors/boots/platinum",
+		"#forge:armors/boots/quartz",
+		"#forge:armors/boots/ruby",
+		"#forge:armors/boots/sapphire",
+		"#forge:armors/boots/silver",
 		"#forge:armors/boots/tanzanite",
-		"#forge:armors/boots/aluminium"
+		"#forge:armors/boots/tin"
 	]
 }

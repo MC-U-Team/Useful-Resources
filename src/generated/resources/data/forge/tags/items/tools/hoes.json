@@ -1,20 +1,20 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:tools/hoes/aluminium",
+		"#forge:tools/hoes/aluminum",
+		"#forge:tools/hoes/copper",
 		"#forge:tools/hoes/emerald",
 		"#forge:tools/hoes/lapis",
-		"#forge:tools/hoes/quartz",
-		"#forge:tools/hoes/copper",
-		"#forge:tools/hoes/tin",
-		"#forge:tools/hoes/aluminum",
-		"#forge:tools/hoes/silver",
 		"#forge:tools/hoes/lead",
-		"#forge:tools/hoes/platinum",
-		"#forge:tools/hoes/ruby",
-		"#forge:tools/hoes/sapphire",
 		"#forge:tools/hoes/malachite",
 		"#forge:tools/hoes/peridot",
+		"#forge:tools/hoes/platinum",
+		"#forge:tools/hoes/quartz",
+		"#forge:tools/hoes/ruby",
+		"#forge:tools/hoes/sapphire",
+		"#forge:tools/hoes/silver",
 		"#forge:tools/hoes/tanzanite",
-		"#forge:tools/hoes/aluminium"
+		"#forge:tools/hoes/tin"
 	]
 }

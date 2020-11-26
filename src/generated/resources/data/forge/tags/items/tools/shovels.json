@@ -1,20 +1,20 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:tools/shovels/aluminium",
+		"#forge:tools/shovels/aluminum",
+		"#forge:tools/shovels/copper",
 		"#forge:tools/shovels/emerald",
 		"#forge:tools/shovels/lapis",
-		"#forge:tools/shovels/quartz",
-		"#forge:tools/shovels/copper",
-		"#forge:tools/shovels/tin",
-		"#forge:tools/shovels/aluminum",
-		"#forge:tools/shovels/silver",
 		"#forge:tools/shovels/lead",
-		"#forge:tools/shovels/platinum",
-		"#forge:tools/shovels/ruby",
-		"#forge:tools/shovels/sapphire",
 		"#forge:tools/shovels/malachite",
 		"#forge:tools/shovels/peridot",
+		"#forge:tools/shovels/platinum",
+		"#forge:tools/shovels/quartz",
+		"#forge:tools/shovels/ruby",
+		"#forge:tools/shovels/sapphire",
+		"#forge:tools/shovels/silver",
 		"#forge:tools/shovels/tanzanite",
-		"#forge:tools/shovels/aluminium"
+		"#forge:tools/shovels/tin"
 	]
 }

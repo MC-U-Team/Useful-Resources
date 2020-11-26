@@ -1,20 +1,20 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:tools/axes/aluminium",
+		"#forge:tools/axes/aluminum",
+		"#forge:tools/axes/copper",
 		"#forge:tools/axes/emerald",
 		"#forge:tools/axes/lapis",
-		"#forge:tools/axes/quartz",
-		"#forge:tools/axes/copper",
-		"#forge:tools/axes/tin",
-		"#forge:tools/axes/aluminum",
-		"#forge:tools/axes/silver",
 		"#forge:tools/axes/lead",
-		"#forge:tools/axes/platinum",
-		"#forge:tools/axes/ruby",
-		"#forge:tools/axes/sapphire",
 		"#forge:tools/axes/malachite",
 		"#forge:tools/axes/peridot",
+		"#forge:tools/axes/platinum",
+		"#forge:tools/axes/quartz",
+		"#forge:tools/axes/ruby",
+		"#forge:tools/axes/sapphire",
+		"#forge:tools/axes/silver",
 		"#forge:tools/axes/tanzanite",
-		"#forge:tools/axes/aluminium"
+		"#forge:tools/axes/tin"
 	]
 }

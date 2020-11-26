@@ -1,20 +1,20 @@
 {
 	"replace": false,
 	"values": [
+		"#forge:armors/helmets/aluminium",
+		"#forge:armors/helmets/aluminum",
+		"#forge:armors/helmets/copper",
 		"#forge:armors/helmets/emerald",
 		"#forge:armors/helmets/lapis",
-		"#forge:armors/helmets/quartz",
-		"#forge:armors/helmets/copper",
-		"#forge:armors/helmets/tin",
-		"#forge:armors/helmets/aluminum",
-		"#forge:armors/helmets/silver",
 		"#forge:armors/helmets/lead",
-		"#forge:armors/helmets/platinum",
-		"#forge:armors/helmets/ruby",
-		"#forge:armors/helmets/sapphire",
 		"#forge:armors/helmets/malachite",
 		"#forge:armors/helmets/peridot",
+		"#forge:armors/helmets/platinum",
+		"#forge:armors/helmets/quartz",
+		"#forge:armors/helmets/ruby",
+		"#forge:armors/helmets/sapphire",
+		"#forge:armors/helmets/silver",
 		"#forge:armors/helmets/tanzanite",
-		"#forge:armors/helmets/aluminium"
+		"#forge:armors/helmets/tin"
 	]
 }
