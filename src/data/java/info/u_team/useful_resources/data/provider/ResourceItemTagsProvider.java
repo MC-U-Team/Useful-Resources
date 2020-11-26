@@ -82,6 +82,16 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 				copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 			}
 		});
+		
+		aluminium.iterateRegistryItems((type, item) -> {
+			if (type.hasTag()) {
+				final INamedTag<Item> tag = type.getTag(aluminium);
+				getBuilder(tag).add(item);
+				if (type.hasUnifyTag()) {
+					getBuilder(type.getUnifyTag()).add(tag);
+				}
+			}
+		});
 	}
 	
 	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {
