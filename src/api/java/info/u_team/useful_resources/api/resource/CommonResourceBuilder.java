@@ -49,9 +49,9 @@ public class CommonResourceBuilder {
 		});
 	}
 	
-	public static IResourceFeatureBuilder createBars(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance) {
+	public static IResourceFeatureBuilder createBars(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			feature.register(type, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, resistance));
+			feature.register(BlockResourceType.BARS, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
