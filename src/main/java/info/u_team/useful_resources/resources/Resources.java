@@ -253,7 +253,7 @@ public class Resources {
 			.addIngredient(of(() -> SILVER, INGOT, 1)) //
 			.addIngredient(of(() -> REDSTONE, DUST, 10));
 	
-	public static final BasicAlloyResource LUMIUM = new BasicAlloyResource("lumium", 0xedde93, Rarity.UNCOMMON, 2, 3, 4) //
+	public static final BasicAlloyResource LUMIUM = new BasicAlloyResource("lumium", 0xFFE97A, Rarity.UNCOMMON, 2, 3, 4) //
 			.addIngredient(of(() -> TIN, INGOT, 3)) //
 			.addIngredient(of(() -> SILVER, INGOT, 1)) //
 			.addIngredient(of(() -> Items.GLOWSTONE_DUST, 4));
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xe05316;
+			return 0xffe97a;
 		};
 	};
 	
