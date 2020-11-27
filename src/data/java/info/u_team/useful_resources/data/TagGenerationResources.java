@@ -15,6 +15,7 @@ public class TagGenerationResources {
 	
 	static void addAdditionalResources() {
 		RESOURCES.add(new FakeNameResource("aluminium", Resources.ALUMINUM));
+		RESOURCES.add(new FakeNameResource("uranium", Resources.URANIUM_238));
 	}
 	
 	public static void forEach(Consumer<? super IResource> action) {
