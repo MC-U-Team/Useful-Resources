@@ -117,7 +117,7 @@ public class Resources {
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 6, 4, 0, 0, 64)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 10, 1, 0, 0, 64));
 	
-	public static final IResource COAL = new VanillaGemResource("coal", 0x121110, 0, 3, true, 0, 2, ORE) //
+	public static final IResource COAL = new VanillaGemResource("coal", 0x3B3834, 0, 3, true, 0, 2, ORE) //
 			.setExisting(ORE, Blocks.COAL_ORE) //
 			.setExisting(BLOCK, Blocks.COAL_BLOCK) //
 			.setExisting(GEM, Items.COAL) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xF7F7E4;
+			return 0x3B3834;
 		};
 	};
 	
