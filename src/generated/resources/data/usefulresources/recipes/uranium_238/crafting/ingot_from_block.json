@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "forge:storage_blocks/uranium_238"
+		}
+	],
+	"result": {
+		"item": "usefulresources:uranium_238_ingot",
+		"count": 9
+	}
+}

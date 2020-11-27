@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:uranium_238/blasting/ingot_from_ore"
+		]
+	},
+	"criteria": {
+		"has_ore": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:ores/uranium_238"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:uranium_238/blasting/ingot_from_ore"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_ore",
+			"has_the_recipe"
+		]
+	]
+}

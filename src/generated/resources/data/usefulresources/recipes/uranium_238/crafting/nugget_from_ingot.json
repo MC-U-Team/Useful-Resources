@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "forge:ingots/uranium_238"
+		}
+	],
+	"result": {
+		"item": "usefulresources:uranium_238_nugget",
+		"count": 9
+	}
+}

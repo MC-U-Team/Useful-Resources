@@ -20,7 +20,7 @@
 		"#forge:nuggets/silver",
 		"#forge:nuggets/steel",
 		"#forge:nuggets/tin",
-		"#forge:nuggets/uranium",
+		"#forge:nuggets/uranium_238",
 		"#forge:nuggets/zinc"
 	]
 }
