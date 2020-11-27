@@ -201,7 +201,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 15, 0, 0, 64));
 	
-	public static final IResource URANIUM = new BasicIngotResource("uranium", 0x17b350, Rarity.UNCOMMON, 2, 4) //
+	public static final IResource URANIUM = new BasicIngotResource("uranium", 0x26A326, Rarity.UNCOMMON, 2, 4) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 14, 8, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 20, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 14, 5, 0, 0, 64));
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xF2EBEB;
+			return 0x26A326;
 		};
 	};
 	
