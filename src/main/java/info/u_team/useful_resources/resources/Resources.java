@@ -127,7 +127,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 17, 20, 0, 0, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 15, 8, 0, 0, 64));
 	
-	public static final IResource REDSTONE = new VanillaDustResource("redstone", 0xc41b2c, 2, 3, 1, 5, ORE) //
+	public static final IResource REDSTONE = new VanillaDustResource("redstone", 0xA31C29, 2, 3, 1, 5, ORE) //
 			.setExisting(ORE, Blocks.REDSTONE_ORE) //
 			.setExisting(DUST, Items.REDSTONE) //
 			.setLootTableWithFortune(NETHER_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x3B3834;
+			return 0xA31C29;
 		};
 	};
 	
