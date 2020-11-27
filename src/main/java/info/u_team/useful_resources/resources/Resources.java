@@ -224,7 +224,7 @@ public class Resources {
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> ZINC, INGOT, 1));
 	
-	public static final BasicAlloyResource BRONZE = new BasicAlloyResource("bronze", 0xb56b16, Rarity.COMMON, 2, 3, 4) //
+	public static final BasicAlloyResource BRONZE = new BasicAlloyResource("bronze", 0xFF943D, Rarity.COMMON, 2, 3, 4) //
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> TIN, INGOT, 1));
 	
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x5421c2;
+			return 0xFF943D;
 		};
 	};
 	
