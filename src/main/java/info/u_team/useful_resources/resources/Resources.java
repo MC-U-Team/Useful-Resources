@@ -53,6 +53,7 @@ public class Resources {
 			.setExisting(PICKAXE, Items.GOLDEN_PICKAXE) //
 			.setExisting(SHOVEL, Items.GOLDEN_SHOVEL) //
 			.setExisting(SWORD, Items.GOLDEN_SWORD) //
+			.setBars() //
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 6, 5, 0, 0, 48));
 	
