@@ -201,7 +201,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 15, 0, 0, 64));
 	
-	public static final IResource URANIUM = new BasicIngotResource("uranium", 0x26A326, Rarity.UNCOMMON, 2, 4) //
+	public static final IResource URANIUM_238 = new BasicIngotResource("uranium_238", 0x26A326, Rarity.UNCOMMON, 2, 4) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 14, 8, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 20, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 14, 5, 0, 0, 64));
@@ -263,14 +263,14 @@ public class Resources {
 			.addIngredient(of(() -> PLATINUM, INGOT, 1)) //
 			.addIngredient(of(() -> Items.ENDER_PEARL, 4));
 	
-//	// TODO REMOVE
-//	public static final IResource DEBUG = new BasicIngotResource("debug", 0, Rarity.EPIC, 1, 3) {
-//		
-//		@Override
-//		public int getColor() {
-//			return 0xA31C29;
-//		};
-//	};
+	// // TODO REMOVE
+	// public static final IResource DEBUG = new BasicIngotResource("debug", 0, Rarity.EPIC, 1, 3) {
+	//
+	// @Override
+	// public int getColor() {
+	// return 0xA31C29;
+	// };
+	// };
 	
 	public static void register() {
 		// Vanilla
@@ -293,7 +293,7 @@ public class Resources {
 		ResourceRegistry.register(IRIDIUM);
 		ResourceRegistry.register(NICKEL);
 		ResourceRegistry.register(ZINC);
-		ResourceRegistry.register(URANIUM);
+		ResourceRegistry.register(URANIUM_238);
 		
 		// GEM
 		ResourceRegistry.register(RUBY);
@@ -314,7 +314,7 @@ public class Resources {
 		ResourceRegistry.register(LUMIUM);
 		ResourceRegistry.register(ENDERIUM);
 		
-//		ResourceRegistry.register(DEBUG); // TODO REMOVE
+		// ResourceRegistry.register(DEBUG); // TODO REMOVE
 	}
 	
 }
