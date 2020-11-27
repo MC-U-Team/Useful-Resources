@@ -196,7 +196,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 15, 0, 0, 64));
 	
-	public static final IResource ZINC = new BasicIngotResource("zinc", 0x8ca7bd, Rarity.COMMON, 1, 3) //
+	public static final IResource ZINC = new BasicIngotResource("zinc", 0xF2EBEB, Rarity.COMMON, 1, 3) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 9, 20, 0, 0, 64)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 15, 0, 0, 64));
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xB8B8FF;
+			return 0xF2EBEB;
 		};
 	};
 	
