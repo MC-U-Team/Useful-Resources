@@ -3,7 +3,7 @@ package info.u_team.useful_resources.util;
 import java.util.*;
 import java.util.function.BiConsumer;
 
-import info.u_team.useful_resources.api.feature.IResourceFeatureBuilder;
+import info.u_team.useful_resources.api.feature.*;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
@@ -66,6 +66,11 @@ public class FakeNameResource implements IResource {
 	@Override
 	public List<RegistryEntry<Item>> getRegistryItems() {
 		return resource.getRegistryItems();
+	}
+	
+	@Override
+	public IDeferredRegisterProvider getDeferredRegisterProvider() {
+		return resource.getDeferredRegisterProvider();
 	}
 	
 	@Override

@@ -15,8 +15,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public interface IResource {
 	
-	static final DeferredRegisterProvider DEFERRED_PROVIDER = new DeferredRegisterProvider();
-	
 	String getName();
 	
 	int getColor();
@@ -34,6 +32,8 @@ public interface IResource {
 	List<RegistryEntry<Fluid>> getRegistryFluids();
 	
 	List<RegistryEntry<Item>> getRegistryItems();
+	
+	IDeferredRegisterProvider getDeferredRegisterProvider();
 	
 	default void iterateRegistryBlocks(BiConsumer<BlockResourceType, Block> consumer) {
 		iterateRegistry(getRegistryBlocks(), getBlocks(), (type, entry) -> consumer.accept(type, entry.get()));

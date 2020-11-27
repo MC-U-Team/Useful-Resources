@@ -25,6 +25,8 @@ public abstract class Resource implements IResource {
 	private final List<RegistryEntry<Fluid>> registryFluids;
 	private final List<RegistryEntry<Item>> registryItems;
 	
+	private final IDeferredRegisterProvider deferredRegisterProvider;
+	
 	public Resource(String name, int color, ItemResourceType repairType) {
 		this.name = name;
 		this.color = color;
@@ -35,6 +37,7 @@ public abstract class Resource implements IResource {
 		registryBlocks = new ArrayList<>();
 		registryFluids = new ArrayList<>();
 		registryItems = new ArrayList<>();
+		deferredRegisterProvider = new DeferredRegisterProvider();
 	}
 	
 	@Override
@@ -83,8 +86,13 @@ public abstract class Resource implements IResource {
 	}
 	
 	@Override
+	public IDeferredRegisterProvider getDeferredRegisterProvider() {
+		return deferredRegisterProvider;
+	}
+	
+	@Override
 	public void addFeature(IResourceFeatureBuilder builder) {
-		final IResourceFeature feature = builder.build(name, DEFERRED_PROVIDER);
+		final IResourceFeature feature = builder.build(name, deferredRegisterProvider);
 		
 		addEntriesToMap(blocks, feature.getBlocks(), registryBlocks, feature.getRegistryBlocks());
 		addEntriesToMap(fluids, feature.getFluids(), registryFluids, feature.getRegistryFluids());
