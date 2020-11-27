@@ -314,7 +314,7 @@ public class Resources {
 		ResourceRegistry.register(LUMIUM);
 		ResourceRegistry.register(ENDERIUM);
 		
-		ResourceRegistry.register(DEBUG); // TODO REMOVE
+//		ResourceRegistry.register(DEBUG); // TODO REMOVE
 	}
 	
 }
