@@ -56,7 +56,7 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 6, 5, 0, 0, 48));
 	
-	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x1cb5e8, 2, 3, true, 3, 7, ORE) //
+	public static final IResource DIAMOND = new VanillaGemResource("diamond", 0x65FCF2, 2, 3, true, 3, 7, ORE) //
 			.setExisting(ORE, Blocks.DIAMOND_ORE) //
 			.setExisting(BLOCK, Blocks.DIAMOND_BLOCK) //
 			.setExisting(GEM, Items.DIAMOND) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xFFE60A;
+			return 0x65fcf2;
 		};
 	};
 	
