@@ -248,7 +248,7 @@ public class Resources {
 			.addIngredient(of(() -> NICKEL, INGOT, 1)) //
 			.addIngredient(of(() -> COPPER, INGOT, 1));
 	
-	public static final BasicAlloyResource SIGNALUM = new BasicAlloyResource("signalum", 0xc96c2e, Rarity.UNCOMMON, 2, 3, 4) //
+	public static final BasicAlloyResource SIGNALUM = new BasicAlloyResource("signalum", 0xE05316, Rarity.UNCOMMON, 2, 3, 4) //
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> SILVER, INGOT, 1)) //
 			.addIngredient(of(() -> REDSTONE, DUST, 10));
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xfbff82;
+			return 0xe05316;
 		};
 	};
 	
