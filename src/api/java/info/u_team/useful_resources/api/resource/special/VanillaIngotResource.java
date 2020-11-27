@@ -13,8 +13,14 @@ import net.minecraft.item.Rarity;
 
 public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 	
+	private final int harvestLevel;
+	private final float baseHardness;
+	
 	public VanillaIngotResource(String name, int color, int harvestLevel, float baseHardness, BlockResourceType... existingOres) {
 		super(name, color, ItemResourceType.INGOT, Rarity.COMMON, ResourceType.INGOT);
+		
+		this.harvestLevel = harvestLevel;
+		this.baseHardness = baseHardness;
 		
 		if (!ArrayUtils.contains(existingOres, ORE)) {
 			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness));
@@ -38,5 +44,10 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 		addFeature(createBasicItem(DENSE_PLATE, Rarity.COMMON));
 		addFeature(createBasicItem(GEAR, Rarity.COMMON));
 		addFeature(createBasicItem(ROD, Rarity.COMMON));
+	}
+	
+	public VanillaIngotResource setBars() {
+		addFeature(createBars(Rarity.COMMON, harvestLevel, baseHardness));
+		return this;
 	}
 }
