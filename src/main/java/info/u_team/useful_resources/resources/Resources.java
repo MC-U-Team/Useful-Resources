@@ -216,7 +216,7 @@ public class Resources {
 	
 	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x4f8c2b);
 	
-	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x803dba);
+	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x5421c2);
 	
 	// ALLOY
 	
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x26A326;
+			return 0x5421c2;
 		};
 	};
 	
