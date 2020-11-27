@@ -206,6 +206,11 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 20, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 14, 5, 0, 0, 64));
 	
+	public static final IResource URANIUM_235 = new BasicIngotResource("uranium_235", 0x0ee60e, Rarity.EPIC, 2, 5) //
+			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 3, 1, 0, 0, 32)) //
+			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 3, 2, 10, 20, 128)) //
+			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 3, 1, 0, 0, 64));
+	
 	// GEM
 	
 	public static final IResource RUBY = new CommonGemResource("ruby", 0xC41A1A);
@@ -294,6 +299,7 @@ public class Resources {
 		ResourceRegistry.register(NICKEL);
 		ResourceRegistry.register(ZINC);
 		ResourceRegistry.register(URANIUM_238);
+		ResourceRegistry.register(URANIUM_235);
 		
 		// GEM
 		ResourceRegistry.register(RUBY);
