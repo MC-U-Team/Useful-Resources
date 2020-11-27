@@ -232,7 +232,7 @@ public class Resources {
 			.addIngredient(of(() -> IRON, INGOT, 1)) //
 			.addIngredient(of(() -> COAL, DUST, 4));
 	
-	public static final BasicAlloyResource DARK_STEEL = new BasicAlloyResource("dark_steel", 0x616161, Rarity.COMMON, 2, 6, 1) //
+	public static final BasicAlloyResource DARK_STEEL = new BasicAlloyResource("dark_steel", 0x363636, Rarity.COMMON, 2, 6, 1) //
 			.addIngredient(of(() -> STEEL, INGOT, 1)) //
 			.addIngredient(of(() -> Blocks.OBSIDIAN, 1));
 	
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x878787;
+			return 0x363636;
 		};
 	};
 	
