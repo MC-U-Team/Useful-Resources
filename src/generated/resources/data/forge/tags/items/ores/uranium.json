@@ -1,0 +1,8 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:stone_ores/uranium",
+		"#forge:nether_ores/uranium",
+		"#forge:end_ores/uranium"
+	]
+}
