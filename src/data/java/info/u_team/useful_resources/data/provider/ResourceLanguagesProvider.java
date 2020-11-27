@@ -47,6 +47,8 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 					add(item, "Crushed End " + capitalize(resource.getName() + " Ore"));
 				} else if (type == ItemResourceType.PURE_CRUSHED_ORE) {
 					add(item, "Pure Crushed " + capitalize(resource.getName() + " Ore"));
+				} else if (type == ItemResourceType.DENSE_PLATE) {
+					add(item, "Dense " + capitalize(resource.getName() + " Plate"));
 				} else if (type == ItemResourceType.MOLTEN_BUCKET) {
 					add(item, "Molten " + capitalize(resource.getName() + " Bucket"));
 				} else {
