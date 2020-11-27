@@ -12,7 +12,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 public class UsefulResourcesColors {
 	
 	private static void colorItem(ColorHandlerEvent.Item event) {
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			event.getBlockColors().register((state, world, pos, tintIndex) -> {
 				if (tintIndex == 1) {
 					return resource.getColor();
@@ -22,7 +22,7 @@ public class UsefulResourcesColors {
 			}, resource.getRegistryBlocks().stream().map(RegistryEntry::get).toArray(Block[]::new));
 		});
 		
-		ResourceRegistry.getResources().forEach(resource -> {
+		ResourceRegistry.forEach(resource -> {
 			event.getItemColors().register((stack, tintIndex) -> {
 				if (tintIndex == 1) {
 					return resource.getColor();
