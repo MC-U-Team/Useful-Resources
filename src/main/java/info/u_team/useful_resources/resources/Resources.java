@@ -89,7 +89,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 6, 2, 0, 0, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 6, 2, 0, 0, 64));
 	
-	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x1037e6, 1, 3, true, 2, 5, ORE) //
+	public static final IResource LAPIS = new VanillaGemResource("lapis", 0x526BDE, 1, 3, true, 2, 5, ORE) //
 			.setExisting(ORE, Blocks.LAPIS_ORE) //
 			.setExisting(BLOCK, Blocks.LAPIS_BLOCK) //
 			.setExisting(GEM, Items.LAPIS_LAZULI) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x65fcf2;
+			return 0x526BDE;
 		};
 	};
 	
