@@ -37,7 +37,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 10, 0, 0, 64));
 	
-	public static final IResource GOLD = new VanillaIngotResource("gold", 0xfff373, 2, 3, ORE, NETHER_ORE) //
+	public static final IResource GOLD = new VanillaIngotResource("gold", 0xFFE60A, 2, 3, ORE, NETHER_ORE) //
 			.setExisting(ORE, Blocks.GOLD_ORE) //
 			.setExisting(NETHER_ORE, Blocks.NETHER_GOLD_ORE) //
 			.setExisting(BLOCK, Blocks.GOLD_BLOCK) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0xffe97a;
+			return 0xFFE60A;
 		};
 	};
 	
