@@ -1,0 +1,73 @@
+{
+	"filters": {
+		"categories": {
+			"type": "whitelist",
+			"entries": [
+				"nether"
+			]
+		},
+		"biomes": {
+			"type": "blacklist",
+			"entries": []
+		}
+	},
+	"features": [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[
+			{
+				"config": {
+					"feature": {
+						"config": {
+							"feature": {
+								"config": {
+									"feature": {
+										"config": {
+											"target": {
+												"tag": "forge:netherrack",
+												"predicate_type": "minecraft:tag_match"
+											},
+											"state": {
+												"Name": "usefulresources:uranium_235_nether_ore"
+											},
+											"size": 3
+										},
+										"type": "minecraft:ore"
+									},
+									"decorator": {
+										"config": {
+											"bottom_offset": 10,
+											"top_offset": 20,
+											"maximum": 128
+										},
+										"type": "minecraft:range"
+									}
+								},
+								"type": "minecraft:decorated"
+							},
+							"decorator": {
+								"config": {},
+								"type": "minecraft:square"
+							}
+						},
+						"type": "minecraft:decorated"
+					},
+					"decorator": {
+						"config": {
+							"count": 2
+						},
+						"type": "minecraft:count"
+					}
+				},
+				"type": "minecraft:decorated"
+			}
+		],
+		[],
+		[],
+		[]
+	]
+}

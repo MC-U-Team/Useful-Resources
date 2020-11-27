@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"tag": "forge:dusts/uranium_235"
+	},
+	"result": "usefulresources:uranium_235_ingot",
+	"experience": 0.5,
+	"cookingtime": 200
+}

@@ -21,6 +21,7 @@
 		"#forge:ingots/steel",
 		"#forge:ingots/tin",
 		"#forge:ingots/uranium",
+		"#forge:ingots/uranium_235",
 		"#forge:ingots/uranium_238",
 		"#forge:ingots/zinc"
 	]

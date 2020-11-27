@@ -26,6 +26,7 @@
 		"#forge:storage_blocks/tanzanite",
 		"#forge:storage_blocks/tin",
 		"#forge:storage_blocks/uranium",
+		"#forge:storage_blocks/uranium_235",
 		"#forge:storage_blocks/uranium_238",
 		"#forge:storage_blocks/zinc"
 	]
