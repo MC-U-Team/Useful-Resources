@@ -263,14 +263,14 @@ public class Resources {
 			.addIngredient(of(() -> PLATINUM, INGOT, 1)) //
 			.addIngredient(of(() -> Items.ENDER_PEARL, 4));
 	
-	// TODO REMOVE
-	public static final IResource DEBUG = new BasicIngotResource("debug", 0, Rarity.EPIC, 1, 3) {
-		
-		@Override
-		public int getColor() {
-			return 0xA31C29;
-		};
-	};
+//	// TODO REMOVE
+//	public static final IResource DEBUG = new BasicIngotResource("debug", 0, Rarity.EPIC, 1, 3) {
+//		
+//		@Override
+//		public int getColor() {
+//			return 0xA31C29;
+//		};
+//	};
 	
 	public static void register() {
 		// Vanilla
