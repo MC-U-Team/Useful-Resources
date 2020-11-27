@@ -178,7 +178,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 3, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 10, 4, 0, 0, 64));
 	
-	public static final IResource PLATINUM = new BasicIngotResource("platinum", 0x6bb0ed, Rarity.RARE, 2, 3) //
+	public static final IResource PLATINUM = new BasicIngotResource("platinum", 0xFFFFA6, Rarity.RARE, 2, 3) //
 			.setArmor(createArmor(40, new int[] { 3, 6, 8, 3 }, 11)) //
 			.setHorseArmor(11) //
 			.setTools(createTools(new float[] { 5.0F, 0, 1, 1.5F, 3 }, new float[] { -3.0F, 0, -2.8F, -3, -2.4F }, 3, 2000, 8, 3, 10)) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x966B96;
+			return 0xFFFFA6;
 		};
 	};
 	
