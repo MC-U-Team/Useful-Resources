@@ -49,11 +49,11 @@ public class CommonResourceBuilder {
 		});
 	}
 	
-	public static IResourceFeatureBuilder createMoltenFluid(int color) {
-		return createMoltenFluid(FluidAttributes.builder(new ResourceLocation("block/water_still"), new ResourceLocation("block/water_flow")).overlay(new ResourceLocation("block/water_overlay")).temperature(1300).color(color));
+	public static IResourceFeatureBuilder createMolten(int color) {
+		return createMolten(FluidAttributes.builder(new ResourceLocation("block/water_still"), new ResourceLocation("block/water_flow")).overlay(new ResourceLocation("block/water_overlay")).temperature(1300).color(color));
 	}
 	
-	public static IResourceFeatureBuilder createMoltenFluid(FluidAttributes.Builder builder) {
+	public static IResourceFeatureBuilder createMolten(FluidAttributes.Builder builder) {
 		return basicBuilder((name, provider, feature) -> {
 			final AtomicReference<RegistryEntry<? extends Source>> sourceFluidReference = new AtomicReference<>();
 			final AtomicReference<RegistryEntry<? extends Flowing>> flowingFluidReference = new AtomicReference<>();

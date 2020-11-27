@@ -24,7 +24,7 @@ public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 		
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
 		
-		addFeature(createMoltenFluid(0xFF000000 + color));
+		addFeature(createMolten(0xFF000000 + color));
 		
 		addFeature(createBasicItem(INGOT, rarity));
 		addFeature(createBasicItem(NUGGET, rarity));

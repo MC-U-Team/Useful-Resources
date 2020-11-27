@@ -26,7 +26,7 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 			addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, baseHardness * 1.5F, baseHardness * 2));
 		}
 		
-		addFeature(createMoltenFluid(0xFF000000 + color));
+		addFeature(createMolten(0xFF000000 + color));
 		
 		addFeature(createBasicItem(CRUSHED_ORE, Rarity.COMMON));
 		addFeature(createBasicItem(CRUSHED_NETHER_ORE, Rarity.COMMON));
