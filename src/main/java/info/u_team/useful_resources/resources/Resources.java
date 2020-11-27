@@ -104,7 +104,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureDepthAverageNether(state, 7, 1, 64, 64)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureDepthAverageEndIslands(state, 7, 2, 35, 20));
 	
-	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xfcfcf7, 1, 3, true, 2, 5, NETHER_ORE) //
+	public static final IResource QUARTZ = new VanillaGemResource("quartz", 0xF7F7E4, 1, 3, true, 2, 5, NETHER_ORE) //
 			.setExisting(NETHER_ORE, Blocks.NETHER_QUARTZ_ORE) //
 			.setExisting(BLOCK, Blocks.QUARTZ_BLOCK) //
 			.setExisting(GEM, Items.QUARTZ) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x526BDE;
+			return 0xF7F7E4;
 		};
 	};
 	
