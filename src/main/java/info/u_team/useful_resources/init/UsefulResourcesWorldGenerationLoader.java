@@ -16,6 +16,7 @@ import com.mojang.serialization.JsonOps;
 import cpw.mods.modlauncher.api.LamdbaExceptionUtils;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.worldgen.*;
+import info.u_team.useful_resources.config.CommonConfig;
 import info.u_team.useful_resources.worldgen.RegisteredWorldGenFeatures;
 import net.minecraft.util.*;
 import net.minecraft.util.registry.*;
@@ -40,6 +41,9 @@ public class UsefulResourcesWorldGenerationLoader {
 	private static final Map<String, IWorldGenFeatures> FEATURES = new HashMap<>();
 	
 	private static void setup(FMLCommonSetupEvent event) {
+		if (!CommonConfig.getInstance().worldGenerationEnabled.get()) {
+			return;
+		}
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::setupWorldGenerationFolder);
 		LamdbaExceptionUtils.uncheck(UsefulResourcesWorldGenerationLoader::loadWorldGenerationFolder);
 		event.enqueueWork(UsefulResourcesWorldGenerationLoader::registerWorldGenerationDefinitions);
