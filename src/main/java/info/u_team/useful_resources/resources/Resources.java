@@ -138,7 +138,7 @@ public class Resources {
 	
 	// INGOT
 	
-	public static final IResource COPPER = new BasicIngotResource("copper", 0xc46c29, Rarity.COMMON, 1, 3) //
+	public static final IResource COPPER = new BasicIngotResource("copper", 0xFF8000, Rarity.COMMON, 1, 3) //
 			.setArmor(createArmor(12, new int[] { 2, 5, 6, 2 }, 9)) //
 			.setHorseArmor(6) //
 			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 2, 200, 5, 1, 14)) //
@@ -268,7 +268,7 @@ public class Resources {
 		
 		@Override
 		public int getColor() {
-			return 0x80C8F5;
+			return 0xFF8000;
 		};
 	};
 	
