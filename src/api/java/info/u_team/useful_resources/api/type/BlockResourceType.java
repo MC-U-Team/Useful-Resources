@@ -32,6 +32,7 @@ public enum BlockResourceType implements CacheResourceType<Block> {
 		this.tagName = tagName;
 	}
 	
+	@Override
 	public String getName() {
 		return name;
 	}

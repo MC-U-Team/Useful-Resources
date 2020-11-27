@@ -76,7 +76,7 @@ public class GenerationUtil {
 		ConfiguredFeature<?, ?> feature = decoratable.apply(Feature.ORE.withConfiguration(new OreFeatureConfig(fillerBlockType, state, size)));
 		if (extraPlacements.isPresent()) {
 			final List<ConfiguredPlacement<?>> placements = extraPlacements.get();
-			for (ConfiguredPlacement<?> placement : placements) {
+			for (final ConfiguredPlacement<?> placement : placements) {
 				feature = feature.withPlacement(placement);
 			}
 		}

@@ -52,9 +52,9 @@ public abstract class ParticleBlock extends UBlock {
 		
 		final AxisAlignedBB aabb = state.getShape(world, pos).getBoundingBox();
 		
-		double xCoord = (double) x + manager.rand.nextDouble() * (aabb.maxX - aabb.minX - (double) 0.2F) + (double) 0.1F + aabb.minX;
-		double yCoord = (double) y + manager.rand.nextDouble() * (aabb.maxY - aabb.minY - (double) 0.2F) + (double) 0.1F + aabb.minY;
-		double zCoord = (double) z + manager.rand.nextDouble() * (aabb.maxZ - aabb.minZ - (double) 0.2F) + (double) 0.1F + aabb.minZ;
+		double xCoord = x + manager.rand.nextDouble() * (aabb.maxX - aabb.minX - 0.2F) + 0.1F + aabb.minX;
+		double yCoord = y + manager.rand.nextDouble() * (aabb.maxY - aabb.minY - 0.2F) + 0.1F + aabb.minY;
+		double zCoord = z + manager.rand.nextDouble() * (aabb.maxZ - aabb.minZ - 0.2F) + 0.1F + aabb.minZ;
 		if (side == Direction.DOWN) {
 			yCoord = y + aabb.minY - 0.1;
 		}

@@ -139,7 +139,7 @@ public class UsefulResourcesWorldGenerationLoader {
 		}).forEach(worldGenFeatures -> {
 			final List<List<Supplier<ConfiguredFeature<?, ?>>>> featuresDecoration = worldGenFeatures.getFeatures();
 			for (int decorationStageIndex = 0; decorationStageIndex < featuresDecoration.size(); decorationStageIndex++) {
-				for (Supplier<ConfiguredFeature<?, ?>> feature : featuresDecoration.get(decorationStageIndex)) {
+				for (final Supplier<ConfiguredFeature<?, ?>> feature : featuresDecoration.get(decorationStageIndex)) {
 					event.getGeneration().withFeature(decorationStageIndex, feature);
 				}
 			}

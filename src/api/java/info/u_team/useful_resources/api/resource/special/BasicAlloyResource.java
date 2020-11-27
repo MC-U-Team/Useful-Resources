@@ -14,7 +14,7 @@ import net.minecraft.item.Rarity;
 
 public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 	
-	private List<IItemCountProvider> ingredients;
+	private final List<IItemCountProvider> ingredients;
 	private final int outputSize;
 	
 	public BasicAlloyResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness, int outputSize) {

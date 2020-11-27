@@ -51,7 +51,7 @@ public class WrappedArmorMaterial implements IArmorMaterial {
 	public Ingredient getRepairMaterial() {
 		return repairIngredient.get();
 	}
-
+	
 	@Override
 	public float getKnockbackResistance() {
 		return armorMaterial.getKnockbackResistance();

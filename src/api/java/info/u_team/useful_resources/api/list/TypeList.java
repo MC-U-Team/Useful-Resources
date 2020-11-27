@@ -39,7 +39,7 @@ public class TypeList<E, S> {
 	
 	@SafeVarargs
 	public final S add(E... elements) {
-		for (E element : elements) {
+		for (final E element : elements) {
 			add(element);
 		}
 		return CastUtil.uncheckedCast(this);

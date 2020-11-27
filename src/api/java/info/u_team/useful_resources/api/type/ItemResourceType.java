@@ -56,6 +56,7 @@ public enum ItemResourceType implements CacheResourceType<Item> {
 		this.tagName = tagName;
 	}
 	
+	@Override
 	public String getName() {
 		return name;
 	}

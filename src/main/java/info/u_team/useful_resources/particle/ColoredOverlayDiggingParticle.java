@@ -139,19 +139,19 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	}
 	
 	private float getMinU(TextureAtlasSprite sprite) {
-		return sprite.getInterpolatedU((double) ((randU + 1.0F) / 4.0F * 16.0F));
+		return sprite.getInterpolatedU((randU + 1.0F) / 4.0F * 16.0F);
 	}
 	
 	private float getMaxU(TextureAtlasSprite sprite) {
-		return sprite.getInterpolatedU((double) (randU / 4.0F * 16.0F));
+		return sprite.getInterpolatedU(randU / 4.0F * 16.0F);
 	}
 	
 	private float getMinV(TextureAtlasSprite sprite) {
-		return sprite.getInterpolatedV((double) (randV / 4.0F * 16.0F));
+		return sprite.getInterpolatedV(randV / 4.0F * 16.0F);
 	}
 	
 	private float getMaxV(TextureAtlasSprite sprite) {
-		return sprite.getInterpolatedV((double) ((randV + 1.0F) / 4.0F * 16.0F));
+		return sprite.getInterpolatedV((randV + 1.0F) / 4.0F * 16.0F);
 	}
 	
 	@Override
@@ -179,6 +179,7 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	@OnlyIn(Dist.CLIENT)
 	public static class Factory implements IParticleFactory<BlockParticleData> {
 		
+		@Override
 		public Particle makeParticle(BlockParticleData data, ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			return new ColoredOverlayDiggingParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, data.getBlockState()).init();
 		}

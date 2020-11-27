@@ -27,6 +27,7 @@ public enum FluidResourceType implements CacheResourceType<Fluid> {
 		this.tagName = tagName;
 	}
 	
+	@Override
 	public String getName() {
 		return name;
 	}
