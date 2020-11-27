@@ -17,6 +17,7 @@ public class BasicIngotResource extends BasicResource<BasicIngotResource> {
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
 		addFeature(createOre(END_ORE, rarity, harvestLevel, baseHardness * 1.5F, baseHardness * 2));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
+		addFeature(createBars(rarity, harvestLevel, baseHardness));
 		
 		addFeature(createMolten(0xFF000000 + color));
 		
