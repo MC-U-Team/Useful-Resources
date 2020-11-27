@@ -15,7 +15,7 @@ import info.u_team.useful_resources.api.material.ColoredArmorSetCreator;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.util.TriConsumer;
-import info.u_team.useful_resources.block.BasicBlock;
+import info.u_team.useful_resources.block.*;
 import info.u_team.useful_resources.block.OreBlock;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
@@ -46,6 +46,12 @@ public class CommonResourceBuilder {
 			final MaterialColor materialColor = type == BlockResourceType.NETHER_ORE ? MaterialColor.NETHERRACK : Material.ROCK.getColor();
 			final SoundType soundType = type == BlockResourceType.NETHER_ORE ? SoundType.NETHER_ORE : SoundType.STONE;
 			feature.register(type, () -> new OreBlock(materialColor, soundType, rarity, harvestLevel, hardness, resistance, experienceDrop));
+		});
+	}
+	
+	public static IResourceFeatureBuilder createBars(BlockResourceType type, Rarity rarity, int harvestLevel, float hardness, float resistance) {
+		return basicBuilder((name, provider, feature) -> {
+			feature.register(type, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
