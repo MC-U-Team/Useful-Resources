@@ -18,39 +18,40 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 		add(UsefulResourcesItemGroups.GROUP, "Useful Resources");
 		
 		ResourceRegistry.forEach(resource -> {
+			final String name = capitalize(resource.getName().replace("_", " "));
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type == BlockResourceType.NETHER_ORE) {
-					add(block, "Nether " + capitalize(resource.getName() + " Ore"));
+					add(block, "Nether " + name + " Ore");
 				} else if (type == BlockResourceType.END_ORE) {
-					add(block, "End " + capitalize(resource.getName() + " Ore"));
+					add(block, "End " + name + " Ore");
 				} else if (type == BlockResourceType.BLOCK) {
-					add(block, "Block of " + capitalize(resource.getName()));
+					add(block, "Block of " + name);
 				} else if (type == BlockResourceType.MOLTEN_FLUID) {
-					add(block, "Molten " + capitalize(resource.getName()));
+					add(block, "Molten " + name);
 				} else {
 					add(block, capitalize(block.getRegistryName().getPath().replace("_", " ")));
 				}
 			});
 			resource.iterateRegistryFluids((type, fluid) -> {
 				if (type == FluidResourceType.MOLTEN || type == FluidResourceType.MOLTEN_FLOWING) {
-					add(fluid, "Molten " + capitalize(resource.getName()));
+					add(fluid, "Molten " + name);
 				} else {
 					add(fluid, capitalize(fluid.getRegistryName().getPath().replace("_", " ")));
 				}
 			});
 			resource.iterateRegistryItems((type, item) -> {
 				if (type == ItemResourceType.CRUSHED_ORE) {
-					add(item, "Crushed " + capitalize(resource.getName() + " Ore"));
+					add(item, "Crushed " + name + " Ore");
 				} else if (type == ItemResourceType.CRUSHED_NETHER_ORE) {
-					add(item, "Crushed Nether " + capitalize(resource.getName() + " Ore"));
+					add(item, "Crushed Nether " + name + " Ore");
 				} else if (type == ItemResourceType.CRUSHED_END_ORE) {
-					add(item, "Crushed End " + capitalize(resource.getName() + " Ore"));
+					add(item, "Crushed End " + name + " Ore");
 				} else if (type == ItemResourceType.PURE_CRUSHED_ORE) {
-					add(item, "Pure Crushed " + capitalize(resource.getName() + " Ore"));
+					add(item, "Pure Crushed " + name + " Ore");
 				} else if (type == ItemResourceType.DENSE_PLATE) {
-					add(item, "Dense " + capitalize(resource.getName() + " Plate"));
+					add(item, "Dense " + name + " Plate");
 				} else if (type == ItemResourceType.MOLTEN_BUCKET) {
-					add(item, "Molten " + capitalize(resource.getName() + " Bucket"));
+					add(item, "Molten " + name + " Bucket");
 				} else {
 					add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
 				}
