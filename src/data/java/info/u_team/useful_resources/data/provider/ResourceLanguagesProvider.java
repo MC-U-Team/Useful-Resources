@@ -1,11 +1,14 @@
 package info.u_team.useful_resources.data.provider;
 
+import static info.u_team.useful_resources.api.type.BlockResourceType.*;
+import static info.u_team.useful_resources.api.type.FluidResourceType.*;
+import static info.u_team.useful_resources.api.type.ItemResourceType.*;
+
 import java.util.function.Function;
 import java.util.stream.*;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -23,37 +26,37 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 			final String name = capitalize(resource.getName().replace("_", " "));
 			final Function<ForgeRegistryEntry<?>, String> defaultNameFunction = entry -> capitalize(entry.getRegistryName().getPath().replace("_", " "));
 			resource.iterateRegistryBlocks((type, block) -> {
-				if (type == BlockResourceType.NETHER_ORE) {
+				if (type == NETHER_ORE) {
 					add(block, "Nether " + name + " Ore");
-				} else if (type == BlockResourceType.END_ORE) {
+				} else if (type == END_ORE) {
 					add(block, "End " + name + " Ore");
-				} else if (type == BlockResourceType.BLOCK) {
+				} else if (type == BLOCK) {
 					add(block, "Block of " + name);
-				} else if (type == BlockResourceType.MOLTEN_FLUID) {
+				} else if (type == MOLTEN_FLUID) {
 					add(block, "Molten " + name);
 				} else {
 					add(block, defaultNameFunction.apply(block));
 				}
 			});
 			resource.iterateRegistryFluids((type, fluid) -> {
-				if (type == FluidResourceType.MOLTEN || type == FluidResourceType.MOLTEN_FLOWING) {
+				if (type == MOLTEN || type == MOLTEN_FLOWING) {
 					add(fluid, "Molten " + name);
 				} else {
 					add(fluid, defaultNameFunction.apply(fluid));
 				}
 			});
 			resource.iterateRegistryItems((type, item) -> {
-				if (type == ItemResourceType.CRUSHED_ORE) {
+				if (type == CRUSHED_ORE) {
 					add(item, "Crushed " + name + " Ore");
-				} else if (type == ItemResourceType.CRUSHED_NETHER_ORE) {
+				} else if (type == CRUSHED_NETHER_ORE) {
 					add(item, "Crushed Nether " + name + " Ore");
-				} else if (type == ItemResourceType.CRUSHED_END_ORE) {
+				} else if (type == CRUSHED_END_ORE) {
 					add(item, "Crushed End " + name + " Ore");
-				} else if (type == ItemResourceType.PURE_CRUSHED_ORE) {
+				} else if (type == PURE_CRUSHED_ORE) {
 					add(item, "Pure Crushed " + name + " Ore");
-				} else if (type == ItemResourceType.DENSE_PLATE) {
+				} else if (type == DENSE_PLATE) {
 					add(item, "Dense " + name + " Plate");
-				} else if (type == ItemResourceType.MOLTEN_BUCKET) {
+				} else if (type == MOLTEN_BUCKET) {
 					add(item, "Molten " + name + " Bucket");
 				} else {
 					add(item, defaultNameFunction.apply(item));
