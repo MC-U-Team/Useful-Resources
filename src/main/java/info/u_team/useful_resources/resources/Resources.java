@@ -208,19 +208,19 @@ public class Resources {
 	
 	// GEM
 	
-	public static final IResource RUBY = new CommonGemResource("ruby", 0xc41a1a);
+	public static final IResource RUBY = new CommonGemResource("ruby", 0xC41A1A);
 	
-	public static final IResource SAPPHIRE = new CommonGemResource("sapphire", 0x1023b0);
+	public static final IResource SAPPHIRE = new CommonGemResource("sapphire", 0x1023B0);
 	
-	public static final IResource MALACHITE = new CommonGemResource("malachite", 0x258f7f);
+	public static final IResource MALACHITE = new CommonGemResource("malachite", 0x258F7F);
 	
-	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x4f8c2b);
+	public static final IResource PERIDOT = new CommonGemResource("peridot", 0x4F8C2B);
 	
-	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x5421c2);
+	public static final IResource TANZANITE = new CommonGemResource("tanzanite", 0x5421C2);
 	
 	// ALLOY
 	
-	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xe3ac22, Rarity.COMMON, 2, 3, 4) //
+	public static final BasicAlloyResource BRASS = new BasicAlloyResource("brass", 0xE3AC22, Rarity.COMMON, 2, 3, 4) //
 			.addIngredient(of(() -> COPPER, INGOT, 3)) //
 			.addIngredient(of(() -> ZINC, INGOT, 1));
 	
