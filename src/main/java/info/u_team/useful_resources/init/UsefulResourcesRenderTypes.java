@@ -10,13 +10,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class UsefulResourcesRenderTypes {
 	
 	private static void setup(FMLClientSetupEvent event) {
-		final RenderType cutout = RenderType.getCutout();
+		final RenderType cutoutMipped = RenderType.getCutoutMipped();
 		
 		ResourceRegistry.getResources().stream() //
 				.flatMap(resource -> resource.getBlocks().values().stream().map(RegistryEntry::get)) //
 				.filter(block -> block instanceof OreBlock) //
 				.map(block -> (OreBlock) block) //
-				.forEach(block -> RenderTypeLookup.setRenderLayer(block, cutout));
+				.forEach(block -> RenderTypeLookup.setRenderLayer(block, cutoutMipped));
 	}
 	
 	public static void registerMod(IEventBus bus) {
