@@ -11,11 +11,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraftforge.common.ToolType;
 
-public class OreBlock extends ParticleBlock {
+public class BasicOreBlock extends ParticleBlock {
 	
 	private final Function<Random, Integer> experienceDrop;
 	
-	public OreBlock(MaterialColor color, SoundType soundType, Rarity rarity, int harvestLevel, float hardness, float resistance, Function<Random, Integer> experienceDrop) {
+	public BasicOreBlock(MaterialColor color, SoundType soundType, Rarity rarity, int harvestLevel, float hardness, float resistance, Function<Random, Integer> experienceDrop) {
 		super(UsefulResourcesItemGroups.GROUP, Properties.create(Material.ROCK).sound(soundType).harvestTool(ToolType.PICKAXE).harvestLevel(harvestLevel).setRequiresTool().hardnessAndResistance(hardness, resistance), new Item.Properties().rarity(rarity));
 		this.experienceDrop = experienceDrop;
 	}
