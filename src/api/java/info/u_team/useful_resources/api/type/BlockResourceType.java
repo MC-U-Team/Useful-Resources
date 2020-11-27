@@ -15,6 +15,8 @@ public enum BlockResourceType implements CacheResourceType<Block> {
 	
 	BLOCK("block", "storage_blocks"),
 	
+	BARS("bars", "bars"),
+	
 	MOLTEN_FLUID("molten_fluid", null);
 	
 	private static final Map<ResourceLocation, INamedTag<Block>> CACHE = new HashMap<>();
