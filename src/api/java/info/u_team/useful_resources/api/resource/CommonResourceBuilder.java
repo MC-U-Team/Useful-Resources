@@ -16,7 +16,6 @@ import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.api.util.TriConsumer;
 import info.u_team.useful_resources.block.*;
-import info.u_team.useful_resources.block.BasicOreBlock;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import info.u_team.useful_resources.item.*;
 import net.minecraft.block.*;
@@ -49,9 +48,10 @@ public class CommonResourceBuilder {
 		});
 	}
 	
-	public static IResourceFeatureBuilder createBars(Rarity rarity, int harvestLevel, float hardness, float resistance) {
+	public static IResourceFeatureBuilder createBars(Rarity rarity, int harvestLevel, float baseHardness) {
 		return basicBuilder((name, provider, feature) -> {
-			feature.register(BlockResourceType.BARS, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, resistance));
+			final float hardness = baseHardness < 5 ? 5 : baseHardness;
+			feature.register(BlockResourceType.BARS, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, hardness + 1));
 		});
 	}
 	
