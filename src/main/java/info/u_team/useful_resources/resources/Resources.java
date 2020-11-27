@@ -154,7 +154,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 15, 0, 0, 64));
 	
-	public static final IResource ALUMINUM = new BasicIngotResource("aluminum", 0xebf0ee, Rarity.COMMON, 1, 2.6F) //
+	public static final IResource ALUMINUM = new BasicIngotResource("aluminum", 0x80C8F5, Rarity.COMMON, 1, 2.6F) //
 			.setArmor(createArmor(10, new int[] { 1, 3, 5, 2 }, 9)) //
 			.setHorseArmor(5) //
 			.setTools(createTools(new float[] { 6, 0, 1, 1.5F, 3 }, new float[] { -3.1F, -1, -2.8F, -3, -2.4F }, 1, 150, 5, 1, 14)) //
@@ -263,6 +263,15 @@ public class Resources {
 			.addIngredient(of(() -> PLATINUM, INGOT, 1)) //
 			.addIngredient(of(() -> Items.ENDER_PEARL, 4));
 	
+	// TODO REMOVE
+	public static final IResource DEBUG = new BasicIngotResource("debug", 0, Rarity.EPIC, 1, 3) {
+		
+		@Override
+		public int getColor() {
+			return 0x80C8F5;
+		};
+	};
+	
 	public static void register() {
 		// Vanilla
 		ResourceRegistry.register(IRON);
@@ -304,6 +313,8 @@ public class Resources {
 		ResourceRegistry.register(SIGNALUM);
 		ResourceRegistry.register(LUMIUM);
 		ResourceRegistry.register(ENDERIUM);
+		
+		ResourceRegistry.register(DEBUG); // TODO REMOVE
 	}
 	
 }
