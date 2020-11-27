@@ -1,11 +1,13 @@
 package info.u_team.useful_resources.data.provider;
 
+import java.util.function.Function;
 import java.util.stream.*;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
+import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 	
@@ -19,6 +21,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 		
 		ResourceRegistry.forEach(resource -> {
 			final String name = capitalize(resource.getName().replace("_", " "));
+			final Function<ForgeRegistryEntry<?>, String> defaultNameFunction = entry -> capitalize(entry.getRegistryName().getPath().replace("_", " "));
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (type == BlockResourceType.NETHER_ORE) {
 					add(block, "Nether " + name + " Ore");
@@ -29,14 +32,14 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 				} else if (type == BlockResourceType.MOLTEN_FLUID) {
 					add(block, "Molten " + name);
 				} else {
-					add(block, capitalize(block.getRegistryName().getPath().replace("_", " ")));
+					add(block, defaultNameFunction.apply(block));
 				}
 			});
 			resource.iterateRegistryFluids((type, fluid) -> {
 				if (type == FluidResourceType.MOLTEN || type == FluidResourceType.MOLTEN_FLOWING) {
 					add(fluid, "Molten " + name);
 				} else {
-					add(fluid, capitalize(fluid.getRegistryName().getPath().replace("_", " ")));
+					add(fluid, defaultNameFunction.apply(fluid));
 				}
 			});
 			resource.iterateRegistryItems((type, item) -> {
@@ -53,7 +56,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 				} else if (type == ItemResourceType.MOLTEN_BUCKET) {
 					add(item, "Molten " + name + " Bucket");
 				} else {
-					add(item, capitalize(item.getRegistryName().getPath().replace("_", " ")));
+					add(item, defaultNameFunction.apply(item));
 				}
 			});
 		});
