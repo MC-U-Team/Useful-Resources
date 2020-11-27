@@ -11,7 +11,7 @@ import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.data.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
-import info.u_team.useful_resources.util.*;
+import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;

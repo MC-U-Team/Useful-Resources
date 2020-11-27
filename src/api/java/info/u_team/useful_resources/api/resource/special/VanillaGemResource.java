@@ -1,8 +1,8 @@
 package info.u_team.useful_resources.api.resource.special;
 
 import static info.u_team.useful_resources.api.resource.CommonResourceBuilder.*;
-import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import static info.u_team.useful_resources.api.type.BlockResourceType.*;
+import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import org.apache.commons.lang3.ArrayUtils;
 
