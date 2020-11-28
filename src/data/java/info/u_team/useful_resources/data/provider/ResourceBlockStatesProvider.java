@@ -10,6 +10,7 @@ import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
+import net.minecraft.util.Direction.Axis;
 import net.minecraftforge.client.model.generators.*;
 
 public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
@@ -414,6 +415,51 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.UP) //
 				.uvs(7, 9, 9, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
+				.end() //
+				.end();
+		
+		// BlockResourceType.BARS
+		models().getBuilder("base/block/special/chain") //
+				.texture("particle", "block/chain") //
+				.texture("bars", "block/chain") //
+				.element() //
+				.from(6.5F, 0, 8) //
+				.to(9.5F, 16, 8) //
+				.rotation() //
+				.origin(8, 8, 8) //
+				.axis(Axis.Y) //
+				.angle(45) //
+				.end() //
+				.shade(false) //
+				.face(Direction.NORTH) //
+				.uvs(0, 0, 3, 16) //
+				.texture("#all") //
+				.tintindex(1) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(0, 0, 3, 16) //
+				.texture("#all") //
+				.tintindex(1) //
+				.end() //
+				.end() //
+				.element() //
+				.from(8, 0, 6.5F) //
+				.to(8, 16, 9.5F) //
+				.rotation() //
+				.origin(8, 8, 8) //
+				.axis(Axis.Y) //
+				.angle(45) //
+				.end() //
+				.shade(false) //
+				.face(Direction.WEST) //
+				.uvs(3, 0, 6, 16) //
+				.texture("#all") //
+				.tintindex(1) //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(3, 0, 6, 16) //
+				.texture("#all") //
 				.tintindex(1) //
 				.end() //
 				.end();
