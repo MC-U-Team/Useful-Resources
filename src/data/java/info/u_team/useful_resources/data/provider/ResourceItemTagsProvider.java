@@ -58,7 +58,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Special tags
 		
-		// Add vanilla ores to the right tags
+		// Add vanilla blocks to the right tags
 		copyBlockTag(BlockResourceType.ORE, Resources.IRON);
 		copyBlockTag(BlockResourceType.ORE, Resources.GOLD);
 		copyBlockTag(BlockResourceType.NETHER_ORE, Resources.GOLD);
@@ -68,6 +68,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		copyBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ);
 		copyBlockTag(BlockResourceType.ORE, Resources.COAL);
 		copyBlockTag(BlockResourceType.ORE, Resources.REDSTONE);
+		copyBlockTag(BlockResourceType.BARS, Resources.IRON);
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
