@@ -69,6 +69,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		copyBlockTag(BlockResourceType.ORE, Resources.COAL);
 		copyBlockTag(BlockResourceType.ORE, Resources.REDSTONE);
 		copyBlockTag(BlockResourceType.BARS, Resources.IRON);
+		copyBlockTag(BlockResourceType.CHAIN, Resources.IRON);
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);

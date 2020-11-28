@@ -52,6 +52,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.ORE, Resources.COAL, Blocks.COAL_ORE);
 		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
 		addBlockTag(BlockResourceType.BARS, Resources.IRON, Blocks.IRON_BARS);
+		addBlockTag(BlockResourceType.CHAIN, Resources.IRON, Blocks.CHAIN);
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
