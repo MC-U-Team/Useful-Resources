@@ -489,4 +489,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		builder.part().modelFile(sideAlt).addModel().condition(FourWayBlock.SOUTH, true).end();
 		builder.part().modelFile(sideAlt).rotationY(90).addModel().condition(FourWayBlock.WEST, true).end();
 	}
+	
+	public void chainBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile model = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator));
+		axisBlock((RotatedPillarBlock) block, model, model);
+	}
 }
