@@ -393,12 +393,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
 	public void barsBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		
-		final ModelFile postEnds = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_post_ends");
-		final ModelFile post = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_post");
-		final ModelFile side = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_side");
-		final ModelFile sideAlt = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_side_alt");
-		final ModelFile cap = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_cap");
-		final ModelFile capAlt = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_cap_alt");
+		final ModelFile postEnds = models().withExistingParent(getPath(block) + "_post_ends", getBaseModel(type, dataGeneratorConfigurator) + "_post_ends");
+		final ModelFile post = models().withExistingParent(getPath(block) + "_post", getBaseModel(type, dataGeneratorConfigurator) + "_post");
+		final ModelFile side = models().withExistingParent(getPath(block) + "_side", getBaseModel(type, dataGeneratorConfigurator) + "_side");
+		final ModelFile sideAlt = models().withExistingParent(getPath(block) + "_side_alt", getBaseModel(type, dataGeneratorConfigurator) + "_side_alt");
+		final ModelFile cap = models().withExistingParent(getPath(block) + "_cap", getBaseModel(type, dataGeneratorConfigurator) + "_cap");
+		final ModelFile capAlt = models().withExistingParent(getPath(block) + "_cap_alt", getBaseModel(type, dataGeneratorConfigurator) + "_cap_alt");
 		
 		final MultiPartBlockStateBuilder builder = getMultipartBuilder(block);
 		builder.part().modelFile(postEnds).addModel().end();
