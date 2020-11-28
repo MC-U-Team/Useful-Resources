@@ -1,0 +1,30 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:chains/aluminium",
+		"#forge:chains/aluminum",
+		"#forge:chains/brass",
+		"#forge:chains/bronze",
+		"#forge:chains/constantan",
+		"#forge:chains/copper",
+		"#forge:chains/dark_steel",
+		"#forge:chains/electrum",
+		"#forge:chains/enderium",
+		"#forge:chains/gold",
+		"#forge:chains/invar",
+		"#forge:chains/iridium",
+		"#forge:chains/lead",
+		"#forge:chains/lumium",
+		"#forge:chains/nickel",
+		"#forge:chains/platinum",
+		"#forge:chains/signalum",
+		"#forge:chains/silver",
+		"#forge:chains/steel",
+		"#forge:chains/tin",
+		"#forge:chains/uranium",
+		"#forge:chains/uranium_235",
+		"#forge:chains/uranium_238",
+		"#forge:chains/zinc",
+		"#forge:chains/iron"
+	]
+}
