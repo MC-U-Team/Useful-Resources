@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
-import info.u_team.useful_resources.api.registry.RegistryEntry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.util.ObjectUtil;
@@ -24,10 +23,18 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	protected void registerModels() {
 		generateBaseModels();
 		
-		ResourceRegistry.getResources().stream() //
-				.flatMap(resource -> resource.getRegistryBlocks().stream().map(RegistryEntry::get)) //
-				.filter(block -> !block.asItem().equals(Items.AIR)) //
-				.forEach(this::simpleBlock);
+		ResourceRegistry.forEach(resource -> {
+			resource.iterateRegistryBlocks((type, block) -> {
+				if (block.asItem().equals(Items.AIR)) {
+					return;
+				}
+				if (type == BlockResourceType.BARS) {
+					withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator()));
+				} else {
+					simpleBlock(block);
+				}
+			});
+		});
 		
 		ResourceRegistry.forEach(resource -> {
 			resource.iterateRegistryItems((type, item) -> {
@@ -51,6 +58,17 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	}
 	
 	private ResourceLocation getBaseModel(ItemResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		final String baseModel;
+		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+			baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
+		} else {
+			baseModel = type.getName();
+		}
+		return modLoc("base/item/special/" + baseModel);
+	}
+	
+	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
 		final String baseModel;
 		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
@@ -179,6 +197,10 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		withExistingParent("base/item/special/horse_armor", modLoc("base/item/colored_overlay_generated_item")) //
 				.texture("colored", "item/horse_armor_material") //
 				.texture("uncolored", "item/horse_armor_saddle");
+		
+		// BlockResourceType.BARS
+		withExistingParent("base/item/special/bars", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "block/bars");
 	}
 	
 }
