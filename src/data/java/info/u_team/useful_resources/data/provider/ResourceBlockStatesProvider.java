@@ -8,7 +8,8 @@ import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.util.ObjectUtil;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
+import net.minecraftforge.client.model.generators.ModelFile;
 
 public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
@@ -150,6 +151,234 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		// GEM
 		models().withExistingParent("base/block/special/gem_block", modLoc("base/block/colored_block")) //
 				.texture("colored", "block/gem_block");
+		
+		// BlockResourceType.BARS
+		
+		models().getBuilder("base/block/special/bars_cap") //
+				.ao(false) //
+				.texture("particle", "block/bars") //
+				.texture("bars", "block/bars") //
+				.element() //
+				.from(8, 0, 8) //
+				.to(8, 16, 9) //
+				.face(Direction.WEST) //
+				.uvs(8, 0, 7, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(7, 0, 8, 16) //
+				.texture("#bars") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0, 9) //
+				.to(9, 16, 9) //
+				.face(Direction.NORTH) //
+				.uvs(9, 0, 7, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(7, 0, 9, 16) //
+				.texture("#bars") //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/bars_cap_alt") //
+				.ao(false) //
+				.texture("particle", "block/bars") //
+				.texture("bars", "block/bars") //
+				.element() //
+				.from(8, 0, 7) //
+				.to(8, 16, 8) //
+				.face(Direction.WEST) //
+				.uvs(8, 0, 9, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(9, 0, 8, 16) //
+				.texture("#bars") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0, 7) //
+				.to(9, 16, 7) //
+				.face(Direction.NORTH) //
+				.uvs(7, 0, 9, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(9, 0, 7, 16) //
+				.texture("#bars") //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/bars_post") //
+				.ao(false) //
+				.texture("particle", "block/bars") //
+				.texture("bars", "block/bars") //
+				.element() //
+				.from(8, 0, 7) //
+				.to(8, 16, 9) //
+				.face(Direction.WEST) //
+				.uvs(7, 0, 9, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(9, 0, 7, 16) //
+				.texture("#bars") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0, 8) //
+				.to(9, 16, 8) //
+				.face(Direction.NORTH) //
+				.uvs(7, 0, 9, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(9, 0, 7, 16) //
+				.texture("#bars") //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/bars_post_ends") //
+				.ao(false) //
+				.texture("particle", "block/bars") //
+				.texture("edge", "block/bars") //
+				.element() //
+				.from(7, 0.001F, 7) //
+				.to(9, 0.001F, 9) //
+				.face(Direction.DOWN) //
+				.uvs(7, 7, 9, 9) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 7, 9, 9) //
+				.texture("#edge") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 15.999F, 7) //
+				.to(9, 15.999F, 9) //
+				.face(Direction.DOWN) //
+				.uvs(7, 7, 9, 9) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 7, 9, 9) //
+				.texture("#edge") //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/bars_side") //
+				.ao(false) //
+				.texture("particle", "block/bars") //
+				.texture("bars", "block/bars") //
+				.texture("edge", "block/bars") //
+				.element() //
+				.from(8, 0, 0) //
+				.to(8, 16, 8) //
+				.face(Direction.WEST) //
+				.uvs(16, 0, 8, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(8, 0, 16, 16) //
+				.texture("#bars") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0, 0) //
+				.to(9, 16, 7) //
+				.face(Direction.NORTH) //
+				.uvs(7, 0, 9, 16) //
+				.texture("#edge") //
+				.cullface(Direction.NORTH) //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0.001F, 0) //
+				.to(9, 0.001F, 7) //
+				.face(Direction.DOWN) //
+				.uvs(9, 0, 7, 7) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 0, 9, 7) //
+				.texture("#edge") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 15.999F, 0) //
+				.to(9, 15.999F, 7) //
+				.face(Direction.DOWN) //
+				.uvs(9, 0, 7, 7) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 0, 9, 7) //
+				.texture("#edge") //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/bars_side_alt") //
+				.ao(false) //
+				.texture("particle", "block/bars") //
+				.texture("bars", "block/bars") //
+				.texture("edge", "block/bars") //
+				.element() //
+				.from(8, 0, 8) //
+				.to(8, 16, 16) //
+				.face(Direction.WEST) //
+				.uvs(8, 0, 0, 16) //
+				.texture("#bars") //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(0, 0, 8, 16) //
+				.texture("#bars") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0, 9) //
+				.to(9, 16, 16) //
+				.face(Direction.SOUTH) //
+				.uvs(7, 0, 9, 16) //
+				.texture("#edge") //
+				.cullface(Direction.SOUTH) //
+				.end() //
+				.face(Direction.DOWN) //
+				.uvs(9, 9, 7, 16) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 9, 9, 16) //
+				.texture("#edge") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 0.001F, 9) //
+				.to(9, 0.001F, 16) //
+				.face(Direction.DOWN) //
+				.uvs(9, 9, 7, 16) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 9, 9, 16) //
+				.texture("#edge") //
+				.end() //
+				.end() //
+				.element() //
+				.from(7, 15.999F, 9) //
+				.to(9, 15.999F, 16) //
+				.face(Direction.DOWN) //
+				.uvs(9, 9, 7, 16) //
+				.texture("#edge") //
+				.end() //
+				.face(Direction.UP) //
+				.uvs(7, 9, 9, 16) //
+				.texture("#edge") //
+				.end() //
+				.end();
 		
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
