@@ -1051,7 +1051,7 @@ a9d1ea4d441e8ea129c1a99959ae5225b29e5c86 assets/usefulresources/models/item/zinc
 1763bd2c8b3e319334c7eb369ace45ebefbb96d6 assets/usefulresources/models/item/zinc_pure_crushed_ore.json
 796d48db5a092b0458eae5659e18f41ac4202f2c assets/usefulresources/models/item/zinc_rod.json
 9ed931619e39f59a8520c1e3b03fea2e9a56fb60 assets/usefulresources/particles/colored_overlay_block.json
-8972b8c228bdb0fbcc6caf33e5d7f7645a9a415a data/forge/tags/blocks/bars.json
+4f0f4c002df7f41db17d460b74a8ac7c961af1cc data/forge/tags/blocks/bars.json
 9063cce7fe06d85384074d4c7082a80d6d1114c1 data/forge/tags/blocks/bars/aluminium.json
 9063cce7fe06d85384074d4c7082a80d6d1114c1 data/forge/tags/blocks/bars/aluminum.json
 26d165f954d72e2bb5484c2c9db1e473a414a4ae data/forge/tags/blocks/bars/brass.json
@@ -1064,6 +1064,7 @@ c34c21ae2e5d769aecacc973ec39fd5c175585a7 data/forge/tags/blocks/bars/electrum.js
 4321c09c37d8bb0d568885acf4ca9bbda5abb3e7 data/forge/tags/blocks/bars/gold.json
 a9d533ffcfb7e383daf24e401600bc7ce998ddab data/forge/tags/blocks/bars/invar.json
 6e669ac00dd1423b1fbe78f953c5188e35d00669 data/forge/tags/blocks/bars/iridium.json
+ee81a146dfe01ea6ab7bccca5878e3a124892933 data/forge/tags/blocks/bars/iron.json
 5076b5e092869ce874dba4776c6689d8111333e7 data/forge/tags/blocks/bars/lead.json
 f22d5cb64f65cd48e3571e1cec723c2650727a59 data/forge/tags/blocks/bars/lumium.json
 68ffda5001619773a1805dee8a9b07e3db6bba5c data/forge/tags/blocks/bars/nickel.json
@@ -1315,7 +1316,7 @@ e0df2955b21557fc4482e36eae09bd812a7a5ea8 data/forge/tags/items/armors/leggings/e
 6407c2c2765f79487e181ea98ed3dee16d33f8a3 data/forge/tags/items/armors/leggings/silver.json
 81be02908792562031155f145a43b11a0e0e2987 data/forge/tags/items/armors/leggings/tanzanite.json
 aca2604f2e9ad712a0562dec9801a8e7626617d6 data/forge/tags/items/armors/leggings/tin.json
-8972b8c228bdb0fbcc6caf33e5d7f7645a9a415a data/forge/tags/items/bars.json
+4f0f4c002df7f41db17d460b74a8ac7c961af1cc data/forge/tags/items/bars.json
 9063cce7fe06d85384074d4c7082a80d6d1114c1 data/forge/tags/items/bars/aluminium.json
 9063cce7fe06d85384074d4c7082a80d6d1114c1 data/forge/tags/items/bars/aluminum.json
 26d165f954d72e2bb5484c2c9db1e473a414a4ae data/forge/tags/items/bars/brass.json
@@ -1328,6 +1329,7 @@ c34c21ae2e5d769aecacc973ec39fd5c175585a7 data/forge/tags/items/bars/electrum.jso
 4321c09c37d8bb0d568885acf4ca9bbda5abb3e7 data/forge/tags/items/bars/gold.json
 a9d533ffcfb7e383daf24e401600bc7ce998ddab data/forge/tags/items/bars/invar.json
 6e669ac00dd1423b1fbe78f953c5188e35d00669 data/forge/tags/items/bars/iridium.json
+ee81a146dfe01ea6ab7bccca5878e3a124892933 data/forge/tags/items/bars/iron.json
 5076b5e092869ce874dba4776c6689d8111333e7 data/forge/tags/items/bars/lead.json
 f22d5cb64f65cd48e3571e1cec723c2650727a59 data/forge/tags/items/bars/lumium.json
 68ffda5001619773a1805dee8a9b07e3db6bba5c data/forge/tags/items/bars/nickel.json
