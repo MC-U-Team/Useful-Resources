@@ -18,10 +18,12 @@
 			],
 			"faces": {
 				"down": {
-					"texture": "#edge"
+					"texture": "#edge",
+					"tintindex": 1
 				},
 				"up": {
-					"texture": "#edge"
+					"texture": "#edge",
+					"tintindex": 1
 				}
 			}
 		},
@@ -38,10 +40,12 @@
 			],
 			"faces": {
 				"down": {
-					"texture": "#edge"
+					"texture": "#edge",
+					"tintindex": 1
 				},
 				"up": {
-					"texture": "#edge"
+					"texture": "#edge",
+					"tintindex": 1
 				}
 			}
 		}

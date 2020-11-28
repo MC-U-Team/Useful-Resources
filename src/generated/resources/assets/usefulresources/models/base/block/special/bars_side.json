@@ -25,10 +25,12 @@
 						0.0,
 						8.0,
 						16.0
-					]
+					],
+					"tintindex": 1
 				},
 				"east": {
-					"texture": "#bars"
+					"texture": "#bars",
+					"tintindex": 1
 				}
 			}
 		},
@@ -46,7 +48,8 @@
 			"faces": {
 				"north": {
 					"texture": "#edge",
-					"cullface": "north"
+					"cullface": "north",
+					"tintindex": 1
 				}
 			}
 		},
@@ -69,10 +72,12 @@
 						0.0,
 						7.0,
 						7.0
-					]
+					],
+					"tintindex": 1
 				},
 				"up": {
-					"texture": "#edge"
+					"texture": "#edge",
+					"tintindex": 1
 				}
 			}
 		},
@@ -95,10 +100,12 @@
 						0.0,
 						7.0,
 						7.0
-					]
+					],
+					"tintindex": 1
 				},
 				"up": {
-					"texture": "#edge"
+					"texture": "#edge",
+					"tintindex": 1
 				}
 			}
 		}

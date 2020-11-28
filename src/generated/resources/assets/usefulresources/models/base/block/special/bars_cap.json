@@ -24,10 +24,12 @@
 						0.0,
 						7.0,
 						16.0
-					]
+					],
+					"tintindex": 1
 				},
 				"east": {
-					"texture": "#bars"
+					"texture": "#bars",
+					"tintindex": 1
 				}
 			}
 		},
@@ -50,10 +52,12 @@
 						0.0,
 						7.0,
 						16.0
-					]
+					],
+					"tintindex": 1
 				},
 				"south": {
-					"texture": "#bars"
+					"texture": "#bars",
+					"tintindex": 1
 				}
 			}
 		}
