@@ -421,10 +421,11 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.end();
 		
-		// BlockResourceType.BARS
-		models().getBuilder("base/block/special/chain") //
+		// BlockResourceType.CHAIN
+		
+		models().withExistingParent("base/block/special/chain", mcLoc("block/block")) //
 				.texture("particle", "block/chain") //
-				.texture("bars", "block/chain") //
+				.texture("all", "block/chain") //
 				.element() //
 				.from(6.5F, 0, 8) //
 				.to(9.5F, 16, 8) //
