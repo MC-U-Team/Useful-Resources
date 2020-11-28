@@ -28,7 +28,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 				if (block.asItem().equals(Items.AIR)) {
 					return;
 				}
-				if (type == BlockResourceType.BARS) {
+				if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN) {
 					withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator()));
 				} else {
 					simpleBlock(block);
@@ -201,6 +201,10 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		// BlockResourceType.BARS
 		withExistingParent("base/item/special/bars", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "block/bars");
+		
+		// BlockResourceType.CHAIN
+		withExistingParent("base/item/special/chain", modLoc("base/item/colored_generated_item")) //
+				.texture("colored", "block/chain");
 	}
 	
 }
