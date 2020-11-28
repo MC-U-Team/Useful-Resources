@@ -2,7 +2,7 @@ package info.u_team.useful_resources.init;
 
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.registry.RegistryEntry;
-import info.u_team.useful_resources.block.BasicOreBlock;
+import info.u_team.useful_resources.block.*;
 import net.minecraft.client.renderer.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -14,8 +14,7 @@ public class UsefulResourcesRenderTypes {
 		
 		ResourceRegistry.getResources().stream() //
 				.flatMap(resource -> resource.getBlocks().values().stream().map(RegistryEntry::get)) //
-				.filter(block -> block instanceof BasicOreBlock) //
-				.map(block -> (BasicOreBlock) block) //
+				.filter(block -> block instanceof BasicOreBlock || block instanceof BasicBarsBlock) //
 				.forEach(block -> RenderTypeLookup.setRenderLayer(block, cutoutMipped));
 	}
 	
