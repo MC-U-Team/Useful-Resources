@@ -170,10 +170,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.WEST) //
 				.uvs(8, 0, 7, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(7, 0, 8, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -182,10 +184,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.NORTH) //
 				.uvs(9, 0, 7, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.SOUTH) //
 				.uvs(7, 0, 9, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end();
 		
@@ -199,10 +203,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.WEST) //
 				.uvs(8, 0, 9, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(9, 0, 8, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -211,10 +217,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.NORTH) //
 				.uvs(7, 0, 9, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.SOUTH) //
 				.uvs(9, 0, 7, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end();
 		
@@ -228,10 +236,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.WEST) //
 				.uvs(7, 0, 9, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(9, 0, 7, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -240,10 +250,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.NORTH) //
 				.uvs(7, 0, 9, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.SOUTH) //
 				.uvs(9, 0, 7, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end();
 		
@@ -257,10 +269,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.DOWN) //
 				.uvs(7, 7, 9, 9) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 7, 9, 9) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -269,10 +283,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.DOWN) //
 				.uvs(7, 7, 9, 9) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 7, 9, 9) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end();
 		
@@ -287,10 +303,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.WEST) //
 				.uvs(16, 0, 8, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(8, 0, 16, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -299,6 +317,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.NORTH) //
 				.uvs(7, 0, 9, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.cullface(Direction.NORTH) //
 				.end() //
 				.end() //
@@ -308,10 +327,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.DOWN) //
 				.uvs(9, 0, 7, 7) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 0, 9, 7) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -320,10 +341,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.DOWN) //
 				.uvs(9, 0, 7, 7) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 0, 9, 7) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end();
 		
@@ -338,10 +361,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.WEST) //
 				.uvs(8, 0, 0, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(0, 0, 8, 16) //
 				.texture("#bars") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -350,15 +375,18 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.SOUTH) //
 				.uvs(7, 0, 9, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.cullface(Direction.SOUTH) //
 				.end() //
 				.face(Direction.DOWN) //
 				.uvs(9, 9, 7, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 9, 9, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -367,10 +395,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.DOWN) //
 				.uvs(9, 9, 7, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 9, 9, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end() //
 				.element() //
@@ -379,10 +409,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.face(Direction.DOWN) //
 				.uvs(9, 9, 7, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.face(Direction.UP) //
 				.uvs(7, 9, 9, 16) //
 				.texture("#edge") //
+				.tintindex(1) //
 				.end() //
 				.end();
 		
