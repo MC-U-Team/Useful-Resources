@@ -1,0 +1,29 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:bars/aluminium",
+		"#forge:bars/aluminum",
+		"#forge:bars/brass",
+		"#forge:bars/bronze",
+		"#forge:bars/constantan",
+		"#forge:bars/copper",
+		"#forge:bars/dark_steel",
+		"#forge:bars/electrum",
+		"#forge:bars/enderium",
+		"#forge:bars/gold",
+		"#forge:bars/invar",
+		"#forge:bars/iridium",
+		"#forge:bars/lead",
+		"#forge:bars/lumium",
+		"#forge:bars/nickel",
+		"#forge:bars/platinum",
+		"#forge:bars/signalum",
+		"#forge:bars/silver",
+		"#forge:bars/steel",
+		"#forge:bars/tin",
+		"#forge:bars/uranium",
+		"#forge:bars/uranium_235",
+		"#forge:bars/uranium_238",
+		"#forge:bars/zinc"
+	]
+}

@@ -1,0 +1,118 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "usefulresources:block/bars",
+		"bars": "usefulresources:block/bars",
+		"edge": "usefulresources:block/bars"
+	},
+	"elements": [
+		{
+			"from": [
+				8,
+				0,
+				8
+			],
+			"to": [
+				8,
+				16,
+				16
+			],
+			"faces": {
+				"west": {
+					"texture": "#bars",
+					"uv": [
+						8.0,
+						0.0,
+						0.0,
+						16.0
+					]
+				},
+				"east": {
+					"texture": "#bars"
+				}
+			}
+		},
+		{
+			"from": [
+				7,
+				0,
+				9
+			],
+			"to": [
+				9,
+				16,
+				16
+			],
+			"faces": {
+				"down": {
+					"texture": "#edge",
+					"uv": [
+						9.0,
+						9.0,
+						7.0,
+						16.0
+					]
+				},
+				"up": {
+					"texture": "#edge"
+				},
+				"south": {
+					"texture": "#edge",
+					"cullface": "south"
+				}
+			}
+		},
+		{
+			"from": [
+				7,
+				0.001,
+				9
+			],
+			"to": [
+				9,
+				0.001,
+				16
+			],
+			"faces": {
+				"down": {
+					"texture": "#edge",
+					"uv": [
+						9.0,
+						9.0,
+						7.0,
+						16.0
+					]
+				},
+				"up": {
+					"texture": "#edge"
+				}
+			}
+		},
+		{
+			"from": [
+				7,
+				15.999,
+				9
+			],
+			"to": [
+				9,
+				15.999,
+				16
+			],
+			"faces": {
+				"down": {
+					"texture": "#edge",
+					"uv": [
+						9.0,
+						9.0,
+						7.0,
+						16.0
+					]
+				},
+				"up": {
+					"texture": "#edge"
+				}
+			}
+		}
+	]
+}
