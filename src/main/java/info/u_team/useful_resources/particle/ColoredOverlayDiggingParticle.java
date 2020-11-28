@@ -45,10 +45,11 @@ public class ColoredOverlayDiggingParticle extends Particle {
 		randU = rand.nextFloat() * 3.0F;
 		randV = rand.nextFloat() * 3.0F;
 		sprites = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(state) //
-				.getQuads(state, Direction.UP, rand, EmptyModelData.INSTANCE) //
+				.getQuads(state, Direction.NORTH, rand, EmptyModelData.INSTANCE) //
 				.stream() //
 				.map(bakedQuad -> Pair.of(bakedQuad.getSprite(), bakedQuad.getTintIndex())) //
 				.collect(Collectors.toList());
+		System.out.println(sprites);
 		colors = new HashMap<>();
 		
 	}
