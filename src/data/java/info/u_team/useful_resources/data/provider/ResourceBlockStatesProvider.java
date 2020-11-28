@@ -28,6 +28,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				final IDataGeneratorConfigurator dataGeneratorConfigurator = resource.getDataGeneratorConfigurator();
 				if (type == BlockResourceType.BARS) {
 					barsBlock(block, type, dataGeneratorConfigurator);
+				} else if (type == BlockResourceType.CHAIN) {
+					chainBlock(block, type, dataGeneratorConfigurator);
 				} else {
 					simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator)));
 				}
