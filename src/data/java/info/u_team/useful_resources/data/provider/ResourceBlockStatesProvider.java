@@ -8,8 +8,9 @@ import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.util.ObjectUtil;
+import net.minecraft.block.*;
 import net.minecraft.util.*;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.*;
 
 public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
@@ -383,5 +384,27 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
+	}
+	
+	public void barsBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		
+		final ModelFile postEnds = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_post_ends");
+		final ModelFile post = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_post");
+		final ModelFile side = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_side");
+		final ModelFile sideAlt = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_side_alt");
+		final ModelFile cap = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_cap");
+		final ModelFile capAlt = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator) + "_cap_alt");
+		
+		final MultiPartBlockStateBuilder builder = getMultipartBuilder(block);
+		builder.part().modelFile(postEnds).addModel().end();
+		builder.part().modelFile(post).addModel().condition(FourWayBlock.WEST, false).condition(FourWayBlock.EAST, false).condition(FourWayBlock.SOUTH, false).condition(FourWayBlock.NORTH, false).end();
+		builder.part().modelFile(cap).addModel().condition(FourWayBlock.WEST, false).condition(FourWayBlock.EAST, false).condition(FourWayBlock.SOUTH, false).condition(FourWayBlock.NORTH, true).end();
+		builder.part().modelFile(cap).rotationY(90).addModel().condition(FourWayBlock.WEST, false).condition(FourWayBlock.EAST, true).condition(FourWayBlock.SOUTH, false).condition(FourWayBlock.NORTH, false).end();
+		builder.part().modelFile(capAlt).addModel().condition(FourWayBlock.WEST, false).condition(FourWayBlock.EAST, false).condition(FourWayBlock.SOUTH, true).condition(FourWayBlock.NORTH, false).end();
+		builder.part().modelFile(capAlt).rotationY(90).addModel().condition(FourWayBlock.WEST, true).condition(FourWayBlock.EAST, false).condition(FourWayBlock.SOUTH, false).condition(FourWayBlock.NORTH, false).end();
+		builder.part().modelFile(side).addModel().condition(FourWayBlock.NORTH, true).end();
+		builder.part().modelFile(side).rotationY(90).addModel().condition(FourWayBlock.EAST, true).end();
+		builder.part().modelFile(sideAlt).addModel().condition(FourWayBlock.SOUTH, true).end();
+		builder.part().modelFile(sideAlt).rotationY(90).addModel().condition(FourWayBlock.WEST, true).end();
 	}
 }
