@@ -24,7 +24,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		
 		ResourceRegistry.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
-				simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator())));
+				final IDataGeneratorConfigurator dataGeneratorConfigurator = resource.getDataGeneratorConfigurator();
+				if (type == BlockResourceType.BARS) {
+					barsBlock(block, type, dataGeneratorConfigurator);
+				} else {
+					simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator)));
+				}
 			});
 		});
 	}
