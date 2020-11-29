@@ -66,6 +66,7 @@ public class CommonResourceBuilder {
 		return basicBuilder((name, provider, feature) -> {
 			final float hardness = baseHardness < 4 ? 4 : baseHardness;
 			feature.register(BlockResourceType.FENCE, () -> new BasicFenceBlock(rarity, harvestLevel, hardness, hardness + 1));
+			feature.register(BlockResourceType.FENCE_GATE, () -> new BasicFenceGateBlock(rarity, harvestLevel, hardness, hardness + 1));
 		});
 	}
 	
