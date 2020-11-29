@@ -1,14 +1,13 @@
 package info.u_team.useful_resources.block;
 
 import info.u_team.u_team_core.api.registry.IBlockItemProvider;
-import info.u_team.useful_resources.api.block.IBlockRenderType;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicFenceGateBlock extends FenceGateBlock implements IBlockItemProvider, IParticleBlock, IBlockRenderType {
+public class BasicFenceGateBlock extends FenceGateBlock implements IBlockItemProvider, IParticleBlock {
 	
 	protected final BlockItem blockItem;
 	

@@ -6,6 +6,7 @@ import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.item.*;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.ToolType;
 
 public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, IParticleBlock, IBlockRenderType {
@@ -26,9 +27,9 @@ public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, IPa
 		return blockItem;
 	}
 	
+	@OnlyIn(Dist.CLIENT)
 	@Override
 	public BlockRenderType getType() {
 		return BlockRenderType.CUTOUT_MIPPED;
 	}
-	
 }

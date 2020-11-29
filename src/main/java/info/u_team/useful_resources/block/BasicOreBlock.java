@@ -28,6 +28,11 @@ public class BasicOreBlock extends UBlock implements IParticleBlock, IBlockRende
 		return silktouch == 0 ? experienceDrop.apply(RANDOM) : 0;
 	}
 	
+	@Override
+	public boolean useParticleTexture() {
+		return false;
+	}
+	
 	@OnlyIn(Dist.CLIENT)
 	@Override
 	public BlockRenderType getType() {

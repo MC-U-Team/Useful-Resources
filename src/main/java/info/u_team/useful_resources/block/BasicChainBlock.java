@@ -6,6 +6,7 @@ import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.item.*;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.ToolType;
 
 public class BasicChainBlock extends ChainBlock implements IBlockItemProvider, IParticleBlock, IBlockRenderType {
@@ -26,6 +27,7 @@ public class BasicChainBlock extends ChainBlock implements IBlockItemProvider, I
 		return blockItem;
 	}
 	
+	@OnlyIn(Dist.CLIENT)
 	@Override
 	public BlockRenderType getType() {
 		return BlockRenderType.CUTOUT_MIPPED;
