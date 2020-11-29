@@ -75,6 +75,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
 		
+		// Add fence and fence gate to the vanilla tags
 		copy(BlockTags.FENCES, ItemTags.FENCES);
 	}
 	
