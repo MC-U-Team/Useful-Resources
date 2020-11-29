@@ -64,7 +64,7 @@ public class CommonResourceBuilder {
 	
 	public static IResourceFeatureBuilder createFence(Rarity rarity, int harvestLevel, float baseHardness) {
 		return basicBuilder((name, provider, feature) -> {
-			final float hardness = baseHardness < 5 ? 5 : baseHardness;
+			final float hardness = baseHardness < 4 ? 4 : baseHardness;
 			feature.register(BlockResourceType.FENCE, () -> new BasicFenceBlock(rarity, harvestLevel, hardness, hardness + 1));
 		});
 	}
