@@ -17,7 +17,6 @@ import net.minecraft.particles.BlockParticleData;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.*;
-import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.client.model.data.EmptyModelData;
 
 public class ColoredOverlayDiggingParticle extends Particle {
@@ -179,7 +178,6 @@ public class ColoredOverlayDiggingParticle extends Particle {
 		return IParticleRenderType.TERRAIN_SHEET;
 	}
 	
-	@OnlyIn(Dist.CLIENT)
 	public static class Factory implements IParticleFactory<BlockParticleData> {
 		
 		@Override
