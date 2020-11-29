@@ -467,6 +467,21 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.end();
 		
+		// BlockResourceType.FENCE
+		models().getBuilder("base/block/special/fence_post") //
+				.texture("particle", "#texture") //
+				.element() //
+				.from(6, 0, 6) //
+				.to(10, 16, 10) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis().isVertical()) {
+						face.uvs(6, 6, 10, 16).texture("#texture").tintindex(1).cullface(direction);
+					} else {
+						face.uvs(6, 0, 10, 16).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end();
+		
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
