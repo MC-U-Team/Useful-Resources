@@ -475,7 +475,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.to(10, 16, 10) //
 				.allFaces((direction, face) -> {
 					if (direction.getAxis().isVertical()) {
-						face.uvs(6, 6, 10, 16).texture("#texture").tintindex(1).cullface(direction);
+						face.uvs(6, 6, 10, 10).texture("#texture").tintindex(1).cullface(direction);
 					} else {
 						face.uvs(6, 0, 10, 16).texture("#texture").tintindex(1);
 					}
