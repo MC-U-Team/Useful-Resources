@@ -32,7 +32,7 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	private final List<Pair<TextureAtlasSprite, Integer>> sprites;
 	private final HashMap<Integer, Triple<Float, Float, Float>> colors;
 	
-	public ColoredOverlayDiggingParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, BlockState state) {
+	public ColoredOverlayDiggingParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, BlockState state, boolean useParticleTexture) {
 		super(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed);
 		this.sourceState = state;
 		particleScale = 0.1F * (rand.nextFloat() * 0.5F + 0.5F) * 2.0F;
@@ -43,13 +43,16 @@ public class ColoredOverlayDiggingParticle extends Particle {
 		particleScale /= 2.0F;
 		randU = rand.nextFloat() * 3.0F;
 		randV = rand.nextFloat() * 3.0F;
-		sprites = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(state) //
-				.getQuads(state, Direction.UP, rand, EmptyModelData.INSTANCE) //
-				.stream() //
-				.map(bakedQuad -> Pair.of(bakedQuad.getSprite(), bakedQuad.getTintIndex())) //
-				.collect(Collectors.toList());
-		if (sprites.isEmpty()) {
-			sprites.add(Pair.of(Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes().getModel(state).getParticleTexture(EmptyModelData.INSTANCE), 1));
+		
+		final BlockModelShapes shapes = Minecraft.getInstance().getBlockRendererDispatcher().getBlockModelShapes();
+		if (useParticleTexture) {
+			sprites = Arrays.asList(Pair.of(shapes.getModel(state).getParticleTexture(EmptyModelData.INSTANCE), 1));
+		} else {
+			sprites = shapes.getModel(state) //
+					.getQuads(state, Direction.UP, rand, EmptyModelData.INSTANCE) //
+					.stream() //
+					.map(bakedQuad -> Pair.of(bakedQuad.getSprite(), bakedQuad.getTintIndex())) //
+					.collect(Collectors.toList());
 		}
 		colors = new HashMap<>();
 		
