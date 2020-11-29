@@ -55,10 +55,16 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.BARS, Resources.IRON, Blocks.IRON_BARS);
 		addBlockTag(BlockResourceType.CHAIN, Resources.IRON, Blocks.CHAIN);
 		
+		// Add fence and fence gate to the vanilla tags
 		TagGenerationResources.getResources().stream() //
 				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE)) //
 				.map(BlockResourceType.FENCE::getTag) //
 				.forEach(tag -> getBuilder(BlockTags.FENCES).add(tag));
+		
+		TagGenerationResources.getResources().stream() //
+				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE_GATE)) //
+				.map(BlockResourceType.FENCE_GATE::getTag) //
+				.forEach(tag -> getBuilder(BlockTags.FENCE_GATES).add(tag));
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
