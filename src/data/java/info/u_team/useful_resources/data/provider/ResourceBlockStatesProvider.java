@@ -610,6 +610,157 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
+		// BlockResourceType.FENCE_GATE
+		models().withExistingParent("base/block/special/fence_gate", mcLoc("block/block")) //
+				.transforms() //
+				.transform(Perspective.GUI) //
+				.rotation(30, 45, 0) //
+				.translation(0, -1, 0) //
+				.scale(0.8F) //
+				.end() //
+				.transform(Perspective.HEAD) //
+				.rotation(0, 0, 0) //
+				.translation(0, -3, -6) //
+				.scale(1) //
+				.end() //
+				.end() //
+				.texture("particle", "block/fence_gate") //
+				.texture("texture", "block/fence_gate") //
+				.element() //
+				.from(0, 5, 7) //
+				.to(2, 16, 9) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(0, 7, 2, 9).texture("#texture").tintindex(1);
+					} else if (direction.getAxis() == Axis.Z) {
+						face.uvs(0, 0, 2, 11).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(7, 0, 9, 11).texture("#texture").tintindex(1);
+						if (direction == Direction.WEST) {
+							face.cullface(Direction.WEST);
+						}
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(14, 5, 7) //
+				.to(16, 16, 9) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(14, 7, 16, 9).texture("#texture").tintindex(1);
+					} else if (direction.getAxis() == Axis.Z) {
+						face.uvs(14, 0, 16, 11).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(7, 0, 9, 11).texture("#texture").tintindex(1);
+						if (direction == Direction.EAST) {
+							face.cullface(Direction.EAST);
+						}
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(6, 6, 7) //
+				.to(8, 15, 9) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(6, 7, 8, 9).texture("#texture").tintindex(1);
+					} else if (direction.getAxis() == Axis.Z) {
+						face.uvs(6, 1, 8, 10).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(7, 1, 9, 10).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(8, 6, 7) //
+				.to(10, 15, 9) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(8, 7, 10, 9).texture("#texture").tintindex(1);
+					} else if (direction.getAxis() == Axis.Z) {
+						face.uvs(8, 1, 10, 10).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(7, 1, 9, 10).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(2, 6, 7) //
+				.to(6, 9, 9) //
+				.face(Direction.DOWN) //
+				.end() //
+				.face(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.end() //
+				.faces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(2, 7, 6, 9).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(2, 7, 6, 10).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(2, 12, 7) //
+				.to(6, 15, 9) //
+				.face(Direction.DOWN) //
+				.end() //
+				.face(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.end() //
+				.faces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(2, 7, 6, 9).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(2, 1, 6, 4).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(10, 6, 7) //
+				.to(14, 9, 9) //
+				.face(Direction.DOWN) //
+				.end() //
+				.face(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.end() //
+				.faces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(10, 7, 14, 9).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(10, 7, 14, 10).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end() //
+				.element() //
+				.from(10, 12, 7) //
+				.to(14, 15, 9) //
+				.face(Direction.DOWN) //
+				.end() //
+				.face(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.end() //
+				.faces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(10, 7, 14, 9).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(10, 1, 14, 4).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end();
+		
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
