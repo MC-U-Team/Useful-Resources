@@ -205,6 +205,9 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		// BlockResourceType.CHAIN
 		withExistingParent("base/item/special/chain", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/chain");
+		
+		// BlockResourceType.FENCE
+		withExistingParent("base/item/special/fence", modLoc("base/block/special/fence_inventory"));
 	}
 	
 }
