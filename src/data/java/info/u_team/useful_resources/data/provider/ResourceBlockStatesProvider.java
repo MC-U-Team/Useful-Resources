@@ -831,9 +831,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -850,9 +850,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -869,9 +869,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -888,9 +888,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -1109,9 +1109,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -1128,9 +1128,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -1147,9 +1147,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
@@ -1166,9 +1166,9 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.UP) //
 				.end() //
-				.face(Direction.NORTH) //
+				.face(Direction.WEST) //
 				.end() //
-				.face(Direction.SOUTH) //
+				.face(Direction.EAST) //
 				.end() //
 				.faces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
