@@ -3,15 +3,17 @@ package info.u_team.useful_resources.block;
 import java.util.Random;
 import java.util.function.Function;
 
+import info.u_team.useful_resources.api.block.IBlockRenderType;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.item.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicOreBlock extends ParticleBlock {
+public class BasicOreBlock extends ParticleBlock implements IBlockRenderType {
 	
 	private final Function<Random, Integer> experienceDrop;
 	
@@ -24,4 +26,11 @@ public class BasicOreBlock extends ParticleBlock {
 	public int getExpDrop(BlockState state, IWorldReader reader, BlockPos pos, int fortune, int silktouch) {
 		return silktouch == 0 ? experienceDrop.apply(RANDOM) : 0;
 	}
+	
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public BlockRenderType getType() {
+		return BlockRenderType.CUTOUT_MIPPED;
+	}
+	
 }
