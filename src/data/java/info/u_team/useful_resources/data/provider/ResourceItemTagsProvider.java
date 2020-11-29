@@ -13,6 +13,7 @@ import info.u_team.useful_resources.data.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.item.*;
+import net.minecraft.tags.*;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
@@ -73,6 +74,8 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
+		
+		copy(BlockTags.FENCES, ItemTags.FENCES);
 	}
 	
 	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {
