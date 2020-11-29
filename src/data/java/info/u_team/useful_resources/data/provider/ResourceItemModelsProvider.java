@@ -12,6 +12,7 @@ import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 
 public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	
@@ -207,7 +208,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 				.texture("colored", "item/chain");
 		
 		// BlockResourceType.FENCE
-		withExistingParent("base/item/special/fence", modLoc("base/block/special/fence_inventory"));
+		getBuilder("base/item/special/fence").parent(new UncheckedModelFile(modLoc("base/block/special/fence_inventory")));
 	}
 	
 }
