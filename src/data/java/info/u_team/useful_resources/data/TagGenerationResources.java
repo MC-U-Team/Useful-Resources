@@ -18,6 +18,10 @@ public class TagGenerationResources {
 		RESOURCES.add(new FakeNameResource("uranium", Resources.URANIUM_238));
 	}
 	
+	public static Set<IResource> getResources() {
+		return Collections.unmodifiableSet(RESOURCES);
+	}
+	
 	public static void forEach(Consumer<? super IResource> action) {
 		RESOURCES.forEach(action);
 	}
