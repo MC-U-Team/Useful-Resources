@@ -28,7 +28,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 				if (block.asItem().equals(Items.AIR)) {
 					return;
 				}
-				if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN) {
+				if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN || type == BlockResourceType.FENCE) {
 					withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator()));
 				} else {
 					simpleBlock(block);

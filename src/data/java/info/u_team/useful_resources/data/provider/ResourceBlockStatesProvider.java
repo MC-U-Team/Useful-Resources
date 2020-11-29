@@ -31,6 +31,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 					barsBlock(block, type, dataGeneratorConfigurator);
 				} else if (type == BlockResourceType.CHAIN) {
 					chainBlock(block, type, dataGeneratorConfigurator);
+				} else if (type == BlockResourceType.FENCE) {
+					fenceBlock(block, type, dataGeneratorConfigurator);
 				} else {
 					simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator)));
 				}
