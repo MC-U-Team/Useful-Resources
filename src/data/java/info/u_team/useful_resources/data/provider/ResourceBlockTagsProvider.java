@@ -13,6 +13,7 @@ import info.u_team.useful_resources.data.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
@@ -53,6 +54,11 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
 		addBlockTag(BlockResourceType.BARS, Resources.IRON, Blocks.IRON_BARS);
 		addBlockTag(BlockResourceType.CHAIN, Resources.IRON, Blocks.CHAIN);
+		
+		TagGenerationResources.getResources().stream() //
+				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE)) //
+				.map(BlockResourceType.FENCE::getTag) //
+				.forEach(tag -> getBuilder(BlockTags.FENCES).add(tag));
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
