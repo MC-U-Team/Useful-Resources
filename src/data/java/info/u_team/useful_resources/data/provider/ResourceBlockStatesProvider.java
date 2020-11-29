@@ -1213,4 +1213,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		final ModelFile side = models().withExistingParent(getPath(block) + "_side", getBaseModel(type, dataGeneratorConfigurator) + "_side");
 		fourWayBlock((FourWayBlock) block, post, side);
 	}
+	
+	public void fenceGateBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile gate = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator));
+		final ModelFile gateOpen = models().withExistingParent(getPath(block) + "_open", getBaseModel(type, dataGeneratorConfigurator) + "_open");
+		final ModelFile gateWall = models().withExistingParent(getPath(block) + "_wall", getBaseModel(type, dataGeneratorConfigurator) + "_wall");
+		final ModelFile gateWallOpen = models().withExistingParent(getPath(block) + "_wall_open", getBaseModel(type, dataGeneratorConfigurator) + "_wall_open");
+		fenceGateBlock((FenceGateBlock) block, gate, gateOpen, gateWall, gateWallOpen);
+	}
 }
