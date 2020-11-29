@@ -25,6 +25,7 @@ public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
 		addFeature(createBars(rarity, harvestLevel, baseHardness));
 		addFeature(createChain(rarity, harvestLevel, baseHardness));
+		addFeature(createFence(rarity, harvestLevel, baseHardness));
 		
 		addFeature(createMolten(0xFF000000 + color));
 		
