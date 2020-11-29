@@ -1,13 +1,14 @@
 package info.u_team.useful_resources.block;
 
 import info.u_team.u_team_core.api.registry.IBlockItemProvider;
+import info.u_team.useful_resources.api.block.IBlockRenderType;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.item.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, ParticleIForgeBlock {
+public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, ParticleIForgeBlock, IBlockRenderType {
 	
 	protected final BlockItem blockItem;
 	
@@ -23,6 +24,11 @@ public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, Par
 	@Override
 	public BlockItem getBlockItem() {
 		return blockItem;
+	}
+	
+	@Override
+	public BlockRenderType getType() {
+		return BlockRenderType.CUTOUT_MIPPED;
 	}
 	
 }
