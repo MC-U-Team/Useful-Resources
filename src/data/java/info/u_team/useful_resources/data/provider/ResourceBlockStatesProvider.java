@@ -470,7 +470,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		
 		// BlockResourceType.FENCE
 		models().getBuilder("base/block/special/fence_post") //
-				.texture("particle", "#texture") //
+				.texture("particle", "block/fence") //
+				.texture("texture", "block/fence") //
 				.element() //
 				.from(6, 0, 6) //
 				.to(10, 16, 10) //
@@ -484,7 +485,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end();
 		
 		models().getBuilder("base/block/special/fence_side") //
-				.texture("particle", "#texture") //
+				.texture("particle", "block/fence") //
+				.texture("texture", "block/fence") //
 				.element() //
 				.from(7, 12, 0) //
 				.to(9, 15, 9) //
@@ -545,7 +547,8 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.end() //
 				.ao(false) //
-				.texture("particle", "#texture") //
+				.texture("particle", "block/fence") //
+				.texture("texture", "block/fence") //
 				.element() //
 				.from(6, 0, 0) //
 				.to(10, 16, 4) //
