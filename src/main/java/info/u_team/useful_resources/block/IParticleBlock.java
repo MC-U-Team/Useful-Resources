@@ -20,7 +20,9 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 
 public interface IParticleBlock extends IForgeBlock {
 	
-	boolean useParticleTexture();
+	default boolean useParticleTexture() {
+		return true;
+	}
 	
 	@Override
 	default boolean addLandingEffects(BlockState stateUnused, ServerWorld world, BlockPos pos, BlockState state, LivingEntity entity, int numberOfParticles) {
