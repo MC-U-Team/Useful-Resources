@@ -1,0 +1,30 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:fences/aluminium",
+		"#forge:fences/aluminum",
+		"#forge:fences/brass",
+		"#forge:fences/bronze",
+		"#forge:fences/constantan",
+		"#forge:fences/copper",
+		"#forge:fences/dark_steel",
+		"#forge:fences/electrum",
+		"#forge:fences/enderium",
+		"#forge:fences/gold",
+		"#forge:fences/invar",
+		"#forge:fences/iridium",
+		"#forge:fences/iron",
+		"#forge:fences/lead",
+		"#forge:fences/lumium",
+		"#forge:fences/nickel",
+		"#forge:fences/platinum",
+		"#forge:fences/signalum",
+		"#forge:fences/silver",
+		"#forge:fences/steel",
+		"#forge:fences/tin",
+		"#forge:fences/uranium",
+		"#forge:fences/uranium_235",
+		"#forge:fences/uranium_238",
+		"#forge:fences/zinc"
+	]
+}
