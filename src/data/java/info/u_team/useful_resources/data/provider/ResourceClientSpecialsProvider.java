@@ -16,6 +16,7 @@ public class ResourceClientSpecialsProvider extends CommonProvider {
 	@Override
 	public void act(DirectoryCache cache) throws IOException {
 		try {
+			write(cache, new JsonObject(), resolveModAssets().resolve("particles").resolve("colored_block.json"));
 			write(cache, new JsonObject(), resolveModAssets().resolve("particles").resolve("colored_overlay_block.json"));
 		} catch (final IOException ex) {
 			LOGGER.error(marker, "Could not write data.", ex);
