@@ -1,0 +1,30 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:fence_gates/aluminium",
+		"#forge:fence_gates/aluminum",
+		"#forge:fence_gates/brass",
+		"#forge:fence_gates/bronze",
+		"#forge:fence_gates/constantan",
+		"#forge:fence_gates/copper",
+		"#forge:fence_gates/dark_steel",
+		"#forge:fence_gates/electrum",
+		"#forge:fence_gates/enderium",
+		"#forge:fence_gates/gold",
+		"#forge:fence_gates/invar",
+		"#forge:fence_gates/iridium",
+		"#forge:fence_gates/iron",
+		"#forge:fence_gates/lead",
+		"#forge:fence_gates/lumium",
+		"#forge:fence_gates/nickel",
+		"#forge:fence_gates/platinum",
+		"#forge:fence_gates/signalum",
+		"#forge:fence_gates/silver",
+		"#forge:fence_gates/steel",
+		"#forge:fence_gates/tin",
+		"#forge:fence_gates/uranium",
+		"#forge:fence_gates/uranium_235",
+		"#forge:fence_gates/uranium_238",
+		"#forge:fence_gates/zinc"
+	]
+}
