@@ -482,6 +482,54 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
+		models().getBuilder("base/block/special/fence_side") //
+				.texture("particle", "#texture") //
+				.element() //
+				.from(7, 12, 0) //
+				.to(9, 15, 9) //
+				.face(Direction.DOWN) //
+				.end() //
+				.face(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.end() //
+				.face(Direction.WEST) //
+				.end() //
+				.face(Direction.EAST) //
+				.end() //
+				.faces((direction, face) -> {
+					if (direction.getAxis().isVertical()) {
+						face.uvs(7, 0, 9, 9).texture("#texture").tintindex(1);
+					} else if (direction == Direction.NORTH) {
+						face.uvs(7, 1, 9, 4).texture("#texture").tintindex(1).cullface(Direction.NORTH);
+					} else {
+						face.uvs(0, 1, 9, 4).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end().element() //
+				.from(7, 6, 0) //
+				.to(9, 9, 9) //
+				.face(Direction.DOWN) //
+				.end() //
+				.face(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.end() //
+				.face(Direction.WEST) //
+				.end() //
+				.face(Direction.EAST) //
+				.end() //
+				.faces((direction, face) -> {
+					if (direction.getAxis().isVertical()) {
+						face.uvs(7, 0, 9, 9).texture("#texture").tintindex(1);
+					} else if (direction == Direction.NORTH) {
+						face.uvs(7, 7, 9, 10).texture("#texture").tintindex(1).cullface(Direction.NORTH);
+					} else {
+						face.uvs(0, 7, 9, 10).texture("#texture").tintindex(1);
+					}
+				}) //
+				.end();
+		
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
