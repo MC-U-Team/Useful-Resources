@@ -18,6 +18,7 @@ public enum BlockResourceType implements CacheResourceType<Block> {
 	BARS("bars", "bars"),
 	CHAIN("chain"),
 	FENCE("fence"),
+	FENCE_GATE("fence_gate"),
 	
 	MOLTEN_FLUID("molten_fluid", null);
 	
