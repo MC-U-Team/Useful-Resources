@@ -3,6 +3,7 @@ package info.u_team.useful_resources.block;
 import java.util.Random;
 import java.util.function.Function;
 
+import info.u_team.u_team_core.block.UBlock;
 import info.u_team.useful_resources.api.block.IBlockRenderType;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
@@ -13,7 +14,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicOreBlock extends ParticleBlock implements IBlockRenderType {
+public class BasicOreBlock extends UBlock implements ParticleIForgeBlock, IBlockRenderType {
 	
 	private final Function<Random, Integer> experienceDrop;
 	
