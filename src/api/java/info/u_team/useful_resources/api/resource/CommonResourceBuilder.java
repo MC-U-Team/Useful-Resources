@@ -62,6 +62,13 @@ public class CommonResourceBuilder {
 		});
 	}
 	
+	public static IResourceFeatureBuilder createFence(Rarity rarity, int harvestLevel, float baseHardness) {
+		return basicBuilder((name, provider, feature) -> {
+			final float hardness = baseHardness < 5 ? 5 : baseHardness;
+			feature.register(BlockResourceType.FENCE, () -> new BasicFenceBlock(rarity, harvestLevel, hardness, hardness + 1));
+		});
+	}
+	
 	public static IResourceFeatureBuilder createMolten(int color) {
 		return createMolten(FluidAttributes.builder(new ResourceLocation("block/water_still"), new ResourceLocation("block/water_flow")).overlay(new ResourceLocation("block/water_overlay")).temperature(1300).color(color));
 	}
