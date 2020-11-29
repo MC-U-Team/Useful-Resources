@@ -183,9 +183,15 @@ public class ColoredOverlayDiggingParticle extends Particle {
 	
 	public static class Factory implements IParticleFactory<BlockParticleData> {
 		
+		private final boolean useParticleTexture;
+		
+		public Factory(boolean useParticleTexture) {
+			this.useParticleTexture = useParticleTexture;
+		}
+		
 		@Override
 		public Particle makeParticle(BlockParticleData data, ClientWorld world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-			return new ColoredOverlayDiggingParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, data.getBlockState()).init();
+			return new ColoredOverlayDiggingParticle(world, x, y, z, xSpeed, ySpeed, zSpeed, data.getBlockState(), useParticleTexture).init();
 		}
 	}
 	
