@@ -28,7 +28,8 @@
 		}
 	},
 	"textures": {
-		"particle": "#texture"
+		"particle": "usefulresources:block/fence",
+		"texture": "usefulresources:block/fence"
 	},
 	"elements": [
 		{
