@@ -1,7 +1,10 @@
 package info.u_team.useful_resources.block;
 
+import java.util.function.Supplier;
+
 import info.u_team.useful_resources.init.UsefulResourcesParticleTypes;
 import info.u_team.useful_resources.particle.ColoredOverlayDiggingParticle;
+import info.u_team.useful_resources.particletype.BlockParticleType;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.particle.ParticleManager;
 import net.minecraft.client.world.ClientWorld;
@@ -17,16 +20,20 @@ import net.minecraftforge.common.extensions.IForgeBlock;
 
 public interface IParticleBlock extends IForgeBlock {
 	
+	boolean useParticleTexture();
+	
 	@Override
 	default boolean addLandingEffects(BlockState stateUnused, ServerWorld world, BlockPos pos, BlockState state, LivingEntity entity, int numberOfParticles) {
-		world.spawnParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK.get(), state), entity.getPosX(), entity.getPosY(), entity.getPosZ(), numberOfParticles, 0, 0, 0, 0.15);
+		final Supplier<BlockParticleType> type = useParticleTexture() ? UsefulResourcesParticleTypes.COLORED_BLOCK : UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK;
+		world.spawnParticle(new BlockParticleData(type.get(), state), entity.getPosX(), entity.getPosY(), entity.getPosZ(), numberOfParticles, 0, 0, 0, 0.15);
 		return true;
 	}
 	
 	@Override
 	default boolean addRunningEffects(BlockState state, World world, BlockPos pos, Entity entity) {
 		final Vector3d motion = entity.getMotion();
-		world.addParticle(new BlockParticleData(UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK.get(), state), entity.getPosX() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), entity.getPosY() + 0.1, entity.getPosZ() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), motion.x * -4, 1.5, motion.z * -4);
+		final Supplier<BlockParticleType> type = useParticleTexture() ? UsefulResourcesParticleTypes.COLORED_BLOCK : UsefulResourcesParticleTypes.COLORED_OVERLAY_BLOCK;
+		world.addParticle(new BlockParticleData(type.get(), state), entity.getPosX() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), entity.getPosY() + 0.1, entity.getPosZ() + (entity.rand.nextFloat() - 0.5) * entity.getWidth(), motion.x * -4, 1.5, motion.z * -4);
 		return true;
 	}
 	
@@ -75,7 +82,7 @@ public interface IParticleBlock extends IForgeBlock {
 		}
 		
 		if (world instanceof ClientWorld) {
-			manager.addEffect((new ColoredOverlayDiggingParticle((ClientWorld) world, xCoord, yCoord, zCoord, 0, 0, 0, state)).setBlockPos(pos).multiplyVelocity(0.2F).multiplyParticleScaleBy(0.6F));
+			manager.addEffect((new ColoredOverlayDiggingParticle((ClientWorld) world, xCoord, yCoord, zCoord, 0, 0, 0, state, useParticleTexture())).setBlockPos(pos).multiplyVelocity(0.2F).multiplyParticleScaleBy(0.6F));
 		}
 		return true;
 	}
@@ -101,7 +108,7 @@ public interface IParticleBlock extends IForgeBlock {
 						final double offsetY = centerY * y + shapeMinY;
 						final double offsetZ = centerZ * z + shapeMinZ;
 						if (world instanceof ClientWorld) {
-							manager.addEffect((new ColoredOverlayDiggingParticle((ClientWorld) world, pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ, centerX - 0.5, centerY - 0.5, centerZ - 0.5, state)).setBlockPos(pos));
+							manager.addEffect((new ColoredOverlayDiggingParticle((ClientWorld) world, pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ, centerX - 0.5, centerY - 0.5, centerZ - 0.5, state, useParticleTexture())).setBlockPos(pos));
 						}
 					}
 				}
