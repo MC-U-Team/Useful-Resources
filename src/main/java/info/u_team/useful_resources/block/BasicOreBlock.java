@@ -14,7 +14,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicOreBlock extends UBlock implements ParticleIForgeBlock, IBlockRenderType {
+public class BasicOreBlock extends UBlock implements IParticleBlock, IBlockRenderType {
 	
 	private final Function<Random, Integer> experienceDrop;
 	

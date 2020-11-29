@@ -8,7 +8,7 @@ import net.minecraft.block.material.*;
 import net.minecraft.item.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, ParticleIForgeBlock, IBlockRenderType {
+public class BasicBarsBlock extends PaneBlock implements IBlockItemProvider, IParticleBlock, IBlockRenderType {
 	
 	protected final BlockItem blockItem;
 	

@@ -15,7 +15,7 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.extensions.IForgeBlock;
 
-public interface ParticleIForgeBlock extends IForgeBlock {
+public interface IParticleBlock extends IForgeBlock {
 	
 	@Override
 	default boolean addLandingEffects(BlockState stateUnused, ServerWorld world, BlockPos pos, BlockState state, LivingEntity entity, int numberOfParticles) {

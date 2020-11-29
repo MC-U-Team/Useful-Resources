@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicBlock extends UBlock implements ParticleIForgeBlock {
+public class BasicBlock extends UBlock implements IParticleBlock {
 	
 	public BasicBlock(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		super(UsefulResourcesItemGroups.GROUP, Properties.create(Material.IRON).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).harvestLevel(harvestLevel).setRequiresTool().hardnessAndResistance(hardness, resistance), new Item.Properties().rarity(rarity));

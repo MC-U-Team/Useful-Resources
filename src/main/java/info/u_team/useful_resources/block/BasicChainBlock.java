@@ -8,7 +8,7 @@ import net.minecraft.block.material.*;
 import net.minecraft.item.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicChainBlock extends ChainBlock implements IBlockItemProvider, ParticleIForgeBlock, IBlockRenderType {
+public class BasicChainBlock extends ChainBlock implements IBlockItemProvider, IParticleBlock, IBlockRenderType {
 	
 	protected final BlockItem blockItem;
 	
