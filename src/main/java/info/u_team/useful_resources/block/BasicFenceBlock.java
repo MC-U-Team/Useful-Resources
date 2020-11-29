@@ -13,7 +13,7 @@ public class BasicFenceBlock extends FenceBlock implements IBlockItemProvider, I
 	protected final BlockItem blockItem;
 	
 	public BasicFenceBlock(Rarity rarity, int harvestLevel, float hardness, float resistance) {
-		super(Properties.create(Material.IRON).sound(SoundType.CHAIN).harvestTool(ToolType.PICKAXE).harvestLevel(harvestLevel).setRequiresTool().hardnessAndResistance(hardness, resistance).notSolid());
+		super(Properties.create(Material.IRON).sound(SoundType.METAL).harvestTool(ToolType.PICKAXE).harvestLevel(harvestLevel).setRequiresTool().hardnessAndResistance(hardness, resistance));
 		blockItem = createBlockItem(new Item.Properties().group(UsefulResourcesItemGroups.GROUP).rarity(rarity));
 	}
 	
