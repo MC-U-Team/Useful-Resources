@@ -1274,25 +1274,25 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.NORTH) //
 				.uvs(3, 0, 0, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.cullface(Direction.NORTH) //
 				.end() //
 				.face(Direction.SOUTH) //
 				.uvs(0, 0, 3, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.cullface(Direction.SOUTH) //
 				.end() //
 				.face(Direction.WEST) //
 				.uvs(0, 0, 16, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.cullface(Direction.WEST) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(16, 0, 0, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.end() //
 				.end();
@@ -1313,25 +1313,25 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.face(Direction.NORTH) //
 				.uvs(3, 0, 0, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.cullface(Direction.NORTH) //
 				.end() //
 				.face(Direction.SOUTH) //
 				.uvs(0, 0, 3, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.cullface(Direction.SOUTH) //
 				.end() //
 				.face(Direction.WEST) //
 				.uvs(16, 0, 0, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.cullface(Direction.WEST) //
 				.end() //
 				.face(Direction.EAST) //
 				.uvs(0, 0, 16, 16) //
-				.texture("#bottom") //
+				.texture("#top") //
 				.tintindex(1) //
 				.end() //
 				.end();
