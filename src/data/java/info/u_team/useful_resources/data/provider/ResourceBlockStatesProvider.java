@@ -1382,10 +1382,10 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	}
 	
 	public void doorBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile bottomLeft = models().withExistingParent(getPath(block) + "_door_bottom", getBaseModel(type, dataGeneratorConfigurator) + "_door_bottom");
-		final ModelFile bottomRight = models().withExistingParent(getPath(block) + "_door_bottom_rh", getBaseModel(type, dataGeneratorConfigurator) + "_door_bottom_rh");
-		final ModelFile topLeft = models().withExistingParent(getPath(block) + "_door_top", getBaseModel(type, dataGeneratorConfigurator) + "_door_top");
-		final ModelFile topRight = models().withExistingParent(getPath(block) + "_door_top_rh", getBaseModel(type, dataGeneratorConfigurator) + "_door_top_rh");
+		final ModelFile bottomLeft = models().withExistingParent(getPath(block) + "_bottom", getBaseModel(type, dataGeneratorConfigurator) + "_bottom");
+		final ModelFile bottomRight = models().withExistingParent(getPath(block) + "_bottom_rh", getBaseModel(type, dataGeneratorConfigurator) + "_bottom_rh");
+		final ModelFile topLeft = models().withExistingParent(getPath(block) + "_top", getBaseModel(type, dataGeneratorConfigurator) + "_top");
+		final ModelFile topRight = models().withExistingParent(getPath(block) + "_top_rh", getBaseModel(type, dataGeneratorConfigurator) + "_top_rh");
 		
 		doorBlock((DoorBlock) block, bottomLeft, bottomRight, topLeft, topRight);
 	}
