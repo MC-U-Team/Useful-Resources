@@ -30,7 +30,7 @@
 					"tintindex": 1
 				},
 				"north": {
-					"texture": "#bottom",
+					"texture": "#top",
 					"uv": [
 						3.0,
 						0.0,
@@ -41,17 +41,17 @@
 					"tintindex": 1
 				},
 				"south": {
-					"texture": "#bottom",
+					"texture": "#top",
 					"cullface": "south",
 					"tintindex": 1
 				},
 				"west": {
-					"texture": "#bottom",
+					"texture": "#top",
 					"cullface": "west",
 					"tintindex": 1
 				},
 				"east": {
-					"texture": "#bottom",
+					"texture": "#top",
 					"uv": [
 						16.0,
 						0.0,
