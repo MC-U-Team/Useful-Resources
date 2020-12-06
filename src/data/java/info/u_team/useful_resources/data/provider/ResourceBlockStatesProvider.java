@@ -1336,6 +1336,60 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.end() //
 				.end();
 		
+		// BlockResourceType.TRAPDOOR
+		models().withExistingParent("base/block/special/trapdoor_bottom", mcLoc("block/thin_block")) //
+				.texture("particle", "block/trapdoor") //
+				.texture("texture", "block/trapdoor") //
+				.element() //
+				.from(0, 0, 0) //
+				.to(16, 3, 16) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(0, 0, 16, 16).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(0, 16, 16, 13).texture("#texture").tintindex(1);
+					}
+					if (direction != Direction.UP) {
+						face.cullface(direction);
+					}
+				}).end();
+		
+		models().getBuilder("base/block/special/trapdoor_open") //
+				.texture("particle", "block/trapdoor") //
+				.texture("texture", "block/trapdoor") //
+				.element() //
+				.from(0, 0, 13) //
+				.to(16, 16, 16) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(0, 13, 16, 16).texture("#texture").tintindex(1);
+					} else if (direction.getAxis() == Axis.Z) {
+						face.uvs(0, 13, 16, 16).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(16, 0, 13, 16).texture("#texture").tintindex(1);
+					}
+					if (direction != Direction.NORTH) {
+						face.cullface(direction);
+					}
+				}).end();
+		
+		models().getBuilder("base/block/special/trapdoor_top") //
+				.texture("particle", "block/trapdoor") //
+				.texture("texture", "block/trapdoor") //
+				.element() //
+				.from(0, 13, 0) //
+				.to(16, 16, 16) //
+				.allFaces((direction, face) -> {
+					if (direction.getAxis() == Axis.Y) {
+						face.uvs(0, 0, 16, 16).texture("#texture").tintindex(1);
+					} else {
+						face.uvs(0, 16, 16, 13).texture("#texture").tintindex(1);
+					}
+					if (direction != Direction.DOWN) {
+						face.cullface(direction);
+					}
+				}).end();
+		
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
