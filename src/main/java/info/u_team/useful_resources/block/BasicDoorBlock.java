@@ -1,13 +1,15 @@
 package info.u_team.useful_resources.block;
 
 import info.u_team.u_team_core.api.registry.IBlockItemProvider;
+import info.u_team.useful_resources.api.block.IBlockRenderType;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
 import net.minecraft.item.*;
+import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.ToolType;
 
-public class BasicDoorBlock extends DoorBlock implements IBlockItemProvider, IParticleBlock {
+public class BasicDoorBlock extends DoorBlock implements IBlockItemProvider, IParticleBlock, IBlockRenderType {
 	
 	protected final BlockItem blockItem;
 	
@@ -23,5 +25,11 @@ public class BasicDoorBlock extends DoorBlock implements IBlockItemProvider, IPa
 	@Override
 	public BlockItem getBlockItem() {
 		return blockItem;
+	}
+	
+	@OnlyIn(Dist.CLIENT)
+	@Override
+	public BlockRenderType getType() {
+		return BlockRenderType.CUTOUT;
 	}
 }
