@@ -1,0 +1,29 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:doors/aluminium",
+		"#forge:doors/aluminum",
+		"#forge:doors/brass",
+		"#forge:doors/bronze",
+		"#forge:doors/constantan",
+		"#forge:doors/copper",
+		"#forge:doors/dark_steel",
+		"#forge:doors/electrum",
+		"#forge:doors/enderium",
+		"#forge:doors/gold",
+		"#forge:doors/invar",
+		"#forge:doors/iridium",
+		"#forge:doors/lead",
+		"#forge:doors/lumium",
+		"#forge:doors/nickel",
+		"#forge:doors/platinum",
+		"#forge:doors/signalum",
+		"#forge:doors/silver",
+		"#forge:doors/steel",
+		"#forge:doors/tin",
+		"#forge:doors/uranium",
+		"#forge:doors/uranium_235",
+		"#forge:doors/uranium_238",
+		"#forge:doors/zinc"
+	]
+}
