@@ -1,10 +1,12 @@
 package info.u_team.useful_resources.util;
 
 import net.minecraft.advancements.criterion.*;
+import net.minecraft.block.*;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.loot.*;
-import net.minecraft.loot.conditions.MatchTool;
+import net.minecraft.loot.conditions.*;
 import net.minecraft.loot.functions.*;
+import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.IItemProvider;
 
 public class LootTableUtil {
@@ -38,4 +40,16 @@ public class LootTableUtil {
 				.build();
 	}
 	
+	public static LootTable createDoorBlockLootTable(IItemProvider item, Block block) {
+		return LootTable.builder() //
+				.setParameterSet(LootParameterSets.BLOCK) //
+				.addLootPool(LootPool.builder() //
+						.rolls(ConstantRange.of(1)) //
+						.addEntry(ItemLootEntry.builder(item) //
+								.acceptCondition(BlockStateProperty.builder(block) //
+										.fromProperties(StatePropertiesPredicate.Builder.newBuilder() //
+												.withProp(DoorBlock.HALF, DoubleBlockHalf.LOWER))) //
+						).acceptCondition(SurvivesExplosion.builder())) //
+				.build();
+	}
 }
