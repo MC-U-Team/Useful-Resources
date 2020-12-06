@@ -1,0 +1,65 @@
+{
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "usefulresources:block/door_bottom",
+		"bottom": "usefulresources:block/door_bottom"
+	},
+	"elements": [
+		{
+			"from": [
+				0,
+				0,
+				0
+			],
+			"to": [
+				3,
+				16,
+				16
+			],
+			"faces": {
+				"down": {
+					"texture": "#bottom",
+					"uv": [
+						13.0,
+						0.0,
+						16.0,
+						16.0
+					],
+					"cullface": "down",
+					"tintindex": 1
+				},
+				"north": {
+					"texture": "#bottom",
+					"uv": [
+						3.0,
+						0.0,
+						0.0,
+						16.0
+					],
+					"cullface": "north",
+					"tintindex": 1
+				},
+				"south": {
+					"texture": "#bottom",
+					"cullface": "south",
+					"tintindex": 1
+				},
+				"west": {
+					"texture": "#bottom",
+					"uv": [
+						16.0,
+						0.0,
+						0.0,
+						16.0
+					],
+					"cullface": "west",
+					"tintindex": 1
+				},
+				"east": {
+					"texture": "#bottom",
+					"tintindex": 1
+				}
+			}
+		}
+	]
+}
