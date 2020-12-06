@@ -24,6 +24,7 @@
 		"#forge:doors/uranium",
 		"#forge:doors/uranium_235",
 		"#forge:doors/uranium_238",
-		"#forge:doors/zinc"
+		"#forge:doors/zinc",
+		"#forge:doors/iron"
 	]
 }

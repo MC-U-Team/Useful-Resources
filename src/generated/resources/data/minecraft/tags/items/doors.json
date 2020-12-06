@@ -13,6 +13,7 @@
 		"#forge:doors/gold",
 		"#forge:doors/invar",
 		"#forge:doors/iridium",
+		"#forge:doors/iron",
 		"#forge:doors/lead",
 		"#forge:doors/lumium",
 		"#forge:doors/nickel",
@@ -24,7 +25,6 @@
 		"#forge:doors/uranium",
 		"#forge:doors/uranium_235",
 		"#forge:doors/uranium_238",
-		"#forge:doors/zinc",
-		"#forge:doors/iron"
+		"#forge:doors/zinc"
 	]
 }
