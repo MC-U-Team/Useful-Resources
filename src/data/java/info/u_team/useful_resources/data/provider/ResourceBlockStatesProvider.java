@@ -1443,4 +1443,12 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		
 		doorBlock((DoorBlock) block, bottomLeft, bottomRight, topLeft, topRight);
 	}
+	
+	public void trapdoorBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile bottom = models().withExistingParent(getPath(block) + "_bottom", getBaseModel(type, dataGeneratorConfigurator) + "_bottom");
+		final ModelFile top = models().withExistingParent(getPath(block) + "_top", getBaseModel(type, dataGeneratorConfigurator) + "_top");
+		final ModelFile open = models().withExistingParent(getPath(block) + "_open", getBaseModel(type, dataGeneratorConfigurator) + "_open");
+		
+		trapdoorBlock((TrapDoorBlock) block, bottom, top, open, false);
+	}
 }
