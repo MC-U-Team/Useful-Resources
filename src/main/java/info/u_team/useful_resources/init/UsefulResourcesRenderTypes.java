@@ -15,7 +15,7 @@ public class UsefulResourcesRenderTypes {
 				.flatMap(resource -> resource.getBlocks().values().stream().map(RegistryEntry::get)) //
 				.filter(block -> block instanceof IBlockRenderType) //
 				.forEach(block -> {
-					BlockRenderType type = ((IBlockRenderType) block).getType();
+					final BlockRenderType type = ((IBlockRenderType) block).getType();
 					if (type != BlockRenderType.SOLID) {
 						RenderTypeLookup.setRenderLayer(block, type.getType().get().get());
 					}

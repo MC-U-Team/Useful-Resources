@@ -35,7 +35,7 @@ public class BasicFenceGateBlock extends FenceGateBlock implements IBlockItemPro
 			state = state.with(OPEN, false);
 			world.setBlockState(pos, state, 10);
 		} else {
-			Direction direction = player.getHorizontalFacing();
+			final Direction direction = player.getHorizontalFacing();
 			if (state.get(HORIZONTAL_FACING) == direction.getOpposite()) {
 				state = state.with(HORIZONTAL_FACING, direction);
 			}
