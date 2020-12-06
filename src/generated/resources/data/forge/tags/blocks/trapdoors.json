@@ -1,0 +1,29 @@
+{
+	"replace": false,
+	"values": [
+		"#forge:trapdoors/aluminium",
+		"#forge:trapdoors/aluminum",
+		"#forge:trapdoors/brass",
+		"#forge:trapdoors/bronze",
+		"#forge:trapdoors/constantan",
+		"#forge:trapdoors/copper",
+		"#forge:trapdoors/dark_steel",
+		"#forge:trapdoors/electrum",
+		"#forge:trapdoors/enderium",
+		"#forge:trapdoors/invar",
+		"#forge:trapdoors/iridium",
+		"#forge:trapdoors/lead",
+		"#forge:trapdoors/lumium",
+		"#forge:trapdoors/nickel",
+		"#forge:trapdoors/platinum",
+		"#forge:trapdoors/signalum",
+		"#forge:trapdoors/silver",
+		"#forge:trapdoors/steel",
+		"#forge:trapdoors/tin",
+		"#forge:trapdoors/uranium",
+		"#forge:trapdoors/uranium_235",
+		"#forge:trapdoors/uranium_238",
+		"#forge:trapdoors/zinc",
+		"#forge:trapdoors/iron"
+	]
+}
