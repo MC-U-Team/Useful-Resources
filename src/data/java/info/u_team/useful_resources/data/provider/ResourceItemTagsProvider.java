@@ -71,12 +71,14 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		copyBlockTag(BlockResourceType.ORE, Resources.REDSTONE);
 		copyBlockTag(BlockResourceType.BARS, Resources.IRON);
 		copyBlockTag(BlockResourceType.CHAIN, Resources.IRON);
+		copyBlockTag(BlockResourceType.DOOR, Resources.IRON);
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
 		
-		// Add fence and fence gate to the vanilla tags
+		// Add fence and doors to the vanilla tags
 		copy(BlockTags.FENCES, ItemTags.FENCES);
+		copy(BlockTags.DOORS, ItemTags.DOORS);
 	}
 	
 	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {

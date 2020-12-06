@@ -54,8 +54,9 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
 		addBlockTag(BlockResourceType.BARS, Resources.IRON, Blocks.IRON_BARS);
 		addBlockTag(BlockResourceType.CHAIN, Resources.IRON, Blocks.CHAIN);
+		addBlockTag(BlockResourceType.DOOR, Resources.IRON, Blocks.IRON_DOOR);
 		
-		// Add fence and fence gate to the vanilla tags
+		// Add fence, fence gate, doors to the vanilla tags
 		TagGenerationResources.getResources().stream() //
 				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE)) //
 				.map(BlockResourceType.FENCE::getTag) //
@@ -65,6 +66,11 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE_GATE)) //
 				.map(BlockResourceType.FENCE_GATE::getTag) //
 				.forEach(tag -> getBuilder(BlockTags.FENCE_GATES).add(tag));
+		
+		TagGenerationResources.getResources().stream() //
+				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.DOOR)) //
+				.map(BlockResourceType.DOOR::getTag) //
+				.forEach(tag -> getBuilder(BlockTags.DOORS).add(tag));
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
