@@ -1,5 +1,7 @@
 package info.u_team.useful_resources.data.provider;
 
+import static info.u_team.useful_resources.util.LootTableUtil.createDoorBlockLootTable;
+
 import java.util.Map;
 import java.util.function.*;
 
@@ -25,6 +27,8 @@ public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 					lootTable = null;
 				} else if (extraLootTables.containsKey(type)) {
 					lootTable = extraLootTables.get(type).get();
+				} else if (type == BlockResourceType.DOOR) {
+					lootTable = createDoorBlockLootTable(block, block);
 				} else {
 					lootTable = addBasicBlockLootTable(block);
 				}
