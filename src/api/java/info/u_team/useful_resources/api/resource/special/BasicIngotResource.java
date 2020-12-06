@@ -20,6 +20,7 @@ public class BasicIngotResource extends BasicResource<BasicIngotResource> {
 		addFeature(createBars(rarity, harvestLevel, baseHardness));
 		addFeature(createChain(rarity, harvestLevel, baseHardness));
 		addFeature(createFence(rarity, harvestLevel, baseHardness));
+		addFeature(createDoor(rarity, harvestLevel, baseHardness));
 		
 		addFeature(createMolten(0xFF000000 + color));
 		

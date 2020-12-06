@@ -57,4 +57,9 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 		addFeature(createChain(Rarity.COMMON, harvestLevel, baseHardness));
 		return this;
 	}
+	
+	public VanillaIngotResource setDoor() {
+		addFeature(createDoor(Rarity.COMMON, harvestLevel, baseHardness));
+		return this;
+	}
 }
