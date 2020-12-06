@@ -1179,6 +1179,161 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				}) //
 				.end();
 		
+		// BlockResourceType.DOOR
+		models().getBuilder("base/block/special/door_bottom") //
+				.ao(false) //
+				.texture("particle", "block/door_bottom") //
+				.texture("bottom", "block/door_bottom") //
+				.element() //
+				.from(0, 0, 0) //
+				.to(3, 16, 16) //
+				.face(Direction.DOWN) //
+				.uvs(13, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.DOWN) //
+				.end() //
+				.face(Direction.NORTH) //
+				.uvs(3, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(0, 0, 3, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.SOUTH) //
+				.end() //
+				.face(Direction.WEST) //
+				.uvs(0, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.WEST) //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(16, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/door_bottom_rh") //
+				.ao(false) //
+				.texture("particle", "block/door_bottom") //
+				.texture("bottom", "block/door_bottom") //
+				.element() //
+				.from(0, 0, 0) //
+				.to(3, 16, 16) //
+				.face(Direction.DOWN) //
+				.uvs(13, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.DOWN) //
+				.end() //
+				.face(Direction.NORTH) //
+				.uvs(3, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(0, 0, 3, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.SOUTH) //
+				.end() //
+				.face(Direction.WEST) //
+				.uvs(16, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.WEST) //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(0, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/door_top") //
+				.ao(false) //
+				.texture("particle", "block/door_top") //
+				.texture("bottom", "block/door_bottom") //
+				.texture("top", "block/door_top") //
+				.element() //
+				.from(0, 0, 0) //
+				.to(3, 16, 16) //
+				.face(Direction.UP) //
+				.uvs(13, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.uvs(3, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(0, 0, 3, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.SOUTH) //
+				.end() //
+				.face(Direction.WEST) //
+				.uvs(0, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.WEST) //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(16, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.end() //
+				.end();
+		
+		models().getBuilder("base/block/special/door_top_rh") //
+				.ao(false) //
+				.texture("particle", "block/door_top") //
+				.texture("bottom", "block/door_bottom") //
+				.texture("top", "block/door_top") //
+				.element() //
+				.from(0, 0, 0) //
+				.to(3, 16, 16) //
+				.face(Direction.UP) //
+				.uvs(13, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.UP) //
+				.end() //
+				.face(Direction.NORTH) //
+				.uvs(3, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.NORTH) //
+				.end() //
+				.face(Direction.SOUTH) //
+				.uvs(0, 0, 3, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.SOUTH) //
+				.end() //
+				.face(Direction.WEST) //
+				.uvs(16, 0, 0, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.cullface(Direction.WEST) //
+				.end() //
+				.face(Direction.EAST) //
+				.uvs(0, 0, 16, 16) //
+				.texture("#bottom") //
+				.tintindex(1) //
+				.end() //
+				.end();
+		
 		// BlockResourceType.MOLTEN_FLUID
 		models().getBuilder("base/block/special/molten_fluid") //
 				.texture("particle", mcLoc("block/water_still"));
