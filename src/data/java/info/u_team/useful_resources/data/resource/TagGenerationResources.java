@@ -3,15 +3,13 @@ package info.u_team.useful_resources.data.resource;
 import java.util.*;
 import java.util.function.Consumer;
 
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.FakeNameResource;
-import net.minecraft.util.Util;
 
 public class TagGenerationResources {
 	
-	private static final Set<IResource> RESOURCES = Util.make(new TreeSet<>((a, b) -> a.getName().compareTo(b.getName())), list -> ResourceRegistry.forEach(list::add));
+	static final Set<IResource> RESOURCES = new TreeSet<IResource>(GenerationResources.RESOURCES);
 	
 	static {
 		RESOURCES.add(new FakeNameResource("aluminium", Resources.ALUMINUM));
