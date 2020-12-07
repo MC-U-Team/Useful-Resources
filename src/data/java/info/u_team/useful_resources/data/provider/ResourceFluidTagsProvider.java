@@ -1,7 +1,7 @@
 package info.u_team.useful_resources.data.provider;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.data.TagGenerationResources;
+import info.u_team.useful_resources.data.resource.TagGenerationResources;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.tags.ITag.INamedTag;
 

@@ -9,7 +9,7 @@ import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
-import info.u_team.useful_resources.data.TagGenerationResources;
+import info.u_team.useful_resources.data.resource.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
 import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
