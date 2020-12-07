@@ -24,6 +24,7 @@ public class Resources {
 			.setExisting(BARS, Blocks.IRON_BARS) //
 			.setExisting(CHAIN, Blocks.CHAIN) //
 			.setExisting(DOOR, Blocks.IRON_DOOR) //
+			.setExisting(TRAPDOOR, Blocks.IRON_TRAPDOOR) //
 			.setExisting(INGOT, Items.IRON_INGOT) //
 			.setExisting(NUGGET, Items.IRON_NUGGET) //
 			.setExisting(HELMET, Items.IRON_HELMET) //
@@ -59,6 +60,7 @@ public class Resources {
 			.setBars() //
 			.setChain() //
 			.setDoor() //
+			.setTrapDoor() //
 			.setProperty("oreSmeltingXp", 1) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 6, 5, 0, 0, 48));
 	
