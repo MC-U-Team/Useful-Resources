@@ -13,8 +13,6 @@ public class UsefulResourcesDataGenerator {
 	
 	@SubscribeEvent
 	public static void data(GatherDataEvent event) {
-		TagGenerationResources.addAdditionalResources();
-		
 		final GenerationData data = new GenerationData(UsefulResourcesMod.MODID, event);
 		if (event.includeClient()) {
 			data.addProvider(ResourceBlockStatesProvider::new);

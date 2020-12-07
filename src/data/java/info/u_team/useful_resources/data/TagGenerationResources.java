@@ -13,7 +13,7 @@ public class TagGenerationResources {
 	
 	private static final Set<IResource> RESOURCES = Util.make(new TreeSet<>((a, b) -> a.getName().compareTo(b.getName())), list -> ResourceRegistry.forEach(list::add));
 	
-	static void addAdditionalResources() {
+	static {
 		RESOURCES.add(new FakeNameResource("aluminium", Resources.ALUMINUM));
 		RESOURCES.add(new FakeNameResource("uranium", Resources.URANIUM_238));
 	}
