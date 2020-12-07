@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.data.provider;
 
-import static info.u_team.useful_resources.data.util.TagGenerationUtil.forgeTags;
+import static info.u_team.useful_resources.data.util.TagGenerationUtil.*;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -28,21 +28,14 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	@Override
 	protected void registerTags() {
 		TagGenerationResources.forEach(resource -> {
-			resource.iterateRegistryBlocks((type, block) -> {
-				if (type.hasTag()) {
-					copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
-				}
-				if (type.hasUnifyTag()) {
-					copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
-				}
-			});
-			
 			// Add stone, nether and end ores to the ore tags
 			addMoreCommonTagCopy(resource, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
 			
 			// Add crushed stone, nether and end ores to the crushed ore tags
 			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
+		
+		TagGenerationResources.forEachBlock((resource, type, block) -> forgeTagsCopy(this::copy, resource, type, block));
 		
 		TagGenerationResources.forEachItem((resource, type, item) -> forgeTags(this::getBuilder, resource, type, item));
 		
