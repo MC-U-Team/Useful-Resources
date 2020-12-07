@@ -7,10 +7,10 @@
 		},
 		{
 			"when": {
-				"east": "false",
 				"west": "false",
-				"north": "false",
-				"south": "false"
+				"east": "false",
+				"south": "false",
+				"north": "false"
 			},
 			"apply": {
 				"model": "usefulresources:block/invar_bars_post"
@@ -18,10 +18,10 @@
 		},
 		{
 			"when": {
-				"east": "false",
 				"west": "false",
-				"north": "true",
-				"south": "false"
+				"east": "false",
+				"south": "false",
+				"north": "true"
 			},
 			"apply": {
 				"model": "usefulresources:block/invar_bars_cap"
@@ -29,10 +29,10 @@
 		},
 		{
 			"when": {
-				"east": "true",
 				"west": "false",
-				"north": "false",
-				"south": "false"
+				"east": "true",
+				"south": "false",
+				"north": "false"
 			},
 			"apply": {
 				"model": "usefulresources:block/invar_bars_cap",
@@ -41,10 +41,10 @@
 		},
 		{
 			"when": {
-				"east": "false",
 				"west": "false",
-				"north": "false",
-				"south": "true"
+				"east": "false",
+				"south": "true",
+				"north": "false"
 			},
 			"apply": {
 				"model": "usefulresources:block/invar_bars_cap_alt"
@@ -52,10 +52,10 @@
 		},
 		{
 			"when": {
-				"east": "false",
 				"west": "true",
-				"north": "false",
-				"south": "false"
+				"east": "false",
+				"south": "false",
+				"north": "false"
 			},
 			"apply": {
 				"model": "usefulresources:block/invar_bars_cap_alt",
