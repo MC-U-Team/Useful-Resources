@@ -84,6 +84,7 @@ e3f2aba87fcda020934e45402d648d75c38003f3 assets/usefulresources/blockstates/gold
 507e7998e04d5a4ee392337b0ea3f2d7203b0258 assets/usefulresources/blockstates/gold_fence.json
 056982372e2a36a61634682114176ce7e5b1fb61 assets/usefulresources/blockstates/gold_fence_gate.json
 638f6a666d0325b15f569041e5a921a19c0c1e3d assets/usefulresources/blockstates/gold_molten_fluid.json
+0a2e5fa33e2c0dacfeb9e04b2679f69859c3d824 assets/usefulresources/blockstates/gold_trapdoor.json
 cff6fb2bf65bb75f69e09e8044abb3c9720cf761 assets/usefulresources/blockstates/invar_bars.json
 4e4e5b266d3258187f620aa426b5539b7d124b3d assets/usefulresources/blockstates/invar_block.json
 d00dea784d996a69ac7c898f978bf26bc68550b9 assets/usefulresources/blockstates/invar_chain.json
@@ -254,7 +255,7 @@ c2744a3a3ccc5c6de97033ec0d31ea64c184d400 assets/usefulresources/blockstates/zinc
 9ff2ce818eda0e1a7739d9ba5e34926b59916053 assets/usefulresources/blockstates/zinc_nether_ore.json
 76c9f05a768b4cfb6ed7afabd7606085ea948a8a assets/usefulresources/blockstates/zinc_ore.json
 cd912c47d97b69ee6a2bfd79a943679eec7c430c assets/usefulresources/blockstates/zinc_trapdoor.json
-24d57bf20ae0831057fe558b3fdd9bbeb3733907 assets/usefulresources/lang/en_us.json
+97a6b0b150acb2525907a2337e3158ff5b31713e assets/usefulresources/lang/en_us.json
 3c73519b35a1f917d15601248f6a09ef3a9132b6 assets/usefulresources/models/base/block/colored_block.json
 985b60a7e0f825679553a74e2164e346fe91fe41 assets/usefulresources/models/base/block/colored_overlay_block.json
 9094eb5a0d4ff3c6bf4890aabd9552fd72fdc788 assets/usefulresources/models/base/block/special/bars_cap.json
@@ -531,6 +532,9 @@ d338da28b42ed9da0519f984d45b934329cefdcd assets/usefulresources/models/block/gol
 ddbd9dfddea3b8970628fe308487c6e4bbd11196 assets/usefulresources/models/block/gold_fence_post.json
 cb1be0808eef97345d14e6adaaba1af7575a2676 assets/usefulresources/models/block/gold_fence_side.json
 68e335251fe2afc2e5a153aa9eee4785c59bdbc1 assets/usefulresources/models/block/gold_molten_fluid.json
+7576b779bb52ab12cbe242bc4533fe356919c7bd assets/usefulresources/models/block/gold_trapdoor_bottom.json
+f93a63cedd42e52ff576554e56ce05fb46aea304 assets/usefulresources/models/block/gold_trapdoor_open.json
+a4a6b8e51fe69b510aed6abfbcb61097aa4eb2fb assets/usefulresources/models/block/gold_trapdoor_top.json
 13a1cc8a0eb8eae37e48636fe006bbd80c2d32bb assets/usefulresources/models/block/invar_bars_cap.json
 d338da28b42ed9da0519f984d45b934329cefdcd assets/usefulresources/models/block/invar_bars_cap_alt.json
 9f97ed612655000869fc6bd8fc85da2ac2b2f2c7 assets/usefulresources/models/block/invar_bars_post.json
@@ -1106,6 +1110,7 @@ abeb04fe917ab74f619a0dd386c4487417f63472 assets/usefulresources/models/item/gold
 8332f19b6d98993ee7c2e6588fc3c8310a8977f7 assets/usefulresources/models/item/gold_plate.json
 1763bd2c8b3e319334c7eb369ace45ebefbb96d6 assets/usefulresources/models/item/gold_pure_crushed_ore.json
 796d48db5a092b0458eae5659e18f41ac4202f2c assets/usefulresources/models/item/gold_rod.json
+1c7347bcf5e39ca1725de9b2d3a25e58ad7a2667 assets/usefulresources/models/item/gold_trapdoor.json
 aefb66ff3279028b2bbde208519c167481e8385f assets/usefulresources/models/item/invar_bars.json
 e4ea0fc6e291178858da1b7ec4d3e85eda711380 assets/usefulresources/models/item/invar_block.json
 bf13e03ebd0c7831369ed4df6327ce787ef6ed30 assets/usefulresources/models/item/invar_chain.json
@@ -1871,7 +1876,7 @@ af658ac3c15351cc75c2707e1e890e77cc3faaa3 data/forge/tags/blocks/storage_blocks/u
 b1d045386aa741ba1935d3c9bf6ba06207bcba68 data/forge/tags/blocks/storage_blocks/uranium_235.json
 af658ac3c15351cc75c2707e1e890e77cc3faaa3 data/forge/tags/blocks/storage_blocks/uranium_238.json
 eb36de4d963eb4b300746761f6a87c8668b38cf1 data/forge/tags/blocks/storage_blocks/zinc.json
-72037adff57f4b8c3766f6e99cd3471f1dcd9db7 data/forge/tags/blocks/trapdoors.json
+8b60176161c1c92ac02f6fa2961bae4a5c4b8a65 data/forge/tags/blocks/trapdoors.json
 f2f0050a6df052a3e1b5f6bddd430e8cf9f19dbd data/forge/tags/blocks/trapdoors/aluminium.json
 f2f0050a6df052a3e1b5f6bddd430e8cf9f19dbd data/forge/tags/blocks/trapdoors/aluminum.json
 74f1a91557713035317d62888e17f5a21174a164 data/forge/tags/blocks/trapdoors/brass.json
@@ -1881,6 +1886,7 @@ e5bad0a58c57fdf274a413de71286b322432899e data/forge/tags/blocks/trapdoors/copper
 dfd2963736d5d325f3e3dfa1adda40ba5bfc890d data/forge/tags/blocks/trapdoors/dark_steel.json
 4a2fef67eb5932c127eae25d19a61a583f7a650c data/forge/tags/blocks/trapdoors/electrum.json
 ec66d93701aed7c38493402bc0c1a8a21b86f744 data/forge/tags/blocks/trapdoors/enderium.json
+b8f0955c112d76c39ba9a67724274b54604da076 data/forge/tags/blocks/trapdoors/gold.json
 9f26ffa22ac1ddfa5ec2784d781cefc38a37a976 data/forge/tags/blocks/trapdoors/invar.json
 d922b851083c488ee6587873a47f4a41b06ec2fc data/forge/tags/blocks/trapdoors/iridium.json
 f374baa6637884e4beea89087ab4c0a3bcc5e87c data/forge/tags/blocks/trapdoors/iron.json
@@ -2781,7 +2787,7 @@ adf5d997875ba58d7dac3a489bc20ab0a1bfa430 data/forge/tags/items/tools/swords/ruby
 d95efcf6b198aa239b4f686b2ace6eaed91afb42 data/forge/tags/items/tools/swords/silver.json
 b708ed071503d77ef881f725f7e814803cc1be7f data/forge/tags/items/tools/swords/tanzanite.json
 885d944e5e8e2f3a411ca404e5c1c16cd2ffe66e data/forge/tags/items/tools/swords/tin.json
-72037adff57f4b8c3766f6e99cd3471f1dcd9db7 data/forge/tags/items/trapdoors.json
+8b60176161c1c92ac02f6fa2961bae4a5c4b8a65 data/forge/tags/items/trapdoors.json
 f2f0050a6df052a3e1b5f6bddd430e8cf9f19dbd data/forge/tags/items/trapdoors/aluminium.json
 f2f0050a6df052a3e1b5f6bddd430e8cf9f19dbd data/forge/tags/items/trapdoors/aluminum.json
 74f1a91557713035317d62888e17f5a21174a164 data/forge/tags/items/trapdoors/brass.json
@@ -2791,6 +2797,7 @@ e5bad0a58c57fdf274a413de71286b322432899e data/forge/tags/items/trapdoors/copper.
 dfd2963736d5d325f3e3dfa1adda40ba5bfc890d data/forge/tags/items/trapdoors/dark_steel.json
 4a2fef67eb5932c127eae25d19a61a583f7a650c data/forge/tags/items/trapdoors/electrum.json
 ec66d93701aed7c38493402bc0c1a8a21b86f744 data/forge/tags/items/trapdoors/enderium.json
+b8f0955c112d76c39ba9a67724274b54604da076 data/forge/tags/items/trapdoors/gold.json
 9f26ffa22ac1ddfa5ec2784d781cefc38a37a976 data/forge/tags/items/trapdoors/invar.json
 d922b851083c488ee6587873a47f4a41b06ec2fc data/forge/tags/items/trapdoors/iridium.json
 f374baa6637884e4beea89087ab4c0a3bcc5e87c data/forge/tags/items/trapdoors/iron.json
@@ -2825,10 +2832,10 @@ e04f9fc0fe574ad1fbd4ab5ea3533e3279466e19 data/minecraft/recipes/redstone_from_sm
 233a8ee87709344385b1b4027dbc1f4971ab1137 data/minecraft/tags/blocks/doors.json
 bf8a5b0b78c5f01ab3d079448c1e3adca6ef3ded data/minecraft/tags/blocks/fence_gates.json
 7dab9cef2205100caf1d08922fa3e585b9704334 data/minecraft/tags/blocks/fences.json
-f2f95386fb47a3e32889d6f7986e44551f835981 data/minecraft/tags/blocks/trapdoors.json
+894dd2b07498ff65d4771295fa356356781eb326 data/minecraft/tags/blocks/trapdoors.json
 233a8ee87709344385b1b4027dbc1f4971ab1137 data/minecraft/tags/items/doors.json
 7dab9cef2205100caf1d08922fa3e585b9704334 data/minecraft/tags/items/fences.json
-f2f95386fb47a3e32889d6f7986e44551f835981 data/minecraft/tags/items/trapdoors.json
+894dd2b07498ff65d4771295fa356356781eb326 data/minecraft/tags/items/trapdoors.json
 cc3f1a34ad78932ca72d3175a95adcef041110f8 data/usefulresources/advancements/recipes/aluminum/blasting/ingot_from_dust.json
 80f692b51981b1695100145c28c229957ced0321 data/usefulresources/advancements/recipes/aluminum/blasting/ingot_from_ore.json
 95a785e6560f604997d914bb67349bd5df630a2d data/usefulresources/advancements/recipes/aluminum/crafting/axe_from_ingot.json
@@ -3259,6 +3266,7 @@ fbf4bbd8a439b3f2b638bb72d754611ede988bcd data/usefulresources/loot_tables/blocks
 3a861a99b3993adf672ce91af6f59a115b79e67e data/usefulresources/loot_tables/blocks/gold_end_ore.json
 9ff2a35f07844da48b5821d40ad4d8f7c81e1503 data/usefulresources/loot_tables/blocks/gold_fence.json
 56d784caf29fbd4b2bde7967bee8b79276eb8ce5 data/usefulresources/loot_tables/blocks/gold_fence_gate.json
+f1214857483c891e766cffa430921861d32fa14c data/usefulresources/loot_tables/blocks/gold_trapdoor.json
 1b2333e7bcca186850686ea065836dc9cf6fd2ac data/usefulresources/loot_tables/blocks/invar_bars.json
 96d55d1c5ecea11b3f618db34496fa82f74bb00d data/usefulresources/loot_tables/blocks/invar_block.json
 ff0f5680484a8b5a64285cad602518f950c367a5 data/usefulresources/loot_tables/blocks/invar_chain.json
