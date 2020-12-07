@@ -1364,11 +1364,11 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.to(16, 16, 16) //
 				.allFaces((direction, face) -> {
 					if (direction.getAxis() == Axis.Y) {
-						face.uvs(0, 13, 16, 16).texture("#texture").tintindex(1);
+						face.uvs(0, direction == Direction.DOWN ? 13 : 16, 16, direction == Direction.UP ? 13 : 16).texture("#texture").tintindex(1);
 					} else if (direction.getAxis() == Axis.Z) {
-						face.uvs(0, 13, 16, 16).texture("#texture").tintindex(1);
+						face.uvs(0, 0, 16, 16).texture("#texture").tintindex(1);
 					} else {
-						face.uvs(16, 0, 13, 16).texture("#texture").tintindex(1);
+						face.uvs(direction == Direction.EAST ? 13 : 16, 0, direction == Direction.WEST ? 13 : 16, 16).texture("#texture").tintindex(1);
 					}
 					if (direction != Direction.NORTH) {
 						face.cullface(direction);
