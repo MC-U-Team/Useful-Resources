@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.function.*;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.type.BlockResourceType;
+import info.u_team.useful_resources.data.resource.GenerationResources;
 import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
 
@@ -19,7 +19,7 @@ public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 	
 	@Override
 	protected void registerLootTables(BiConsumer<ResourceLocation, LootTable> consumer) {
-		ResourceRegistry.forEach(resource -> {
+		GenerationResources.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				final LootTable lootTable;
 				final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = resource.getDataGeneratorConfigurator().getExtraLootTables();

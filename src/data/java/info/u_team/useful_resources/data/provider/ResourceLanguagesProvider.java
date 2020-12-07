@@ -8,7 +8,7 @@ import java.util.function.Function;
 import java.util.stream.*;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.ResourceRegistry;
+import info.u_team.useful_resources.data.resource.GenerationResources;
 import info.u_team.useful_resources.init.UsefulResourcesItemGroups;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
@@ -22,7 +22,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 	public void addTranslations() {
 		add(UsefulResourcesItemGroups.GROUP, "Useful Resources");
 		
-		ResourceRegistry.forEach(resource -> {
+		GenerationResources.forEach(resource -> {
 			final String name = capitalize(resource.getName().replace("_", " "));
 			final Function<ForgeRegistryEntry<?>, String> defaultNameFunction = entry -> capitalize(entry.getRegistryName().getPath().replace("_", " "));
 			resource.iterateRegistryBlocks((type, block) -> {

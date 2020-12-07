@@ -1,8 +1,8 @@
 package info.u_team.useful_resources.data.provider;
 
 import info.u_team.u_team_core.data.GenerationData;
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.data.provider.common.CommonWorldGenFeaturesProvider;
+import info.u_team.useful_resources.data.resource.GenerationResources;
 
 public class ResourceWorldGenFeaturesProvider extends CommonWorldGenFeaturesProvider {
 	
@@ -12,7 +12,7 @@ public class ResourceWorldGenFeaturesProvider extends CommonWorldGenFeaturesProv
 	
 	@Override
 	protected void addFeatures() {
-		ResourceRegistry.forEach(resource -> {
+		GenerationResources.forEach(resource -> {
 			resource.getDataGeneratorConfigurator().getWorldGeneration().forEach((name, worldGenFeature) -> {
 				addFeature(resource.getName() + "/" + name, worldGenFeature.get());
 			});

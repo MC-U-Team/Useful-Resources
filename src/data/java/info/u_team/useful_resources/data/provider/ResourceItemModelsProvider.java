@@ -5,9 +5,9 @@ import java.util.Map;
 import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.data.resource.GenerationResources;
 import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
@@ -24,7 +24,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	protected void registerModels() {
 		generateBaseModels();
 		
-		ResourceRegistry.forEach(resource -> {
+		GenerationResources.forEach(resource -> {
 			resource.iterateRegistryBlocks((type, block) -> {
 				if (block.asItem().equals(Items.AIR)) {
 					return;
@@ -37,7 +37,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 			});
 		});
 		
-		ResourceRegistry.forEach(resource -> {
+		GenerationResources.forEach(resource -> {
 			resource.iterateRegistryItems((type, item) -> {
 				if (type == ItemResourceType.MOLTEN_BUCKET) {
 					generatedModels.computeIfAbsent(modLoc("item/" + getPath(item)), location -> new ItemModelBuilder(location, existingFileHelper) {

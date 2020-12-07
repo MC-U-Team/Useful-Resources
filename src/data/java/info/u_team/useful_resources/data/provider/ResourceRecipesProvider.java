@@ -15,10 +15,10 @@ import com.google.gson.*;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.data.resource.GenerationResources;
 import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.block.Block;
 import net.minecraft.data.IFinishedRecipe;
@@ -63,7 +63,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 		removeRecipe("redstone_from_smelting", consumer);
 		removeRecipe("redstone_from_blasting", consumer);
 		
-		ResourceRegistry.forEach(resource -> {
+		GenerationResources.forEach(resource -> {
 			final Map<BlockResourceType, Block> blocks = resource.getBlocks().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			final Map<ItemResourceType, Item> items = resource.getItems().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			
