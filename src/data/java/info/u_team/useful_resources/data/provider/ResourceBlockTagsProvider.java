@@ -86,7 +86,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	private void addToVanillaTag(Collection<IResource> resources, BlockResourceType type, INamedTag<Block> tag) {
 		resources.stream() //
 				.filter(resource -> resource.getBlocks().containsKey(type)) //
-				.map(type::getTag) //
-				.forEach(forgeTag -> getBuilder(tag).add(forgeTag));
+				.map(resource -> resource.getBlocks().get(type).get()) //
+				.forEach(block -> getBuilder(tag).add(block));
 	}
 }
