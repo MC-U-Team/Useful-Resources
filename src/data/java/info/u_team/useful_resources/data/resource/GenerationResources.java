@@ -9,7 +9,9 @@ import net.minecraft.util.Util;
 
 public class GenerationResources {
 	
-	static final Set<IResource> RESOURCES = Util.make(new TreeSet<>((a, b) -> a.getName().compareTo(b.getName())), list -> ResourceRegistry.forEach(list::add));
+	static final Comparator<IResource> COMPARATOR = (a, b) -> a.getName().compareTo(b.getName());
+	
+	static final Set<IResource> RESOURCES = Util.make(new TreeSet<>(COMPARATOR), list -> ResourceRegistry.forEach(list::add));
 	
 	public static Set<IResource> getResources() {
 		return Collections.unmodifiableSet(RESOURCES);
