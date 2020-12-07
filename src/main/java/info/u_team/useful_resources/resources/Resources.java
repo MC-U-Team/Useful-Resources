@@ -209,12 +209,12 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 9, 10, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 9, 15, 0, 0, 64));
 	
-	public static final IResource URANIUM_238 = new BasicIngotResource("uranium_238", 0x26A326, Rarity.UNCOMMON, 2, 4) //
+	public static final IResource URANIUM_238 = new BasicRadioActiveIngotResource("uranium_238", 0x26A326, Rarity.UNCOMMON, 2, 4) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 14, 8, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 14, 20, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 14, 5, 0, 0, 64));
 	
-	public static final IResource URANIUM_235 = new BasicIngotResource("uranium_235", 0x0ee60e, Rarity.EPIC, 2, 5) //
+	public static final IResource URANIUM_235 = new BasicRadioActiveIngotResource("uranium_235", 0x0ee60e, Rarity.EPIC, 2, 5) //
 			.setGenerationDefault(ORE, state -> createOreFeatureRangeOverworld(state, 3, 1, 0, 0, 32)) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 3, 2, 10, 20, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 3, 1, 0, 0, 64));
