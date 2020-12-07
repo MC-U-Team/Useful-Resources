@@ -23,8 +23,8 @@ public class ResourceRegistry {
 		return Collections.unmodifiableList(RESOURCES);
 	}
 	
-	public static void forEach(Consumer<? super IResource> action) {
-		getResources().forEach(action);
+	public static void forEach(Consumer<? super IResource> consumer) {
+		getResources().forEach(consumer);
 	}
 	
 	public static IResource get(String name) {
