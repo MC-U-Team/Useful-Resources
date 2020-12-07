@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -57,26 +57,12 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addBlockTag(BlockResourceType.DOOR, Resources.IRON, Blocks.IRON_DOOR);
 		addBlockTag(BlockResourceType.TRAPDOOR, Resources.IRON, Blocks.IRON_TRAPDOOR);
 		
-		// Add fence, fence gate, doors to the vanilla tags
-		TagGenerationResources.getResources().stream() //
-				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE)) //
-				.map(BlockResourceType.FENCE::getTag) //
-				.forEach(tag -> getBuilder(BlockTags.FENCES).add(tag));
+		// Add to vanilla tags
 		
-		TagGenerationResources.getResources().stream() //
-				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.FENCE_GATE)) //
-				.map(BlockResourceType.FENCE_GATE::getTag) //
-				.forEach(tag -> getBuilder(BlockTags.FENCE_GATES).add(tag));
-		
-		TagGenerationResources.getResources().stream() //
-				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.DOOR)) //
-				.map(BlockResourceType.DOOR::getTag) //
-				.forEach(tag -> getBuilder(BlockTags.DOORS).add(tag));
-		
-		TagGenerationResources.getResources().stream() //
-				.filter(resource -> resource.getBlocks().containsKey(BlockResourceType.TRAPDOOR)) //
-				.map(BlockResourceType.TRAPDOOR::getTag) //
-				.forEach(tag -> getBuilder(BlockTags.TRAPDOORS).add(tag));
+		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE, BlockTags.FENCES);
+		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE_GATE, BlockTags.FENCE_GATES);
+		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.DOOR, BlockTags.DOORS);
+		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.TRAPDOOR, BlockTags.TRAPDOORS);
 	}
 	
 	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
@@ -95,5 +81,12 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		final INamedTag<Block> tag = type.getTag(resource);
 		getBuilder(tag).add(block);
 		getBuilder(type.getUnifyTag()).add(tag);
+	}
+	
+	private void addToVanillaTag(Collection<IResource> resources, BlockResourceType type, INamedTag<Block> tag) {
+		resources.stream() //
+				.filter(resource -> resource.getBlocks().containsKey(type)) //
+				.map(type::getTag) //
+				.forEach(forgeTag -> getBuilder(tag).add(forgeTag));
 	}
 }
