@@ -22,9 +22,6 @@
 		"#forge:fences/silver",
 		"#forge:fences/steel",
 		"#forge:fences/tin",
-		"#forge:fences/uranium",
-		"#forge:fences/uranium_235",
-		"#forge:fences/uranium_238",
 		"#forge:fences/zinc"
 	]
 }

@@ -22,9 +22,6 @@
 		"#forge:doors/silver",
 		"#forge:doors/steel",
 		"#forge:doors/tin",
-		"#forge:doors/uranium",
-		"#forge:doors/uranium_235",
-		"#forge:doors/uranium_238",
 		"#forge:doors/zinc"
 	]
 }
