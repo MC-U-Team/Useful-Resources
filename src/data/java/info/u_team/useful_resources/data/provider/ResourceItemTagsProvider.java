@@ -1,5 +1,7 @@
 package info.u_team.useful_resources.data.provider;
 
+import static info.u_team.useful_resources.data.util.TagGenerationUtil.forgeTags;
+
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
@@ -42,17 +44,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
 		
-		TagGenerationResources.forEach(resource -> {
-			resource.iterateRegistryItems((type, item) -> {
-				if (type.hasTag()) {
-					final INamedTag<Item> tag = type.getTag(resource);
-					getBuilder(tag).add(item);
-					if (type.hasUnifyTag()) {
-						getBuilder(type.getUnifyTag()).add(tag);
-					}
-				}
-			});
-		});
+		TagGenerationResources.forEachItem((resource, type, item) -> forgeTags(this::getBuilder, resource, type, item));
 		
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
 		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
