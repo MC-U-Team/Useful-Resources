@@ -1,9 +1,9 @@
 package info.u_team.useful_resources.data.provider;
 
+import static info.u_team.useful_resources.data.util.TagGenerationUtil.forgeTags;
+
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.tags.ITag.INamedTag;
 
 public class ResourceFluidTagsProvider extends CommonFluidTagsProvider {
 	
@@ -13,16 +13,6 @@ public class ResourceFluidTagsProvider extends CommonFluidTagsProvider {
 	
 	@Override
 	protected void registerTags() {
-		TagGenerationResources.forEach(resource -> {
-			resource.iterateRegistryFluids((type, fluid) -> {
-				if (type.hasTag()) {
-					final INamedTag<Fluid> tag = type.getTag(resource);
-					getBuilder(tag).add(fluid);
-					if (type.hasUnifyTag()) {
-						getBuilder(type.getUnifyTag()).add(tag);
-					}
-				}
-			});
-		});
+		TagGenerationResources.forEachFluid((resource, type, fluid) -> forgeTags(this::getBuilder, resource, type, fluid));
 	}
 }
