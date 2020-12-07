@@ -129,7 +129,7 @@ dependencies {
 	compile getUTeamCoreDependency()
 	compile fg.deobf(getJeiApiDependency())
 	runtime fg.deobf(getJeiDependency())
-	runtime fg.deobf("curse.maven:jei-integration:3122292")
+	runtime fg.deobf("curse.maven:jei-integration-265917:3122292")
 }
 
 curseforge {
