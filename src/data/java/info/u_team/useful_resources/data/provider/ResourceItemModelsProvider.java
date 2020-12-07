@@ -29,7 +29,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 				if (block.asItem().equals(Items.AIR)) {
 					return;
 				}
-				if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN || type == BlockResourceType.FENCE || type == BlockResourceType.DOOR) {
+				if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN || type == BlockResourceType.FENCE || type == BlockResourceType.DOOR || type == BlockResourceType.TRAPDOOR) {
 					withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator()));
 				} else {
 					simpleBlock(block);
@@ -213,6 +213,9 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		// BlockResourceType.DOOR
 		withExistingParent("base/item/special/door", modLoc("base/item/colored_generated_item")) //
 				.texture("colored", "item/door");
+		
+		// BlockResourceType.TRAPDOOR
+		getBuilder("base/item/special/trapdoor").parent(new UncheckedModelFile(modLoc("base/block/special/trapdoor_bottom")));
 	}
 	
 }
