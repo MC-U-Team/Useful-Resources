@@ -42,12 +42,23 @@ public class TagGenerationUtil {
 	public static <T extends IForgeRegistryEntry<T>> void addMoreCommonTag(Map<? extends IResourceType<T>, RegistryEntry<T>> entries, Function<INamedTag<T>, BetterBuilder<T>> builderFunction, Function<ResourceLocation, INamedTag<T>> tagFunction, IResource resource, ResourceLocation baseTag, IResourceType<T>... types) {
 		final Map<IResourceType<T>, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> entries.containsKey(type)));
 		if (hasType.containsValue(true)) {
-			final INamedTag<T> tag = tagFunction.apply(new ResourceLocation(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName()));
+			final ResourceLocation specialTagName = new ResourceLocation(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
+			final INamedTag<T> tag = tagFunction.apply(specialTagName);
 			final BetterBuilder<T> builder = builderFunction.apply(tag);
 			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
 				builder.add(type.getTag(resource));
 			});
 			builderFunction.apply(tagFunction.apply(baseTag)).add(tag);
+		}
+	}
+	
+	@SafeVarargs
+	public static void addMoreCommonTagCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> consumer, IResource resource, ResourceLocation baseTag, IResourceType<Block>... types) {
+		final Map<IResourceType<Block>, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
+		if (hasType.containsValue(true)) {
+			final ResourceLocation specialTagName = new ResourceLocation(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
+			consumer.accept(TagUtil.createBlockTag(specialTagName), TagUtil.createItemTag(specialTagName));
+			consumer.accept(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 		}
 	}
 	
