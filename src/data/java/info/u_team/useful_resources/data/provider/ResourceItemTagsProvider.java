@@ -4,13 +4,11 @@ import static info.u_team.useful_resources.data.util.TagGenerationUtil.*;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
-import net.minecraft.item.*;
+import net.minecraft.item.Items;
 import net.minecraft.tags.*;
-import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public class ResourceItemTagsProvider extends CommonItemTagsProvider {
@@ -53,18 +51,11 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.TRAPDOOR);
 		
 		// Add coal to the coal gem tag
-		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
+		forgeTags(this::getBuilder, Resources.COAL, ItemResourceType.GEM, Items.COAL);
 		
 		// Add fence and doors to the vanilla tags
 		copy(BlockTags.FENCES, ItemTags.FENCES);
 		copy(BlockTags.DOORS, ItemTags.DOORS);
 		copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
 	}
-	
-	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
-		final INamedTag<Item> tag = type.getTag(resource);
-		getBuilder(tag).add(item);
-		getBuilder(type.getUnifyTag()).add(tag);
-	}
-	
 }
