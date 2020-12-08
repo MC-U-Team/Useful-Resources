@@ -24,21 +24,6 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	protected void registerModels() {
 		generateBaseModels();
 		
-		// GenerationResources.forEach(resource -> {
-		// resource.iterateRegistryBlocks((type, block) -> {
-		// if (block.asItem().equals(Items.AIR)) {
-		// return;
-		// }
-		// if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN || type == BlockResourceType.FENCE || type ==
-		// BlockResourceType.DOOR || type == BlockResourceType.TRAPDOOR) {
-		// withExistingParent(getPath(block), ModelGenerationUtil.getBaseModel(type, "item",
-		// resource.getDataGeneratorConfigurator()));
-		// } else {
-		// simpleBlock(block);
-		// }
-		// });
-		// });
-		
 		final ModelGenerationDecider<Block> generationDeciderBlocks = ModelGenerationDecider.create();
 		
 		generationDeciderBlocks.addSpecial(BlockResourceType.BARS, this::blockItemModels);
