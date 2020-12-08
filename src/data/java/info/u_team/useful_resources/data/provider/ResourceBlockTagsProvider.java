@@ -55,12 +55,6 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.TRAPDOOR, BlockTags.TRAPDOORS);
 	}
 	
-	// private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
-	// final INamedTag<Block> tag = type.getTag(resource);
-	// getBuilder(tag).add(block);
-	// getBuilder(type.getUnifyTag()).add(tag);
-	// }
-	
 	private void addToVanillaTag(Collection<IResource> resources, BlockResourceType type, INamedTag<Block> tag) {
 		resources.stream() //
 				.filter(resource -> resource.getBlocks().containsKey(type)) //
