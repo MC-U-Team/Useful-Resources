@@ -30,7 +30,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			addMoreCommonTagCopy(resource, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
 			
 			// Add crushed stone, nether and end ores to the crushed ore tags
-			TagGenerationUtil.addMoreCommonTag(CastUtil.uncheckedCast(resource.getItems()), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
+			TagGenerationUtil.addMoreCommonTag(resource.getItems(), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
 		
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());

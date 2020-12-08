@@ -5,7 +5,7 @@ import static info.u_team.useful_resources.data.util.TagGenerationUtil.forgeTags
 import java.util.Collection;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.u_team_core.util.*;
+import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
@@ -28,7 +28,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		
 		TagGenerationResources.forEach(resource -> {
 			// Add stone, nether and end ores to the ore tags
-			TagGenerationUtil.addMoreCommonTag(CastUtil.uncheckedCast(resource.getBlocks()), this::getBuilder, TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
+			TagGenerationUtil.addMoreCommonTag(resource.getBlocks(), this::getBuilder, TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 		});
 		
 		// Special tags
