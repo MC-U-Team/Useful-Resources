@@ -47,35 +47,6 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		});
 	}
 	
-	public void resourceTypeBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
-		
-		final ResourceLocation model;
-		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
-			model = baseModel;
-		} else {
-			final ResourceType resourceType;
-			if (ObjectUtil.getBoolean(extraProperties.getOrDefault("ingotModel", false))) {
-				resourceType = ResourceType.INGOT;
-			} else {
-				resourceType = dataGeneratorConfigurator.getResourceType();
-			}
-			
-			if (type == BlockResourceType.ORE) {
-				model = modLoc("base/block/special/" + resourceType.getName() + "_stone_ore");
-			} else if (type == BlockResourceType.NETHER_ORE) {
-				model = modLoc("base/block/special/" + resourceType.getName() + "_netherrack_nether_ore");
-			} else if (type == BlockResourceType.END_ORE) {
-				model = modLoc("base/block/special/" + resourceType.getName() + "_endstone_end_ore");
-			} else if (type == BlockResourceType.BLOCK) {
-				model = modLoc("base/block/special/" + resourceType.getName() + "_" + type.getName());
-			} else {
-				model = null;
-			}
-		}
-		simpleBlock(block, models().withExistingParent(getPath(block), model));
-	}
-	
 	private void generateBaseModels() {
 		// Basic types
 		
@@ -1396,7 +1367,36 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("particle", mcLoc("block/water_still"));
 	}
 	
-	public void barsBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void resourceTypeBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		
+		final ResourceLocation model;
+		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+			model = baseModel;
+		} else {
+			final ResourceType resourceType;
+			if (ObjectUtil.getBoolean(extraProperties.getOrDefault("ingotModel", false))) {
+				resourceType = ResourceType.INGOT;
+			} else {
+				resourceType = dataGeneratorConfigurator.getResourceType();
+			}
+			
+			if (type == BlockResourceType.ORE) {
+				model = modLoc("base/block/special/" + resourceType.getName() + "_stone_ore");
+			} else if (type == BlockResourceType.NETHER_ORE) {
+				model = modLoc("base/block/special/" + resourceType.getName() + "_netherrack_nether_ore");
+			} else if (type == BlockResourceType.END_ORE) {
+				model = modLoc("base/block/special/" + resourceType.getName() + "_endstone_end_ore");
+			} else if (type == BlockResourceType.BLOCK) {
+				model = modLoc("base/block/special/" + resourceType.getName() + "_" + type.getName());
+			} else {
+				model = null;
+			}
+		}
+		simpleBlock(block, models().withExistingParent(getPath(block), model));
+	}
+	
+	protected void barsBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile postEnds = models().withExistingParent(getPath(block) + "_post_ends", baseModel.toString() + "_post_ends");
 		final ModelFile post = models().withExistingParent(getPath(block) + "_post", baseModel.toString() + "_post");
 		final ModelFile side = models().withExistingParent(getPath(block) + "_side", baseModel.toString() + "_side");
@@ -1417,18 +1417,18 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		builder.part().modelFile(sideAlt).rotationY(90).addModel().condition(FourWayBlock.WEST, true).end();
 	}
 	
-	public void chainBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void chainBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile model = models().withExistingParent(getPath(block), baseModel.toString());
 		axisBlock((RotatedPillarBlock) block, model, model);
 	}
 	
-	public void fenceBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void fenceBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile post = models().withExistingParent(getPath(block) + "_post", baseModel.toString() + "_post");
 		final ModelFile side = models().withExistingParent(getPath(block) + "_side", baseModel.toString() + "_side");
 		fourWayBlock((FourWayBlock) block, post, side);
 	}
 	
-	public void fenceGateBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void fenceGateBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile gate = models().withExistingParent(getPath(block), baseModel.toString());
 		final ModelFile gateOpen = models().withExistingParent(getPath(block) + "_open", baseModel.toString() + "_open");
 		final ModelFile gateWall = models().withExistingParent(getPath(block) + "_wall", baseModel.toString() + "_wall");
@@ -1436,7 +1436,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		fenceGateBlock((FenceGateBlock) block, gate, gateOpen, gateWall, gateWallOpen);
 	}
 	
-	public void doorBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void doorBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile bottomLeft = models().withExistingParent(getPath(block) + "_bottom", baseModel.toString() + "_bottom");
 		final ModelFile bottomRight = models().withExistingParent(getPath(block) + "_bottom_rh", baseModel.toString() + "_bottom_rh");
 		final ModelFile topLeft = models().withExistingParent(getPath(block) + "_top", baseModel.toString() + "_top");
@@ -1445,7 +1445,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		doorBlock((DoorBlock) block, bottomLeft, bottomRight, topLeft, topRight);
 	}
 	
-	public void trapdoorBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void trapdoorBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile bottom = models().withExistingParent(getPath(block) + "_bottom", baseModel.toString() + "_bottom");
 		final ModelFile top = models().withExistingParent(getPath(block) + "_top", baseModel.toString() + "_top");
 		final ModelFile open = models().withExistingParent(getPath(block) + "_open", baseModel.toString() + "_open");
