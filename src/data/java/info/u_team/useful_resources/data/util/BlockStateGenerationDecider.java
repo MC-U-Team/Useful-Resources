@@ -25,8 +25,17 @@ public class BlockStateGenerationDecider<T extends IForgeRegistryEntry<T>> {
 	}
 	
 	public void generate(IResourceType<T> type, T entry, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
+		generate(type, entry, null, configurator, baseState);
+	}
+	
+	public void generate(IResourceType<T> type, T entry, String basePath, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
 		final BlockStateGenerationConsumer<T> consumer = map.get(type);
-		final ResourceLocation baseModel = ModelGenerationUtil.getBaseModel(type, entry, configurator);
+		final ResourceLocation baseModel;
+		if (basePath == null) {
+			baseModel = ModelGenerationUtil.getBaseModel(type, entry, configurator);
+		} else {
+			baseModel = ModelGenerationUtil.getBaseModel(type, basePath, configurator);
+		}
 		if (consumer != null) {
 			consumer.accept(type, entry, baseModel, configurator);
 		} else {
