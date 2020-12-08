@@ -3,6 +3,7 @@ package info.u_team.useful_resources.data.util;
 import java.util.*;
 import java.util.function.Consumer;
 
+import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.IResourceType;
 import net.minecraft.util.ResourceLocation;
@@ -24,11 +25,11 @@ public class ModelGenerationDecider<T extends IForgeRegistryEntry<T>> {
 		map.put(type, consumer);
 	}
 	
-	public void generate(IResourceType<T> type, T entry, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
-		generate(type, entry, null, configurator, baseState);
+	public void generate(IResource resource, IResourceType<T> type, T entry, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
+		generate(resource, type, entry, null, configurator, baseState);
 	}
 	
-	public void generate(IResourceType<T> type, T entry, String basePath, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
+	public void generate(IResource resource, IResourceType<T> type, T entry, String basePath, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
 		final ModelGenerationConsumer<T> consumer = map.get(type);
 		final ResourceLocation baseModel;
 		if (basePath == null) {
@@ -37,7 +38,7 @@ public class ModelGenerationDecider<T extends IForgeRegistryEntry<T>> {
 			baseModel = ModelGenerationUtil.getBaseModel(type, basePath, configurator);
 		}
 		if (consumer != null) {
-			consumer.accept(type, entry, baseModel, configurator);
+			consumer.accept(resource, type, entry, baseModel, configurator);
 		} else {
 			baseState.accept(baseModel);
 		}
@@ -46,7 +47,7 @@ public class ModelGenerationDecider<T extends IForgeRegistryEntry<T>> {
 	@FunctionalInterface
 	public interface ModelGenerationConsumer<T extends IForgeRegistryEntry<T>> {
 		
-		void accept(IResourceType<T> type, T entry, ResourceLocation baseModel, IDataGeneratorConfigurator configurator);
+		void accept(IResource resource, IResourceType<T> type, T entry, ResourceLocation baseModel, IDataGeneratorConfigurator configurator);
 		
 	}
 	

@@ -3,10 +3,13 @@ package info.u_team.useful_resources.data.provider;
 import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.*;
+import info.u_team.useful_resources.api.resource.IResource;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
-import info.u_team.useful_resources.data.util.ModelGenerationUtil;
-import net.minecraft.item.Items;
+import info.u_team.useful_resources.data.util.*;
+import net.minecraft.item.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 
@@ -33,25 +36,37 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 			});
 		});
 		
-		GenerationResources.forEach(resource -> {
-			resource.iterateRegistryItems((type, item) -> {
-				if (type == ItemResourceType.MOLTEN_BUCKET) {
-					generatedModels.computeIfAbsent(modLoc("item/" + getPath(item)), location -> new ItemModelBuilder(location, existingFileHelper) {
-						
-						@Override
-						public JsonObject toJson() {
-							final JsonObject root = new JsonObject();
-							root.addProperty("parent", "forge:item/bucket_drip");
-							root.addProperty("loader", "forge:bucket");
-							root.addProperty("fluid", resource.getFluids().get(FluidResourceType.MOLTEN).get().getRegistryName().toString());
-							return root;
-						}
-					});
-				} else {
-					withExistingParent(getPath(item), ModelGenerationUtil.getBaseModel(type, item, resource.getDataGeneratorConfigurator()));
-				}
+		final ModelGenerationDecider<Item> generationDeciderItems = ModelGenerationDecider.create();
+		
+		generationDeciderItems.addSpecial(ItemResourceType.MOLTEN_BUCKET, this::moltenBucket);
+		
+		GenerationResources.forEachItem((resource, type, item) -> {
+			generationDeciderItems.generate(resource, type, item, resource.getDataGeneratorConfigurator(), baseModel -> {
+				withExistingParent(getPath(item), baseModel);
 			});
 		});
+		
+		// GenerationResources.forEach(resource -> {
+		// resource.iterateRegistryItems((type, item) -> {
+		// if (type == ItemResourceType.MOLTEN_BUCKET) {
+		// generatedModels.computeIfAbsent(modLoc("item/" + getPath(item)), location -> new ItemModelBuilder(location,
+		// existingFileHelper) {
+		//
+		// @Override
+		// public JsonObject toJson() {
+		// final JsonObject root = new JsonObject();
+		// root.addProperty("parent", "forge:item/bucket_drip");
+		// root.addProperty("loader", "forge:bucket");
+		// root.addProperty("fluid", resource.getFluids().get(FluidResourceType.MOLTEN).get().getRegistryName().toString());
+		// return root;
+		// }
+		// });
+		// } else {
+		// withExistingParent(getPath(item), ModelGenerationUtil.getBaseModel(type, item,
+		// resource.getDataGeneratorConfigurator()));
+		// }
+		// });
+		// });
 	}
 	
 	// private ResourceLocation getBaseModel(ItemResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
@@ -214,4 +229,17 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		getBuilder("base/item/special/trapdoor").parent(new UncheckedModelFile(modLoc("base/block/special/trapdoor_bottom")));
 	}
 	
+	public void moltenBucket(IResource resource, IResourceType<Item> type, Item item, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		generatedModels.computeIfAbsent(modLoc("item/" + getPath(item)), location -> new ItemModelBuilder(location, existingFileHelper) {
+			
+			@Override
+			public JsonObject toJson() {
+				final JsonObject root = new JsonObject();
+				root.addProperty("parent", "forge:item/bucket_drip");
+				root.addProperty("loader", "forge:bucket");
+				root.addProperty("fluid", resource.getFluids().get(FluidResourceType.MOLTEN).get().getRegistryName().toString());
+				return root;
+			}
+		});
+	}
 }
