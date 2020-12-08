@@ -14,13 +14,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 public class ModelGenerationUtil {
 	
 	public static <T extends IForgeRegistryEntry<T>> ResourceLocation getBaseModel(IResourceType<T> type, T entry, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
-		final String name;
-		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
-			name = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
-		} else {
-			name = type.getName();
-		}
 		final String basePath;
 		if (entry instanceof Block) {
 			basePath = "block";
@@ -28,6 +21,17 @@ public class ModelGenerationUtil {
 			basePath = "item";
 		} else {
 			basePath = "general";
+		}
+		return getBaseModel(type, basePath, dataGeneratorConfigurator);
+	}
+	
+	public static <T extends IForgeRegistryEntry<T>> ResourceLocation getBaseModel(IResourceType<T> type, String basePath, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		final String name;
+		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+			name = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
+		} else {
+			name = type.getName();
 		}
 		return new ResourceLocation(UsefulResourcesMod.MODID, "base/" + basePath + "/special/" + name);
 	}
