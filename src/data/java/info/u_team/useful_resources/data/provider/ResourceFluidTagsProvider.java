@@ -13,6 +13,7 @@ public class ResourceFluidTagsProvider extends CommonFluidTagsProvider {
 	
 	@Override
 	protected void registerTags() {
+		// Generate the basic forge and forge unify tags
 		TagGenerationResources.forEachFluid((resource, type, fluid) -> forgeTags(this::getBuilder, resource, type, fluid));
 	}
 }

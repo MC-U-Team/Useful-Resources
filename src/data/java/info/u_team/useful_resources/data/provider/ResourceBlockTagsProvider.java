@@ -19,14 +19,15 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 	
 	@Override
 	protected void registerTags() {
+		// Generate the basic forge and forge unify tags
 		TagGenerationResources.forEachBlock((resource, type, block) -> forgeTags(this::getBuilder, resource, type, block));
 		
+		// Generate more common tags
 		TagGenerationResources.forEach(resource -> {
-			// Add stone, nether and end ores to the ore tags
 			moreCommonTags(resource.getBlocks(), this::getBuilder, TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 		});
 		
-		// Add vanilla blocks to the right tags
+		// Add existing vanilla blocks to the right tags
 		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.ORE, Blocks.IRON_ORE);
 		forgeTags(this::getBuilder, Resources.GOLD, BlockResourceType.ORE, Blocks.GOLD_ORE);
 		forgeTags(this::getBuilder, Resources.GOLD, BlockResourceType.NETHER_ORE, Blocks.NETHER_GOLD_ORE);
@@ -41,7 +42,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.DOOR, Blocks.IRON_DOOR);
 		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.TRAPDOOR, Blocks.IRON_TRAPDOOR);
 		
-		// Add to vanilla tags
+		// Add to the existing vanilla tags
 		TagGenerationResources.forEach(resource -> {
 			conditionTags(resource.getBlocks(), this::getBuilder, BlockResourceType.FENCE, BlockTags.FENCES);
 			conditionTags(resource.getBlocks(), this::getBuilder, BlockResourceType.FENCE_GATE, BlockTags.FENCE_GATES);
