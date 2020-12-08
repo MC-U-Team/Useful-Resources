@@ -51,7 +51,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		// Add vanilla items to the right tags
 		forgeTags(this::getBuilder, Resources.COAL, ItemResourceType.GEM, Items.COAL);
 		
-		// Copy vanilla tags
+		// Add to vanilla tags
 		copy(BlockTags.FENCES, ItemTags.FENCES);
 		copy(BlockTags.DOORS, ItemTags.DOORS);
 		copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
