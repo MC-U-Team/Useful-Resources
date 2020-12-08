@@ -67,4 +67,14 @@ public class TagGenerationUtil {
 			builderFunction.apply(tag).add(entries.get(type).get());
 		}
 	}
+	
+	@SafeVarargs
+	public static <T extends IForgeRegistryEntry<T>> void moreCommonUnifyTags(Function<INamedTag<T>, BetterBuilder<T>> builderFunction, Function<ResourceLocation, INamedTag<T>> tagFunction, ResourceLocation baseTag, IResourceType<T>... types) {
+		final BetterBuilder<T> builder = builderFunction.apply(tagFunction.apply(baseTag));
+		for (final IResourceType<T> type : types) {
+			if (type.hasUnifyTag()) {
+				builder.add(type.getUnifyTag());
+			}
+		}
+	}
 }
