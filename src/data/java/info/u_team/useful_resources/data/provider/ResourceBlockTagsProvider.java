@@ -30,8 +30,6 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 			moreCommonTags(resource.getBlocks(), this::getBuilder, TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 		});
 		
-		// Special tags
-		
 		// Add vanilla blocks to the right tags
 		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.ORE, Blocks.IRON_ORE);
 		forgeTags(this::getBuilder, Resources.GOLD, BlockResourceType.ORE, Blocks.GOLD_ORE);
@@ -48,7 +46,6 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.TRAPDOOR, Blocks.IRON_TRAPDOOR);
 		
 		// Add to vanilla tags
-		
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE, BlockTags.FENCES);
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE_GATE, BlockTags.FENCE_GATES);
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.DOOR, BlockTags.DOORS);

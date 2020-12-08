@@ -33,8 +33,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
 		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
 		
-		// Special tags
-		
 		// Add vanilla blocks to the right tags
 		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.ORE);
 		forgeTagsCopy(this::copy, Resources.GOLD, BlockResourceType.ORE);
@@ -50,10 +48,10 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.DOOR);
 		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.TRAPDOOR);
 		
-		// Add coal to the coal gem tag
+		// Add vanilla items to the right tags
 		forgeTags(this::getBuilder, Resources.COAL, ItemResourceType.GEM, Items.COAL);
 		
-		// Add fence and doors to the vanilla tags
+		// Copy vanilla tags
 		copy(BlockTags.FENCES, ItemTags.FENCES);
 		copy(BlockTags.DOORS, ItemTags.DOORS);
 		copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
