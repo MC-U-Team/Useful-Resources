@@ -3,11 +3,10 @@ package info.u_team.useful_resources.data.provider;
 import static info.u_team.useful_resources.data.util.TagGenerationUtil.*;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.u_team_core.util.*;
+import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
-import info.u_team.useful_resources.data.util.TagGenerationUtil;
 import info.u_team.useful_resources.resources.Resources;
 import net.minecraft.item.*;
 import net.minecraft.tags.*;
@@ -27,10 +26,10 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		
 		TagGenerationResources.forEach(resource -> {
 			// Add stone, nether and end ores to the ore tags
-			addMoreCommonTagCopy(resource, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
+			addMoreCommonTagCopy(this::copy, resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 			
 			// Add crushed stone, nether and end ores to the crushed ore tags
-			TagGenerationUtil.addMoreCommonTag(resource.getItems(), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
+			addMoreCommonTag(resource.getItems(), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
 		
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
@@ -60,14 +59,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		copy(BlockTags.FENCES, ItemTags.FENCES);
 		copy(BlockTags.DOORS, ItemTags.DOORS);
 		copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
-	}
-	
-	private void addMoreCommonTagCopy(IResource resource, BlockResourceType type, ResourceLocation baseTag) {
-		final String specialTagName = baseTag.getPath() + "/" + resource.getName();
-		if (resource.getBlocks().containsKey(type)) {
-			copy(TagUtil.createBlockTag(baseTag.getNamespace(), specialTagName), TagUtil.createItemTag(baseTag.getNamespace(), specialTagName));
-		}
-		copy(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 	}
 	
 	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
