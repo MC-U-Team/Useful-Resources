@@ -27,7 +27,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		// Generate more common tags
 		TagGenerationResources.forEach(resource -> {
 			moreCommonTagsCopy(this::copy, resource, new ResourceLocation("forge", "ores"), ORE, NETHER_ORE, END_ORE);
-			moreCommonTags(resource.getItems(), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), CRUSHED_ORE, CRUSHED_NETHER_ORE, CRUSHED_END_ORE);
+			moreCommonTags(this::getBuilder, resource.getItems(), TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), CRUSHED_ORE, CRUSHED_NETHER_ORE, CRUSHED_END_ORE);
 		});
 		
 		// Generate more common unify tags

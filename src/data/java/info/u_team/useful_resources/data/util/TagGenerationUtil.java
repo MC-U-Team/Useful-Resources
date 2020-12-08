@@ -19,27 +19,27 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class TagGenerationUtil {
 	
-	public static <T extends IForgeRegistryEntry<T>> void forgeTags(Function<INamedTag<T>, BetterBuilder<T>> function, IResource resource, IResourceType<T> type, T entry) {
+	public static <T extends IForgeRegistryEntry<T>> void forgeTags(Function<INamedTag<T>, BetterBuilder<T>> builderFunction, IResource resource, IResourceType<T> type, T entry) {
 		if (type.hasTag()) {
 			final INamedTag<T> tag = type.getTag(resource);
-			function.apply(tag).add(entry);
+			builderFunction.apply(tag).add(entry);
 			if (type.hasUnifyTag()) {
-				function.apply(type.getUnifyTag()).add(tag);
+				builderFunction.apply(type.getUnifyTag()).add(tag);
 			}
 		}
 	}
 	
-	public static void forgeTagsCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> consumer, IResource resource, IResourceType<Block> type) {
+	public static void forgeTagsCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> copyConsumer, IResource resource, IResourceType<Block> type) {
 		if (type.hasTag()) {
-			consumer.accept(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
+			copyConsumer.accept(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
 		}
 		if (type.hasUnifyTag()) {
-			consumer.accept(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
+			copyConsumer.accept(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 		}
 	}
 	
 	@SafeVarargs
-	public static <T extends IForgeRegistryEntry<T>> void moreCommonTags(Map<? extends IResourceType<T>, RegistryEntry<T>> entries, Function<INamedTag<T>, BetterBuilder<T>> builderFunction, Function<ResourceLocation, INamedTag<T>> tagFunction, IResource resource, ResourceLocation baseTag, IResourceType<T>... types) {
+	public static <T extends IForgeRegistryEntry<T>> void moreCommonTags(Function<INamedTag<T>, BetterBuilder<T>> builderFunction, Map<? extends IResourceType<T>, RegistryEntry<T>> entries, Function<ResourceLocation, INamedTag<T>> tagFunction, IResource resource, ResourceLocation baseTag, IResourceType<T>... types) {
 		final Map<IResourceType<T>, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> entries.containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final ResourceLocation specialTagName = new ResourceLocation(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
@@ -53,16 +53,16 @@ public class TagGenerationUtil {
 	}
 	
 	@SafeVarargs
-	public static void moreCommonTagsCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> consumer, IResource resource, ResourceLocation baseTag, IResourceType<Block>... types) {
+	public static void moreCommonTagsCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> copyConsumer, IResource resource, ResourceLocation baseTag, IResourceType<Block>... types) {
 		final Map<IResourceType<Block>, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
 		if (hasType.containsValue(true)) {
 			final ResourceLocation specialTagName = new ResourceLocation(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
-			consumer.accept(TagUtil.createBlockTag(specialTagName), TagUtil.createItemTag(specialTagName));
-			consumer.accept(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
+			copyConsumer.accept(TagUtil.createBlockTag(specialTagName), TagUtil.createItemTag(specialTagName));
+			copyConsumer.accept(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 		}
 	}
 	
-	public static <T extends IForgeRegistryEntry<T>> void conditionTags(Map<? extends IResourceType<T>, RegistryEntry<T>> entries, Function<INamedTag<T>, BetterBuilder<T>> builderFunction, IResourceType<T> type, INamedTag<T> tag) {
+	public static <T extends IForgeRegistryEntry<T>> void conditionTags(Function<INamedTag<T>, BetterBuilder<T>> builderFunction, Map<? extends IResourceType<T>, RegistryEntry<T>> entries, IResourceType<T> type, INamedTag<T> tag) {
 		if (entries.containsKey(type)) {
 			builderFunction.apply(tag).add(entries.get(type).get());
 		}

@@ -24,7 +24,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		
 		// Generate more common tags
 		TagGenerationResources.forEach(resource -> {
-			moreCommonTags(resource.getBlocks(), this::getBuilder, TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), ORE, NETHER_ORE, END_ORE);
+			moreCommonTags(this::getBuilder, resource.getBlocks(), TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), ORE, NETHER_ORE, END_ORE);
 		});
 		
 		// Add existing vanilla blocks to the right tags
@@ -44,10 +44,10 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		
 		// Add to the existing vanilla tags
 		TagGenerationResources.forEach(resource -> {
-			conditionTags(resource.getBlocks(), this::getBuilder, FENCE, BlockTags.FENCES);
-			conditionTags(resource.getBlocks(), this::getBuilder, FENCE_GATE, BlockTags.FENCE_GATES);
-			conditionTags(resource.getBlocks(), this::getBuilder, DOOR, BlockTags.DOORS);
-			conditionTags(resource.getBlocks(), this::getBuilder, TRAPDOOR, BlockTags.TRAPDOORS);
+			conditionTags(this::getBuilder, resource.getBlocks(), FENCE, BlockTags.FENCES);
+			conditionTags(this::getBuilder, resource.getBlocks(), FENCE_GATE, BlockTags.FENCE_GATES);
+			conditionTags(this::getBuilder, resource.getBlocks(), DOOR, BlockTags.DOORS);
+			conditionTags(this::getBuilder, resource.getBlocks(), TRAPDOOR, BlockTags.TRAPDOORS);
 		});
 	}
 }
