@@ -61,4 +61,10 @@ public class TagGenerationUtil {
 			consumer.accept(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 		}
 	}
+	
+	public static <T extends IForgeRegistryEntry<T>> void conditionTags(Map<? extends IResourceType<T>, RegistryEntry<T>> entries, Function<INamedTag<T>, BetterBuilder<T>> builderFunction, IResourceType<T> type, INamedTag<T> tag) {
+		if (entries.containsKey(type)) {
+			builderFunction.apply(tag).add(entries.get(type).get());
+		}
+	}
 }
