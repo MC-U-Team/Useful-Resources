@@ -1,16 +1,12 @@
 package info.u_team.useful_resources.data.provider;
 
-import java.util.Map;
-
 import com.google.gson.JsonObject;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
-import info.u_team.useful_resources.util.ObjectUtil;
+import info.u_team.useful_resources.data.util.ModelGenerationUtil;
 import net.minecraft.item.Items;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile.UncheckedModelFile;
 
@@ -30,7 +26,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 					return;
 				}
 				if (type == BlockResourceType.BARS || type == BlockResourceType.CHAIN || type == BlockResourceType.FENCE || type == BlockResourceType.DOOR || type == BlockResourceType.TRAPDOOR) {
-					withExistingParent(getPath(block), getBaseModel(type, resource.getDataGeneratorConfigurator()));
+					withExistingParent(getPath(block), ModelGenerationUtil.getBaseModel(type, "item", resource.getDataGeneratorConfigurator()));
 				} else {
 					simpleBlock(block);
 				}
@@ -52,33 +48,33 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 						}
 					});
 				} else {
-					withExistingParent(getPath(item), getBaseModel(type, resource.getDataGeneratorConfigurator()));
+					withExistingParent(getPath(item), ModelGenerationUtil.getBaseModel(type, item, resource.getDataGeneratorConfigurator()));
 				}
 			});
 		});
 	}
 	
-	private ResourceLocation getBaseModel(ItemResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
-		final String baseModel;
-		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
-			baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
-		} else {
-			baseModel = type.getName();
-		}
-		return modLoc("base/item/special/" + baseModel);
-	}
-	
-	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
-		final String baseModel;
-		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
-			baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
-		} else {
-			baseModel = type.getName();
-		}
-		return modLoc("base/item/special/" + baseModel);
-	}
+	// private ResourceLocation getBaseModel(ItemResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	// final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+	// final String baseModel;
+	// if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+	// baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
+	// } else {
+	// baseModel = type.getName();
+	// }
+	// return modLoc("base/item/special/" + baseModel);
+	// }
+	//
+	// private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	// final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+	// final String baseModel;
+	// if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
+	// baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
+	// } else {
+	// baseModel = type.getName();
+	// }
+	// return modLoc("base/item/special/" + baseModel);
+	// }
 	
 	private void generateBaseModels() {
 		// Basic types
