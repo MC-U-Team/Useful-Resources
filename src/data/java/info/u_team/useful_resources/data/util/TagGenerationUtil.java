@@ -61,5 +61,4 @@ public class TagGenerationUtil {
 			consumer.accept(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
 		}
 	}
-	
 }
