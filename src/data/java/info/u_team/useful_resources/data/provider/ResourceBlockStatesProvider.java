@@ -24,8 +24,10 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	
 	@Override
 	protected void registerStatesAndModels() {
+		// Generate base models
 		generateBaseModels();
 		
+		// Define special model generation
 		final ModelGenerationDecider<Block> generationDecider = ModelGenerationDecider.create();
 		
 		generationDecider.addSpecial(BlockResourceType.ORE, this::resourceTypeBlock);
@@ -40,6 +42,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		generationDecider.addSpecial(BlockResourceType.DOOR, this::doorBlock);
 		generationDecider.addSpecial(BlockResourceType.TRAPDOOR, this::trapdoorBlock);
 		
+		// Generate states and models
 		GenerationResources.forEachBlock((resource, type, block) -> {
 			generationDecider.generate(resource, type, block, resource.getDataGeneratorConfigurator(), baseModel -> {
 				simpleBlock(block, models().withExistingParent(getPath(block), baseModel));

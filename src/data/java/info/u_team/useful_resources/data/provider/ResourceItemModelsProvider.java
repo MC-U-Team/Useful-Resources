@@ -22,8 +22,10 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 	
 	@Override
 	protected void registerModels() {
+		// Generate base models
 		generateBaseModels();
 		
+		// Define special block model generation
 		final ModelGenerationDecider<Block> generationDeciderBlocks = ModelGenerationDecider.create();
 		
 		generationDeciderBlocks.addSpecial(BlockResourceType.BARS, this::blockItemModels);
@@ -32,6 +34,7 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 		generationDeciderBlocks.addSpecial(BlockResourceType.DOOR, this::blockItemModels);
 		generationDeciderBlocks.addSpecial(BlockResourceType.TRAPDOOR, this::blockItemModels);
 		
+		// Generate block item models
 		GenerationResources.forEachBlock((resource, type, block) -> {
 			if (block.asItem() == Items.AIR) {
 				return;
@@ -41,10 +44,12 @@ public class ResourceItemModelsProvider extends CommonItemModelsProvider {
 			});
 		});
 		
+		// Define special item model generation
 		final ModelGenerationDecider<Item> generationDeciderItems = ModelGenerationDecider.create();
 		
 		generationDeciderItems.addSpecial(ItemResourceType.MOLTEN_BUCKET, this::moltenBucket);
 		
+		// Generate item models
 		GenerationResources.forEachItem((resource, type, item) -> {
 			generationDeciderItems.generate(resource, type, item, resource.getDataGeneratorConfigurator(), baseModel -> {
 				withExistingParent(getPath(item), baseModel);
