@@ -2,18 +2,15 @@ package info.u_team.useful_resources.data.provider;
 
 import static info.u_team.useful_resources.data.util.TagGenerationUtil.forgeTags;
 
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.function.Function;
-import java.util.stream.Stream;
+import java.util.Collection;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.u_team_core.util.TagUtil;
+import info.u_team.u_team_core.util.*;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
+import info.u_team.useful_resources.data.util.TagGenerationUtil;
 import info.u_team.useful_resources.resources.Resources;
-import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.block.*;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag.INamedTag;
@@ -31,7 +28,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		
 		TagGenerationResources.forEach(resource -> {
 			// Add stone, nether and end ores to the ore tags
-			addMoreCommonTag(resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
+			TagGenerationUtil.addMoreCommonTag(CastUtil.uncheckedCast(resource.getBlocks()), this::getBuilder, TagUtil::createBlockTag, resource, new ResourceLocation("forge", "ores"), BlockResourceType.ORE, BlockResourceType.NETHER_ORE, BlockResourceType.END_ORE);
 		});
 		
 		// Special tags
@@ -57,18 +54,6 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE_GATE, BlockTags.FENCE_GATES);
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.DOOR, BlockTags.DOORS);
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.TRAPDOOR, BlockTags.TRAPDOORS);
-	}
-	
-	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, BlockResourceType... types) {
-		final Map<BlockResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getBlocks().containsKey(type)));
-		if (hasType.containsValue(true)) {
-			final INamedTag<Block> tag = TagUtil.createBlockTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
-			final BetterBuilder<Block> builder = getBuilder(tag);
-			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
-				builder.add(type.getTag(resource));
-			});
-			getBuilder(TagUtil.createBlockTag(baseTag)).add(tag);
-		}
 	}
 	
 	private void addBlockTag(BlockResourceType type, IResource resource, Block block) {

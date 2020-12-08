@@ -2,18 +2,13 @@ package info.u_team.useful_resources.data.provider;
 
 import static info.u_team.useful_resources.data.util.TagGenerationUtil.*;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.function.Function;
-import java.util.stream.Stream;
-
 import info.u_team.u_team_core.data.*;
-import info.u_team.u_team_core.util.TagUtil;
+import info.u_team.u_team_core.util.*;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
+import info.u_team.useful_resources.data.util.TagGenerationUtil;
 import info.u_team.useful_resources.resources.Resources;
-import info.u_team.useful_resources.util.MoreCollectors;
 import net.minecraft.item.*;
 import net.minecraft.tags.*;
 import net.minecraft.tags.ITag.INamedTag;
@@ -27,17 +22,16 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
 	@Override
 	protected void registerTags() {
+		TagGenerationResources.forEachBlock((resource, type, block) -> forgeTagsCopy(this::copy, resource, type, block));
+		TagGenerationResources.forEachItem((resource, type, item) -> forgeTags(this::getBuilder, resource, type, item));
+		
 		TagGenerationResources.forEach(resource -> {
 			// Add stone, nether and end ores to the ore tags
 			addMoreCommonTagCopy(resource, BlockResourceType.ORE, new ResourceLocation("forge", "ores"));
 			
 			// Add crushed stone, nether and end ores to the crushed ore tags
-			addMoreCommonTag(resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
+			TagGenerationUtil.addMoreCommonTag(CastUtil.uncheckedCast(resource.getItems()), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
-		
-		TagGenerationResources.forEachBlock((resource, type, block) -> forgeTagsCopy(this::copy, resource, type, block));
-		
-		TagGenerationResources.forEachItem((resource, type, item) -> forgeTags(this::getBuilder, resource, type, item));
 		
 		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
 		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
@@ -74,18 +68,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			copy(TagUtil.createBlockTag(baseTag.getNamespace(), specialTagName), TagUtil.createItemTag(baseTag.getNamespace(), specialTagName));
 		}
 		copy(TagUtil.createBlockTag(baseTag), TagUtil.createItemTag(baseTag));
-	}
-	
-	private void addMoreCommonTag(IResource resource, ResourceLocation baseTag, ItemResourceType... types) {
-		final Map<ItemResourceType, Boolean> hasType = Stream.of(types).collect(MoreCollectors.toLinkedMap(Function.identity(), type -> resource.getItems().containsKey(type)));
-		if (hasType.containsValue(true)) {
-			final INamedTag<Item> tag = TagUtil.createItemTag(baseTag.getNamespace(), baseTag.getPath() + "/" + resource.getName());
-			final BetterBuilder<Item> builder = getBuilder(tag);
-			hasType.entrySet().stream().filter(entry -> entry.getValue().equals(true)).map(Entry::getKey).forEach(type -> {
-				builder.add(type.getTag(resource));
-			});
-			getBuilder(TagUtil.createItemTag(baseTag)).add(tag);
-		}
 	}
 	
 	private void addItemTag(ItemResourceType type, IResource resource, Item item) {
