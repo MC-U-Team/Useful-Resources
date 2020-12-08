@@ -7,7 +7,7 @@ import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
-import info.u_team.useful_resources.data.util.BlockStateGenerationDecider;
+import info.u_team.useful_resources.data.util.ModelGenerationDecider;
 import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
@@ -25,7 +25,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	protected void registerStatesAndModels() {
 		generateBaseModels();
 		
-		final BlockStateGenerationDecider<Block> generationDecider = BlockStateGenerationDecider.create();
+		final ModelGenerationDecider<Block> generationDecider = ModelGenerationDecider.create();
 		
 		generationDecider.addSpecial(BlockResourceType.ORE, this::resourceTypeBlock);
 		generationDecider.addSpecial(BlockResourceType.NETHER_ORE, this::resourceTypeBlock);

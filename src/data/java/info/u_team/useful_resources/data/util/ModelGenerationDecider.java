@@ -8,19 +8,19 @@ import info.u_team.useful_resources.api.type.IResourceType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-public class BlockStateGenerationDecider<T extends IForgeRegistryEntry<T>> {
+public class ModelGenerationDecider<T extends IForgeRegistryEntry<T>> {
 	
-	public static <T extends IForgeRegistryEntry<T>> BlockStateGenerationDecider<T> create() {
-		return new BlockStateGenerationDecider<T>();
+	public static <T extends IForgeRegistryEntry<T>> ModelGenerationDecider<T> create() {
+		return new ModelGenerationDecider<T>();
 	}
 	
-	private final Map<IResourceType<T>, BlockStateGenerationConsumer<T>> map;
+	private final Map<IResourceType<T>, ModelGenerationConsumer<T>> map;
 	
-	protected BlockStateGenerationDecider() {
+	protected ModelGenerationDecider() {
 		map = new LinkedHashMap<>();
 	}
 	
-	public void addSpecial(IResourceType<T> type, BlockStateGenerationConsumer<T> consumer) {
+	public void addSpecial(IResourceType<T> type, ModelGenerationConsumer<T> consumer) {
 		map.put(type, consumer);
 	}
 	
@@ -29,7 +29,7 @@ public class BlockStateGenerationDecider<T extends IForgeRegistryEntry<T>> {
 	}
 	
 	public void generate(IResourceType<T> type, T entry, String basePath, IDataGeneratorConfigurator configurator, Consumer<ResourceLocation> baseState) {
-		final BlockStateGenerationConsumer<T> consumer = map.get(type);
+		final ModelGenerationConsumer<T> consumer = map.get(type);
 		final ResourceLocation baseModel;
 		if (basePath == null) {
 			baseModel = ModelGenerationUtil.getBaseModel(type, entry, configurator);
@@ -42,4 +42,12 @@ public class BlockStateGenerationDecider<T extends IForgeRegistryEntry<T>> {
 			baseState.accept(baseModel);
 		}
 	}
+	
+	@FunctionalInterface
+	public interface ModelGenerationConsumer<T extends IForgeRegistryEntry<T>> {
+		
+		void accept(IResourceType<T> type, T entry, ResourceLocation baseModel, IDataGeneratorConfigurator configurator);
+		
+	}
+	
 }
