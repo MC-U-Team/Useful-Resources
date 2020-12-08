@@ -4,13 +4,16 @@ import java.util.Map;
 
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
-import info.u_team.useful_resources.api.type.*;
+import info.u_team.useful_resources.api.type.IResourceType;
 import info.u_team.useful_resources.util.ObjectUtil;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class ModelGenerationUtil {
 	
-	public static ResourceLocation getBaseModel(IResourceType<?> type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	public static <T extends IForgeRegistryEntry<T>> ResourceLocation getBaseModel(IResourceType<T> type, T entry, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
 		final String name;
 		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
@@ -18,7 +21,15 @@ public class ModelGenerationUtil {
 		} else {
 			name = type.getName();
 		}
-		return new ResourceLocation(UsefulResourcesMod.MODID, "base/item/special/" + name);
+		final String basePath;
+		if (entry instanceof Block) {
+			basePath = "block";
+		} else if (entry instanceof Item) {
+			basePath = "item";
+		} else {
+			basePath = "general";
+		}
+		return new ResourceLocation(UsefulResourcesMod.MODID, "base/" + basePath + "/special/" + name);
 	}
 	
 }
