@@ -33,19 +33,19 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		// Special tags
 		
 		// Add vanilla blocks to the right tags
-		addBlockTag(BlockResourceType.ORE, Resources.IRON, Blocks.IRON_ORE);
-		addBlockTag(BlockResourceType.ORE, Resources.GOLD, Blocks.GOLD_ORE);
-		addBlockTag(BlockResourceType.NETHER_ORE, Resources.GOLD, Blocks.NETHER_GOLD_ORE);
-		addBlockTag(BlockResourceType.ORE, Resources.DIAMOND, Blocks.DIAMOND_ORE);
-		addBlockTag(BlockResourceType.ORE, Resources.EMERALD, Blocks.EMERALD_ORE);
-		addBlockTag(BlockResourceType.ORE, Resources.LAPIS, Blocks.LAPIS_ORE);
-		addBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ, Blocks.NETHER_QUARTZ_ORE);
-		addBlockTag(BlockResourceType.ORE, Resources.COAL, Blocks.COAL_ORE);
-		addBlockTag(BlockResourceType.ORE, Resources.REDSTONE, Blocks.REDSTONE_ORE);
-		addBlockTag(BlockResourceType.BARS, Resources.IRON, Blocks.IRON_BARS);
-		addBlockTag(BlockResourceType.CHAIN, Resources.IRON, Blocks.CHAIN);
-		addBlockTag(BlockResourceType.DOOR, Resources.IRON, Blocks.IRON_DOOR);
-		addBlockTag(BlockResourceType.TRAPDOOR, Resources.IRON, Blocks.IRON_TRAPDOOR);
+		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.ORE, Blocks.IRON_ORE);
+		forgeTags(this::getBuilder, Resources.GOLD, BlockResourceType.ORE, Blocks.GOLD_ORE);
+		forgeTags(this::getBuilder, Resources.GOLD, BlockResourceType.NETHER_ORE, Blocks.NETHER_GOLD_ORE);
+		forgeTags(this::getBuilder, Resources.DIAMOND, BlockResourceType.ORE, Blocks.DIAMOND_ORE);
+		forgeTags(this::getBuilder, Resources.EMERALD, BlockResourceType.ORE, Blocks.EMERALD_ORE);
+		forgeTags(this::getBuilder, Resources.LAPIS, BlockResourceType.ORE, Blocks.LAPIS_ORE);
+		forgeTags(this::getBuilder, Resources.QUARTZ, BlockResourceType.NETHER_ORE, Blocks.NETHER_QUARTZ_ORE);
+		forgeTags(this::getBuilder, Resources.COAL, BlockResourceType.ORE, Blocks.COAL_ORE);
+		forgeTags(this::getBuilder, Resources.REDSTONE, BlockResourceType.ORE, Blocks.REDSTONE_ORE);
+		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.BARS, Blocks.IRON_BARS);
+		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.CHAIN, Blocks.CHAIN);
+		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.DOOR, Blocks.IRON_DOOR);
+		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.TRAPDOOR, Blocks.IRON_TRAPDOOR);
 		
 		// Add to vanilla tags
 		
@@ -55,11 +55,11 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.TRAPDOOR, BlockTags.TRAPDOORS);
 	}
 	
-	private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
-		final INamedTag<Block> tag = type.getTag(resource);
-		getBuilder(tag).add(block);
-		getBuilder(type.getUnifyTag()).add(tag);
-	}
+	// private void addBlockTag(BlockResourceType type, IResource resource, Block block) {
+	// final INamedTag<Block> tag = type.getTag(resource);
+	// getBuilder(tag).add(block);
+	// getBuilder(type.getUnifyTag()).add(tag);
+	// }
 	
 	private void addToVanillaTag(Collection<IResource> resources, BlockResourceType type, INamedTag<Block> tag) {
 		resources.stream() //

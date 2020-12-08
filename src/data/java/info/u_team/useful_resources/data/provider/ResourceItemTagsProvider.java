@@ -21,7 +21,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 	
 	@Override
 	protected void registerTags() {
-		TagGenerationResources.forEachBlock((resource, type, block) -> forgeTagsCopy(this::copy, resource, type, block));
+		TagGenerationResources.forEachBlock((resource, type, block) -> forgeTagsCopy(this::copy, resource, type));
 		TagGenerationResources.forEachItem((resource, type, item) -> forgeTags(this::getBuilder, resource, type, item));
 		
 		TagGenerationResources.forEach(resource -> {
@@ -38,19 +38,19 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		// Special tags
 		
 		// Add vanilla blocks to the right tags
-		copyBlockTag(BlockResourceType.ORE, Resources.IRON);
-		copyBlockTag(BlockResourceType.ORE, Resources.GOLD);
-		copyBlockTag(BlockResourceType.NETHER_ORE, Resources.GOLD);
-		copyBlockTag(BlockResourceType.ORE, Resources.DIAMOND);
-		copyBlockTag(BlockResourceType.ORE, Resources.EMERALD);
-		copyBlockTag(BlockResourceType.ORE, Resources.LAPIS);
-		copyBlockTag(BlockResourceType.NETHER_ORE, Resources.QUARTZ);
-		copyBlockTag(BlockResourceType.ORE, Resources.COAL);
-		copyBlockTag(BlockResourceType.ORE, Resources.REDSTONE);
-		copyBlockTag(BlockResourceType.BARS, Resources.IRON);
-		copyBlockTag(BlockResourceType.CHAIN, Resources.IRON);
-		copyBlockTag(BlockResourceType.DOOR, Resources.IRON);
-		copyBlockTag(BlockResourceType.TRAPDOOR, Resources.IRON);
+		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.GOLD, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.GOLD, BlockResourceType.NETHER_ORE);
+		forgeTagsCopy(this::copy, Resources.DIAMOND, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.EMERALD, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.LAPIS, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.QUARTZ, BlockResourceType.NETHER_ORE);
+		forgeTagsCopy(this::copy, Resources.COAL, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.REDSTONE, BlockResourceType.ORE);
+		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.BARS);
+		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.CHAIN);
+		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.DOOR);
+		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.TRAPDOOR);
 		
 		// Add coal to the coal gem tag
 		addItemTag(ItemResourceType.GEM, Resources.COAL, Items.COAL);
@@ -65,11 +65,6 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		final INamedTag<Item> tag = type.getTag(resource);
 		getBuilder(tag).add(item);
 		getBuilder(type.getUnifyTag()).add(tag);
-	}
-	
-	private void copyBlockTag(BlockResourceType type, IResource resource) {
-		copy(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
-		copy(type.getUnifyTag(), TagUtil.fromBlockTag(type.getUnifyTag()));
 	}
 	
 }

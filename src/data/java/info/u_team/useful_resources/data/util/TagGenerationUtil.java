@@ -29,7 +29,7 @@ public class TagGenerationUtil {
 		}
 	}
 	
-	public static void forgeTagsCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> consumer, IResource resource, IResourceType<Block> type, Block block) {
+	public static void forgeTagsCopy(BiConsumer<INamedTag<Block>, INamedTag<Item>> consumer, IResource resource, IResourceType<Block> type) {
 		if (type.hasTag()) {
 			consumer.accept(type.getTag(resource), TagUtil.fromBlockTag(type.getTag(resource)));
 		}
