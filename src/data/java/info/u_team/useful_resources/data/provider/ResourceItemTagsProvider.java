@@ -30,8 +30,8 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 			moreCommonTags(resource.getItems(), this::getBuilder, TagUtil::createItemTag, resource, new ResourceLocation("forge", "crushed_ores"), ItemResourceType.CRUSHED_ORE, ItemResourceType.CRUSHED_NETHER_ORE, ItemResourceType.CRUSHED_END_ORE);
 		});
 		
-		getBuilder(TagUtil.createItemTag("forge", "tools")).add(ItemResourceType.AXE.getUnifyTag(), ItemResourceType.HOE.getUnifyTag(), ItemResourceType.PICKAXE.getUnifyTag(), ItemResourceType.SHOVEL.getUnifyTag(), ItemResourceType.SWORD.getUnifyTag());
-		getBuilder(TagUtil.createItemTag("forge", "armors")).add(ItemResourceType.HELMET.getUnifyTag(), ItemResourceType.CHESTPLATE.getUnifyTag(), ItemResourceType.LEGGINGS.getUnifyTag(), ItemResourceType.BOOTS.getUnifyTag());
+		moreCommonUnifyTags(this::getBuilder, TagUtil::createItemTag, new ResourceLocation("forge", "tools"), ItemResourceType.AXE, ItemResourceType.HOE, ItemResourceType.PICKAXE, ItemResourceType.SHOVEL, ItemResourceType.SWORD);
+		moreCommonUnifyTags(this::getBuilder, TagUtil::createItemTag, new ResourceLocation("forge", "armors"), ItemResourceType.HELMET, ItemResourceType.CHESTPLATE, ItemResourceType.LEGGINGS, ItemResourceType.BOOTS);
 		
 		// Add vanilla blocks to the right tags
 		forgeTagsCopy(this::copy, Resources.IRON, BlockResourceType.ORE);
