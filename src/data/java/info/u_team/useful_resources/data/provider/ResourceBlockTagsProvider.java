@@ -2,17 +2,13 @@ package info.u_team.useful_resources.data.provider;
 
 import static info.u_team.useful_resources.data.util.TagGenerationUtil.*;
 
-import java.util.Collection;
-
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
-import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.data.resource.TagGenerationResources;
 import info.u_team.useful_resources.resources.Resources;
-import net.minecraft.block.*;
+import net.minecraft.block.Blocks;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.ResourceLocation;
 
 public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
@@ -46,16 +42,11 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		forgeTags(this::getBuilder, Resources.IRON, BlockResourceType.TRAPDOOR, Blocks.IRON_TRAPDOOR);
 		
 		// Add to vanilla tags
-		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE, BlockTags.FENCES);
-		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.FENCE_GATE, BlockTags.FENCE_GATES);
-		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.DOOR, BlockTags.DOORS);
-		addToVanillaTag(TagGenerationResources.getResources(), BlockResourceType.TRAPDOOR, BlockTags.TRAPDOORS);
-	}
-	
-	private void addToVanillaTag(Collection<IResource> resources, BlockResourceType type, INamedTag<Block> tag) {
-		resources.stream() //
-				.filter(resource -> resource.getBlocks().containsKey(type)) //
-				.map(resource -> resource.getBlocks().get(type).get()) //
-				.forEach(block -> getBuilder(tag).add(block));
+		TagGenerationResources.forEach(resource -> {
+			conditionTags(resource.getBlocks(), this::getBuilder, BlockResourceType.FENCE, BlockTags.FENCES);
+			conditionTags(resource.getBlocks(), this::getBuilder, BlockResourceType.FENCE_GATE, BlockTags.FENCE_GATES);
+			conditionTags(resource.getBlocks(), this::getBuilder, BlockResourceType.DOOR, BlockTags.DOORS);
+			conditionTags(resource.getBlocks(), this::getBuilder, BlockResourceType.TRAPDOOR, BlockTags.TRAPDOORS);
+		});
 	}
 }
