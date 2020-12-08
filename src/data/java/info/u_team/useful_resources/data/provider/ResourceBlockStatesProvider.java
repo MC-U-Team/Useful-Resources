@@ -5,8 +5,9 @@ import java.util.Map;
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
-import info.u_team.useful_resources.api.type.BlockResourceType;
+import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
+import info.u_team.useful_resources.data.util.BlockStateGenerationDecider;
 import info.u_team.useful_resources.util.ObjectUtil;
 import net.minecraft.block.*;
 import net.minecraft.util.*;
@@ -24,35 +25,33 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	protected void registerStatesAndModels() {
 		generateBaseModels();
 		
-		GenerationResources.forEach(resource -> {
-			resource.iterateRegistryBlocks((type, block) -> {
-				final IDataGeneratorConfigurator dataGeneratorConfigurator = resource.getDataGeneratorConfigurator();
-				if (type == BlockResourceType.BARS) {
-					barsBlock(block, type, dataGeneratorConfigurator);
-				} else if (type == BlockResourceType.CHAIN) {
-					chainBlock(block, type, dataGeneratorConfigurator);
-				} else if (type == BlockResourceType.FENCE) {
-					fenceBlock(block, type, dataGeneratorConfigurator);
-				} else if (type == BlockResourceType.FENCE_GATE) {
-					fenceGateBlock(block, type, dataGeneratorConfigurator);
-				} else if (type == BlockResourceType.DOOR) {
-					doorBlock(block, type, dataGeneratorConfigurator);
-				} else if (type == BlockResourceType.TRAPDOOR) {
-					trapdoorBlock(block, type, dataGeneratorConfigurator);
-				} else {
-					simpleBlock(block, models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator)));
-				}
+		final BlockStateGenerationDecider<Block> generationDecider = BlockStateGenerationDecider.create();
+		
+		generationDecider.addSpecial(BlockResourceType.ORE, this::resourceTypeBlock);
+		generationDecider.addSpecial(BlockResourceType.NETHER_ORE, this::resourceTypeBlock);
+		generationDecider.addSpecial(BlockResourceType.END_ORE, this::resourceTypeBlock);
+		generationDecider.addSpecial(BlockResourceType.BLOCK, this::resourceTypeBlock);
+		
+		generationDecider.addSpecial(BlockResourceType.BARS, this::barsBlock);
+		generationDecider.addSpecial(BlockResourceType.CHAIN, this::chainBlock);
+		generationDecider.addSpecial(BlockResourceType.FENCE, this::fenceBlock);
+		generationDecider.addSpecial(BlockResourceType.FENCE_GATE, this::fenceGateBlock);
+		generationDecider.addSpecial(BlockResourceType.DOOR, this::doorBlock);
+		generationDecider.addSpecial(BlockResourceType.TRAPDOOR, this::trapdoorBlock);
+		
+		GenerationResources.forEachBlock((resource, type, block) -> {
+			generationDecider.generate(type, block, resource.getDataGeneratorConfigurator(), baseModel -> {
+				simpleBlock(block, models().withExistingParent(getPath(block), baseModel));
 			});
 		});
 	}
 	
-	private ResourceLocation getBaseModel(BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	public void resourceTypeBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
 		
-		final String baseModel;
-		
+		final ResourceLocation model;
 		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
-			baseModel = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));
+			model = baseModel;
 		} else {
 			final ResourceType resourceType;
 			if (ObjectUtil.getBoolean(extraProperties.getOrDefault("ingotModel", false))) {
@@ -62,19 +61,18 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 			}
 			
 			if (type == BlockResourceType.ORE) {
-				baseModel = resourceType.getName() + "_stone_ore";
+				model = modLoc("base/block/special/" + resourceType.getName() + "_stone_ore");
 			} else if (type == BlockResourceType.NETHER_ORE) {
-				baseModel = resourceType.getName() + "_netherrack_nether_ore";
+				model = modLoc("base/block/special/" + resourceType.getName() + "_netherrack_nether_ore");
 			} else if (type == BlockResourceType.END_ORE) {
-				baseModel = resourceType.getName() + "_endstone_end_ore";
+				model = modLoc("base/block/special/" + resourceType.getName() + "_endstone_end_ore");
 			} else if (type == BlockResourceType.BLOCK) {
-				baseModel = resourceType.getName() + "_" + type.getName();
+				model = modLoc("base/block/special/" + resourceType.getName() + "_" + type.getName());
 			} else {
-				baseModel = type.getName();
+				model = null;
 			}
 		}
-		
-		return modLoc("base/block/special/" + baseModel);
+		simpleBlock(block, models().withExistingParent(getPath(block), model));
 	}
 	
 	private void generateBaseModels() {
@@ -1397,13 +1395,13 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("particle", mcLoc("block/water_still"));
 	}
 	
-	public void barsBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile postEnds = models().withExistingParent(getPath(block) + "_post_ends", getBaseModel(type, dataGeneratorConfigurator) + "_post_ends");
-		final ModelFile post = models().withExistingParent(getPath(block) + "_post", getBaseModel(type, dataGeneratorConfigurator) + "_post");
-		final ModelFile side = models().withExistingParent(getPath(block) + "_side", getBaseModel(type, dataGeneratorConfigurator) + "_side");
-		final ModelFile sideAlt = models().withExistingParent(getPath(block) + "_side_alt", getBaseModel(type, dataGeneratorConfigurator) + "_side_alt");
-		final ModelFile cap = models().withExistingParent(getPath(block) + "_cap", getBaseModel(type, dataGeneratorConfigurator) + "_cap");
-		final ModelFile capAlt = models().withExistingParent(getPath(block) + "_cap_alt", getBaseModel(type, dataGeneratorConfigurator) + "_cap_alt");
+	public void barsBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile postEnds = models().withExistingParent(getPath(block) + "_post_ends", baseModel.toString() + "_post_ends");
+		final ModelFile post = models().withExistingParent(getPath(block) + "_post", baseModel.toString() + "_post");
+		final ModelFile side = models().withExistingParent(getPath(block) + "_side", baseModel.toString() + "_side");
+		final ModelFile sideAlt = models().withExistingParent(getPath(block) + "_side_alt", baseModel.toString() + "_side_alt");
+		final ModelFile cap = models().withExistingParent(getPath(block) + "_cap", baseModel.toString() + "_cap");
+		final ModelFile capAlt = models().withExistingParent(getPath(block) + "_cap_alt", baseModel.toString() + "_cap_alt");
 		
 		final MultiPartBlockStateBuilder builder = getMultipartBuilder(block);
 		builder.part().modelFile(postEnds).addModel().end();
@@ -1418,38 +1416,38 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		builder.part().modelFile(sideAlt).rotationY(90).addModel().condition(FourWayBlock.WEST, true).end();
 	}
 	
-	public void chainBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile model = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator));
+	public void chainBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile model = models().withExistingParent(getPath(block), baseModel.toString());
 		axisBlock((RotatedPillarBlock) block, model, model);
 	}
 	
-	public void fenceBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile post = models().withExistingParent(getPath(block) + "_post", getBaseModel(type, dataGeneratorConfigurator) + "_post");
-		final ModelFile side = models().withExistingParent(getPath(block) + "_side", getBaseModel(type, dataGeneratorConfigurator) + "_side");
+	public void fenceBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile post = models().withExistingParent(getPath(block) + "_post", baseModel.toString() + "_post");
+		final ModelFile side = models().withExistingParent(getPath(block) + "_side", baseModel.toString() + "_side");
 		fourWayBlock((FourWayBlock) block, post, side);
 	}
 	
-	public void fenceGateBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile gate = models().withExistingParent(getPath(block), getBaseModel(type, dataGeneratorConfigurator));
-		final ModelFile gateOpen = models().withExistingParent(getPath(block) + "_open", getBaseModel(type, dataGeneratorConfigurator) + "_open");
-		final ModelFile gateWall = models().withExistingParent(getPath(block) + "_wall", getBaseModel(type, dataGeneratorConfigurator) + "_wall");
-		final ModelFile gateWallOpen = models().withExistingParent(getPath(block) + "_wall_open", getBaseModel(type, dataGeneratorConfigurator) + "_wall_open");
+	public void fenceGateBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile gate = models().withExistingParent(getPath(block), baseModel.toString());
+		final ModelFile gateOpen = models().withExistingParent(getPath(block) + "_open", baseModel.toString() + "_open");
+		final ModelFile gateWall = models().withExistingParent(getPath(block) + "_wall", baseModel.toString() + "_wall");
+		final ModelFile gateWallOpen = models().withExistingParent(getPath(block) + "_wall_open", baseModel.toString() + "_wall_open");
 		fenceGateBlock((FenceGateBlock) block, gate, gateOpen, gateWall, gateWallOpen);
 	}
 	
-	public void doorBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile bottomLeft = models().withExistingParent(getPath(block) + "_bottom", getBaseModel(type, dataGeneratorConfigurator) + "_bottom");
-		final ModelFile bottomRight = models().withExistingParent(getPath(block) + "_bottom_rh", getBaseModel(type, dataGeneratorConfigurator) + "_bottom_rh");
-		final ModelFile topLeft = models().withExistingParent(getPath(block) + "_top", getBaseModel(type, dataGeneratorConfigurator) + "_top");
-		final ModelFile topRight = models().withExistingParent(getPath(block) + "_top_rh", getBaseModel(type, dataGeneratorConfigurator) + "_top_rh");
+	public void doorBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile bottomLeft = models().withExistingParent(getPath(block) + "_bottom", baseModel.toString() + "_bottom");
+		final ModelFile bottomRight = models().withExistingParent(getPath(block) + "_bottom_rh", baseModel.toString() + "_bottom_rh");
+		final ModelFile topLeft = models().withExistingParent(getPath(block) + "_top", baseModel.toString() + "_top");
+		final ModelFile topRight = models().withExistingParent(getPath(block) + "_top_rh", baseModel.toString() + "_top_rh");
 		
 		doorBlock((DoorBlock) block, bottomLeft, bottomRight, topLeft, topRight);
 	}
 	
-	public void trapdoorBlock(Block block, BlockResourceType type, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final ModelFile bottom = models().withExistingParent(getPath(block) + "_bottom", getBaseModel(type, dataGeneratorConfigurator) + "_bottom");
-		final ModelFile top = models().withExistingParent(getPath(block) + "_top", getBaseModel(type, dataGeneratorConfigurator) + "_top");
-		final ModelFile open = models().withExistingParent(getPath(block) + "_open", getBaseModel(type, dataGeneratorConfigurator) + "_open");
+	public void trapdoorBlock(IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+		final ModelFile bottom = models().withExistingParent(getPath(block) + "_bottom", baseModel.toString() + "_bottom");
+		final ModelFile top = models().withExistingParent(getPath(block) + "_top", baseModel.toString() + "_top");
+		final ModelFile open = models().withExistingParent(getPath(block) + "_open", baseModel.toString() + "_open");
 		
 		trapdoorBlock((TrapDoorBlock) block, bottom, top, open, false);
 	}
