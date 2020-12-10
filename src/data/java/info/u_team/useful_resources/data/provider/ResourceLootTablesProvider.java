@@ -6,8 +6,10 @@ import java.util.Map;
 import java.util.function.*;
 
 import info.u_team.u_team_core.data.*;
+import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.BlockResourceType;
 import info.u_team.useful_resources.data.resource.GenerationResources;
+import info.u_team.useful_resources.data.util.LootTableGenerationDecider;
 import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
 
@@ -19,23 +21,30 @@ public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 	
 	@Override
 	protected void registerLootTables(BiConsumer<ResourceLocation, LootTable> consumer) {
-		GenerationResources.forEach(resource -> {
-			resource.iterateRegistryBlocks((type, block) -> {
-				final LootTable lootTable;
-				final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = resource.getDataGeneratorConfigurator().getExtraLootTables();
-				if (block.getLootTable().equals(LootTables.EMPTY)) {
-					lootTable = null;
-				} else if (extraLootTables.containsKey(type)) {
-					lootTable = extraLootTables.get(type).get();
-				} else if (type == BlockResourceType.DOOR) {
-					lootTable = createDoorBlockLootTable(block, block);
-				} else {
-					lootTable = addBasicBlockLootTable(block);
-				}
-				if (lootTable != null) {
-					registerBlock(block, lootTable, consumer);
-				}
-			});
+		final LootTableGenerationDecider lootTableDecider = LootTableGenerationDecider.create();
+		
+		lootTableDecider.addSpecial(BlockResourceType.DOOR, (resource, type, block, configurator) -> {
+			return createDoorBlockLootTable(block, block);
+		});
+		
+		GenerationResources.forEachBlock((resource, type, block) -> {
+			IDataGeneratorConfigurator configurator = resource.getDataGeneratorConfigurator();
+			final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = configurator.getExtraLootTables();
+			
+			final LootTable lootTable;
+			if (block.getLootTable().equals(LootTables.EMPTY)) {
+				lootTable = null;
+			} else if (extraLootTables.containsKey(type)) {
+				lootTable = extraLootTables.get(type).get();
+			} else {
+				lootTable = lootTableDecider.decide(resource, type, block, configurator, entry -> {
+					return addBasicBlockLootTable(entry);
+				});
+			}
+			
+			if (lootTable != null) {
+				registerBlock(block, lootTable, consumer);
+			}
 		});
 	}
 }
