@@ -23,6 +23,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 	public void addTranslations() {
 		add(UsefulResourcesItemGroups.GROUP, "Useful Resources");
 		
+		// Define special language keys
 		final LanguageGenerationDecider languageDecider = LanguageGenerationDecider.create();
 		
 		languageDecider.addSpecialBlock(NETHER_ORE, (resource, type, block, name, configurator) -> {
@@ -64,6 +65,7 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 			add(item, "Molten " + name + " Bucket");
 		});
 		
+		// Generate language file
 		GenerationResources.forEach(resource -> {
 			
 			final String name = capitalize(resource.getName().replace("_", " "));
