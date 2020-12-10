@@ -7,6 +7,9 @@ import info.u_team.u_team_core.util.CastUtil;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
 import info.u_team.useful_resources.api.type.IResourceType;
+import net.minecraft.block.Block;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 public class LanguageGenerationDecider {
@@ -25,10 +28,22 @@ public class LanguageGenerationDecider {
 		map.put(type, consumer);
 	}
 	
-	public <T extends IForgeRegistryEntry<T>> void generate(IResource resource, IResourceType<T> type, T entry, String name, IDataGeneratorConfigurator configurator, Consumer<T> baseName) {
+	public void addSpecialBlock(IResourceType<Block> type, LanguageGenerationConsumer<Block> consumer) {
+		addSpecial(type, consumer);
+	}
+	
+	public void addSpecialFluid(IResourceType<Fluid> type, LanguageGenerationConsumer<Fluid> consumer) {
+		addSpecial(type, consumer);
+	}
+	
+	public void addSpecialItem(IResourceType<Item> type, LanguageGenerationConsumer<Item> consumer) {
+		addSpecial(type, consumer);
+	}
+	
+	public <T extends IForgeRegistryEntry<T>> void generate(IResource resource, IResourceType<?> type, T entry, String name, IDataGeneratorConfigurator configurator, Consumer<T> baseName) {
 		final LanguageGenerationConsumer<?> consumer = map.get(type);
 		if (consumer != null) {
-			consumer.accept(resource, CastUtil.uncheckedCast(type), CastUtil.uncheckedCast(entry), name, configurator);
+			consumer.accept(resource, type, CastUtil.uncheckedCast(entry), name, configurator);
 		} else {
 			baseName.accept(entry);
 		}
@@ -37,7 +52,7 @@ public class LanguageGenerationDecider {
 	@FunctionalInterface
 	public interface LanguageGenerationConsumer<T extends IForgeRegistryEntry<T>> {
 		
-		void accept(IResource resource, IResourceType<T> type, T entry, String name, IDataGeneratorConfigurator configurator);
+		void accept(IResource resource, IResourceType<?> type, T entry, String name, IDataGeneratorConfigurator configurator);
 		
 	}
 	
