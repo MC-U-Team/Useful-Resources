@@ -21,12 +21,14 @@ public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 	
 	@Override
 	protected void registerLootTables(BiConsumer<ResourceLocation, LootTable> consumer) {
+		// Define special loot tables
 		final LootTableGenerationDecider lootTableDecider = LootTableGenerationDecider.create();
 		
 		lootTableDecider.addSpecial(BlockResourceType.DOOR, (resource, type, block, configurator) -> {
 			return createDoorBlockLootTable(block, block);
 		});
 		
+		// Generate loot tables
 		GenerationResources.forEachBlock((resource, type, block) -> {
 			IDataGeneratorConfigurator configurator = resource.getDataGeneratorConfigurator();
 			final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = configurator.getExtraLootTables();
