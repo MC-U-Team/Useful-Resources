@@ -41,6 +41,7 @@ public class ResourceBlockTagsProvider extends CommonBlockTagsProvider {
 		forgeTags(this::getBuilder, Resources.IRON, CHAIN, Blocks.CHAIN);
 		forgeTags(this::getBuilder, Resources.IRON, DOOR, Blocks.IRON_DOOR);
 		forgeTags(this::getBuilder, Resources.IRON, TRAPDOOR, Blocks.IRON_TRAPDOOR);
+		forgeTags(this::getBuilder, Resources.OBSIDIAN, BLOCK, Blocks.OBSIDIAN);
 		
 		// Add to the existing vanilla tags
 		TagGenerationResources.forEach(resource -> {

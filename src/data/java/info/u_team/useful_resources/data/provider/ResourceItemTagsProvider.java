@@ -48,6 +48,7 @@ public class ResourceItemTagsProvider extends CommonItemTagsProvider {
 		forgeTagsCopy(this::copy, Resources.IRON, CHAIN);
 		forgeTagsCopy(this::copy, Resources.IRON, DOOR);
 		forgeTagsCopy(this::copy, Resources.IRON, TRAPDOOR);
+		forgeTagsCopy(this::copy, Resources.OBSIDIAN, BLOCK);
 		
 		forgeTags(this::getBuilder, Resources.COAL, GEM, Items.COAL);
 		
