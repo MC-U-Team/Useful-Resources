@@ -10,6 +10,7 @@ import static info.u_team.useful_resources.util.MaterialUtil.*;
 import info.u_team.useful_resources.api.ResourceRegistry;
 import info.u_team.useful_resources.api.resource.IResource;
 import info.u_team.useful_resources.api.resource.special.*;
+import info.u_team.useful_resources.resource.ObsidianResource;
 import info.u_team.useful_resources.util.LootTableUtil;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
@@ -143,6 +144,9 @@ public class Resources {
 			.setProperty("oreSmeltingXp", 0.7F) //
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 8, 0, 0, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 8, 4, 0, 0, 32));
+	
+	public static final IResource OBSIDIAN = new ObsidianResource("obsidian", 0x1C1A1A) //
+			.setExisting(BLOCK, Blocks.OBSIDIAN);
 	
 	// INGOT
 	
@@ -295,6 +299,7 @@ public class Resources {
 		ResourceRegistry.register(QUARTZ);
 		ResourceRegistry.register(COAL);
 		ResourceRegistry.register(REDSTONE);
+		ResourceRegistry.register(OBSIDIAN);
 		
 		// INGOT
 		ResourceRegistry.register(COPPER);
