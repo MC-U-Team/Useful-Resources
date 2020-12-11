@@ -28,6 +28,7 @@
 		"#forge:storage_blocks/uranium",
 		"#forge:storage_blocks/uranium_235",
 		"#forge:storage_blocks/uranium_238",
-		"#forge:storage_blocks/zinc"
+		"#forge:storage_blocks/zinc",
+		"#forge:storage_blocks/obsidian"
 	]
 }

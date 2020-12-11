@@ -1824,7 +1824,7 @@ a16c3399d85d0053e17dc2181ffd7e14cf709b95 data/forge/tags/blocks/stone_ores/urani
 f7e628979342a934df8b0d6f0dcabf16edb86839 data/forge/tags/blocks/stone_ores/uranium_235.json
 a16c3399d85d0053e17dc2181ffd7e14cf709b95 data/forge/tags/blocks/stone_ores/uranium_238.json
 00fcdfab050c5315c5e8646762f13db929c2a762 data/forge/tags/blocks/stone_ores/zinc.json
-2df4b232b5a58778db14f0a653b6d505134710bb data/forge/tags/blocks/storage_blocks.json
+dcfaec0fe3b58d1a4056ef03522cfc18d167e8f6 data/forge/tags/blocks/storage_blocks.json
 092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/blocks/storage_blocks/aluminium.json
 092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/blocks/storage_blocks/aluminum.json
 20a803d8d8d3ffb521f6c8eac0520f35eb49d466 data/forge/tags/blocks/storage_blocks/brass.json
@@ -1840,6 +1840,7 @@ aabaae5387b9d5c5a3cb0fce2be971e5e7cc7085 data/forge/tags/blocks/storage_blocks/e
 79a54731d18ec27d588f2a33d7e355416e3184a3 data/forge/tags/blocks/storage_blocks/lumium.json
 55906194a6a42e181d7c4b2a8e4505ea7f07645a data/forge/tags/blocks/storage_blocks/malachite.json
 e87d5c659c1dfd6c6af5bede11b5b2d36a5ef6e5 data/forge/tags/blocks/storage_blocks/nickel.json
+5e158f04fdb612612f55997a7ea4a06c6131e1e0 data/forge/tags/blocks/storage_blocks/obsidian.json
 1c9d26df06331887a60c5bfa65c1c50ebd5f82ec data/forge/tags/blocks/storage_blocks/peridot.json
 28518db18557704111318445f9d23b2f74cc4e88 data/forge/tags/blocks/storage_blocks/platinum.json
 993cef6924fa588072772f0cd261ee65abf0ff44 data/forge/tags/blocks/storage_blocks/ruby.json
@@ -2655,7 +2656,7 @@ a16c3399d85d0053e17dc2181ffd7e14cf709b95 data/forge/tags/items/stone_ores/uraniu
 f7e628979342a934df8b0d6f0dcabf16edb86839 data/forge/tags/items/stone_ores/uranium_235.json
 a16c3399d85d0053e17dc2181ffd7e14cf709b95 data/forge/tags/items/stone_ores/uranium_238.json
 00fcdfab050c5315c5e8646762f13db929c2a762 data/forge/tags/items/stone_ores/zinc.json
-2df4b232b5a58778db14f0a653b6d505134710bb data/forge/tags/items/storage_blocks.json
+dcfaec0fe3b58d1a4056ef03522cfc18d167e8f6 data/forge/tags/items/storage_blocks.json
 092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/items/storage_blocks/aluminium.json
 092c2c37c9607b517145898f029ac8e4802d8509 data/forge/tags/items/storage_blocks/aluminum.json
 20a803d8d8d3ffb521f6c8eac0520f35eb49d466 data/forge/tags/items/storage_blocks/brass.json
@@ -2671,6 +2672,7 @@ aabaae5387b9d5c5a3cb0fce2be971e5e7cc7085 data/forge/tags/items/storage_blocks/en
 79a54731d18ec27d588f2a33d7e355416e3184a3 data/forge/tags/items/storage_blocks/lumium.json
 55906194a6a42e181d7c4b2a8e4505ea7f07645a data/forge/tags/items/storage_blocks/malachite.json
 e87d5c659c1dfd6c6af5bede11b5b2d36a5ef6e5 data/forge/tags/items/storage_blocks/nickel.json
+5e158f04fdb612612f55997a7ea4a06c6131e1e0 data/forge/tags/items/storage_blocks/obsidian.json
 1c9d26df06331887a60c5bfa65c1c50ebd5f82ec data/forge/tags/items/storage_blocks/peridot.json
 28518db18557704111318445f9d23b2f74cc4e88 data/forge/tags/items/storage_blocks/platinum.json
 993cef6924fa588072772f0cd261ee65abf0ff44 data/forge/tags/items/storage_blocks/ruby.json
