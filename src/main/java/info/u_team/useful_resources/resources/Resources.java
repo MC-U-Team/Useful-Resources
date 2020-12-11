@@ -145,7 +145,7 @@ public class Resources {
 			.setGenerationDefault(NETHER_ORE, state -> createOreFeatureRangeNether(state, 8, 8, 0, 0, 128)) //
 			.setGenerationDefault(END_ORE, state -> createOreFeatureRangeEndIslands(state, 8, 4, 0, 0, 32));
 	
-	public static final IResource OBSIDIAN = new ObsidianResource("obsidian", 0x1C1A1A) //
+	public static final IResource OBSIDIAN = new ObsidianResource("obsidian", 0x2E293A) //
 			.setExisting(BLOCK, Blocks.OBSIDIAN);
 	
 	// INGOT

@@ -23,6 +23,8 @@ public class ObsidianResource extends BasicResource<ObsidianResource> {
 		
 		addFeature(createMolten(0xFF000000 + color));
 		
+		addFeature(createBasicItem(PIECE, Rarity.COMMON));
+		
 		addFeature(createBasicItem(DUST, Rarity.COMMON));
 		addFeature(createBasicItem(PLATE, Rarity.COMMON));
 		addFeature(createBasicItem(DENSE_PLATE, Rarity.COMMON));
