@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#",
+		"#",
+		"X"
+	],
+	"key": {
+		"#": {
+			"tag": "forge:dusts/obsidian"
+		},
+		"X": {
+			"tag": "forge:rods/wooden"
+		}
+	},
+	"result": {
+		"item": "usefulresources:obsidian_sword"
+	}
+}
