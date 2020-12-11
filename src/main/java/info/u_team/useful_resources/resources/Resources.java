@@ -138,6 +138,7 @@ public class Resources {
 	
 	public static final IResource REDSTONE = new VanillaDustResource("redstone", 0xA31C29, 2, 3, 1, 5, ORE) //
 			.setExisting(ORE, Blocks.REDSTONE_ORE) //
+			.setExisting(BLOCK, Blocks.REDSTONE_BLOCK) //
 			.setExisting(DUST, Items.REDSTONE) //
 			.setLootTableWithFortune(NETHER_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
 			.setLootTableWithFortune(END_ORE, DUST, (ore, drop) -> createFortuneBlockLootTableWithCount(ore, drop, 4, 5)) //
