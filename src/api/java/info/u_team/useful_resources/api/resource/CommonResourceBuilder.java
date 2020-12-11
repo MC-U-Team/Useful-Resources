@@ -48,39 +48,34 @@ public class CommonResourceBuilder {
 		});
 	}
 	
-	public static IResourceFeatureBuilder createBars(Rarity rarity, int harvestLevel, float baseHardness) {
+	public static IResourceFeatureBuilder createBars(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			final float hardness = baseHardness < 5 ? 5 : baseHardness;
-			feature.register(BlockResourceType.BARS, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, hardness + 1));
+			feature.register(BlockResourceType.BARS, () -> new BasicBarsBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
-	public static IResourceFeatureBuilder createChain(Rarity rarity, int harvestLevel, float baseHardness) {
+	public static IResourceFeatureBuilder createChain(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			final float hardness = baseHardness < 5 ? 5 : baseHardness;
-			feature.register(BlockResourceType.CHAIN, () -> new BasicChainBlock(rarity, harvestLevel, hardness, hardness + 1));
+			feature.register(BlockResourceType.CHAIN, () -> new BasicChainBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
-	public static IResourceFeatureBuilder createFence(Rarity rarity, int harvestLevel, float baseHardness) {
+	public static IResourceFeatureBuilder createFence(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			final float hardness = baseHardness < 4 ? 4 : baseHardness;
 			feature.register(BlockResourceType.FENCE, () -> new BasicFenceBlock(rarity, harvestLevel, hardness, hardness + 1));
-			feature.register(BlockResourceType.FENCE_GATE, () -> new BasicFenceGateBlock(rarity, harvestLevel, hardness, hardness + 1));
+			feature.register(BlockResourceType.FENCE_GATE, () -> new BasicFenceGateBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
-	public static IResourceFeatureBuilder createDoor(Rarity rarity, int harvestLevel, float baseHardness) {
+	public static IResourceFeatureBuilder createDoor(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			final float hardness = baseHardness < 5 ? 5 : baseHardness;
-			feature.register(BlockResourceType.DOOR, () -> new BasicDoorBlock(rarity, harvestLevel, hardness, hardness + 1));
+			feature.register(BlockResourceType.DOOR, () -> new BasicDoorBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	
-	public static IResourceFeatureBuilder createTrapDoor(Rarity rarity, int harvestLevel, float baseHardness) {
+	public static IResourceFeatureBuilder createTrapDoor(Rarity rarity, int harvestLevel, float hardness, float resistance) {
 		return basicBuilder((name, provider, feature) -> {
-			final float hardness = baseHardness < 5 ? 5 : baseHardness;
-			feature.register(BlockResourceType.TRAPDOOR, () -> new BasicTrapDoorBlock(rarity, harvestLevel, hardness, hardness + 1));
+			feature.register(BlockResourceType.TRAPDOOR, () -> new BasicTrapDoorBlock(rarity, harvestLevel, hardness, resistance));
 		});
 	}
 	

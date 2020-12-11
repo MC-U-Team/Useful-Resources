@@ -17,11 +17,13 @@ public class BasicIngotResource extends BasicResource<BasicIngotResource> {
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
 		addFeature(createOre(END_ORE, rarity, harvestLevel, baseHardness * 1.5F, baseHardness * 2));
 		addFeature(createBasicBlock(BLOCK, rarity, harvestLevel, baseHardness * 2, baseHardness * 4));
-		addFeature(createBars(rarity, harvestLevel, baseHardness));
-		addFeature(createChain(rarity, harvestLevel, baseHardness));
-		addFeature(createFence(rarity, harvestLevel, baseHardness));
-		addFeature(createDoor(rarity, harvestLevel, baseHardness));
-		addFeature(createTrapDoor(rarity, harvestLevel, baseHardness));
+		final float hardness = baseHardness < 5 ? 5 : baseHardness;
+		final float resistance = hardness + 1;
+		addFeature(createBars(rarity, harvestLevel, hardness, resistance));
+		addFeature(createChain(rarity, harvestLevel, hardness, resistance));
+		addFeature(createFence(rarity, harvestLevel, hardness - 1, resistance));
+		addFeature(createDoor(rarity, harvestLevel, hardness, resistance));
+		addFeature(createTrapDoor(rarity, harvestLevel, hardness, resistance));
 		
 		addFeature(createMolten(0xFF000000 + color));
 		

@@ -32,7 +32,9 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 			addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, baseHardness * 1.5F, baseHardness * 2));
 		}
 		
-		addFeature(createFence(Rarity.COMMON, harvestLevel, baseHardness));
+		final float hardness = baseHardness < 5 ? 5 : baseHardness;
+		final float resistance = hardness + 1;
+		addFeature(createFence(Rarity.COMMON, harvestLevel, hardness - 1, resistance));
 		
 		addFeature(createMolten(0xFF000000 + color));
 		
@@ -49,22 +51,30 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 	}
 	
 	public VanillaIngotResource setBars() {
-		addFeature(createBars(Rarity.COMMON, harvestLevel, baseHardness));
+		final float hardness = baseHardness < 5 ? 5 : baseHardness;
+		final float resistance = hardness + 1;
+		addFeature(createBars(Rarity.COMMON, harvestLevel, hardness, resistance));
 		return this;
 	}
 	
 	public VanillaIngotResource setChain() {
-		addFeature(createChain(Rarity.COMMON, harvestLevel, baseHardness));
+		final float hardness = baseHardness < 5 ? 5 : baseHardness;
+		final float resistance = hardness + 1;
+		addFeature(createChain(Rarity.COMMON, harvestLevel, hardness, resistance));
 		return this;
 	}
 	
 	public VanillaIngotResource setDoor() {
-		addFeature(createDoor(Rarity.COMMON, harvestLevel, baseHardness));
+		final float hardness = baseHardness < 5 ? 5 : baseHardness;
+		final float resistance = hardness + 1;
+		addFeature(createDoor(Rarity.COMMON, harvestLevel, hardness, resistance));
 		return this;
 	}
 	
 	public VanillaIngotResource setTrapDoor() {
-		addFeature(createTrapDoor(Rarity.COMMON, harvestLevel, baseHardness));
+		final float hardness = baseHardness < 5 ? 5 : baseHardness;
+		final float resistance = hardness + 1;
+		addFeature(createTrapDoor(Rarity.COMMON, harvestLevel, hardness, resistance));
 		return this;
 	}
 	
