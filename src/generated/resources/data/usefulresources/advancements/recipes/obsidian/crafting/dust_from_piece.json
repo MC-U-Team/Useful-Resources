@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"rewards": {
+		"recipes": [
+			"usefulresources:obsidian/crafting/dust_from_piece"
+		]
+	},
+	"criteria": {
+		"has_piece": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:pieces/obsidian"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "usefulresources:obsidian/crafting/dust_from_piece"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_piece",
+			"has_the_recipe"
+		]
+	]
+}
