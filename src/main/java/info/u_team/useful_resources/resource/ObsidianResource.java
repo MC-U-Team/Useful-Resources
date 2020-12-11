@@ -13,7 +13,7 @@ import net.minecraft.item.Rarity;
 public class ObsidianResource extends BasicResource<ObsidianResource> {
 	
 	public ObsidianResource(String name, int color) {
-		super(name, color, ItemResourceType.DUST, Rarity.COMMON, ResourceType.DUST);
+		super(name, color, ItemResourceType.DUST, Rarity.COMMON, ResourceType.BLOCK);
 		
 		addFeature(createBars(Rarity.COMMON, 3, 40, 1200));
 		addFeature(createChain(Rarity.COMMON, 3, 40, 1200));
