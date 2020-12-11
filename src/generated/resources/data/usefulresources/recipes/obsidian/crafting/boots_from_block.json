@@ -2,15 +2,14 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"# #",
-		"###",
-		"###"
+		"# #"
 	],
 	"key": {
 		"#": {
-			"tag": "forge:dusts/obsidian"
+			"tag": "forge:storage_blocks/obsidian"
 		}
 	},
 	"result": {
-		"item": "usefulresources:obsidian_chestplate"
+		"item": "usefulresources:obsidian_boots"
 	}
 }

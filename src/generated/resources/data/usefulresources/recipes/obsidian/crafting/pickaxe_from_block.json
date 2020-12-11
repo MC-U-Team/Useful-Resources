@@ -1,19 +1,19 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
-		"##",
-		"#X",
-		" X"
+		"###",
+		" X ",
+		" X "
 	],
 	"key": {
 		"#": {
-			"tag": "forge:dusts/obsidian"
+			"tag": "forge:storage_blocks/obsidian"
 		},
 		"X": {
 			"tag": "forge:rods/wooden"
 		}
 	},
 	"result": {
-		"item": "usefulresources:obsidian_axe"
+		"item": "usefulresources:obsidian_pickaxe"
 	}
 }

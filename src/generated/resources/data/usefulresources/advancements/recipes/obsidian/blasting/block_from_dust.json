@@ -2,7 +2,7 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:obsidian/blasting/dust_from_dust"
+			"usefulresources:obsidian/blasting/block_from_dust"
 		]
 	},
 	"criteria": {
@@ -19,7 +19,7 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:obsidian/blasting/dust_from_dust"
+				"recipe": "usefulresources:obsidian/blasting/block_from_dust"
 			}
 		}
 	},

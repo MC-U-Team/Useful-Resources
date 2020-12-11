@@ -2,16 +2,16 @@
 	"parent": "minecraft:recipes/root",
 	"rewards": {
 		"recipes": [
-			"usefulresources:obsidian/crafting/pickaxe_from_dust"
+			"usefulresources:obsidian/crafting/sword_from_block"
 		]
 	},
 	"criteria": {
-		"has_dust": {
+		"has_block": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"tag": "forge:dusts/obsidian"
+						"tag": "forge:storage_blocks/obsidian"
 					}
 				]
 			}
@@ -19,13 +19,13 @@
 		"has_the_recipe": {
 			"trigger": "minecraft:recipe_unlocked",
 			"conditions": {
-				"recipe": "usefulresources:obsidian/crafting/pickaxe_from_dust"
+				"recipe": "usefulresources:obsidian/crafting/sword_from_block"
 			}
 		}
 	},
 	"requirements": [
 		[
-			"has_dust",
+			"has_block",
 			"has_the_recipe"
 		]
 	]
