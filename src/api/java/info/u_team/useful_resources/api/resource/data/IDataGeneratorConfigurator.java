@@ -23,7 +23,8 @@ public interface IDataGeneratorConfigurator {
 		
 		INGOT("ingot"),
 		GEM("gem"),
-		DUST("dust");
+		DUST("dust"),
+		BLOCK("block");
 		
 		private final String name;
 		
