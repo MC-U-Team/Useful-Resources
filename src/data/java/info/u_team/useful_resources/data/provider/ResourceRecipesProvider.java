@@ -16,7 +16,7 @@ import com.google.gson.*;
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.resource.IResource;
-import info.u_team.useful_resources.api.resource.data.ResourceDataType;
+import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
 import info.u_team.useful_resources.util.ObjectUtil;
@@ -330,24 +330,24 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 	}
 	
 	public static IResourceType<?> getNormalResourceType(IResource resource) {
-		final ResourceDataType type = resource.getDataGeneratorConfigurator().getResourceType();
-		if (type == ResourceDataType.INGOT) {
+		final IResourceDataType resourceDataType = resource.getDataGeneratorConfigurator().getResourceType();
+		if (resourceDataType == ResourceDataType.INGOT) {
 			return INGOT;
-		} else if (type == ResourceDataType.GEM) {
+		} else if (resourceDataType == ResourceDataType.GEM) {
 			return GEM;
-		} else if (type == ResourceDataType.DUST) {
+		} else if (resourceDataType == ResourceDataType.DUST) {
 			return DUST;
 		}
 		return BLOCK;
 	}
 	
 	public static IResourceType<?> getTinyResourceType(IResource resource) {
-		final ResourceDataType type = resource.getDataGeneratorConfigurator().getResourceType();
-		if (type == ResourceDataType.INGOT) {
+		final IResourceDataType resourceDataType = resource.getDataGeneratorConfigurator().getResourceType();
+		if (resourceDataType == ResourceDataType.INGOT) {
 			return NUGGET;
-		} else if (type == ResourceDataType.GEM) {
+		} else if (resourceDataType == ResourceDataType.GEM) {
 			return PIECE;
-		} else if (type == ResourceDataType.DUST) {
+		} else if (resourceDataType == ResourceDataType.DUST) {
 			return PIECE;
 		}
 		return PIECE;
