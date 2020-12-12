@@ -7,7 +7,7 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import org.apache.commons.lang3.ArrayUtils;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.math.MathHelper;

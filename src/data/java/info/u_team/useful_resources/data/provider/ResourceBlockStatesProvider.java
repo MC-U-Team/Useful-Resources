@@ -4,8 +4,7 @@ import java.util.Map;
 
 import info.u_team.u_team_core.data.*;
 import info.u_team.useful_resources.api.resource.IResource;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
+import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
 import info.u_team.useful_resources.data.util.ModelGenerationDecider;

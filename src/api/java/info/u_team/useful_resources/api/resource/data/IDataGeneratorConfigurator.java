@@ -23,22 +23,4 @@ public interface IDataGeneratorConfigurator {
 		getExtraProperties().clear();
 	}
 	
-	public enum ResourceType {
-		
-		INGOT("ingot"),
-		GEM("gem"),
-		DUST("dust"),
-		BLOCK("block");
-		
-		private final String name;
-		
-		private ResourceType(String name) {
-			this.name = name;
-		}
-		
-		public String getName() {
-			return name;
-		}
-	}
-	
 }

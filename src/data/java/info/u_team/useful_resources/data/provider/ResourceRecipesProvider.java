@@ -16,7 +16,7 @@ import com.google.gson.*;
 import info.u_team.u_team_core.data.*;
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.resource.IResource;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceType;
 import info.u_team.useful_resources.api.type.*;
 import info.u_team.useful_resources.data.resource.GenerationResources;
 import info.u_team.useful_resources.util.ObjectUtil;

@@ -5,7 +5,7 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.IDataGeneratorConfigurator.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceType;
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.Rarity;
 
