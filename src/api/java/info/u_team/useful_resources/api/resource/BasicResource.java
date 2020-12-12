@@ -22,19 +22,19 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	protected final Rarity rarity;
 	
-	private final Map<String, Supplier<IWorldGenFeatures>> worldGenFeatures;
-	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
-	private final Map<String, Object> extraProperties;
+	private final Map<String, Supplier<IWorldGenFeatures>> worldGeneration;
+	private final Map<BlockResourceType, Supplier<LootTable>> lootTables;
+	private final Map<String, Object> properties;
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
 	
 	public BasicResource(String name, int color, ItemResourceType repairType, Rarity rarity, ResourceDataType type) {
 		super(name, color, repairType);
 		this.rarity = rarity;
-		worldGenFeatures = new HashMap<>();
-		extraLootTables = new HashMap<>();
-		extraProperties = new HashMap<>();
-		dataGeneratorConfigurator = new DataGeneratorConfigurator(type, worldGenFeatures, extraLootTables, extraProperties);
+		worldGeneration = new HashMap<>();
+		lootTables = new HashMap<>();
+		properties = new HashMap<>();
+		dataGeneratorConfigurator = new DataGeneratorConfigurator(type, worldGeneration, lootTables, properties);
 	}
 	
 	@Override
@@ -81,7 +81,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	}
 	
 	private T setGeneration(String name, Supplier<IWorldGenFeatures> feature) {
-		worldGenFeatures.put(name, feature);
+		worldGeneration.put(name, feature);
 		return getThis();
 	}
 	
@@ -103,12 +103,12 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	}
 	
 	public T setLootTable(BlockResourceType type, Supplier<LootTable> lootTable) {
-		extraLootTables.put(type, lootTable);
+		lootTables.put(type, lootTable);
 		return getThis();
 	}
 	
 	public T setProperty(String key, Object value) {
-		extraProperties.put(key, value);
+		properties.put(key, value);
 		return getThis();
 	}
 	

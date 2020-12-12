@@ -11,15 +11,15 @@ public class DataGeneratorConfigurator implements IDataGeneratorConfigurator {
 	
 	private final ResourceDataType type;
 	
-	private final Map<String, Supplier<IWorldGenFeatures>> worldGenFeatures;
-	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
-	private final Map<String, Object> extraProperties;
+	private final Map<String, Supplier<IWorldGenFeatures>> worldGeneration;
+	private final Map<BlockResourceType, Supplier<LootTable>> lootTables;
+	private final Map<String, Object> properties;
 	
-	public DataGeneratorConfigurator(ResourceDataType type, Map<String, Supplier<IWorldGenFeatures>> worldGenFeatures, Map<BlockResourceType, Supplier<LootTable>> extraLootTables, Map<String, Object> extraProperties) {
+	public DataGeneratorConfigurator(ResourceDataType type, Map<String, Supplier<IWorldGenFeatures>> worldGenFeatures, Map<BlockResourceType, Supplier<LootTable>> lootTables, Map<String, Object> properties) {
 		this.type = type;
-		this.worldGenFeatures = worldGenFeatures;
-		this.extraLootTables = extraLootTables;
-		this.extraProperties = extraProperties;
+		this.worldGeneration = worldGenFeatures;
+		this.lootTables = lootTables;
+		this.properties = properties;
 	}
 	
 	@Override
@@ -29,17 +29,17 @@ public class DataGeneratorConfigurator implements IDataGeneratorConfigurator {
 	
 	@Override
 	public Map<String, Supplier<IWorldGenFeatures>> getWorldGeneration() {
-		return worldGenFeatures;
+		return worldGeneration;
 	}
 	
 	@Override
 	public Map<BlockResourceType, Supplier<LootTable>> getLootTables() {
-		return extraLootTables;
+		return lootTables;
 	}
 	
 	@Override
 	public Map<String, Object> getProperties() {
-		return extraProperties;
+		return properties;
 	}
 	
 }
