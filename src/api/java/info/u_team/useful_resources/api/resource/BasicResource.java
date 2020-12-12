@@ -11,7 +11,7 @@ import info.u_team.u_team_core.util.CastUtil;
 import info.u_team.useful_resources.api.material.*;
 import info.u_team.useful_resources.api.resource.data.*;
 import info.u_team.useful_resources.api.type.*;
-import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
+import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.*;
@@ -22,7 +22,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	private final Rarity rarity;
 	
-	private final Map<String, Supplier<WorldGenFeatures>> worldGenFeatures;
+	private final Map<String, Supplier<IWorldGenFeatures>> worldGenFeatures;
 	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
 	private final Map<String, Object> extraProperties;
 	
@@ -80,7 +80,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 		return setGeneration(type.getName(), () -> function.apply(getBlocks().get(type).get()));
 	}
 	
-	private T setGeneration(String name, Supplier<WorldGenFeatures> feature) {
+	private T setGeneration(String name, Supplier<IWorldGenFeatures> feature) {
 		worldGenFeatures.put(name, feature);
 		return getThis();
 	}

@@ -2,13 +2,16 @@ package info.u_team.useful_resources.data.provider.common;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Supplier;
 
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 
 import info.u_team.u_team_core.data.*;
-import info.u_team.useful_resources.api.worldgen.WorldGenFeatures;
+import info.u_team.useful_resources.api.worldgen.*;
 import net.minecraft.data.DirectoryCache;
+import net.minecraft.world.gen.GenerationStage.Decoration;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 
 public abstract class CommonWorldGenFeaturesProvider extends CommonProvider {
 	
@@ -39,8 +42,14 @@ public abstract class CommonWorldGenFeaturesProvider extends CommonProvider {
 		return "Worldgen-Features";
 	}
 	
-	protected void addFeature(String path, WorldGenFeatures feature) {
-		data.put(path, feature);
+	protected void addFeature(String path, IWorldGenFeatures feature) {
+		data.put(path, new WorldGenFeatures(feature.getFilters(), feature.getFeatures()) {
+			
+			@Override
+			public WorldGenFeatures addFeature(Decoration decoration, Supplier<ConfiguredFeature<?, ?>> feature) {
+				throw new IllegalStateException();
+			}
+		});
 	}
 	
 }
