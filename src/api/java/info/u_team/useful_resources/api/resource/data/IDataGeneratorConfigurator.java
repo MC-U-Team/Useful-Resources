@@ -17,7 +17,11 @@ public interface IDataGeneratorConfigurator {
 	
 	Map<String, Object> getExtraProperties();
 	
-	void clearDataGeneratorConfig();
+	default void clearDataGeneratorConfig() {
+		getWorldGeneration().clear();
+		getExtraLootTables().clear();
+		getExtraProperties().clear();
+	}
 	
 	public enum ResourceType {
 		
