@@ -20,7 +20,7 @@ import net.minecraft.loot.LootTable;
 
 public abstract class BasicResource<T extends BasicResource<T>> extends Resource {
 	
-	private final Rarity rarity;
+	protected final Rarity rarity;
 	
 	private final Map<String, Supplier<IWorldGenFeatures>> worldGenFeatures;
 	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
