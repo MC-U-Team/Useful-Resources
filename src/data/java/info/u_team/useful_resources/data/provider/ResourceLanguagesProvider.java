@@ -26,44 +26,20 @@ public class ResourceLanguagesProvider extends CommonLanguagesProvider {
 		// Define special language keys
 		final LanguageGenerationDecider languageDecider = LanguageGenerationDecider.create();
 		
-		languageDecider.addSpecialBlock(NETHER_ORE, (resource, type, block, name, configurator) -> {
-			add(block, "Nether " + name + " Ore");
-		});
-		languageDecider.addSpecialBlock(END_ORE, (resource, type, block, name, configurator) -> {
-			add(block, "End " + name + " Ore");
-		});
-		languageDecider.addSpecialBlock(BLOCK, (resource, type, block, name, configurator) -> {
-			add(block, "Block of " + name);
-		});
-		languageDecider.addSpecialBlock(MOLTEN_FLUID, (resource, type, block, name, configurator) -> {
-			add(block, "Molten " + name);
-		});
+		languageDecider.addSpecialBlock(NETHER_ORE, (block, name) -> add(block, "Nether " + name + " Ore"));
+		languageDecider.addSpecialBlock(END_ORE, (block, name) -> add(block, "End " + name + " Ore"));
+		languageDecider.addSpecialBlock(BLOCK, (block, name) -> add(block, "Block of " + name));
+		languageDecider.addSpecialBlock(MOLTEN_FLUID, (block, name) -> add(block, "Molten " + name));
 		
-		languageDecider.addSpecialFluid(MOLTEN, (resource, type, fluid, name, configurator) -> {
-			add(fluid, "Molten " + name);
-		});
-		languageDecider.addSpecialFluid(MOLTEN_FLOWING, (resource, type, fluid, name, configurator) -> {
-			add(fluid, "Molten " + name);
-		});
+		languageDecider.addSpecialFluid(MOLTEN, (fluid, name) -> add(fluid, "Molten " + name));
+		languageDecider.addSpecialFluid(MOLTEN_FLOWING, (fluid, name) -> add(fluid, "Molten " + name));
 		
-		languageDecider.addSpecialItem(CRUSHED_ORE, (resource, type, item, name, configurator) -> {
-			add(item, "Crushed " + name + " Ore");
-		});
-		languageDecider.addSpecialItem(CRUSHED_NETHER_ORE, (resource, type, item, name, configurator) -> {
-			add(item, "Crushed Nether " + name + " Ore");
-		});
-		languageDecider.addSpecialItem(CRUSHED_END_ORE, (resource, type, item, name, configurator) -> {
-			add(item, "Crushed End " + name + " Ore");
-		});
-		languageDecider.addSpecialItem(PURE_CRUSHED_ORE, (resource, type, item, name, configurator) -> {
-			add(item, "Pure Crushed " + name + " Ore");
-		});
-		languageDecider.addSpecialItem(DENSE_PLATE, (resource, type, item, name, configurator) -> {
-			add(item, "Dense " + name + " Plate");
-		});
-		languageDecider.addSpecialItem(MOLTEN_BUCKET, (resource, type, item, name, configurator) -> {
-			add(item, "Molten " + name + " Bucket");
-		});
+		languageDecider.addSpecialItem(CRUSHED_ORE, (item, name) -> add(item, "Crushed " + name + " Ore"));
+		languageDecider.addSpecialItem(CRUSHED_NETHER_ORE, (item, name) -> add(item, "Crushed Nether " + name + " Ore"));
+		languageDecider.addSpecialItem(CRUSHED_END_ORE, (item, name) -> add(item, "Crushed End " + name + " Ore"));
+		languageDecider.addSpecialItem(PURE_CRUSHED_ORE, (item, name) -> add(item, "Pure Crushed " + name + " Ore"));
+		languageDecider.addSpecialItem(DENSE_PLATE, (item, name) -> add(item, "Dense " + name + " Plate"));
+		languageDecider.addSpecialItem(MOLTEN_BUCKET, (item, name) -> add(item, "Molten " + name + " Bucket"));
 		
 		// Generate language file
 		GenerationResources.forEach(resource -> {
