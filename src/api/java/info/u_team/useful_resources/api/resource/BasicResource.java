@@ -28,7 +28,7 @@ public abstract class BasicResource<T extends BasicResource<T>> extends Resource
 	
 	private final IDataGeneratorConfigurator dataGeneratorConfigurator;
 	
-	public BasicResource(String name, int color, ItemResourceType repairType, Rarity rarity, ResourceType type) {
+	public BasicResource(String name, int color, ItemResourceType repairType, Rarity rarity, ResourceDataType type) {
 		super(name, color, repairType);
 		this.rarity = rarity;
 		worldGenFeatures = new HashMap<>();

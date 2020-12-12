@@ -9,13 +9,13 @@ import net.minecraft.loot.LootTable;
 
 public class DataGeneratorConfigurator implements IDataGeneratorConfigurator {
 	
-	private final ResourceType type;
+	private final ResourceDataType type;
 	
 	private final Map<String, Supplier<WorldGenFeatures>> worldGenFeatures;
 	private final Map<BlockResourceType, Supplier<LootTable>> extraLootTables;
 	private final Map<String, Object> extraProperties;
 	
-	public DataGeneratorConfigurator(ResourceType type, Map<String, Supplier<WorldGenFeatures>> worldGenFeatures, Map<BlockResourceType, Supplier<LootTable>> extraLootTables, Map<String, Object> extraProperties) {
+	public DataGeneratorConfigurator(ResourceDataType type, Map<String, Supplier<WorldGenFeatures>> worldGenFeatures, Map<BlockResourceType, Supplier<LootTable>> extraLootTables, Map<String, Object> extraProperties) {
 		this.type = type;
 		this.worldGenFeatures = worldGenFeatures;
 		this.extraLootTables = extraLootTables;
@@ -23,7 +23,7 @@ public class DataGeneratorConfigurator implements IDataGeneratorConfigurator {
 	}
 	
 	@Override
-	public ResourceType getResourceType() {
+	public ResourceDataType getResourceType() {
 		return type;
 	}
 	

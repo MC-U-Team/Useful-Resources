@@ -1,6 +1,6 @@
 package info.u_team.useful_resources.api.resource.data;
 
-public enum ResourceType implements IResourceType {
+public enum ResourceDataType implements IResourceDataType {
 	
 	INGOT("ingot"),
 	GEM("gem"),
@@ -9,7 +9,7 @@ public enum ResourceType implements IResourceType {
 	
 	private final String name;
 	
-	private ResourceType(String name) {
+	private ResourceDataType(String name) {
 		this.name = name;
 	}
 	

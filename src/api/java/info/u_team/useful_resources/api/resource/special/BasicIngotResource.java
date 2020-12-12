@@ -5,14 +5,14 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceDataType;
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.Rarity;
 
 public class BasicIngotResource extends BasicResource<BasicIngotResource> {
 	
 	public BasicIngotResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness) {
-		super(name, color, ItemResourceType.INGOT, rarity, ResourceType.INGOT);
+		super(name, color, ItemResourceType.INGOT, rarity, ResourceDataType.INGOT);
 		addFeature(createOre(ORE, rarity, harvestLevel, baseHardness, baseHardness * 1.5F));
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F));
 		addFeature(createOre(END_ORE, rarity, harvestLevel, baseHardness * 1.5F, baseHardness * 2));

@@ -5,7 +5,7 @@ import static info.u_team.useful_resources.api.type.BlockResourceType.*;
 import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceDataType;
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import info.u_team.useful_resources.util.LootTableUtil;
 import net.minecraft.item.Rarity;
@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 public class BasicGemResource extends BasicResource<BasicGemResource> {
 	
 	public BasicGemResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness, int minXp, int maxXp) {
-		super(name, color, ItemResourceType.GEM, rarity, ResourceType.GEM);
+		super(name, color, ItemResourceType.GEM, rarity, ResourceDataType.GEM);
 		addFeature(createOre(ORE, rarity, harvestLevel, baseHardness, baseHardness * 1.5F, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness * 0.75F, baseHardness * 1.25F, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		addFeature(createOre(END_ORE, rarity, harvestLevel, baseHardness * 1.5F, baseHardness * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));

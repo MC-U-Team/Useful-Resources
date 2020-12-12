@@ -7,7 +7,7 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import java.util.*;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceDataType;
 import info.u_team.useful_resources.api.stack.IItemCountProvider;
 import info.u_team.useful_resources.api.type.ItemResourceType;
 import net.minecraft.item.Rarity;
@@ -18,7 +18,7 @@ public class BasicAlloyResource extends BasicResource<BasicAlloyResource> {
 	private final int outputSize;
 	
 	public BasicAlloyResource(String name, int color, Rarity rarity, int harvestLevel, float baseHardness, int outputSize) {
-		super(name, color, ItemResourceType.INGOT, rarity, ResourceType.INGOT);
+		super(name, color, ItemResourceType.INGOT, rarity, ResourceDataType.INGOT);
 		ingredients = new ArrayList<>();
 		this.outputSize = outputSize;
 		

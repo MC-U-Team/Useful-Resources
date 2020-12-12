@@ -7,7 +7,7 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import org.apache.commons.lang3.ArrayUtils;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceDataType;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.item.Rarity;
 
@@ -17,7 +17,7 @@ public class VanillaIngotResource extends BasicResource<VanillaIngotResource> {
 	private final float baseHardness;
 	
 	public VanillaIngotResource(String name, int color, int harvestLevel, float baseHardness, BlockResourceType... existingOres) {
-		super(name, color, ItemResourceType.INGOT, Rarity.COMMON, ResourceType.INGOT);
+		super(name, color, ItemResourceType.INGOT, Rarity.COMMON, ResourceDataType.INGOT);
 		
 		this.harvestLevel = harvestLevel;
 		this.baseHardness = baseHardness;

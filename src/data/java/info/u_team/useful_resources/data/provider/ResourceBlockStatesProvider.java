@@ -1369,16 +1369,16 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 				.texture("particle", mcLoc("block/water_still"));
 	}
 	
-	protected void resourceTypeBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void resourceTypeBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
 		
 		final ResourceLocation model;
 		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
 			model = baseModel;
 		} else {
-			final ResourceType resourceType;
+			final ResourceDataType resourceType;
 			if (ObjectUtil.getBoolean(extraProperties.getOrDefault("ingotModel", false))) {
-				resourceType = ResourceType.INGOT;
+				resourceType = ResourceDataType.INGOT;
 			} else {
 				resourceType = dataGeneratorConfigurator.getResourceType();
 			}
@@ -1398,7 +1398,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		simpleBlock(block, models().withExistingParent(getPath(block), model));
 	}
 	
-	protected void barsBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void barsBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile postEnds = models().withExistingParent(getPath(block) + "_post_ends", baseModel.toString() + "_post_ends");
 		final ModelFile post = models().withExistingParent(getPath(block) + "_post", baseModel.toString() + "_post");
 		final ModelFile side = models().withExistingParent(getPath(block) + "_side", baseModel.toString() + "_side");
@@ -1419,18 +1419,18 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		builder.part().modelFile(sideAlt).rotationY(90).addModel().condition(FourWayBlock.WEST, true).end();
 	}
 	
-	protected void chainBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void chainBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile model = models().withExistingParent(getPath(block), baseModel.toString());
 		axisBlock((RotatedPillarBlock) block, model, model);
 	}
 	
-	protected void fenceBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void fenceBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile post = models().withExistingParent(getPath(block) + "_post", baseModel.toString() + "_post");
 		final ModelFile side = models().withExistingParent(getPath(block) + "_side", baseModel.toString() + "_side");
 		fourWayBlock((FourWayBlock) block, post, side);
 	}
 	
-	protected void fenceGateBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void fenceGateBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile gate = models().withExistingParent(getPath(block), baseModel.toString());
 		final ModelFile gateOpen = models().withExistingParent(getPath(block) + "_open", baseModel.toString() + "_open");
 		final ModelFile gateWall = models().withExistingParent(getPath(block) + "_wall", baseModel.toString() + "_wall");
@@ -1438,7 +1438,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		fenceGateBlock((FenceGateBlock) block, gate, gateOpen, gateWall, gateWallOpen);
 	}
 	
-	protected void doorBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void doorBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile bottomLeft = models().withExistingParent(getPath(block) + "_bottom", baseModel.toString() + "_bottom");
 		final ModelFile bottomRight = models().withExistingParent(getPath(block) + "_bottom_rh", baseModel.toString() + "_bottom_rh");
 		final ModelFile topLeft = models().withExistingParent(getPath(block) + "_top", baseModel.toString() + "_top");
@@ -1447,7 +1447,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 		doorBlock((DoorBlock) block, bottomLeft, bottomRight, topLeft, topRight);
 	}
 	
-	protected void trapdoorBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
+	protected void trapdoorBlock(IResource resource, IResourceDataType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
 		final ModelFile bottom = models().withExistingParent(getPath(block) + "_bottom", baseModel.toString() + "_bottom");
 		final ModelFile top = models().withExistingParent(getPath(block) + "_top", baseModel.toString() + "_top");
 		final ModelFile open = models().withExistingParent(getPath(block) + "_open", baseModel.toString() + "_open");

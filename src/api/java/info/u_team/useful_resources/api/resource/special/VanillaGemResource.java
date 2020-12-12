@@ -7,7 +7,7 @@ import static info.u_team.useful_resources.api.type.ItemResourceType.*;
 import org.apache.commons.lang3.ArrayUtils;
 
 import info.u_team.useful_resources.api.resource.BasicResource;
-import info.u_team.useful_resources.api.resource.data.ResourceType;
+import info.u_team.useful_resources.api.resource.data.ResourceDataType;
 import info.u_team.useful_resources.api.type.*;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.math.MathHelper;
@@ -15,7 +15,7 @@ import net.minecraft.util.math.MathHelper;
 public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 	
 	public VanillaGemResource(String name, int color, int harvestLevel, float baseHardness, boolean ingotModel, int minXp, int maxXp, BlockResourceType... existingOres) {
-		super(name, color, ItemResourceType.GEM, Rarity.COMMON, ResourceType.GEM);
+		super(name, color, ItemResourceType.GEM, Rarity.COMMON, ResourceDataType.GEM);
 		
 		setProperty("ingotModel", ingotModel);
 		
