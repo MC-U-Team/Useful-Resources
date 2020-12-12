@@ -24,6 +24,22 @@ public class LanguageGenerationDecider {
 		map = new LinkedHashMap<>();
 	}
 	
+	public <T extends IForgeRegistryEntry<T>> void addSpecial(IResourceType<T> type, LanguageGenerationConsumerShort<T> consumer) {
+		map.put(type, (IResource ignored1, IResourceType<?> ignored2, T entry, String name, IDataGeneratorConfigurator ignored3) -> consumer.accept(entry, name));
+	}
+	
+	public void addSpecialBlock(IResourceType<Block> type, LanguageGenerationConsumerShort<Block> consumer) {
+		addSpecial(type, consumer);
+	}
+	
+	public void addSpecialFluid(IResourceType<Fluid> type, LanguageGenerationConsumerShort<Fluid> consumer) {
+		addSpecial(type, consumer);
+	}
+	
+	public void addSpecialItem(IResourceType<Item> type, LanguageGenerationConsumerShort<Item> consumer) {
+		addSpecial(type, consumer);
+	}
+	
 	public void addSpecial(IResourceType<?> type, LanguageGenerationConsumer<?> consumer) {
 		map.put(type, consumer);
 	}
@@ -53,6 +69,13 @@ public class LanguageGenerationDecider {
 	public interface LanguageGenerationConsumer<T extends IForgeRegistryEntry<T>> {
 		
 		void accept(IResource resource, IResourceType<?> type, T entry, String name, IDataGeneratorConfigurator configurator);
+		
+	}
+	
+	@FunctionalInterface
+	public interface LanguageGenerationConsumerShort<T extends IForgeRegistryEntry<T>> {
+		
+		void accept(T entry, String name);
 		
 	}
 	
