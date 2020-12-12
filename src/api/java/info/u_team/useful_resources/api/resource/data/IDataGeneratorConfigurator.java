@@ -9,7 +9,7 @@ import net.minecraft.loot.LootTable;
 
 public interface IDataGeneratorConfigurator {
 	
-	ResourceType getResourceType();
+	IResourceType getResourceType();
 	
 	Map<String, Supplier<WorldGenFeatures>> getWorldGeneration();
 	
