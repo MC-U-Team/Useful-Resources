@@ -13,14 +13,14 @@ public interface IDataGeneratorConfigurator {
 	
 	Map<String, Supplier<IWorldGenFeatures>> getWorldGeneration();
 	
-	Map<BlockResourceType, Supplier<LootTable>> getExtraLootTables();
+	Map<BlockResourceType, Supplier<LootTable>> getLootTables();
 	
-	Map<String, Object> getExtraProperties();
+	Map<String, Object> getProperties();
 	
 	default void clearDataGeneratorConfig() {
 		getWorldGeneration().clear();
-		getExtraLootTables().clear();
-		getExtraProperties().clear();
+		getLootTables().clear();
+		getProperties().clear();
 	}
 	
 }

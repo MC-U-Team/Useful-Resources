@@ -67,7 +67,7 @@ public class ResourceRecipesProvider extends CommonRecipesProvider {
 			final Map<BlockResourceType, Block> blocks = resource.getBlocks().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			final Map<ItemResourceType, Item> items = resource.getItems().entrySet().stream().collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().get()));
 			
-			final Map<String, Object> extraProperties = resource.getDataGeneratorConfigurator().getExtraProperties();
+			final Map<String, Object> extraProperties = resource.getDataGeneratorConfigurator().getProperties();
 			
 			final IResourceType<?> normalResourceType = getNormalResourceType(resource);
 			final IResourceType<?> tinyResourceType = getTinyResourceType(resource);

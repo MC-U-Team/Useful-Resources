@@ -33,12 +33,12 @@ public class DataGeneratorConfigurator implements IDataGeneratorConfigurator {
 	}
 	
 	@Override
-	public Map<BlockResourceType, Supplier<LootTable>> getExtraLootTables() {
+	public Map<BlockResourceType, Supplier<LootTable>> getLootTables() {
 		return extraLootTables;
 	}
 	
 	@Override
-	public Map<String, Object> getExtraProperties() {
+	public Map<String, Object> getProperties() {
 		return extraProperties;
 	}
 	

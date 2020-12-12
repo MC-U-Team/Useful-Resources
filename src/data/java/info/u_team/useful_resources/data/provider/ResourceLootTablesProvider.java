@@ -31,7 +31,7 @@ public class ResourceLootTablesProvider extends CommonLootTablesProvider {
 		// Generate loot tables
 		GenerationResources.forEachBlock((resource, type, block) -> {
 			IDataGeneratorConfigurator configurator = resource.getDataGeneratorConfigurator();
-			final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = configurator.getExtraLootTables();
+			final Map<BlockResourceType, Supplier<LootTable>> extraLootTables = configurator.getLootTables();
 			
 			final LootTable lootTable;
 			if (block.getLootTable().equals(LootTables.EMPTY)) {

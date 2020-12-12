@@ -26,7 +26,7 @@ public class ModelGenerationUtil {
 	}
 	
 	public static <T extends IForgeRegistryEntry<T>> ResourceLocation getBaseModel(IResourceType<T> type, String basePath, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getProperties();
 		final String name;
 		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
 			name = ObjectUtil.getString(extraProperties.get(type.getName() + "ModelOverride"));

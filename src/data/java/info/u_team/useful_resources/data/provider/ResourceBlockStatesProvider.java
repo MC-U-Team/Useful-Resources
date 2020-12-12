@@ -1370,7 +1370,7 @@ public class ResourceBlockStatesProvider extends CommonBlockStatesProvider {
 	}
 	
 	protected void resourceTypeBlock(IResource resource, IResourceType<Block> type, Block block, ResourceLocation baseModel, IDataGeneratorConfigurator dataGeneratorConfigurator) {
-		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getExtraProperties();
+		final Map<String, Object> extraProperties = dataGeneratorConfigurator.getProperties();
 		
 		final ResourceLocation model;
 		if (extraProperties.containsKey(type.getName() + "ModelOverride")) {
