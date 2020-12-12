@@ -20,27 +20,27 @@ public class VanillaGemResource extends BasicResource<VanillaGemResource> {
 		setProperty("ingotModel", ingotModel);
 		
 		if (!ArrayUtils.contains(existingOres, ORE)) {
-			addFeature(createOre(ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
+			addFeature(createOre(ORE, rarity, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		}
 		if (!ArrayUtils.contains(existingOres, NETHER_ORE)) {
-			addFeature(createOre(NETHER_ORE, Rarity.COMMON, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
+			addFeature(createOre(NETHER_ORE, rarity, harvestLevel, baseHardness, baseHardness, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		}
 		if (!ArrayUtils.contains(existingOres, END_ORE)) {
-			addFeature(createOre(END_ORE, Rarity.COMMON, harvestLevel, baseHardness * 1.5F, baseHardness * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));
+			addFeature(createOre(END_ORE, rarity, harvestLevel, baseHardness * 1.5F, baseHardness * 2, random -> MathHelper.nextInt(random, minXp, maxXp)));
 		}
 		
 		addFeature(createMolten(0xFF000000 + color));
 		
-		addFeature(createBasicItem(CRUSHED_ORE, Rarity.COMMON));
-		addFeature(createBasicItem(CRUSHED_NETHER_ORE, Rarity.COMMON));
-		addFeature(createBasicItem(CRUSHED_END_ORE, Rarity.COMMON));
-		addFeature(createBasicItem(PURE_CRUSHED_ORE, Rarity.COMMON));
+		addFeature(createBasicItem(CRUSHED_ORE, rarity));
+		addFeature(createBasicItem(CRUSHED_NETHER_ORE, rarity));
+		addFeature(createBasicItem(CRUSHED_END_ORE, rarity));
+		addFeature(createBasicItem(PURE_CRUSHED_ORE, rarity));
 		
-		addFeature(createBasicItem(PIECE, Rarity.COMMON));
-		addFeature(createBasicItem(DUST, Rarity.COMMON));
-		addFeature(createBasicItem(PLATE, Rarity.COMMON));
-		addFeature(createBasicItem(DENSE_PLATE, Rarity.COMMON));
-		addFeature(createBasicItem(GEAR, Rarity.COMMON));
-		addFeature(createBasicItem(ROD, Rarity.COMMON));
+		addFeature(createBasicItem(PIECE, rarity));
+		addFeature(createBasicItem(DUST, rarity));
+		addFeature(createBasicItem(PLATE, rarity));
+		addFeature(createBasicItem(DENSE_PLATE, rarity));
+		addFeature(createBasicItem(GEAR, rarity));
+		addFeature(createBasicItem(ROD, rarity));
 	}
 }
