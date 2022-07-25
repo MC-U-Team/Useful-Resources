@@ -1,7 +1,0 @@
-{
-	"parent": "usefulresources:base/item/colored_overlay_handheld_item",
-	"textures": {
-		"colored": "usefulresources:item/hoe_material",
-		"uncolored": "usefulresources:item/hoe_handle"
-	}
-}

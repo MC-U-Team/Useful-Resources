@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:crushed_stone_ores/zinc",
-		"#forge:crushed_nether_ores/zinc",
-		"#forge:crushed_end_ores/zinc"
-	]
-}

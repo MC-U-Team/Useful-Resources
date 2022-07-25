@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:stone_ores/copper",
-		"#forge:nether_ores/copper",
-		"#forge:end_ores/copper"
-	]
-}

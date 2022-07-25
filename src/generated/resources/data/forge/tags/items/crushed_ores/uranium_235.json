@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:crushed_stone_ores/uranium_235",
-		"#forge:crushed_nether_ores/uranium_235",
-		"#forge:crushed_end_ores/uranium_235"
-	]
-}

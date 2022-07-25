@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:smelting",
-	"ingredient": {
-		"tag": "forge:dusts/malachite"
-	},
-	"result": "usefulresources:malachite_gem",
-	"experience": 0.5,
-	"cookingtime": 200
-}

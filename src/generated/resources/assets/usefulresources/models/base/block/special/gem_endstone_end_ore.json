@@ -1,7 +1,0 @@
-{
-	"parent": "usefulresources:base/block/colored_overlay_block",
-	"textures": {
-		"uncolored": "usefulresources:block/endstone_gem_ore_background",
-		"colored": "usefulresources:block/gem_ore"
-	}
-}

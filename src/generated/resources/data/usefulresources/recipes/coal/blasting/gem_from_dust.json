@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:blasting",
-	"ingredient": {
-		"tag": "forge:dusts/coal"
-	},
-	"result": "minecraft:coal",
-	"experience": 0.5,
-	"cookingtime": 100
-}

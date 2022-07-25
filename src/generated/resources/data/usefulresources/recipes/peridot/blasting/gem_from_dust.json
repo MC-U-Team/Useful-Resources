@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:blasting",
-	"ingredient": {
-		"tag": "forge:dusts/peridot"
-	},
-	"result": "usefulresources:peridot_gem",
-	"experience": 0.5,
-	"cookingtime": 100
-}

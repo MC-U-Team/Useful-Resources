@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:crushed_stone_ores/emerald",
-		"#forge:crushed_nether_ores/emerald",
-		"#forge:crushed_end_ores/emerald"
-	]
-}

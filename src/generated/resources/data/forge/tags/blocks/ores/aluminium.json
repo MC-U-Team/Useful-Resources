@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:stone_ores/aluminium",
-		"#forge:nether_ores/aluminium",
-		"#forge:end_ores/aluminium"
-	]
-}

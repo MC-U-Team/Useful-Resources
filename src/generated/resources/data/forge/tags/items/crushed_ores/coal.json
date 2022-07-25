@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:crushed_stone_ores/coal",
-		"#forge:crushed_nether_ores/coal",
-		"#forge:crushed_end_ores/coal"
-	]
-}

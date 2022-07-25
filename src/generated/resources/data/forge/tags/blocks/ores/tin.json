@@ -1,8 +1,0 @@
-{
-	"replace": false,
-	"values": [
-		"#forge:stone_ores/tin",
-		"#forge:nether_ores/tin",
-		"#forge:end_ores/tin"
-	]
-}

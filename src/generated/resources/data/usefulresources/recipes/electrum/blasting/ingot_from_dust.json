@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:blasting",
-	"ingredient": {
-		"tag": "forge:dusts/electrum"
-	},
-	"result": "usefulresources:electrum_ingot",
-	"experience": 0.5,
-	"cookingtime": 100
-}
