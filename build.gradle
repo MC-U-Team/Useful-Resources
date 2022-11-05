@@ -106,6 +106,7 @@ sourceSets {
 	main {
 		java {
 			srcDirs += "src/data/java"
+			srcDirs += "src/api/java"
 		}
 		resources {
 			srcDirs += "src/generated/resources"
