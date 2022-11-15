@@ -41,15 +41,15 @@ public class ResourceBuilder {
 	}
 	
 	public void addExistingBlock(AbstractResourceType<? extends Block> type, Block block) {
-		blocks.put(type, new RegisteredRegistryEntry<>(true, RegistryEntry.create(ForgeRegistries.BLOCKS.getKey(block), () -> block)));
+		blocks.put(type, new RegisteredRegistryEntry<>(false, RegistryEntry.create(ForgeRegistries.BLOCKS.getKey(block), () -> block)));
 	}
 	
 	public void addExistingFluid(AbstractResourceType<? extends Fluid> type, Fluid fluid) {
-		fluids.put(type, new RegisteredRegistryEntry<>(true, RegistryEntry.create(ForgeRegistries.FLUIDS.getKey(fluid), () -> fluid)));
+		fluids.put(type, new RegisteredRegistryEntry<>(false, RegistryEntry.create(ForgeRegistries.FLUIDS.getKey(fluid), () -> fluid)));
 	}
 	
 	public void addExistingItem(AbstractResourceType<? extends Item> type, Item item) {
-		items.put(type, new RegisteredRegistryEntry<>(true, RegistryEntry.create(ForgeRegistries.ITEMS.getKey(item), () -> item)));
+		items.put(type, new RegisteredRegistryEntry<>(false, RegistryEntry.create(ForgeRegistries.ITEMS.getKey(item), () -> item)));
 	}
 	
 	public Resource build() {
