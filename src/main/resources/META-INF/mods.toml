@@ -1,0 +1,36 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+issueTrackerURL="https://github.com/MC-U-Team/Useful-Resources/issues"
+license="Apache-2.0 License"
+
+[[mods]]
+	modId="usefulresources"
+	version="${file.jarVersion}"
+	displayName="Useful Resources"
+	displayURL="https://u-team.info/mods/usefulresources"
+	updateJSONURL="https://api.u-team.info/update/usefulresources.json"
+	logoFile="logo.png"
+	credits="Team U-Team"
+	authors="HyCraftHD"
+	description="Join our discord server here: https://discord.hycrafthd.net\n\nThis mod adds many resources to the game and tries to unify them between mods."
+		
+	[[dependencies.usefulresources]]
+	    modId="forge"
+	    mandatory=true
+	    versionRange="[43.1.43,)"
+	    ordering="NONE"
+	    side="BOTH"
+	
+	[[dependencies.usefulresources]]
+	    modId="minecraft"
+	    mandatory=true
+	    versionRange="[1.19.2]"
+	    ordering="NONE"
+	    side="BOTH"
+	    
+	[[dependencies.usefulresources]]
+	    modId="uteamcore"
+	    mandatory=true
+	    versionRange="[4.4.3.235,)"
+	    ordering="NONE"
+	    side="BOTH"
