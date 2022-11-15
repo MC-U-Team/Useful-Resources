@@ -28,31 +28,37 @@ public class ResourceBuilder {
 		items = new HashMap<>();
 	}
 	
-	public void addBlock(AbstractResourceType<? extends Block> type, RegistryEntry<? extends Block> entry) {
+	public final ResourceBuilder addBlock(AbstractResourceType<? extends Block> type, RegistryEntry<? extends Block> entry) {
 		blocks.put(type, new RegisteredRegistryEntry<>(true, entry));
+		return this;
 	}
 	
-	public void addFluid(AbstractResourceType<? extends Fluid> type, RegistryEntry<? extends Fluid> entry) {
+	public final ResourceBuilder addFluid(AbstractResourceType<? extends Fluid> type, RegistryEntry<? extends Fluid> entry) {
 		fluids.put(type, new RegisteredRegistryEntry<>(true, entry));
+		return this;
 	}
 	
-	public void addItem(AbstractResourceType<? extends Item> type, RegistryEntry<? extends Item> entry) {
+	public final ResourceBuilder addItem(AbstractResourceType<? extends Item> type, RegistryEntry<? extends Item> entry) {
 		items.put(type, new RegisteredRegistryEntry<>(true, entry));
+		return this;
 	}
 	
-	public void addExistingBlock(AbstractResourceType<? extends Block> type, Block block) {
+	public final ResourceBuilder addExistingBlock(AbstractResourceType<? extends Block> type, Block block) {
 		blocks.put(type, new RegisteredRegistryEntry<>(false, RegistryEntry.create(ForgeRegistries.BLOCKS.getKey(block), () -> block)));
+		return this;
 	}
 	
-	public void addExistingFluid(AbstractResourceType<? extends Fluid> type, Fluid fluid) {
+	public final ResourceBuilder addExistingFluid(AbstractResourceType<? extends Fluid> type, Fluid fluid) {
 		fluids.put(type, new RegisteredRegistryEntry<>(false, RegistryEntry.create(ForgeRegistries.FLUIDS.getKey(fluid), () -> fluid)));
+		return this;
 	}
 	
-	public void addExistingItem(AbstractResourceType<? extends Item> type, Item item) {
+	public final ResourceBuilder addExistingItem(AbstractResourceType<? extends Item> type, Item item) {
 		items.put(type, new RegisteredRegistryEntry<>(false, RegistryEntry.create(ForgeRegistries.ITEMS.getKey(item), () -> item)));
+		return this;
 	}
 	
-	public Resource build() {
+	public final Resource build() {
 		return new Resource(name, color, new ResourceEntries(blocks, fluids, items));
 	}
 	
