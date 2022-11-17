@@ -36,6 +36,10 @@ public class RegistryEntry<T> implements Supplier<T> {
 		return entry.get();
 	}
 	
+	public ResourceLocation getName() {
+		return name;
+	}
+	
 	@Override
 	public boolean equals(Object object) {
 		if (this == object) {

@@ -1,7 +1,7 @@
 package info.u_team.useful_resources.resource;
 
-import info.u_team.useful_resources.api.material.AbstractResource;
-import info.u_team.useful_resources.api.material.AbstractResourceEntries;
+import info.u_team.useful_resources.api.resource.AbstractResource;
+import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
 
 public class Resource implements AbstractResource {
 	

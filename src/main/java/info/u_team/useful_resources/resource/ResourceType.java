@@ -2,8 +2,8 @@ package info.u_team.useful_resources.resource;
 
 import java.util.function.Function;
 
-import info.u_team.useful_resources.api.material.AbstractResource;
-import info.u_team.useful_resources.api.material.AbstractResourceType;
+import info.u_team.useful_resources.api.resource.AbstractResource;
+import info.u_team.useful_resources.api.resource.AbstractResourceType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 
