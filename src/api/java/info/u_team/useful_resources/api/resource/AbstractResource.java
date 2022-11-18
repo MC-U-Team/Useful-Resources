@@ -8,4 +8,6 @@ public interface AbstractResource {
 	
 	AbstractResourceEntries getEntries();
 	
+	AbstractRegisterProvider getRegisterProvider();
+	
 }

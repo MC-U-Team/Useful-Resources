@@ -7,6 +7,8 @@ import info.u_team.useful_resources.api.registry.ExistingRegistryEntry;
 import info.u_team.useful_resources.api.registry.ResourceTypeKey;
 import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
 import info.u_team.useful_resources.api.resource.AbstractResourceFeature;
+import info.u_team.useful_resources.api.resource.ResourceRegistry;
+import info.u_team.useful_resources.resource.register.RegisterProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -15,10 +17,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public abstract class AbstractResourceBuilder {
 	
-	private final String name;
-	private final int color;
-	
+	private final ResourceProperties properties;
 	private final ResourceEntries entries;
+	private final RegisterProvider registerProvider;
 	
 	protected AbstractResourceBuilder(String name, int color, Consumer<ExistingResourceTypes> existingTypes) {
 		this(name, color);
@@ -28,21 +29,22 @@ public abstract class AbstractResourceBuilder {
 	}
 	
 	private AbstractResourceBuilder(String name, int color) {
-		this.name = name;
-		this.color = color;
+		properties = new ResourceProperties(name, color);
 		entries = new ResourceEntries();
+		registerProvider = new RegisterProvider();
 	}
 	
-	public final AbstractResourceBuilder add(AbstractResourceFeature feature) {
+	public final AbstractResourceBuilder add(AbstractResourceFeatureCreator featureCreator) {
+		final AbstractResourceFeature feature = featureCreator.create(properties, registerProvider);
 		entries.merge(feature.getEntries());
 		return this;
 	}
 	
-	protected abstract void apply(String name, int color);
+	protected abstract void apply(ResourceEntries entries);
 	
 	public final Resource build() {
-		apply(name, color);
-		return new Resource(name, color, entries.toImmutable());
+		apply(entries);
+		return ResourceRegistry.register(new Resource(properties.name(), properties.color(), entries.toImmutable(), registerProvider));
 	}
 	
 	public static class ExistingResourceTypes {
@@ -86,6 +88,15 @@ public abstract class AbstractResourceBuilder {
 		private AbstractResourceEntries build() {
 			return entries.toImmutable();
 		}
+	}
+	
+	public static record ResourceProperties(String name, int color) {
+	}
+	
+	@FunctionalInterface
+	public static interface AbstractResourceFeatureCreator {
+		
+		AbstractResourceFeature create(ResourceProperties properties, RegisterProvider registerProvider);
 	}
 	
 }
