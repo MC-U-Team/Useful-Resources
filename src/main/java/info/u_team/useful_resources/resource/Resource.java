@@ -8,9 +8,9 @@ public class Resource implements AbstractResource {
 	private final String name;
 	private final int color;
 	
-	private final ResourceEntries entries;
+	private final AbstractResourceEntries entries;
 	
-	protected Resource(String name, int color, ResourceEntries entries) {
+	protected Resource(String name, int color, AbstractResourceEntries entries) {
 		this.name = name;
 		this.color = color;
 		this.entries = entries;

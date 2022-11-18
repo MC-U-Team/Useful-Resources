@@ -1,39 +1,93 @@
 package info.u_team.useful_resources.resource;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
+import info.u_team.useful_resources.api.registry.RegistryEntry;
+import info.u_team.useful_resources.api.registry.ResourceTypeKey;
 import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
-import info.u_team.useful_resources.api.resource.AbstractResourceType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
 public class ResourceEntries implements AbstractResourceEntries {
 	
-	private final Map<AbstractResourceType<? extends Block>, ExistingRegistryEntry<? extends Block>> blocks;
-	private final Map<AbstractResourceType<? extends Fluid>, ExistingRegistryEntry<? extends Fluid>> fluids;
-	private final Map<AbstractResourceType<? extends Item>, ExistingRegistryEntry<? extends Item>> items;
+	private final Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> blocks;
+	private final Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> fluids;
+	private final Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> items;
 	
-	public ResourceEntries(Map<AbstractResourceType<? extends Block>, ExistingRegistryEntry<? extends Block>> blocks, Map<AbstractResourceType<? extends Fluid>, ExistingRegistryEntry<? extends Fluid>> fluids, Map<AbstractResourceType<? extends Item>, ExistingRegistryEntry<? extends Item>> items) {
-		this.blocks = Collections.unmodifiableMap(blocks);
-		this.fluids = Collections.unmodifiableMap(fluids);
-		this.items = Collections.unmodifiableMap(items);
+	public ResourceEntries() {
+		this.blocks = new HashMap<>();
+		this.fluids = new HashMap<>();
+		this.items = new HashMap<>();
 	}
 	
 	@Override
-	public Map<AbstractResourceType<? extends Block>, ExistingRegistryEntry<? extends Block>> getBlocks() {
+	public Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> getBlocks() {
 		return blocks;
 	}
 	
 	@Override
-	public Map<AbstractResourceType<? extends Fluid>, ExistingRegistryEntry<? extends Fluid>> getFluids() {
+	public Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> getFluids() {
 		return fluids;
 	}
 	
 	@Override
-	public Map<AbstractResourceType<? extends Item>, ExistingRegistryEntry<? extends Item>> getItems() {
+	public Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> getItems() {
 		return items;
+	}
+	
+	@Override
+	public AbstractResourceEntries toImmutable() {
+		return new AbstractResourceEntries() {
+			
+			@Override
+			public Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> getBlocks() {
+				return Collections.unmodifiableMap(blocks);
+			}
+			
+			@Override
+			public Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> getFluids() {
+				return Collections.unmodifiableMap(fluids);
+			}
+			
+			@Override
+			public Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> getItems() {
+				return Collections.unmodifiableMap(items);
+			}
+			
+			@Override
+			public AbstractResourceEntries toImmutable() {
+				return this;
+			}
+		};
+	}
+	
+	public void merge(AbstractResourceEntries entries) {
+		mergeSingleEntryMap(blocks, entries.getBlocks());
+		mergeSingleEntryMap(fluids, entries.getFluids());
+		mergeSingleEntryMap(items, entries.getItems());
+	}
+	
+	private <T> void mergeSingleEntryMap(Map<ResourceTypeKey<? extends T>, RegistryEntry<? extends T>> baseMap, Map<ResourceTypeKey<? extends T>, RegistryEntry<? extends T>> map) {
+		map.entrySet().stream().peek(entry -> {
+			if (baseMap.containsKey(entry.getKey())) {
+				throw new IllegalStateException("Cannot merge resource entries with this map, because " + entry.getKey() + " already exists.");
+			}
+		}).forEach(entry -> baseMap.put(entry.getKey(), entry.getValue()));
+	}
+	
+	public void addBlock(ResourceTypeKey<? extends Block> type, RegistryEntry<? extends Block> entry) {
+		blocks.put(type, entry);
+	}
+	
+	public void addFluid(ResourceTypeKey<? extends Fluid> type, RegistryEntry<? extends Fluid> entry) {
+		fluids.put(type, entry);
+	}
+	
+	public void addItem(ResourceTypeKey<? extends Item> type, RegistryEntry<? extends Item> entry) {
+		items.put(type, entry);
 	}
 	
 }

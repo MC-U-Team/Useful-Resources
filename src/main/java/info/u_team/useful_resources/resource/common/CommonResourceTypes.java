@@ -1,4 +1,4 @@
-package info.u_team.useful_resources.resource.definition;
+package info.u_team.useful_resources.resource.common;
 
 import info.u_team.useful_resources.resource.ResourceType;
 import info.u_team.useful_resources.resource.ResourceTypeBuilder;
