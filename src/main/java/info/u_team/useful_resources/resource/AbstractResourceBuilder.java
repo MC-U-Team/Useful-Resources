@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 
 import info.u_team.useful_resources.api.registry.ExistingRegistryEntry;
 import info.u_team.useful_resources.api.registry.ResourceTypeKey;
+import info.u_team.useful_resources.api.resource.AbstractRegisterProvider;
 import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
 import info.u_team.useful_resources.api.resource.AbstractResourceFeature;
 import info.u_team.useful_resources.api.resource.ResourceRegistry;
@@ -96,7 +97,7 @@ public abstract class AbstractResourceBuilder {
 	@FunctionalInterface
 	public static interface AbstractResourceFeatureCreator {
 		
-		AbstractResourceFeature create(ResourceProperties properties, RegisterProvider registerProvider);
+		AbstractResourceFeature create(ResourceProperties properties, AbstractRegisterProvider registerProvider);
 	}
 	
 }

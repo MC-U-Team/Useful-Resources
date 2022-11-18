@@ -3,6 +3,8 @@ package info.u_team.useful_resources.resource.builder;
 import java.util.function.Consumer;
 
 import info.u_team.useful_resources.resource.AbstractResourceBuilder;
+import info.u_team.useful_resources.resource.ResourceEntries;
+import info.u_team.useful_resources.resource.ResourceFeature;
 
 public class BasicOreResourceBuilder extends AbstractResourceBuilder {
 	
@@ -11,8 +13,10 @@ public class BasicOreResourceBuilder extends AbstractResourceBuilder {
 	}
 	
 	@Override
-	protected void apply(String name, int color) {
-		
+	protected void apply(ResourceEntries entries) {
+		add((properties, registerProvider) -> {
+			return new ResourceFeature();
+		});
 	}
 	
 }

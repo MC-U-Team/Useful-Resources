@@ -16,6 +16,10 @@ public final class ResourceTypeKey<T> {
 		this.type = Objects.requireNonNull(type);
 	}
 	
+	public AbstractResourceType<T> getType() {
+		return type;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(type.getName());
