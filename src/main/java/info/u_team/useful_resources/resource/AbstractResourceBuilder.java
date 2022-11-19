@@ -12,6 +12,7 @@ import info.u_team.useful_resources.api.resource.ResourceRegistry;
 import info.u_team.useful_resources.resource.register.RegisterProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,32 +21,33 @@ public abstract class AbstractResourceBuilder {
 	
 	private final ResourceProperties properties;
 	private final ResourceEntries entries;
-	private final RegisterProvider registerProvider;
 	
-	protected AbstractResourceBuilder(String name, int color, Consumer<ExistingResourceTypes> existingTypes) {
-		this(name, color);
+	private final AbstractRegisterProvider registerProvider;
+	
+	protected AbstractResourceBuilder(String name, int color, Rarity rarity, Consumer<ExistingResourceTypes> existingTypes) {
+		this(name, color, rarity);
 		final ExistingResourceTypes existingResourceTypes = new ExistingResourceTypes();
 		existingTypes.accept(existingResourceTypes);
 		entries.merge(existingResourceTypes.build());
 	}
 	
-	private AbstractResourceBuilder(String name, int color) {
-		properties = new ResourceProperties(name, color);
+	private AbstractResourceBuilder(String name, int color, Rarity rarity) {
+		properties = new ResourceProperties(name, color, rarity);
 		entries = new ResourceEntries();
-		registerProvider = new RegisterProvider();
+		registerProvider = RegisterProvider.DEFAULT;
 	}
 	
-	public final AbstractResourceBuilder add(AbstractResourceFeatureCreator featureCreator) {
+	public final AbstractResourceBuilder add(ResourceFeatureCreator featureCreator) {
 		final AbstractResourceFeature feature = featureCreator.create(properties, registerProvider);
 		entries.merge(feature.getEntries());
 		return this;
 	}
 	
-	protected abstract void apply(ResourceEntries entries);
+	protected abstract void apply(AbstractResourceEntries entries);
 	
 	public final Resource build() {
 		apply(entries);
-		return ResourceRegistry.register(new Resource(properties.name(), properties.color(), entries.toImmutable(), registerProvider));
+		return ResourceRegistry.register(new Resource(properties.name(), properties.color(), properties.rarity(), entries.toImmutable()));
 	}
 	
 	public static class ExistingResourceTypes {
@@ -56,32 +58,32 @@ public abstract class AbstractResourceBuilder {
 			this.entries = new ResourceEntries();
 		}
 		
-		public ExistingResourceTypes block(ResourceTypeKey<? extends Block> type, Block entry) {
+		public ExistingResourceTypes block(ResourceTypeKey<Block> type, Block entry) {
 			block(type, ForgeRegistries.BLOCKS.getKey(entry), () -> entry);
 			return this;
 		}
 		
-		public ExistingResourceTypes fluid(ResourceTypeKey<? extends Fluid> type, Fluid entry) {
+		public ExistingResourceTypes fluid(ResourceTypeKey<Fluid> type, Fluid entry) {
 			fluid(type, ForgeRegistries.FLUIDS.getKey(entry), () -> entry);
 			return this;
 		}
 		
-		public ExistingResourceTypes item(ResourceTypeKey<? extends Item> type, Item entry) {
+		public ExistingResourceTypes item(ResourceTypeKey<Item> type, Item entry) {
 			item(type, ForgeRegistries.ITEMS.getKey(entry), () -> entry);
 			return this;
 		}
 		
-		public ExistingResourceTypes block(ResourceTypeKey<? extends Block> type, ResourceLocation name, Supplier<? extends Block> entry) {
+		public ExistingResourceTypes block(ResourceTypeKey<Block> type, ResourceLocation name, Supplier<? extends Block> entry) {
 			entries.addBlock(type, ExistingRegistryEntry.createExisting(name, entry));
 			return this;
 		}
 		
-		public ExistingResourceTypes fluid(ResourceTypeKey<? extends Fluid> type, ResourceLocation name, Supplier<? extends Fluid> entry) {
+		public ExistingResourceTypes fluid(ResourceTypeKey<Fluid> type, ResourceLocation name, Supplier<? extends Fluid> entry) {
 			entries.addFluid(type, ExistingRegistryEntry.createExisting(name, entry));
 			return this;
 		}
 		
-		public ExistingResourceTypes item(ResourceTypeKey<? extends Item> type, ResourceLocation name, Supplier<? extends Item> entry) {
+		public ExistingResourceTypes item(ResourceTypeKey<Item> type, ResourceLocation name, Supplier<? extends Item> entry) {
 			entries.addItem(type, ExistingRegistryEntry.createExisting(name, entry));
 			return this;
 		}
@@ -91,11 +93,11 @@ public abstract class AbstractResourceBuilder {
 		}
 	}
 	
-	public static record ResourceProperties(String name, int color) {
+	public static record ResourceProperties(String name, int color, Rarity rarity) {
 	}
 	
 	@FunctionalInterface
-	public static interface AbstractResourceFeatureCreator {
+	public static interface ResourceFeatureCreator {
 		
 		AbstractResourceFeature create(ResourceProperties properties, AbstractRegisterProvider registerProvider);
 	}

@@ -10,11 +10,11 @@ import net.minecraft.world.level.material.Fluid;
 
 public interface AbstractResourceEntries {
 	
-	Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> getBlocks();
+	Map<ResourceTypeKey<Block>, RegistryEntry<? extends Block>> getBlocks();
 	
-	Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> getFluids();
+	Map<ResourceTypeKey<Fluid>, RegistryEntry<? extends Fluid>> getFluids();
 	
-	Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> getItems();
+	Map<ResourceTypeKey<Item>, RegistryEntry<? extends Item>> getItems();
 	
 	AbstractResourceEntries toImmutable();
 	

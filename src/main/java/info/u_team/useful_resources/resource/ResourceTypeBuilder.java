@@ -3,6 +3,7 @@ package info.u_team.useful_resources.resource;
 import java.util.function.Function;
 
 import info.u_team.u_team_core.util.TagUtil;
+import info.u_team.useful_resources.api.registry.ResourceTypeKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -45,8 +46,8 @@ public class ResourceTypeBuilder<T> {
 		return this;
 	}
 	
-	public ResourceType<T> build() {
-		return new ResourceType<>(name, tagName, tagFunction);
+	public ResourceTypeKey<T> build() {
+		return ResourceTypeKey.create(new ResourceType<>(name, tagName, tagFunction));
 	}
 	
 }

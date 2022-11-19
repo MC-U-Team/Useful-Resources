@@ -1,22 +1,22 @@
 package info.u_team.useful_resources.resource;
 
-import info.u_team.useful_resources.api.resource.AbstractRegisterProvider;
 import info.u_team.useful_resources.api.resource.AbstractResource;
 import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
+import net.minecraft.world.item.Rarity;
 
 public class Resource implements AbstractResource {
 	
 	private final String name;
 	private final int color;
+	private final Rarity rarity;
 	
 	private final AbstractResourceEntries entries;
-	private final AbstractRegisterProvider registerProvider;
 	
-	protected Resource(String name, int color, AbstractResourceEntries entries, AbstractRegisterProvider registerProvider) {
+	protected Resource(String name, int color, Rarity rarity, AbstractResourceEntries entries) {
 		this.name = name;
 		this.color = color;
+		this.rarity = rarity;
 		this.entries = entries;
-		this.registerProvider = registerProvider;
 	}
 	
 	@Override
@@ -30,13 +30,13 @@ public class Resource implements AbstractResource {
 	}
 	
 	@Override
-	public AbstractResourceEntries getEntries() {
-		return entries;
+	public Rarity getRarity() {
+		return rarity;
 	}
 	
 	@Override
-	public AbstractRegisterProvider getRegisterProvider() {
-		return registerProvider;
+	public AbstractResourceEntries getEntries() {
+		return entries;
 	}
 	
 }

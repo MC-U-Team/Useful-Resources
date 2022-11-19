@@ -13,9 +13,9 @@ import net.minecraft.world.level.material.Fluid;
 
 public class ResourceEntries implements AbstractResourceEntries {
 	
-	private final Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> blocks;
-	private final Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> fluids;
-	private final Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> items;
+	private final Map<ResourceTypeKey<Block>, RegistryEntry<? extends Block>> blocks;
+	private final Map<ResourceTypeKey<Fluid>, RegistryEntry<? extends Fluid>> fluids;
+	private final Map<ResourceTypeKey<Item>, RegistryEntry<? extends Item>> items;
 	
 	public ResourceEntries() {
 		this.blocks = new HashMap<>();
@@ -24,17 +24,17 @@ public class ResourceEntries implements AbstractResourceEntries {
 	}
 	
 	@Override
-	public Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> getBlocks() {
+	public Map<ResourceTypeKey<Block>, RegistryEntry<? extends Block>> getBlocks() {
 		return blocks;
 	}
 	
 	@Override
-	public Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> getFluids() {
+	public Map<ResourceTypeKey<Fluid>, RegistryEntry<? extends Fluid>> getFluids() {
 		return fluids;
 	}
 	
 	@Override
-	public Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> getItems() {
+	public Map<ResourceTypeKey<Item>, RegistryEntry<? extends Item>> getItems() {
 		return items;
 	}
 	
@@ -43,17 +43,17 @@ public class ResourceEntries implements AbstractResourceEntries {
 		return new AbstractResourceEntries() {
 			
 			@Override
-			public Map<ResourceTypeKey<? extends Block>, RegistryEntry<? extends Block>> getBlocks() {
+			public Map<ResourceTypeKey<Block>, RegistryEntry<? extends Block>> getBlocks() {
 				return Collections.unmodifiableMap(blocks);
 			}
 			
 			@Override
-			public Map<ResourceTypeKey<? extends Fluid>, RegistryEntry<? extends Fluid>> getFluids() {
+			public Map<ResourceTypeKey<Fluid>, RegistryEntry<? extends Fluid>> getFluids() {
 				return Collections.unmodifiableMap(fluids);
 			}
 			
 			@Override
-			public Map<ResourceTypeKey<? extends Item>, RegistryEntry<? extends Item>> getItems() {
+			public Map<ResourceTypeKey<Item>, RegistryEntry<? extends Item>> getItems() {
 				return Collections.unmodifiableMap(items);
 			}
 			
@@ -70,7 +70,7 @@ public class ResourceEntries implements AbstractResourceEntries {
 		mergeSingleEntryMap(items, entries.getItems());
 	}
 	
-	private <T> void mergeSingleEntryMap(Map<ResourceTypeKey<? extends T>, RegistryEntry<? extends T>> baseMap, Map<ResourceTypeKey<? extends T>, RegistryEntry<? extends T>> map) {
+	private <T> void mergeSingleEntryMap(Map<ResourceTypeKey<T>, RegistryEntry<? extends T>> baseMap, Map<ResourceTypeKey<T>, RegistryEntry<? extends T>> map) {
 		map.entrySet().stream().peek(entry -> {
 			if (baseMap.containsKey(entry.getKey())) {
 				throw new IllegalStateException("Cannot merge resource entries with this map, because " + entry.getKey() + " already exists.");
@@ -78,15 +78,15 @@ public class ResourceEntries implements AbstractResourceEntries {
 		}).forEach(entry -> baseMap.put(entry.getKey(), entry.getValue()));
 	}
 	
-	public void addBlock(ResourceTypeKey<? extends Block> type, RegistryEntry<? extends Block> entry) {
+	public void addBlock(ResourceTypeKey<Block> type, RegistryEntry<? extends Block> entry) {
 		blocks.put(type, entry);
 	}
 	
-	public void addFluid(ResourceTypeKey<? extends Fluid> type, RegistryEntry<? extends Fluid> entry) {
+	public void addFluid(ResourceTypeKey<Fluid> type, RegistryEntry<? extends Fluid> entry) {
 		fluids.put(type, entry);
 	}
 	
-	public void addItem(ResourceTypeKey<? extends Item> type, RegistryEntry<? extends Item> entry) {
+	public void addItem(ResourceTypeKey<Item> type, RegistryEntry<? extends Item> entry) {
 		items.put(type, entry);
 	}
 	

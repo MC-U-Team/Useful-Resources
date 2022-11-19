@@ -11,11 +11,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class RegisterProvider implements AbstractRegisterProvider {
 	
+	public static final AbstractRegisterProvider DEFAULT = new RegisterProvider();
+	
 	private final BlockDeferredRegister block;
 	private final CommonDeferredRegister<Fluid> fluid;
 	private final CommonDeferredRegister<Item> item;
 	
-	public RegisterProvider() {
+	protected RegisterProvider() {
 		this(UsefulResourcesMod.MODID);
 	}
 	

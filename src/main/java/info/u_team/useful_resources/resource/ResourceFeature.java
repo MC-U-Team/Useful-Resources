@@ -17,35 +17,35 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ResourceFeature implements AbstractResourceFeature {
+public abstract class ResourceFeature implements AbstractResourceFeature {
 	
 	private final ResourceProperties resourceProperties;
 	private final AbstractRegisterProvider registerProvider;
 	private final ResourceEntries entries;
 	
-	public ResourceFeature(ResourceProperties resourceProperties, AbstractRegisterProvider registerProvider) {
+	protected ResourceFeature(ResourceProperties resourceProperties, AbstractRegisterProvider registerProvider) {
 		this.resourceProperties = resourceProperties;
 		this.registerProvider = registerProvider;
 		entries = new ResourceEntries();
 	}
 	
-	public <T extends Block & BlockItemProvider> RegistryEntry<? extends T> registerBlock(ResourceTypeKey<? extends T> type, Supplier<? extends T> supplier) {
+	public <T extends Block & BlockItemProvider> RegistryEntry<? extends T> registerBlock(ResourceTypeKey<Block> type, Supplier<? extends T> supplier) {
 		return registerBlock(type, this::defaultName, supplier);
 	}
 	
-	public <T extends Block> RegistryEntry<? extends T> registerBlockOnly(ResourceTypeKey<? extends T> type, Supplier<? extends T> supplier) {
+	public <T extends Block> RegistryEntry<? extends T> registerBlockOnly(ResourceTypeKey<Block> type, Supplier<? extends T> supplier) {
 		return registerBlockOnly(type, this::defaultName, supplier);
 	}
 	
-	public <T extends Fluid> RegistryEntry<? extends T> registerFluid(ResourceTypeKey<? extends T> type, Supplier<? extends T> supplier) {
+	public <T extends Fluid> RegistryEntry<? extends T> registerFluid(ResourceTypeKey<Fluid> type, Supplier<? extends T> supplier) {
 		return registerFluid(type, this::defaultName, supplier);
 	}
 	
-	public <T extends Item> RegistryEntry<? extends T> registerItem(ResourceTypeKey<? extends T> type, Supplier<? extends T> supplier) {
+	public <T extends Item> RegistryEntry<? extends T> registerItem(ResourceTypeKey<Item> type, Supplier<? extends T> supplier) {
 		return registerItem(type, this::defaultName, supplier);
 	}
 	
-	public <T extends Block & BlockItemProvider> RegistryEntry<? extends T> registerBlock(ResourceTypeKey<? extends T> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
+	public <T extends Block & BlockItemProvider> RegistryEntry<? extends T> registerBlock(ResourceTypeKey<Block> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
 		final String name = nameFunction.apply(resourceProperties, type);
 		final BlockRegistryObject<? extends T, BlockItem> registryObject = registerProvider.getBlockRegister().register(name, supplier);
 		final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
@@ -53,7 +53,7 @@ public class ResourceFeature implements AbstractResourceFeature {
 		return entry;
 	}
 	
-	public <T extends Block> RegistryEntry<? extends T> registerBlockOnly(ResourceTypeKey<? extends T> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
+	public <T extends Block> RegistryEntry<? extends T> registerBlockOnly(ResourceTypeKey<Block> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
 		final String name = nameFunction.apply(resourceProperties, type);
 		final RegistryObject<? extends T> registryObject = registerProvider.getBlockRegister().registerBlock(name, supplier);
 		final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
@@ -61,7 +61,7 @@ public class ResourceFeature implements AbstractResourceFeature {
 		return entry;
 	}
 	
-	public <T extends Fluid> RegistryEntry<? extends T> registerFluid(ResourceTypeKey<? extends T> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
+	public <T extends Fluid> RegistryEntry<? extends T> registerFluid(ResourceTypeKey<Fluid> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
 		final String name = nameFunction.apply(resourceProperties, type);
 		final RegistryObject<? extends T> registryObject = registerProvider.getFluidRegister().register(name, supplier);
 		final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
@@ -69,7 +69,7 @@ public class ResourceFeature implements AbstractResourceFeature {
 		return entry;
 	}
 	
-	public <T extends Item> RegistryEntry<? extends T> registerItem(ResourceTypeKey<? extends T> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
+	public <T extends Item> RegistryEntry<? extends T> registerItem(ResourceTypeKey<Item> type, NameFunction<T> nameFunction, Supplier<? extends T> supplier) {
 		final String name = nameFunction.apply(resourceProperties, type);
 		final RegistryObject<? extends T> registryObject = registerProvider.getItemRegister().register(name, supplier);
 		final RegistryEntry<? extends T> entry = RegistryEntry.create(registryObject);
@@ -77,17 +77,17 @@ public class ResourceFeature implements AbstractResourceFeature {
 		return entry;
 	}
 	
-	public <T extends Block> RegistryEntry<? extends T> addBlock(ResourceTypeKey<? extends T> type, RegistryEntry<? extends T> entry) {
+	public <T extends Block> RegistryEntry<? extends T> addBlock(ResourceTypeKey<Block> type, RegistryEntry<? extends T> entry) {
 		entries.addBlock(type, entry);
 		return entry;
 	}
 	
-	public <T extends Fluid> RegistryEntry<? extends T> addFluid(ResourceTypeKey<? extends T> type, RegistryEntry<? extends T> entry) {
+	public <T extends Fluid> RegistryEntry<? extends T> addFluid(ResourceTypeKey<Fluid> type, RegistryEntry<? extends T> entry) {
 		entries.addFluid(type, entry);
 		return entry;
 	}
 	
-	public <T extends Item> RegistryEntry<? extends T> addItem(ResourceTypeKey<? extends T> type, RegistryEntry<? extends T> entry) {
+	public <T extends Item> RegistryEntry<? extends T> addItem(ResourceTypeKey<Item> type, RegistryEntry<? extends T> entry) {
 		entries.addItem(type, entry);
 		return entry;
 	}
@@ -102,7 +102,7 @@ public class ResourceFeature implements AbstractResourceFeature {
 	}
 	
 	@FunctionalInterface
-	protected interface NameFunction<T> extends BiFunction<ResourceProperties, ResourceTypeKey<? extends T>, String> {
+	protected interface NameFunction<T> extends BiFunction<ResourceProperties, ResourceTypeKey<?>, String> {
 	}
 	
 }
