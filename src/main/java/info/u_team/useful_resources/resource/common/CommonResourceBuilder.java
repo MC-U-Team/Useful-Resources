@@ -12,6 +12,11 @@ public class CommonResourceBuilder {
 		return new BasicOreResourceBuilder(name, color, rarity, existingTypes);
 	}
 	
+	public static String test() {
+		System.out.println("CALLED FROM JS");
+		return "ROFL";
+	}
+	
 	// Utility methods
 	
 	public static Consumer<ExistingResourceTypes> noExisting() {
