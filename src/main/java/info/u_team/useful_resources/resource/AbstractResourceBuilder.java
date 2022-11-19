@@ -31,7 +31,7 @@ public abstract class AbstractResourceBuilder {
 		entries.merge(existingResourceTypes.build());
 	}
 	
-	private AbstractResourceBuilder(String name, int color, Rarity rarity) {
+	protected AbstractResourceBuilder(String name, int color, Rarity rarity) {
 		properties = new ResourceProperties(name, color, rarity);
 		entries = new ResourceEntries();
 		registerProvider = RegisterProvider.DEFAULT;

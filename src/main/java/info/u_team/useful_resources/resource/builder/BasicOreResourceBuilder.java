@@ -1,7 +1,5 @@
 package info.u_team.useful_resources.resource.builder;
 
-import java.util.function.Consumer;
-
 import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
 import info.u_team.useful_resources.resource.AbstractResourceBuilder;
 import info.u_team.useful_resources.resource.feature.OreResourceFeature;
@@ -11,8 +9,8 @@ public class BasicOreResourceBuilder extends AbstractResourceBuilder {
 	
 	private float baseDestroyTime = 3;
 	
-	public BasicOreResourceBuilder(String name, int color, Rarity rarity, Consumer<ExistingResourceTypes> existingTypes) {
-		super(name, color, rarity, existingTypes);
+	public BasicOreResourceBuilder(String name, int color, Rarity rarity) {
+		super(name, color, rarity);
 	}
 	
 	public BasicOreResourceBuilder baseDestroyTime(float baseDestroyTime) {
@@ -23,6 +21,9 @@ public class BasicOreResourceBuilder extends AbstractResourceBuilder {
 	@Override
 	protected void apply(AbstractResourceEntries entries) {
 		add(OreResourceFeature.createStoneOre(baseDestroyTime, baseDestroyTime));
+		add(OreResourceFeature.createDeepslateOre(baseDestroyTime, baseDestroyTime));
+		add(OreResourceFeature.createNetherrackOre(baseDestroyTime, baseDestroyTime));
+		add(OreResourceFeature.createEndstoneOre(baseDestroyTime, baseDestroyTime));
 	}
 	
 }
