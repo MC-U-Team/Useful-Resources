@@ -5,6 +5,7 @@ import info.u_team.u_team_core.api.construct.ModConstruct;
 import info.u_team.u_team_core.util.registry.BusRegister;
 import info.u_team.useful_resources.UsefulResourcesMod;
 import info.u_team.useful_resources.resource.register.RegisterProvider;
+import info.u_team.useful_resources.resources.Resources;
 
 @Construct(modid = UsefulResourcesMod.MODID)
 public class UsefulResourcesCommonConstruct implements ModConstruct {
@@ -12,6 +13,8 @@ public class UsefulResourcesCommonConstruct implements ModConstruct {
 	@Override
 	public void construct() {
 		BusRegister.registerMod(RegisterProvider.DEFAULT::register);
+		System.out.println("ROFLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+		System.out.println(Resources.SILVER.getName()); // TODO remove. just classloading for now
 	}
 	
 }
