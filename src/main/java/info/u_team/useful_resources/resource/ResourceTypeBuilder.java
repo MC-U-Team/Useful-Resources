@@ -2,6 +2,8 @@ package info.u_team.useful_resources.resource;
 
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.registry.ResourceTypeKey;
@@ -37,6 +39,11 @@ public class ResourceTypeBuilder<T> {
 		
 		defaultRegistryNameOperator = resourceName -> resourceName + "_" + name;
 		tagName = name + "s";
+	}
+	
+	public ResourceTypeBuilder<T> defaultRegistryName(String before, String... after) {
+		final String joined = Stream.of(after).collect(Collectors.joining());
+		return defaultRegistryName(name -> before + "_" + name + (joined.isEmpty() ? "" : "_" + joined));
 	}
 	
 	public ResourceTypeBuilder<T> defaultRegistryName(UnaryOperator<String> defaultRegistryNameOperator) {

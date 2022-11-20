@@ -9,11 +9,11 @@ public class CommonResourceTypes {
 	
 	// Blocks
 	public static final ResourceTypeKey<Block> ORE = ResourceTypeBuilder.block("ore").tagName("stone_ores").build();
-	public static final ResourceTypeKey<Block> DEEPSLATE_ORE = ResourceTypeBuilder.block("deepslate_ore").defaultRegistryName(name -> "deepslate_" + name + "_ore").build();
-	public static final ResourceTypeKey<Block> NETHERRACK_ORE = ResourceTypeBuilder.block("netherrack_ore").defaultRegistryName(name -> "netherrack_" + name + "_ore").build();
-	public static final ResourceTypeKey<Block> ENDSTONE_ORE = ResourceTypeBuilder.block("endstone_ore").defaultRegistryName(name -> "endstone_" + name + "_ore").build();
+	public static final ResourceTypeKey<Block> DEEPSLATE_ORE = ResourceTypeBuilder.block("deepslate_ore").defaultRegistryName("deepslate", "ore").build();
+	public static final ResourceTypeKey<Block> NETHERRACK_ORE = ResourceTypeBuilder.block("netherrack_ore").defaultRegistryName("netherrack", "ore").build();
+	public static final ResourceTypeKey<Block> ENDSTONE_ORE = ResourceTypeBuilder.block("endstone_ore").defaultRegistryName("endstone", "ore").build();
 	
-	public static final ResourceTypeKey<Item> RAW = ResourceTypeBuilder.item("raw").tagName("raw_materials").defaultRegistryName(name -> "raw_" + name).build();
+	public static final ResourceTypeKey<Item> RAW = ResourceTypeBuilder.item("raw").tagName("raw_materials").defaultRegistryName("raw").build();
 	
 	private CommonResourceTypes() {
 	}
