@@ -13,7 +13,7 @@ public class CommonResourceTypes {
 	public static final ResourceTypeKey<Block> NETHERRACK_ORE = ResourceTypeBuilder.block("netherrack_ore").defaultRegistryName(name -> "netherrack_" + name + "_ore").build();
 	public static final ResourceTypeKey<Block> ENDSTONE_ORE = ResourceTypeBuilder.block("endstone_ore").defaultRegistryName(name -> "endstone_" + name + "_ore").build();
 	
-	public static final ResourceTypeKey<Item> RAW = ResourceTypeBuilder.item("raw").defaultRegistryName(name -> "raw_" + name).build();
+	public static final ResourceTypeKey<Item> RAW = ResourceTypeBuilder.item("raw").tagName("raw_materials").defaultRegistryName(name -> "raw_" + name).build();
 	
 	private CommonResourceTypes() {
 	}
