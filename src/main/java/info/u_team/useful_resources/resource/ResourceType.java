@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.resource;
 
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import info.u_team.useful_resources.api.resource.AbstractResource;
 import info.u_team.useful_resources.api.resource.AbstractResourceType;
@@ -10,12 +11,14 @@ import net.minecraft.tags.TagKey;
 public class ResourceType<T> implements AbstractResourceType<T> {
 	
 	private final String name;
+	private final UnaryOperator<String> defaultRegistryNameOperator;
 	private final String tagName;
 	
 	private final Function<ResourceLocation, TagKey<T>> tagFunction;
 	
-	protected ResourceType(String name, String tagName, Function<ResourceLocation, TagKey<T>> tagFunction) {
+	protected ResourceType(String name, UnaryOperator<String> defaultRegistryNameOperator, String tagName, Function<ResourceLocation, TagKey<T>> tagFunction) {
 		this.name = name;
+		this.defaultRegistryNameOperator = defaultRegistryNameOperator;
 		this.tagName = tagName;
 		this.tagFunction = tagFunction;
 	}
@@ -23,6 +26,11 @@ public class ResourceType<T> implements AbstractResourceType<T> {
 	@Override
 	public String getName() {
 		return name;
+	}
+	
+	@Override
+	public String getDefaultRegistryName(String resourceName) {
+		return defaultRegistryNameOperator.apply(resourceName);
 	}
 	
 	@Override

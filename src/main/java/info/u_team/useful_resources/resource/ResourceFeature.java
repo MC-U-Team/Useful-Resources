@@ -93,7 +93,7 @@ public abstract class ResourceFeature implements AbstractResourceFeature {
 	}
 	
 	protected String defaultName(ResourceProperties resourceProperties, ResourceTypeKey<?> type) {
-		return resourceProperties.name() + "_" + type.getType().getName();
+		return type.getType().getDefaultRegistryName(resourceProperties.name());
 	}
 	
 	@Override

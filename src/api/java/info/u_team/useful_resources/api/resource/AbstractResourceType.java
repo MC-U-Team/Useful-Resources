@@ -6,6 +6,8 @@ public interface AbstractResourceType<T> {
 	
 	String getName();
 	
+	String getDefaultRegistryName(String resourceName);
+	
 	boolean hasUnifyTag();
 	
 	TagKey<T> getUnifyTag();

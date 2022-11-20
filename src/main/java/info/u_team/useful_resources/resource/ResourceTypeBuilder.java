@@ -1,6 +1,7 @@
 package info.u_team.useful_resources.resource;
 
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import info.u_team.u_team_core.util.TagUtil;
 import info.u_team.useful_resources.api.registry.ResourceTypeKey;
@@ -27,13 +28,20 @@ public class ResourceTypeBuilder<T> {
 	private final String name;
 	private final Function<ResourceLocation, TagKey<T>> tagFunction;
 	
+	private UnaryOperator<String> defaultRegistryNameOperator;
 	private String tagName;
 	
 	public ResourceTypeBuilder(String name, Function<ResourceLocation, TagKey<T>> tagFunction) {
 		this.name = name;
 		this.tagFunction = tagFunction;
 		
+		defaultRegistryNameOperator = resourceName -> resourceName + "_" + name;
 		tagName = name + "s";
+	}
+	
+	public ResourceTypeBuilder<T> defaultRegistryName(UnaryOperator<String> defaultRegistryNameOperator) {
+		this.defaultRegistryNameOperator = defaultRegistryNameOperator;
+		return this;
 	}
 	
 	public ResourceTypeBuilder<T> tagName(String tagName) {
@@ -47,7 +55,7 @@ public class ResourceTypeBuilder<T> {
 	}
 	
 	public ResourceTypeKey<T> build() {
-		return ResourceTypeKey.create(new ResourceType<>(name, tagName, tagFunction));
+		return ResourceTypeKey.create(new ResourceType<>(name, defaultRegistryNameOperator, tagName, tagFunction));
 	}
 	
 }
