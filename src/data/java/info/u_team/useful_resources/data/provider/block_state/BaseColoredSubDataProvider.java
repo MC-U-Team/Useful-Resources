@@ -5,7 +5,7 @@ import info.u_team.useful_resources.data.util.SubDataProviderUtil.RegisterSubDat
 import info.u_team.useful_resources.data.util.SubDataProviderUtil.SubDataProvider;
 
 @RegisterSubDataProvider(UsefulResourcesBlockStateProvider.class)
-public class BaseColoredTypesGenerator implements SubDataProvider<UsefulResourcesBlockStateProvider> {
+public class BaseColoredSubDataProvider implements SubDataProvider<UsefulResourcesBlockStateProvider> {
 	
 	@Override
 	public void register(UsefulResourcesBlockStateProvider provider) {
