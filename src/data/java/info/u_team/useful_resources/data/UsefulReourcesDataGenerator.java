@@ -2,6 +2,7 @@ package info.u_team.useful_resources.data;
 
 import info.u_team.u_team_core.data.GenerationData;
 import info.u_team.useful_resources.UsefulResourcesMod;
+import info.u_team.useful_resources.data.provider.UsefulResourcesBlockStateProvider;
 import info.u_team.useful_resources.data.provider.UsefulResourcesBlockTagsProvider;
 import info.u_team.useful_resources.data.provider.UsefulResourcesFluidTagsProvider;
 import info.u_team.useful_resources.data.provider.UsefulResourcesItemTagsProvider;
@@ -19,5 +20,7 @@ public class UsefulReourcesDataGenerator {
 		
 		data.addProvider(event.includeServer(), UsefulResourcesBlockTagsProvider::new, UsefulResourcesItemTagsProvider::new);
 		data.addProvider(event.includeServer(), UsefulResourcesFluidTagsProvider::new);
+		
+		data.addProvider(event.includeClient(), UsefulResourcesBlockStateProvider::new);
 	}
 }

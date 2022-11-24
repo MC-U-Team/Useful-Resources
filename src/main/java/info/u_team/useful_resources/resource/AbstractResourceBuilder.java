@@ -3,9 +3,12 @@ package info.u_team.useful_resources.resource;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import com.google.common.base.Suppliers;
+
 import info.u_team.useful_resources.api.registry.ExistingRegistryEntry;
 import info.u_team.useful_resources.api.registry.ResourceTypeKey;
 import info.u_team.useful_resources.api.resource.AbstractRegisterProvider;
+import info.u_team.useful_resources.api.resource.AbstractResourceDataGenInfo;
 import info.u_team.useful_resources.api.resource.AbstractResourceEntries;
 import info.u_team.useful_resources.api.resource.AbstractResourceFeature;
 import info.u_team.useful_resources.api.resource.ResourceRegistry;
@@ -24,6 +27,8 @@ public abstract class AbstractResourceBuilder {
 	
 	private final AbstractRegisterProvider registerProvider;
 	
+	private Supplier<AbstractResourceDataGenInfo> dataGenInfo;
+	
 	protected AbstractResourceBuilder(String name, int color, Rarity rarity, Consumer<ExistingResourceTypes> existingTypes) {
 		this(name, color, rarity);
 		final ExistingResourceTypes existingResourceTypes = new ExistingResourceTypes();
@@ -35,6 +40,7 @@ public abstract class AbstractResourceBuilder {
 		properties = new ResourceProperties(name, color, rarity);
 		entries = new ResourceEntries();
 		registerProvider = RegisterProvider.DEFAULT;
+		dataGenInfo = AbstractResourceDataGenInfo::empty;
 	}
 	
 	public final AbstractResourceBuilder add(ResourceFeatureCreator featureCreator) {
@@ -43,11 +49,16 @@ public abstract class AbstractResourceBuilder {
 		return this;
 	}
 	
+	public final AbstractResourceBuilder setDataGenInfo(Supplier<AbstractResourceDataGenInfo> dataGenInfo) {
+		this.dataGenInfo = Suppliers.memoize(dataGenInfo::get);
+		return this;
+	}
+	
 	protected abstract void apply(AbstractResourceEntries entries);
 	
 	public final Resource build() {
 		apply(entries);
-		return ResourceRegistry.register(new Resource(properties.name(), properties.color(), properties.rarity(), entries.toImmutable()));
+		return ResourceRegistry.register(new Resource(properties.name(), properties.color(), properties.rarity(), entries.toImmutable(), dataGenInfo));
 	}
 	
 	public static class ExistingResourceTypes {
