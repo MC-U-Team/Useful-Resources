@@ -84,6 +84,7 @@
 			]
 		}
 	],
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"particle": "#colored"
 	}
